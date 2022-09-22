@@ -8,6 +8,11 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+ * {
+  box-sizing:border-box;
+ }
+ 
+
  html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
@@ -23,7 +28,9 @@
   body {
     margin: 0;
   }
-  
+  a,button:hover {
+    cursor:pointer;
+  }
   /**
    * Render the `main` element consistently in IE.
    */
@@ -147,6 +154,8 @@
   
   img {
     border-style: none;
+    margin:0;
+    padding:0;
   }
   
   /* Forms

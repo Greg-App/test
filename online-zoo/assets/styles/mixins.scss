@@ -1,0 +1,14 @@
+
+@mixin flex-row-sb-cent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+@mixin flex-row-start-cent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}

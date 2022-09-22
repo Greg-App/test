@@ -1,0 +1,154 @@
+/* * { outline: 1px solid red} */
+@import "../../assets/styles/reset.css";
+@import "mixins";
+@import "nav-list";
+
+body {
+    margin: 0;
+}
+
+html {
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color:#FFFFFF;
+}
+
+.site-container {
+    margin: 0 auto;
+    width: 1600px;
+    overflow: hidden;
+}
+
+$margin-preview-head-hight: 80px;
+
+.container {
+    margin: 0 auto;
+    width: 1200px;
+    height: 100%;
+    padding: 0 20px;
+}
+
+h1 {
+    margin: 1px 0 0 0;
+    padding: 0;
+}
+
+a,
+li,
+ul {
+    font: inherit;
+    text-decoration: none;
+}
+a {    
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    color: #FFFFFF;
+}
+
+
+.header {
+    height: $margin-preview-head-hight;
+    width: 100%;
+    color: #FFFFFF;
+    background: #000000;
+    backdrop-filter: blur(2px);
+
+    .container {
+        @include flex-row-sb-cent;
+        .header-left {
+            @include flex-row-start-cent;
+            .logo {
+                position: relative;
+                width: 82px;
+                height: 52px;
+                border: 1.18841px solid #FFFFFF;
+                border-radius: 2px;
+                text-align: center;
+                margin-right:63px;
+    
+                .logo-text {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 19.3px;
+                    line-height: 120%;
+                    letter-spacing: 0.04em;
+                    a {color:inherit;}
+                }
+    
+                .logo-svg {
+                    display: block;
+                    position: absolute;
+                    width: 11.03px;
+                    height: 24.0px;
+                    left: 9.5px;
+                    top: 21.0px;
+                }
+            }
+    
+             a {    
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 140%;
+                /* or 22px */
+                color: #FFFFFF;
+            }
+            .nav-header ul li:not(:last-child)  {
+                margin-right:58px; /*0.12288%*/
+            }
+        }
+
+        nav {
+            .nav-list {
+                .nav-item a:hover {
+                    transition-duration: 10.9s;
+                    /* orange */
+background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+                }
+            }
+            
+        }
+
+.designed:hover {
+                transition: 1.7s;                
+                    /* orange */
+background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+                }
+            
+
+
+
+    }
+}
+.nav-active {
+    /* orange */
+background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.section {}
+
+.main {
+    height: 100%;
+}
+
+
+.preview {
+    height: 780px;
+    margin-top: -$margin-preview-head-hight;
+    background: url("../../assets/images/main/Giant Panda dsktp.png") center/cover;
+}
