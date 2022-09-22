@@ -1,0 +1,47 @@
+button {
+    display:block;
+    border: none;
+    margin:0;
+    padding:0;
+    background:none;
+    color:#FFFFFF;
+    
+}
+.btn-body {position: relative;
+    z-index:1;
+width:298px;
+height:54px;
+background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+/* background-color:#F9804B; */
+border-radius: 25px;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 140%;
+
+/* or 22px */
+text-align: center;
+text-transform: uppercase;
+
+&::before {
+    position:absolute;
+    content:'';
+    z-index: -1;
+    background:#E47209;
+    border-radius: 25px;
+    transition: 0.7s;
+    opacity:0;
+    top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+&:hover::before {
+    opacity: 1;
+    }
+&:active::before {
+    background: #4B9200;
+    transition: 0.1s;
+}
+
+}

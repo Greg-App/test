@@ -9,6 +9,76 @@ nav ul {
   margin-left: -40px;
 }
 
+button {
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  color: #FFFFFF;
+}
+
+.btn-body {
+  position: relative;
+  z-index: 1;
+  width: 298px;
+  height: 54px;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  /* background-color:#F9804B; */
+  border-radius: 25px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  text-align: center;
+  text-transform: uppercase;
+}
+.btn-body::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  background: #E47209;
+  border-radius: 25px;
+  transition: 0.7s;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.btn-body:hover::before {
+  opacity: 1;
+}
+.btn-body:active::before {
+  background: #4B9200;
+  transition: 0.1s;
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 120%;
+  color: #333B41;
+}
+
+h3 {
+  font-size: 36px;
+  line-height: 130%;
+  color: #333B41;
+}
+
+p {
+  font-size: 16px;
+  line-height: 130%;
+  color: #333B41;
+}
+
+.subtitle {
+  font-size: 24px;
+  line-height: 120%;
+  color: #333B41;
+}
+
 body {
   margin: 0;
 }
@@ -55,6 +125,8 @@ a {
 }
 
 .header {
+  position: relative;
+  z-index: 5;
   height: 80px;
   width: 100%;
   color: #FFFFFF;
@@ -82,6 +154,10 @@ a {
   text-align: center;
   margin-right: 63px;
 }
+.header .container .header-left .logo:hover {
+  transform: scale(1.05, 1.05);
+  transition: 0.3s;
+}
 .header .container .header-left .logo .logo-text {
   font-style: normal;
   font-weight: 400;
@@ -100,6 +176,9 @@ a {
   left: 9.5px;
   top: 21px;
 }
+.header .container .header-left .logo:hover {
+  cursor: pointer;
+}
 .header .container .header-left a {
   font-weight: 500;
   font-size: 16px;
@@ -108,16 +187,35 @@ a {
   color: #FFFFFF;
 }
 .header .container .header-left .nav-header ul li:not(:last-child) {
-  margin-right: 58px; /*0.12288%*/
+  margin-right: 58px;
+  /*0.12288%*/
 }
-.header .container nav .nav-list .nav-item a:hover {
-  transition-duration: 10.9s;
+.header .container nav .nav-list .nav-item {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.header .container nav .nav-list .nav-item::before {
+  position: absolute;
+  transition-duration: 0.7s linear;
   /* orange */
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  z-index: -1;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.header .container nav .nav-list .nav-item::before a {
+  text-decoration: underline;
+}
+.header .container nav .nav-list .nav-item:hover::before {
+  opacity: 1;
 }
 .header .container .designed:hover {
   transition: 1.7s;
@@ -130,22 +228,130 @@ a {
 }
 
 .nav-active {
-  /* orange */
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.nav-active a:hover {
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+}
 
 .main {
   height: 100%;
 }
 
-.preview {
+.section {
+  width: 100%;
+}
+
+.subscribe {
+  position: relative;
   height: 780px;
   margin-top: -80px;
   background: url("../../assets/images/main/Giant Panda dsktp.png") center/cover;
+}
+.subscribe .container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.spot-wrap {
+  position: relative;
+  top: 92px;
+  margin-right: 109px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.spot {
+  position: relative;
+  margin-bottom: 56px;
+  width: 465px;
+  height: 465px;
+  border-radius: 50%;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+}
+.spot .wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  left: 83.5px;
+  /*73px*/
+  top: 74px;
+}
+.spot .spot-text-box {
+  font-weight: 700;
+  font-size: 106.496px;
+  line-height: 75%;
+  letter-spacing: 0px;
+  /* or 80px */
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 61px;
+}
+.spot .spot-text-box :nth-child(5) {
+  color: #FFEE2E;
+}
+.spot button {
+  margin-left: 3px;
+}
+
+.backstage {
+  padding-top: 140px;
+  position: relative;
+  max-height: 605px;
+  overflow: visible;
+}
+.backstage .flower {
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  top: 15px;
+}
+.backstage .flower-img {
+  margin: 0;
+  max-height: 605px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.backstage .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.backstage .container .bstge-text {
+  max-width: 465px;
+  height: 100%;
+  align-self: flex-start;
+}
+.backstage .container .bstge-text h2 {
+  margin: 0px 0 0.46em 0;
+}
+.backstage .container .bstge-text p {
+  margin: 0 0 3.35em 0;
+}
+.backstage .container .bstge-text :last-child {
+  line-height: 137%;
+  margin: 0;
+}
+.backstage .container .bstge-text .subtitle {
+  margin: 0 0 34px 0;
+}
+.backstage .container .bstge-img img {
+  margin: 0;
+  padding: 0;
+}
+
+.pets {
+  height: 300px;
 }
 
 /*# sourceMappingURL=style.css.map */

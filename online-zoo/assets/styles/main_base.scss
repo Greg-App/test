@@ -2,17 +2,20 @@
 @import "../../assets/styles/reset.css";
 @import "mixins";
 @import "nav-list";
+@import "__colors";
+@import "__buttons";
+@import "__text";
 
 body {
     margin: 0;
 }
 
 html {
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color:#FFFFFF;
+    color: #FFFFFF;
 }
 
 .site-container {
@@ -41,7 +44,8 @@ ul {
     font: inherit;
     text-decoration: none;
 }
-a {    
+
+a {
     font-weight: 500;
     font-size: 16px;
     line-height: 140%;
@@ -51,6 +55,8 @@ a {
 
 
 .header {
+    position: relative;
+    z-index: 5;
     height: $margin-preview-head-hight;
     width: 100%;
     color: #FFFFFF;
@@ -59,8 +65,10 @@ a {
 
     .container {
         @include flex-row-sb-cent;
+
         .header-left {
             @include flex-row-start-cent;
+
             .logo {
                 position: relative;
                 width: 82px;
@@ -68,17 +76,23 @@ a {
                 border: 1.18841px solid #FFFFFF;
                 border-radius: 2px;
                 text-align: center;
-                margin-right:63px;
-    
+                margin-right: 63px;
+                &:hover {
+                    transform: scale(1.05,1.05);
+                    transition:0.3s;
+                }
                 .logo-text {
                     font-style: normal;
                     font-weight: 400;
                     font-size: 19.3px;
                     line-height: 120%;
                     letter-spacing: 0.04em;
-                    a {color:inherit;}
+
+                    a {
+                        color: inherit;
+                    }
                 }
-    
+
                 .logo-svg {
                     display: block;
                     position: absolute;
@@ -87,68 +101,213 @@ a {
                     left: 9.5px;
                     top: 21.0px;
                 }
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
-    
-             a {    
+
+
+            a {
                 font-weight: 500;
                 font-size: 16px;
                 line-height: 140%;
                 /* or 22px */
                 color: #FFFFFF;
             }
-            .nav-header ul li:not(:last-child)  {
-                margin-right:58px; /*0.12288%*/
+
+            .nav-header ul li:not(:last-child) {
+                margin-right: 58px;
+                /*0.12288%*/
             }
         }
+
 
         nav {
             .nav-list {
-                .nav-item a:hover {
-                    transition-duration: 10.9s;
-                    /* orange */
-background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
--webkit-text-fill-color: transparent;
+                .nav-item {display:block;
+                    position: relative;
+                    z-index: 1;
+                    &::before {
+                        a{text-decoration: underline;}
+                        position: absolute;
+                        transition-duration: 0.7s linear;
+                        /* orange */
+                        background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        z-index: -1;
+                        opacity: 0;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                    }
+                    &:hover::before {
+                        opacity: 1;
+                    }
                 }
+
+               
             }
-            
+
         }
 
-.designed:hover {
-                transition: 1.7s;                
-                    /* orange */
-background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
--webkit-text-fill-color: transparent;
-                }
-            
+        .designed:hover {
+            transition: 1.7s;
+            /* orange */
+            background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
 
 
 
     }
 }
+
 .nav-active {
-    /* orange */
+    
 background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
 -webkit-text-fill-color: transparent;
+a:hover {
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+}
 }
 
-.section {}
+
 
 .main {
     height: 100%;
 }
 
+.section {
+    width: 100%;
+}
 
-.preview {
+.subscribe {
+    position: relative;
     height: 780px;
+
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+    }
+
     margin-top: -$margin-preview-head-hight;
     background: url("../../assets/images/main/Giant Panda dsktp.png") center/cover;
+}
+
+.spot-wrap {
+    position: relative;
+    top: $margin-preview-head-hight+12px;
+    margin-right: 109px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.spot {
+    position: relative;
+
+    margin-bottom: 56px;
+    width: 465px;
+    height: 465px;
+    border-radius: 50%;
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+
+    .wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: absolute;
+
+        left: 83.5px;
+        /*73px*/
+        top: 74px;
+    }
+
+    .spot-text-box {
+        font-weight: 700;
+        font-size: 106.496px;
+        line-height: 75%;
+        letter-spacing: 0px;
+
+        /* or 80px */
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #FFFFFF;
+        margin-bottom: 61px;
+        :nth-child(5) {
+            color: $yellow_;
+        }
+    }
+
+    button {
+        margin-left: 3px;
+    }
+
+}
+
+.backstage {
+    padding-top: 140px;
+    position:relative;
+    max-height:605px;
+    overflow:visible;
+    .flower {
+        position:absolute;
+        z-index: 2;
+        right:0px;
+        top:15px;
+    }
+    .flower-img {
+        margin:0;
+        
+        max-height:605px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    }
+    .container {
+        @include flex-row-sb-cent;
+        .bstge-text {
+max-width:465px;
+height:100%;
+align-self:flex-start;
+
+h2 {
+    margin:0px 0 0.46em 0;
+}
+p {margin:0 0 3.350em 0;
+
+}
+:last-child {
+    line-height: 137%;
+    margin:0;
+}
+.subtitle {
+    margin:0 0 34px 0
+}
+
+        }
+        .bstge-img img {
+            margin:0;
+            padding:0;
+        }
+    }
+    
+}
+.pets {
+    height:300px;
 }
