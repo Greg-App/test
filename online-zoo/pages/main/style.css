@@ -362,6 +362,7 @@ a {
 /*-----pets---------*/
 .pets {
   position: relative;
+  padding-bottom: 104px;
   padding-top: 176px;
 }
 .pets .bg-fl-left {
@@ -381,6 +382,7 @@ a {
   align-items: center;
 }
 .pets .pets-box {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -393,6 +395,33 @@ a {
   flex: 0 1 calc(33.333% - 60px);
   margin-bottom: 80px;
 }
+.pets .pets-box .arrows {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 1;
+  top: calc(50% - 31px);
+  left: -82px;
+  width: 1324px;
+}
+.pets .pets-box .arrows .pets-btn-left, .pets .pets-box .arrows .pets-btn-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+}
+.pets .pets-box .arrows .pets-btn-left:active, .pets .pets-box .arrows .pets-btn-right:active {
+  background: #4B9200;
+}
+.pets .pets-box .arrows .pets-btn-left::before, .pets .pets-box .arrows .pets-btn-right::before {
+  border-radius: 50%;
+}
 .pets .pet-card {
   position: relative;
   display: flex;
@@ -400,7 +429,7 @@ a {
   justify-content: flex-start;
   align-items: center;
   width: 366px;
-  /*  height: 425px; */
+  height: 426px;
   /* border-image: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
   border-image-slice: 1; */
 }

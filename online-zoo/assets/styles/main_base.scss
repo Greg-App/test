@@ -340,22 +340,27 @@ a {
 
 /*-----pets---------*/
 .pets {position:relative;
+    padding-bottom:104px;
+    
     .bg-fl-left {
         position:absolute;
         bottom:0px;
         left:0px;
+        
     }
     .bg-fl-right {
         position:absolute;
         bottom:0px;
         right:0px;
     }
+    
     padding-top: 176px;
     .container {
         @include flex-column-start-cent;
+        
     }
 
-    .pets-box {
+    .pets-box {position:relative;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -367,6 +372,38 @@ a {
         height: 872px;
         flex: 0 1 calc(33.333% - 60px);
         margin-bottom: 80px;
+
+        .arrows {position:absolute;
+            @include flex-row-sb-cent;
+            flex:0 1;
+            top: calc(50% - 31px);
+            left:-82px;
+            width:1324px;
+            .pets-btn-left,.pets-btn-right {
+                display:flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items:center;
+                
+                width:62px;
+                height:62px;
+                border-radius:50%;
+                background:linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+
+                &:active {
+                    background: $green_;
+                    
+                    
+                }
+                &::before {
+                    border-radius:50%;
+                }
+                
+            }
+            .pets-btn-left {
+        
+            }
+        }
     }
 
     .pet-card {
@@ -374,7 +411,7 @@ a {
 
         @include flex-column-start-cent;
         width: 366px;
-       /*  height: 425px; */
+        height: 426px;
    &::before {content: "";
     position: absolute;
     z-index:3;
