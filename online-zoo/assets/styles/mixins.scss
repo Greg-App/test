@@ -12,3 +12,9 @@
     justify-content: flex-start;
     align-items: center;
 }
+@mixin flex-column-start-cent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
