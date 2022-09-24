@@ -180,7 +180,7 @@ a {
   left: 9.5px;
   top: 21px;
 }
-.header .container .header-left .logo:hover {
+.header .container .header-left .logo h1 a:hover {
   cursor: pointer;
 }
 .header .container .header-left a {
@@ -197,10 +197,16 @@ a {
 .header .container nav .nav-list .nav-item {
   display: block;
   position: relative;
-  z-index: 1;
+  z-index: 3;
+  /* &:hover::before {
+      opacity: 1;
+  } */
 }
-.header .container nav .nav-list .nav-item::before {
-  position: absolute;
+.header .container nav .nav-list .nav-item li a:hover {
+  text-decoration: underline;
+}
+.header .container nav .nav-list .nav-item:hover {
+  /* position: absolute; */
   transition-duration: 0.7s linear;
   /* orange */
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
@@ -208,18 +214,12 @@ a {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  z-index: -1;
-  opacity: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.header .container nav .nav-list .nav-item::before a {
-  text-decoration: underline;
-}
-.header .container nav .nav-list .nav-item:hover::before {
-  opacity: 1;
+  /* z-index: -1; */
+  /*  opacity: 0;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0; */
 }
 .header .container .designed:hover {
   transition: 1.7s;
@@ -239,7 +239,7 @@ a {
   -webkit-text-fill-color: transparent;
 }
 .nav-active a:hover {
-  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  color: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
 }
 
 .main {

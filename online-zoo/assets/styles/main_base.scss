@@ -113,7 +113,7 @@ a {
                     top: 21.0px;
                 }
 
-                &:hover {
+                h1 a:hover {
                     cursor: pointer;
                 }
             }
@@ -139,14 +139,18 @@ a {
                 .nav-item {
                     display: block;
                     position: relative;
-                    z-index: 1;
-
-                    &::before {
-                        a {
+                    z-index: 3;
+                    li a:hover {
+                        
                             text-decoration: underline;
-                        }
+                            
+                        
+                    }
 
-                        position: absolute;
+                    &:hover {
+                        
+
+                        /* position: absolute; */
                         transition-duration: 0.7s linear;
                         /* orange */
                         background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
@@ -154,17 +158,17 @@ a {
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
                         -webkit-text-fill-color: transparent;
-                        z-index: -1;
-                        opacity: 0;
+                        /* z-index: -1; */
+                       /*  opacity: 0;
                         top: 0;
                         right: 0;
                         bottom: 0;
-                        left: 0;
+                        left: 0; */
                     }
 
-                    &:hover::before {
+                    /* &:hover::before {
                         opacity: 1;
-                    }
+                    } */
                 }
 
 
@@ -189,6 +193,7 @@ a {
 }
 
 .nav-active {
+    
 
     background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
     -webkit-background-clip: text;
@@ -197,7 +202,9 @@ a {
     -webkit-text-fill-color: transparent;
 
     a:hover {
-        background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+        color: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+        
+        
     }
 }
 
