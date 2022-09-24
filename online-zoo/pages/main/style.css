@@ -84,6 +84,7 @@ body {
 }
 
 img {
+  display: block;
   margin: 0;
   padding: 0;
 }
@@ -99,7 +100,7 @@ html {
 .site-container {
   margin: 0 auto;
   width: 1600px;
-  height: 3000px;
+  height: 5000px;
   overflow: hidden;
 }
 
@@ -362,8 +363,8 @@ a {
 /*-----pets---------*/
 .pets {
   position: relative;
-  padding-bottom: 104px;
-  padding-top: 176px;
+  padding-bottom: 100px;
+  padding-top: 178px;
 }
 .pets .bg-fl-left {
   position: absolute;
@@ -406,7 +407,8 @@ a {
   left: -82px;
   width: 1324px;
 }
-.pets .pets-box .arrows .pets-btn-left, .pets .pets-box .arrows .pets-btn-right {
+.pets .pets-box .arrows .pets-btn-left,
+.pets .pets-box .arrows .pets-btn-right {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -416,10 +418,12 @@ a {
   border-radius: 50%;
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
 }
-.pets .pets-box .arrows .pets-btn-left:active, .pets .pets-box .arrows .pets-btn-right:active {
+.pets .pets-box .arrows .pets-btn-left:active,
+.pets .pets-box .arrows .pets-btn-right:active {
   background: #4B9200;
 }
-.pets .pets-box .arrows .pets-btn-left::before, .pets .pets-box .arrows .pets-btn-right::before {
+.pets .pets-box .arrows .pets-btn-left::before,
+.pets .pets-box .arrows .pets-btn-right::before {
   border-radius: 50%;
 }
 .pets .pet-card {
@@ -489,8 +493,104 @@ a {
   /*  margin-top:4px; */
 }
 
-/* * {
-    outline: 1px solid red;
-} */
+.pick-friend {
+  padding-top: 69px;
+  padding-bottom: 100px;
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  opacity: 0.9;
+}
+.pick-friend .container {
+  margin: 0 auto;
+  height: 835px;
+}
+.pick-friend .container .feed-stages {
+  margin: 0 auto 60px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* flex: 0 1 130px; */
+  max-width: 764px;
+}
+.pick-friend .container .feed-stages .stage-item-arrow .arrow-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 150px;
+}
+.pick-friend .container .feed-stages .left_arrow .arrow-box img {
+  margin-top: 6.5%;
+}
+.pick-friend .container .feed-stages .stage-item-main {
+  width: 168px;
+  height: 244px;
+}
+.pick-friend .container .feed-stages .stage-item-main .stage-item-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 168px;
+  height: 168px;
+  background: #FFFFFF;
+  border-radius: 5px;
+  border: 1px solid linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+}
+.pick-friend .container .feed-stages .stage-item-main span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  color: #333B41;
+}
+.pick-friend .container .pick-friend-box {
+  margin: 0 auto;
+  /* text-align: center; */
+  max-height: 835px;
+  height: 100%;
+  margin-bottom: 40px;
+  padding-top: 39.84px;
+  background: rgba(253, 253, 255, 0.52);
+  backdrop-filter: blur(2px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 20px;
+}
+.pick-friend .container .pick-friend-box h2 {
+  text-align: center;
+  font-weight: 400;
+  margin-block-start: 0;
+  color: #FE9013;
+  margin-bottom: 0.65em;
+}
+.pick-friend .container .pick-friend-box h3 {
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 39px;
+}
+.pick-friend .container .pick-friend-box .btn-feed {
+  text-align: center;
+  margin: auto;
+  width: 298px;
+  height: 54px;
+}
+.pick-friend .container .pick-friend-box .text_ {
+  margin-left: 100px;
+  margin-bottom: 62px;
+}
+.pick-friend .container .pick-friend-box .text_ .wide {
+  letter-spacing: 0;
+  font-weight: 500;
+}
+.pick-friend .container .pick-friend-box .text_ .subtitle {
+  margin-bottom: 1.7083em;
+}
+.pick-friend .container .pick-friend-box .text_ p {
+  margin: 0.625em auto;
+}
+
+* {
+  outline: 1px solid red;
+}
 
 /*# sourceMappingURL=style.css.map */

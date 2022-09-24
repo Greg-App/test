@@ -18,3 +18,17 @@
     justify-content: flex-start;
     align-items: center;
 }
+@mixin flex-row-cent-cent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+@mixin flex-row-sb-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+}
