@@ -89,17 +89,19 @@ a {
                     transform: scale(1.05, 1.05);
                     transition: 0.3s;
                 }
+                
 
                 .logo-text {
-                    font-style: normal;
+                    
+                        font-style: normal;
                     font-weight: 400;
-                    font-size: 19.3px;
-                    line-height: 120%;
-                    letter-spacing: 0.04em;
+                    font-size: 19.0px;
+                    line-height: 130%;
+                    letter-spacing: 0.0em;
+                    
+                    
 
-                    a {
-                        color: inherit;
-                    }
+                    
                 }
 
                 .logo-svg {
@@ -628,7 +630,7 @@ border-image-slice: 1; */
             text-align: center;
             margin:auto;
             width:298px;
-height:54px;
+            height:54px;
         }
 
         .text_ {
@@ -665,7 +667,26 @@ height:54px;
         
     }
 }
+.testimonials {
+    .container {text-align:center;
+        margin-top: 153px;
+        height:575px;
+        outline: 1px solid red;
+        h3{ font-weight:400;
+            margin-block-start: 0px;
+            
+            letter-spacing: 0px;
+        }
+    }
+    
 
+
+
+
+
+
+
+}
 
 /* * {
     outline: 1px solid red;
