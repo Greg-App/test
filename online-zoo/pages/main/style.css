@@ -598,9 +598,9 @@ a {
 .pick-friend .container .pick-friend-box h2 {
   text-align: center;
   font-weight: 400;
-  margin-block-start: 0;
+  margin-block-start: 0.05em;
   color: #FE9013;
-  margin-bottom: 0.65em;
+  margin-bottom: 0.6em;
 }
 .pick-friend .container .pick-friend-box h3 {
   text-align: center;
@@ -615,17 +615,29 @@ a {
 }
 .pick-friend .container .pick-friend-box .text_ {
   margin-left: 100px;
-  margin-bottom: 62px;
+  margin-bottom: 60px;
 }
 .pick-friend .container .pick-friend-box .text_ .wide {
   letter-spacing: 0;
   font-weight: 500;
 }
 .pick-friend .container .pick-friend-box .text_ .subtitle {
-  margin-bottom: 1.7083em;
+  margin-bottom: 1.7em;
 }
 .pick-friend .container .pick-friend-box .text_ p {
   margin: 0.625em auto;
+}
+.pick-friend .container .pick-friend-box .text_ p a {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  color: #333B41;
+  border-bottom: 1px solid #FE9013;
+  text-decoration-line: none;
+}
+.pick-friend .container .pick-friend-box .text_ p a:hover {
+  color: #FE9013;
+  transition: 0.3s;
 }
 
 /* * {
