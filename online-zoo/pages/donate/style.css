@@ -823,6 +823,12 @@ a {
   width: 298px;
   margin: auto;
 }
+.donate-input-box form input[type=number]::-webkit-outer-spin-button,
+.donate-input-box form input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
 .donate-input-box form input[type=number] {
   display: block;
   padding: auto 10px auto 9px;
@@ -849,15 +855,16 @@ a {
 }
 .donate-input-box form .radio-btns input {
   margin-right: 10px;
+  /* &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+  }
   -moz-appearance: textfield;
-}
-.donate-input-box form .radio-btns input::-webkit-outer-spin-button, .donate-input-box form .radio-btns input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-.donate-input-box form .radio-btns input:focus {
-  appearance: none;
-  -moz-appearance: textfield;
-  -webkit-appearance: none;
+  &:focus {
+      appearance: none;
+      -moz-appearance: textfield;
+      -webkit-appearance: none;
+  } */
 }
 .donate-input-box form .radio-btns .month {
   display: inline-block;
