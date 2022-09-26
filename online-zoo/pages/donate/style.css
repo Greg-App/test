@@ -292,6 +292,7 @@ a {
 }
 
 .main {
+  position: relative;
   height: 100%;
   min-height: 100vh;
 }
@@ -302,9 +303,10 @@ a {
 
 .subscribe {
   position: relative;
-  height: 780px;
-  margin-top: -80px;
-  background: url("../../assets/images/main/Giant Panda dsktp.png") center/cover;
+  height: 390px;
+  margin-top: -4px;
+  /* margin-top: -$margin-preview-head-hight; */
+  background: url("../../assets/images/donate/panda_bg.png") center/cover;
 }
 .subscribe .container {
   position: relative;
@@ -586,6 +588,7 @@ a {
 }
 
 .pick-friend {
+  min-height: 1482px;
   padding-top: 69px;
   padding-bottom: 100px;
   background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
@@ -593,7 +596,7 @@ a {
 }
 .pick-friend .container {
   margin: 0 auto;
-  height: 835px;
+  min-height: 1482px;
 }
 .pick-friend .container .feed-stages {
   margin: 0 auto 60px auto;

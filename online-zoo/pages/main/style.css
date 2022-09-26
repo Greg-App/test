@@ -128,7 +128,7 @@ html {
 
 .site-container {
   margin: 0 auto;
-  width: 1600px;
+  min-width: 1600px;
   height: 100%;
   overflow: hidden;
 }

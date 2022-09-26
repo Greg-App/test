@@ -242,7 +242,7 @@ a {
 
 
 
-.main {
+.main {position: relative;
     height: 100%;
     min-height: 100vh;
 }
@@ -253,16 +253,17 @@ a {
 
 .subscribe {
     position: relative;
-    height: 780px;
+    height: 390px;
 
     .container {
         position: relative;
         display: flex;
         justify-content: flex-end;
-    }
 
-    margin-top: -$margin-preview-head-hight;
-    background: url("../../assets/images/main/Giant Panda dsktp.png") center/cover;
+    }
+margin-top:-4px;
+    /* margin-top: -$margin-preview-head-hight; */
+    background: url("../../assets/images/donate/panda_bg.png") center/cover;
 }
 
 .spot-wrap {
@@ -595,6 +596,7 @@ border-image-slice: 1; */
 }
 
 .pick-friend {
+    min-height:1482px;
 
     padding-top: 69px;
     padding-bottom: 100px;
@@ -603,7 +605,7 @@ border-image-slice: 1; */
 
     .container {
         margin: 0 auto;
-        height: 835px;
+        min-height: 1482px;
 
         .feed-stages {
             margin: 0 auto 60px auto;
