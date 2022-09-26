@@ -294,7 +294,7 @@ a {
 .main {
   position: relative;
   height: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .section {
@@ -588,15 +588,38 @@ a {
 }
 
 .pick-friend {
-  min-height: 1482px;
-  padding-top: 69px;
-  padding-bottom: 100px;
+  height: 1482px;
+  padding-top: 40px;
+  padding-bottom: 180px;
   background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
   opacity: 0.9;
 }
 .pick-friend .container {
   margin: 0 auto;
-  min-height: 1482px;
+}
+.pick-friend .container .pick-friend-title {
+  margin-top: 0;
+  margin-block-start: 0;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 130%;
+  color: #FFFFFF;
+}
+.pick-friend .container p {
+  margin-block-start: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #FFFFFF;
+}
+.pick-friend .container .donate-info {
+  margin-top: 45px;
+  margin-bottom: 60px;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 130%;
+  color: #FE9013;
 }
 .pick-friend .container .feed-stages {
   margin: 0 auto 60px auto;
@@ -660,8 +683,7 @@ a {
 .pick-friend .container .pick-friend-box {
   margin: 0 auto;
   /* text-align: center; */
-  max-height: 835px;
-  height: 100%;
+  height: 964px;
   margin-bottom: 40px;
   padding-top: 39.84px;
   background: rgba(253, 253, 255, 0.52);
@@ -672,9 +694,10 @@ a {
 .pick-friend .container .pick-friend-box h2 {
   text-align: center;
   font-weight: 400;
-  margin-block-start: 0.05em;
+  margin-block-start: 0em;
+  margin-bottom: 0.45em;
+  margin-left: -12px;
   color: #FE9013;
-  margin-bottom: 0.6em;
 }
 .pick-friend .container .pick-friend-box h3 {
   text-align: center;
@@ -696,7 +719,12 @@ a {
   font-weight: 500;
 }
 .pick-friend .container .pick-friend-box .text_ .subtitle {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 120%;
+  color: #333B41;
   margin-bottom: 1.7em;
+  margin-left: -7px;
 }
 .pick-friend .container .pick-friend-box .text_ p {
   margin: 0.625em auto;
@@ -714,6 +742,41 @@ a {
   transition: 0.3s;
 }
 
+.diet-box { /* margin: 0 auto; */
+  margin-left: 306px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.diet-box .count-box {
+  width: 159px;
+  margin-top: 55px;
+}
+.diet-box .count-box .count-number img {
+  margin: 0 auto 11px auto;
+}
+.diet-box .count-box .count-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  color: #333B41;
+}
+.diet-box .cross-icon {
+  width: 36px;
+}
+.diet-box .cross-icon img {
+  margin: 25px auto 0px;
+}
+.diet-box .animal-box {
+  width: 284px;
+  height: 246px;
+  margin-left: 54px;
+}
+
+/*----------------------------------------------------------------*/
 .testimonials {
   position: relative;
   height: 919px;
@@ -1102,8 +1165,8 @@ a {
   color: #4B9200;
 }
 
-/* * {
-    outline: 1px solid red;
-} */
+* {
+  outline: 1px solid red;
+}
 
 /*# sourceMappingURL=style.css.map */

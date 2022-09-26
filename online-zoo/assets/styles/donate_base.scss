@@ -242,9 +242,10 @@ a {
 
 
 
-.main {position: relative;
+.main {
+    position: relative;
     height: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 .section {
@@ -261,7 +262,8 @@ a {
         justify-content: flex-end;
 
     }
-margin-top:-4px;
+
+    margin-top:-4px;
     /* margin-top: -$margin-preview-head-hight; */
     background: url("../../assets/images/donate/panda_bg.png") center/cover;
 }
@@ -596,16 +598,45 @@ border-image-slice: 1; */
 }
 
 .pick-friend {
-    min-height:1482px;
+    height: 1482px;
 
-    padding-top: 69px;
-    padding-bottom: 100px;
+    padding-top: 40px;
+    padding-bottom: 180px;
     background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
     opacity: 0.9;
 
     .container {
         margin: 0 auto;
-        min-height: 1482px;
+
+        .pick-friend-title {
+
+            margin-top: 0;
+            margin-block-start: 0;
+            margin-bottom: 10px;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 130%;
+            color: #FFFFFF;
+
+        }
+
+        p {
+            margin-block-start: 0;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 140%;
+            color: #FFFFFF;
+
+        }
+
+        .donate-info {
+            margin-top: 45px;
+            margin-bottom: 60px;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 130%;
+            color: #FE9013;
+        }
 
         .feed-stages {
             margin: 0 auto 60px auto;
@@ -686,8 +717,8 @@ border-image-slice: 1; */
     .container .pick-friend-box {
         margin: 0 auto;
         /* text-align: center; */
-        max-height: 835px;
-        height: 100%;
+        height: 964px;
+
         margin-bottom: 40px;
         padding-top: 0.83*$h2_f_size;
         background: rgba(253, 253, 255, 0.52);
@@ -698,15 +729,17 @@ border-image-slice: 1; */
         h2 {
             text-align: center;
             font-weight: 400;
-            margin-block-start: 0.05em;
+            margin-block-start: 0.00em;
+            margin-bottom: 0.45em;
+            margin-left: -12px;
             color: #FE9013;
-            margin-bottom: 0.6em;
         }
 
         h3 {
             text-align: center;
             font-weight: 400;
             margin-bottom: 39px;
+
         }
 
         .btn-feed {
@@ -726,7 +759,12 @@ border-image-slice: 1; */
             }
 
             .subtitle {
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 120%;
+                color: #333B41;
                 margin-bottom: 1.70em;
+                margin-left: -7px;
             }
 
             p {
@@ -754,6 +792,43 @@ border-image-slice: 1; */
     }
 }
 
+.diet-box {/* margin: 0 auto; */
+    margin-left: 306px;
+        @include flex-row-start-cent;
+    flex-wrap: nowrap;
+
+    .count-box {
+        width:159px;
+        margin-top:55px;
+        
+        
+        .count-number img{
+            margin: 0 auto 11px auto;
+        }
+        .count-text {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            text-align: center;
+            color: #333B41;
+        }
+
+    }
+    .cross-icon {
+        width:36px;
+        img {margin: 25px auto 0px;}
+    }
+    .animal-box {
+        width:284px;
+        height:246px;
+        margin-left: 54px;
+    }
+
+
+
+}
+
+/*----------------------------------------------------------------*/
 .testimonials {
     position: relative;
     height: 919px;
@@ -959,7 +1034,7 @@ border-image-slice: 1; */
         display: flex;
         justify-content: center;
         position: relative;
-        
+
 
         .btn-footer {
             position: absolute;
@@ -1192,19 +1267,19 @@ border-image-slice: 1; */
             padding: 10px 7px 10px 9px;
             width: 227px;
             height: 42px;
-            border:0.7px solid;
+            border: 0.7px solid;
             border-radius: 8px;
-            background:transparent;
-            border-image-source: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%); 
-            border-image-slice:1;
+            background: transparent;
+            border-image-source: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
+            border-image-slice: 1;
 
-             &:focus-visible {
+            &:focus-visible {
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 appearance: none;
                 border-image-source: none;
                 border: 1px solid #4B9200;
-             }
+            }
 
             &[placeholder] {
                 font-family: 'Roboto';
@@ -1227,12 +1302,13 @@ border-image-slice: 1; */
             line-height: 140%;
             background: #F1F3F2;
             color: #333B41;
-    border: 1px solid #333B41;
+            border: 1px solid #333B41;
             border-radius: 5px;
+
             &:active {
                 border: 1px solid #4B9200;
                 color: #4B9200;
-             }
+            }
         }
     }
 
@@ -1246,6 +1322,6 @@ border-image-slice: 1; */
 
 
 
-/* * {
+* {
     outline: 1px solid red;
-} */
+}
