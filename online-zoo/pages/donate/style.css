@@ -682,7 +682,7 @@ a {
 }
 .pick-friend .container .pick-friend-box {
   margin: 0 auto;
-  /* text-align: center; */
+  text-align: center;
   height: 964px;
   margin-bottom: 40px;
   padding-top: 39.84px;
@@ -690,6 +690,13 @@ a {
   backdrop-filter: blur(2px);
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 20px;
+}
+.pick-friend .container .pick-friend-box p {
+  margin: auto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #333B41;
 }
 .pick-friend .container .pick-friend-box h2 {
   text-align: center;
@@ -742,8 +749,10 @@ a {
   transition: 0.3s;
 }
 
-.diet-box { /* margin: 0 auto; */
+.diet-box {
+  /* margin: 0 auto; */
   margin-left: 306px;
+  margin-bottom: 48px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -774,6 +783,85 @@ a {
   width: 284px;
   height: 246px;
   margin-left: 54px;
+}
+
+.donate-scale {
+  margin: auto;
+  text-align: left;
+  height: 105px;
+  margin-bottom: 50px;
+  width: 976px;
+}
+.donate-scale input {
+  display: block;
+  width: 976px;
+  height: 27px;
+  padding: 0 30px 0 26px;
+  background: #404950;
+  border-radius: 2px;
+}
+.donate-scale label {
+  display: inline-block;
+  margin-bottom: 17px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #000000;
+}
+
+.donate-input-box {
+  width: 100%;
+  height: 185px;
+  margin-bottom: 30px;
+}
+.donate-input-box form {
+  display: block;
+  text-align: center;
+  padding-top: 8px;
+  width: 298px;
+  margin: auto;
+}
+.donate-input-box form input[type=number] {
+  display: block;
+  padding: auto 10px auto 9px;
+  width: 268px;
+  height: 54px;
+  margin: auto;
+  margin-bottom: 25px;
+  border: 1px solid #929699;
+  background: #FFFFFF;
+}
+.donate-input-box form input[type=number][placeholder] {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #929699;
+}
+.donate-input-box form .radio-btns {
+  height: 21px;
+  margin-bottom: 31px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #333B41;
+}
+.donate-input-box form .radio-btns input {
+  margin-right: 10px;
+  -moz-appearance: textfield;
+}
+.donate-input-box form .radio-btns input::-webkit-outer-spin-button, .donate-input-box form .radio-btns input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.donate-input-box form .radio-btns input:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+}
+.donate-input-box form .radio-btns .month {
+  display: inline-block;
+  margin-right: 50px;
 }
 
 /*----------------------------------------------------------------*/

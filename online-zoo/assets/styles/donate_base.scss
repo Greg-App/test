@@ -716,7 +716,7 @@ border-image-slice: 1; */
 
     .container .pick-friend-box {
         margin: 0 auto;
-        /* text-align: center; */
+        text-align: center;
         height: 964px;
 
         margin-bottom: 40px;
@@ -725,6 +725,14 @@ border-image-slice: 1; */
         backdrop-filter: blur(2px);
         /* Note: backdrop-filter has minimal browser support */
         border-radius: 20px;
+
+        p {
+            margin: auto;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            color: #333B41;
+        }
 
         h2 {
             text-align: center;
@@ -792,19 +800,22 @@ border-image-slice: 1; */
     }
 }
 
-.diet-box {/* margin: 0 auto; */
+.diet-box {
+    /* margin: 0 auto; */
     margin-left: 306px;
-        @include flex-row-start-cent;
+    margin-bottom: 48px;
+    @include flex-row-start-cent;
     flex-wrap: nowrap;
 
     .count-box {
-        width:159px;
-        margin-top:55px;
-        
-        
-        .count-number img{
+        width: 159px;
+        margin-top: 55px;
+
+
+        .count-number img {
             margin: 0 auto 11px auto;
         }
+
         .count-text {
             font-weight: 400;
             font-size: 16px;
@@ -814,17 +825,113 @@ border-image-slice: 1; */
         }
 
     }
+
     .cross-icon {
-        width:36px;
-        img {margin: 25px auto 0px;}
+        width: 36px;
+
+        img {
+            margin: 25px auto 0px;
+        }
     }
+
     .animal-box {
-        width:284px;
-        height:246px;
+        width: 284px;
+        height: 246px;
         margin-left: 54px;
     }
+}
+
+.donate-scale {
+    margin: auto;
+    text-align: left;
+    ;
+    height: 105px;
+    margin-bottom: 50px;
+    width: 976px;
+
+    input {
+        display: block;
+        width: 976px;
+        height: 27px;
+        padding: 0 30px 0 26px;
+        background: #404950;
+        border-radius: 2px;
+    }
+
+    label {
+        display: inline-block;
+        margin-bottom: 17px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        color: #000000;
+    }
+
+}
+
+.donate-input-box {
+    width: 100%;
+    height: 185px;
+    margin-bottom: 30px;
+
+    form {
+        display: block;
+        text-align: center;
+        padding-top: 8px;
+        width: 298px;
+        margin: auto;
+
+        input[type=number] {
+            display: block;
+            padding: auto 10px auto 9px;
+            width: 268px;
+            height: 54px;
+            margin: auto;
+            margin-bottom: 25px;
+            border: 1px solid #929699;
+            background: #FFFFFF;
+
+            &[placeholder] {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 140%;
+                color: #929699;
+            }
+        }
+
+        .radio-btns {
+            height: 21px;
+            margin-bottom: 31px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            color: #333B41;
 
 
+             input {
+                margin-right: 10px;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                }
+                -moz-appearance: textfield;
+                &:focus {
+                    appearance: none;
+                    -moz-appearance: textfield;
+                    -webkit-appearance: none;
+                }
+            }
+
+            .month {
+                display: inline-block;
+                margin-right: 50px;
+            }
+
+        }
+    }
 
 }
 
