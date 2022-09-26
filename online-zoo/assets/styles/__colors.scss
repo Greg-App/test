@@ -24,3 +24,22 @@ background: rgba(253, 253, 255, 0.52);
 border: 1px solid #C4C4C4;
 border-radius: 5px;
 }
+
+.valid-input {
+    border-image-source: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%); 
+            border-image-slice:1;
+    
+}
+.invalid-input {
+    border-image-source: none;
+    border: 1px solid #D31414;
+    
+}
+.valid-btn {
+    color: #333B41;
+    border: 1px solid #333B41;
+}
+.invalid-btn {
+    border: 1px solid #D31414;
+    color: #D31414; 
+}

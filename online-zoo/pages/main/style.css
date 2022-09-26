@@ -9,6 +9,26 @@ nav ul {
   margin-left: -40px;
 }
 
+.valid-input {
+  border-image-source: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
+  border-image-slice: 1;
+}
+
+.invalid-input {
+  border-image-source: none;
+  border: 1px solid #D31414;
+}
+
+.valid-btn {
+  color: #333B41;
+  border: 1px solid #333B41;
+}
+
+.invalid-btn {
+  border: 1px solid #D31414;
+  color: #D31414;
+}
+
 button {
   display: block;
   border: none;
@@ -867,7 +887,6 @@ a {
   display: flex;
   justify-content: center;
   position: relative;
-  outline: 1px solid red;
 }
 .f-footer .container .btn-footer {
   position: absolute;
@@ -1034,15 +1053,24 @@ a {
   display: inline-block;
 }
 .footer-email form input[type=email] {
+  position: relative;
+  z-index: 2;
   margin-right: 8px;
-  padding: 10px 7px 10px 10px;
-  width: 226px;
+  padding: 10px 7px 10px 9px;
+  width: 227px;
   height: 42px;
   border: 0.7px solid;
-  border-radius: 2px;
-  border: 0.7px solid linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  border-radius: 8px;
   background: transparent;
-  border-color: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  border-image-source: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
+  border-image-slice: 1;
+}
+.footer-email form input[type=email]:focus-visible {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-image-source: none;
+  border: 1px solid #4B9200;
 }
 .footer-email form input[type=email][placeholder] {
   font-family: "Roboto";
@@ -1061,11 +1089,14 @@ a {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #4B9200;
   background: #F1F3F2;
-  /* Green */
-  border: 1px solid #4B9200;
+  color: #333B41;
+  border: 1px solid #333B41;
   border-radius: 5px;
+}
+.footer-email form input[type=submit]:active {
+  border: 1px solid #4B9200;
+  color: #4B9200;
 }
 
 /* * {
