@@ -934,23 +934,51 @@ a {
   width: 298px;
   margin: auto;
 }
-.donate-input-box form input[type=number]::-webkit-outer-spin-button,
-.donate-input-box form input[type=number]::-webkit-inner-spin-button {
+.donate-input-box form .amount-box {
+  position: relative;
+  margin: 0px 15px 25px 15px;
+  height: 54px;
+  /* input[type=number]:invalid+label {
+      border: 1px solid #D31414;
+      color: #D31414;
+      &[placeholder] {
+          color: #D31414;
+      }
+  } */
+}
+.donate-input-box form .amount-box input[type=number]::-webkit-outer-spin-button,
+.donate-input-box form .amount-box input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -moz-appearance: textfield;
   margin: 0;
 }
-.donate-input-box form input[type=number] {
-  display: block;
+.donate-input-box form .amount-box input[type=number] + label::before {
+  position: absolute;
+  right: 20px;
+  top: 30%;
+  width: 0px;
+  content: "$";
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.donate-input-box form .amount-box input[type=number]:valid {
+  border: 1px solid #4B9200;
+  color: #4B9200;
+}
+.donate-input-box form .amount-box input[type=number] {
+  display: inline-block;
   padding: 0 10px 0 9px;
   width: 268px;
   height: 54px;
-  margin: 0px 15px 25px 15px;
-  margin-bottom: 25px;
+  border-radius: 2px;
+  background: #333B41;
+  color: #FFFFFF;
   border: 1px solid #929699;
-  background: #FFFFFF;
+  /* border: 1px solid #929699;
+                 background: #FFFFFF;
+  */
 }
-.donate-input-box form input[type=number][placeholder] {
+.donate-input-box form .amount-box input[type=number][placeholder] {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
