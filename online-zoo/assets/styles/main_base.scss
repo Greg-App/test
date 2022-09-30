@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     min-height:100%;
-    width:100%
+   
 }
 
 .h1-custom {
@@ -83,6 +83,7 @@ a {
 
 .logo {
     position: relative;
+    z-index:5;
     width: 82px;
     height: 52px;
     border: 1.18841px solid #FFFFFF;
@@ -114,13 +115,14 @@ a {
     .logo-svg {
         display: block;
         position: absolute;
+        z-index:-1;
         width: 11.03px;
         height: 24.0px;
         left: 9.5px;
         top: 21.0px;
     }
 
-    h1 a:hover {
+     a:hover {
         cursor: pointer;
     }
 }
@@ -137,18 +139,7 @@ a {
     .container {
         @include flex-row-sb-cent;
 
-        .burger-btn {
-            @include flex-column-sb-cent;
-            width:18px;
-            height:10px;
-            .burger-btn-line {
-                width:100%;
-                height: 2px;
-                background: #FFFFFF;
-border-radius: 2px;
-            }
-
-        }
+        
 
         .header-left {
             @include flex-row-start-cent;
