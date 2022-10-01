@@ -131,6 +131,7 @@ html {
   margin: 0 auto;
   /* min-width: 1600px; */
   height: 100%;
+  /*  width:100%; */
   /*  overflow: hidden; */
 }
 
@@ -315,6 +316,11 @@ a {
   position: relative;
   display: flex;
   justify-content: flex-end;
+}
+.subscribe .container .btn-subscribe {
+  position: absolute;
+  right: 129px;
+  bottom: 100px;
 }
 
 .spot-wrap {
@@ -1368,6 +1374,9 @@ a {
   }
 }
 @media screen and (max-width: 390px) {
+  .header .burger-btn {
+    right: 10px;
+  }
   nav ul li:not(:last-child) {
     margin-right: 30px;
     /*0.12288%*/
@@ -1388,6 +1397,90 @@ a {
   }
   .f-footer .container .box-social-nav-design {
     justify-content: center;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .subscribe {
+    height: 584px;
+  }
+  .subscribe .container .btn-subscribe {
+    right: 137px;
+    bottom: 47px;
+  }
+  .subscribe .container .spot-wrap {
+    top: 69px;
+    right: 37px;
+    margin-bottom: 47px;
+  }
+  .subscribe .container .spot-wrap .spot {
+    width: 367px;
+    height: 367px;
+  }
+  .subscribe .container .spot-wrap .spot .wrap {
+    top: 53.8px;
+    left: 65px;
+  }
+  .subscribe .container .spot-wrap .spot .wrap .spot-text-box {
+    font-size: 85px;
+    line-height: 75%;
+    margin-bottom: 40.2px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .subscribe {
+    height: 373px;
+    margin-top: 0px;
+  }
+  .subscribe .container .btn-subscribe {
+    left: 20px;
+    bottom: 40px;
+  }
+  .subscribe .container .spot-wrap {
+    top: 44px;
+    right: 0px;
+    margin-right: 51px;
+  }
+  .subscribe .container .spot-wrap .spot {
+    width: 237.6px;
+    height: 237.6px;
+  }
+  .subscribe .container .spot-wrap .spot .wrap {
+    top: 37.81px;
+    left: 41.8px;
+  }
+  .subscribe .container .spot-wrap .spot .wrap .spot-text-box {
+    font-size: 54.2894px;
+    line-height: 75%;
+    margin-bottom: 0px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .subscribe {
+    height: 187px;
+    margin-top: 34px;
+  }
+  .subscribe .container .btn-subscribe {
+    left: 10px;
+    bottom: -75px;
+  }
+  .subscribe .container .spot-wrap {
+    top: 22.17px;
+    right: 0px;
+    margin-right: 28px;
+    margin-bottom: 0px;
+  }
+  .subscribe .container .spot-wrap .spot {
+    width: 119.09px;
+    height: 119.09px;
+  }
+  .subscribe .container .spot-wrap .spot .wrap {
+    top: 18.95px;
+    left: 18.7px;
+  }
+  .subscribe .container .spot-wrap .spot .wrap .spot-text-box {
+    font-size: 28px;
+    line-height: 75%;
+    margin-bottom: 0px;
   }
 }
 /* * {

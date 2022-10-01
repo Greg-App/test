@@ -294,6 +294,9 @@
     }
 }
 @media screen and (max-width: 390px) {
+    .header .burger-btn {
+        right:10px;
+    }
     nav ul li:not(:last-child) {
         margin-right: 30px;
         /*0.12288%*/
@@ -302,6 +305,7 @@
         .container {
             padding-left:10px;
             padding-right:10px;
+
         }
         .footer__designed {
             font-size:15px;
@@ -317,5 +321,110 @@
         .f-footer .container .box-social-nav-design {
             justify-content: center;
         }
+
+}
+@media screen and (max-width: 1000px) { 
+    .subscribe {
+        height:584px;
+        .container { 
+            .btn-subscribe {
+                right:137px;
+                bottom:47px;
+            }
+        .spot-wrap {
+            top:69px;
+            right:37px;
+            margin-bottom:47px;
+            .spot {
+                width:367px;
+                height:367px;
+                .wrap {
+                    top:53.8px;
+                    left:65px;
+                    .spot-text-box {
+                        font-size:85px;
+                        line-height: 75%;
+                        margin-bottom:40.2px;
+                    }
+
+                }
+            }
+        }
+    }
+    }
+}
+@media screen and (max-width: 640px) { 
+    .subscribe {
+        height:373px;
+        margin-top:0px;
+        .container {
+            .btn-subscribe {
+                
+                left:20px;
+                bottom:40px;
+            }
+        .spot-wrap {
+            top:44px;
+            right:0px;
+            margin-right:51px;
+           
+            .spot {
+                width:237.6px;
+                height:237.6px;
+                .wrap {
+                    top:37.81px;
+                    left:41.8px;
+                    .spot-text-box {
+                        font-size:54.2894px;
+                        line-height: 75%;
+                        margin-bottom:0px;
+                        
+                    }
+                    
+
+                }
+            }
+        }
+    }
+    }
+
+
+}
+@media screen and (max-width: 640px) { 
+    .subscribe {
+        height:187px;
+        margin-top:34px;
+        .container {
+            .btn-subscribe {
+                
+                left:10px;
+                bottom:-75px;
+            }
+        .spot-wrap {
+            top:22.17px;
+            right:0px;
+            margin-right:28px;
+            margin-bottom:0px;
+           
+            .spot {
+                width:119.09px;
+                height:119.09px;
+                .wrap {
+                    top:18.95px;
+                    left:18.7px;
+                    .spot-text-box {
+                        font-size:28px;
+                        line-height: 75%;
+                        margin-bottom:0px;
+                        
+                    }
+                    
+
+                }
+            }
+        }
+    }
+    }
+
 
 }
