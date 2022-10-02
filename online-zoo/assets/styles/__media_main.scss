@@ -694,3 +694,44 @@
         }
     }
 }
+
+/*----pets ------*/
+
+@media screen and (max-width: 1356px) {
+.pets {
+   /* & .bg-fl-left {
+        width:386px;
+        height:202px;
+       
+       img { width:386px;
+        height:202px;
+       }
+    }
+    .bg-fl-right {
+        img { width:241px;
+            height:180px;
+           }
+    } */
+    padding-top:144px;
+            padding-bottom: 140px;
+    .container {
+        
+
+        .pets-box {
+            margin-bottom: 82px;
+            row-gap: 92px;
+            column-gap:29px;
+            .arrows {
+                left:calc(50% - 147.5px);
+                width:295px;
+                
+            }
+        }
+
+
+    }
+
+
+}
+
+}
