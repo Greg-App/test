@@ -1568,6 +1568,7 @@ a {
     height: 476px;
   }
   .backstage {
+    position: relative;
     overflow: hidden;
     padding-bottom: 40px;
   }
@@ -1597,6 +1598,75 @@ a {
   }
   .backstage .container .bstge-text h2, .backstage .container .bstge-text p {
     width: 495px;
+  }
+  .backstage .flower {
+    width: 231px;
+    max-width: 20.3125%; /* 130px; */
+  }
+  .backstage .flower img {
+    width: 100%;
+    height: 476px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .backstage .flower {
+    visibility: hidden;
+    width: 0px;
+    max-width: 130px;
+  }
+  .backstage .flower img {
+    width: 0px;
+    height: 476px;
+  }
+}
+@media screen and (max-width: 540px) {
+  .backstage .container .bstge-text {
+    height: auto;
+    width: 100%;
+  }
+  .backstage .container .bstge-text h2 {
+    font-size: 24px;
+    width: 100%;
+  }
+  .backstage .container .bstge-text p {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 390px) {
+  .backstage {
+    padding-top: 104px;
+  }
+  .backstage .container {
+    padding: 0 10px;
+  }
+  .backstage .container .bstge-text {
+    height: auto;
+    width: 100%;
+  }
+  .backstage .container .bstge-text h2, .backstage .container .bstge-text .subtitle {
+    font-size: 24px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .backstage .container .bstge-text p {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .backstage .container .bstge-text:last-child {
+    margin-bottom: 0px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .backstage .flower {
+    visibility: visible;
+    width: 60px;
+    max-width: 130px;
+    top: 40px;
+    right: -27px;
+  }
+  .backstage .flower img {
+    width: 60px;
+    height: 217px;
   }
 }
 /* * {
