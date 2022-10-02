@@ -1,5 +1,8 @@
-/* * { outline: 1px solid red} */
 @import "../../assets/styles/reset.css";
+* {
+  outline: 1px solid red;
+}
+
 nav ul {
   display: flex;
   flex-direction: row;
@@ -101,7 +104,7 @@ p {
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 0; /* calc(20px - (100vw - 100%)) 0 0; */
   min-height: 100%;
 }
 
@@ -382,12 +385,16 @@ a {
   z-index: -1;
   right: 0px;
   top: 15px;
+  width: 12.5625%;
+  max-width: 201px;
 }
 .backstage .flower-img {
   display: block;
   position: relative;
   z-index: -2;
   margin: 0;
+  max-width: 201px;
+  width: 100%;
   max-height: 605px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -420,7 +427,7 @@ a {
   margin: 0 0 34px 0;
 }
 .backstage .container .bstge-img {
-  padding-right: 31px;
+  margin-right: 31px;
 }
 .backstage .container .bstge-img img {
   margin: 0;
@@ -1438,7 +1445,7 @@ a {
   .subscribe .container .spot-wrap {
     top: 44px;
     right: 0px;
-    margin-right: 51px;
+    margin-right: 51px; /* 51px; */
   }
   .subscribe .container .spot-wrap .spot {
     width: 237.6px;
@@ -1452,6 +1459,11 @@ a {
     font-size: 54.2894px;
     line-height: 75%;
     margin-bottom: 0px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .subscribe .container .btn-subscribe {
+    bottom: 20px;
   }
 }
 @media screen and (max-width: 390px) {
@@ -1481,6 +1493,110 @@ a {
     font-size: 28px;
     line-height: 75%;
     margin-bottom: 0px;
+  }
+}
+/*----------backstage---------*/
+@media screen and (max-width: 1557px) {
+  .backstage .flower {
+    visibility: hidden;
+    width: 0;
+    height: 100%;
+  }
+  .backstage .container .bstge-img {
+    min-width: 455px;
+    max-height: 408px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .backstage {
+    max-height: 900px;
+    padding-top: 100px;
+  }
+  .backstage .container {
+    flex-basis: calc(50% - 15.5px);
+  }
+  .backstage .container .bstge-img {
+    min-width: 0;
+    max-height: 408px;
+    margin-right: 0px;
+    /* width:0.4878%; */
+  }
+  .backstage .container .bstge-img img {
+    width: 100%;
+  }
+  .backstage .container .bstge-text {
+    width: 454px;
+    margin-left: 10px;
+  }
+  .backstage .container .bstge-text h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+    max-height: 408px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .backstage .container {
+    flex-basis: 30%;
+  }
+  .backstage .container .bstge-text {
+    width: 454px;
+    margin-left: 10px;
+  }
+  .backstage .container .bstge-text h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+    max-height: 408px;
+  }
+  .backstage .container .bstge-text p {
+    margin-bottom: 30px;
+  }
+  .backstage .container .bstge-text .subtitle {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .bstge-img {
+    display: none;
+  }
+  .backstage .flower {
+    visibility: visible;
+    width: 231px;
+    max-width: 130px;
+  }
+  .backstage .flower img {
+    width: 130px;
+    height: 476px;
+  }
+  .backstage {
+    overflow: hidden;
+    padding-bottom: 40px;
+  }
+  .backstage .flower {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+}
+@media screen and (max-width: 660px) {
+  .header nav ul li:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .backstage {
+    padding-top: 60px;
+  }
+  .backstage .container {
+    padding: 0 20px;
+  }
+  .backstage .container .bstge-text {
+    margin-left: 0;
+  }
+  .backstage .container .bstge-text h2, .backstage .container .bstge-text .subtitle {
+    margin-left: 2px;
+  }
+  .backstage .container .bstge-text h2, .backstage .container .bstge-text p {
+    width: 495px;
   }
 }
 /* * {
