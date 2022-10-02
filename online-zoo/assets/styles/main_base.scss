@@ -1,19 +1,24 @@
-/* * { outline: 1px solid red}; */
+* { outline: 1px solid red};
 @import "../../assets/styles/reset.css";
 @import "mixins";
 @import "nav-list";
 @import "__colors";
 @import "__buttons";
 @import "__text";
-
+html {
+    /* width:100%; */
+    margin-right: calc(-1 * (100vw - 100%));
+}
 body {
     margin: 0;
     padding: 0;
     /* calc(20px - (100vw - 100%)) 0 0; */
-    min-height: 100%;
+   /*  width:100%; */
+    /* min-height: 100%; */
 
 
 }
+
 
 .h1-custom {
     display: block;
