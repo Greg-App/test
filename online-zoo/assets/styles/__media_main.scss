@@ -403,7 +403,8 @@
             .spot-wrap {
                 top: 44px;
                 right: 0px;
-                margin-right: 51px;/* 51px; */
+                margin-right: 51px;
+                /* 51px; */
 
                 .spot {
                     width: 237.6px;
@@ -429,10 +430,11 @@
 
 
 }
+
 @media screen and (max-width: 600px) {
-.subscribe .container .btn-subscribe {
-    bottom: 20px;
-}
+    .subscribe .container .btn-subscribe {
+        bottom: 20px;
+    }
 }
 
 
@@ -542,7 +544,8 @@
 @media screen and (max-width: 800px) {
     .backstage {
         .container {
-            flex-basis:30%;
+            flex-basis: 30%;
+
             .bstge-text {
                 width: 454px;
                 margin-left: 10px;
@@ -565,132 +568,169 @@
         }
     }
 }
+
 @media screen and (max-width: 780px) {
-.bstge-img {
-    display:none;
+    .bstge-img {
+        display: none;
     }
-    
+
     .backstage .flower {
-        
-        visibility:visible;
-        width:231px;
-        max-width:130px;
+
+        visibility: visible;
+        width: 231px;
+        max-width: 130px;
+
         img {
-            width:130px;
-            height:476px;
-            
-            
+            width: 130px;
+            height: 476px;
+
+
         }
     }
-    .backstage {position:relative;
+
+    .backstage {
+        position: relative;
         overflow: hidden;
-        padding-bottom:40px;
-    } 
-    .backstage .flower {position:absolute;
-        right:0px;
-        top:0px;
-    }  
+        padding-bottom: 40px;
+    }
+
+    .backstage .flower {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
 
 }
+
 @media screen and (max-width: 660px) {
     .header {
-    nav ul li:not(:last-child) {
-        margin-right: 30px;
+        nav ul li:not(:last-child) {
+            margin-right: 30px;
+        }
     }
-}
 
 }
+
 @media screen and (max-width: 640px) {
-    
-        .backstage { 
-            padding-top:60px;
-            .container {
-                padding:0 20px;
-                .bstge-text {margin-left:0;
-                h2,.subtitle {
-                    margin-left:2px;
+
+    .backstage {
+        padding-top: 60px;
+
+        .container {
+            padding: 0 20px;
+
+            .bstge-text {
+                margin-left: 0;
+
+                h2,
+                .subtitle {
+                    margin-left: 2px;
                 }
-                h2,p {width:495px;}
-                }
-            }
-             .flower {
-        
-              
-                width:231px;
-                max-width:20.3125%;/* 130px; */
-                img {
-                    width:100%;
-                    height:476px;
-                    
-                    
+
+                h2,
+                p {
+                    width: 495px;
                 }
             }
-            
-        }  
-        
-    }
-    @media screen and (max-width: 600px) {
-        .backstage .flower {
-            visibility:hidden;
-            width:0px;
-            max-width:130px;
+        }
+
+        .flower {
+
+
+            width: 231px;
+            max-width: 20.3125%;
+
+            /* 130px; */
             img {
-                width:0px;
-                height:476px;
+                width: 100%;
+                height: 476px;
+
+
             }
         }
+
     }
-    @media screen and (max-width: 540px) {
-        .backstage {
-            .container {
-                .bstge-text {height:auto;
-                    width:100%;
-                    h2 {font-size:24px;
-                        width:100%;
-                    }
-                    p {
-                        width:100%;
-                    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .backstage .flower {
+        visibility: hidden;
+        width: 0px;
+        max-width: 130px;
+
+        img {
+            width: 0px;
+            height: 476px;
+        }
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .backstage {
+        .container {
+            .bstge-text {
+                height: auto;
+                width: 100%;
+
+                h2 {
+                    font-size: 24px;
+                    width: 100%;
+                }
+
+                p {
+                    width: 100%;
                 }
             }
         }
-
-    }
-    @media screen and (max-width: 390px) {
-        .backstage {
-            padding-top:104px;
-        }
-        .backstage .container {
-            padding:0 10px;
-        }
-        .backstage .container .bstge-text {height:auto;
-            width:100%;
-            h2,.subtitle {font-size:24px;
-                width:100%;
-                margin-bottom:10px;
-            }
-            p {
-                width:100%;
-                margin-bottom:20px;
-            }
-            &:last-child {
-                margin-bottom:0px;
-            }
-        }
-       
-
     }
 
-    @media screen and (max-width: 360px) {
+}
+
+@media screen and (max-width: 390px) {
+    .backstage {
+        padding-top: 104px;
+    }
+
+    .backstage .container {
+        padding: 0 10px;
+    }
+
+    .backstage .container .bstge-text {
+        height: auto;
+        width: 100%;
+
+        h2,
+        .subtitle {
+            font-size: 24px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        p {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 360px) {
     .backstage .flower {
-        visibility:visible;
-        width:60px;
-        max-width:130px;
-        top:40px;
-        right:-27px;
+        visibility: visible;
+        width: 60px;
+        max-width: 130px;
+        top: 40px;
+        right: -27px;
+
         img {
-            width:60px;
-            height:217px;
+            width: 60px;
+            height: 217px;
         }
     }
 }
@@ -698,8 +738,8 @@
 /*----pets ------*/
 
 @media screen and (max-width: 1356px) {
-.pets {
-   /* & .bg-fl-left {
+    .pets {
+        /* & .bg-fl-left {
         width:386px;
         height:202px;
        
@@ -712,26 +752,215 @@
             height:180px;
            }
     } */
-    padding-top:144px;
-            padding-bottom: 140px;
-    .container {
-        
+        padding-top: 144px;
+        padding-bottom: 140px;
 
-        .pets-box {
-            margin-bottom: 82px;
-            row-gap: 92px;
-            column-gap:29px;
-            .arrows {
-                left:calc(50% - 147.5px);
-                width:295px;
-                
+        .container {
+
+            .pet-wrapper {
+                margin-bottom: 82px;
+
+                .arrows {
+                    left: calc(50% - 147.5px);
+                    width: 295px;
+
+                }
+
+                .pets-box {
+
+                    row-gap: 92px;
+                    column-gap: 29px;
+                }
             }
+
+
+
         }
 
 
     }
 
-
 }
 
+@media screen and (max-width: 1000px) {
+    .pet-wrapper .pets-box {
+
+        & :nth-child(1) {
+            order: 1;
+        }
+
+        & :nth-child(2) {
+            order: 2;
+        }
+
+        & :nth-child(3) {
+            order: 4;
+        }
+
+        & :nth-child(4) {
+            order: 7;
+        }
+
+        & :nth-child(5) {
+            order: 3;
+        }
+
+        & :nth-child(6) {
+            order: 6;
+        }
+
+        & :nth-child(7) {
+            order: 4;
+        }
+
+        & :nth-child(7) {
+            display: flex;
+        }
+
+        & :nth-child(4) {
+            display: none;
+        }
+
+    }
+}
+
+@media screen and (max-width: 921px) {
+    .pet-wrapper .pets-box .pet-card {}
+
+    .pet-wrapper .pets-box {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+
+
+        & :nth-child(1) {
+            order: 1;
+        }
+
+        & :nth-child(2) {
+            order: 2;
+        }
+
+        & :nth-child(3) {
+            order: 3;
+        }
+
+        & :nth-child(4) {
+            order: 4;
+        }
+
+        & :nth-child(5) {
+            order: 5;
+        }
+
+        & :nth-child(6) {
+            order: 6;
+        }
+
+        & :nth-child(7) {
+            order: 7;
+        }
+
+        & :nth-child(7) {
+            display: flex;
+            order: 4;
+        }
+
+        & :nth-child(4) {
+            display: none;
+        }
+
+        & :nth-child(5) {
+            display: none;
+        }
+
+        & :nth-child(6) {
+            display: none;
+
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .alligator {
+        content: "AAA";
+        font-size: 20px;
+
+    }
+
+    .pets {
+        padding-top: 40px;
+        padding-bottom: 100px;
+
+
+        & .bg-fl-left {
+            /*  width:386px;
+             height:202px; */
+            left: -60px;
+
+            img {
+                /* width:386px; */
+                height: 202px;
+
+            }
+        }
+
+        .bg-fl-right {
+            img {
+                width: 175px;
+                height: 131px;
+            }
+        }
+
+        .container .pet-wrapper {
+            margin-bottom: 58px;
+
+            .arrows {
+                width: 154px;
+                left: calc(50% - 77px);
+                top: calc(50% - 35px);
+
+            }
+        }
+
+        .container {
+            padding: 0 20px;
+
+
+            .pet-wrapper .pets-box .pet-card .pet-title {
+                padding: 6.24px 9.11px 10.94px 12.47px;
+
+                .pet-title-text {
+                    & :nth-child(1) {
+                        font-size: 12.5px;
+                        line-height: 140%;
+                    }
+
+                    & :nth-child(2) {
+                        font-size: 11.7px;
+                        line-height: 120%;
+                    }
+                    .alligator {
+                        display:none;
+                    }
+                    .alligator:after {
+                        content:"Native to Southeastern United States";
+                    }
+                }
+
+                .pet-title-icon {
+                    img.banan {
+                        width: 25.72px;
+                        height: 28.84px;
+                    }
+
+                    img.meat {
+                        width: 37.41px;
+                        height: 29.62px;
+                    }
+                }
+            }
+
+        }
+
+    }
 }

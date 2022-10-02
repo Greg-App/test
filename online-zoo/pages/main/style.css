@@ -101,7 +101,8 @@ p {
 
 body {
   margin: 0;
-  padding: 0; /* calc(20px - (100vw - 100%)) 0 0; */
+  padding: 0;
+  /* calc(20px - (100vw - 100%)) 0 0; */
   min-height: 100%;
 }
 
@@ -455,26 +456,11 @@ a {
   align-items: center;
   padding: 0 29px;
 }
-.pets .pets-box {
+.pets .pet-wrapper {
   position: relative;
-  /*  display: flex;
-   flex-direction: row;
-   flex-wrap:wrap;
-   justify-content: space-between;
-   align-items: flex-start;
-   column-gap: 30px;
-   row-gap: 20px; */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  column-gap: 30px;
-  row-gap: 20px;
-  max-width: 1160px;
-  /*  max-height: 872px; */
-  /*  flex: 0 0 calc(33.333% - 60px); */
   margin-bottom: 80px;
 }
-.pets .pets-box .arrows {
+.pets .pet-wrapper .arrows {
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -486,8 +472,8 @@ a {
   max-width: 1324px;
   width: 114.3351%;
 }
-.pets .pets-box .arrows .pets-btn-left,
-.pets .pets-box .arrows .pets-btn-right {
+.pets .pet-wrapper .arrows .pets-btn-left,
+.pets .pet-wrapper .arrows .pets-btn-right {
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -498,13 +484,35 @@ a {
   border-radius: 50%;
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
 }
-.pets .pets-box .arrows .pets-btn-left:active,
-.pets .pets-box .arrows .pets-btn-right:active {
+.pets .pet-wrapper .arrows .pets-btn-left:active,
+.pets .pet-wrapper .arrows .pets-btn-right:active {
   background: #4B9200;
 }
-.pets .pets-box .arrows .pets-btn-left::before,
-.pets .pets-box .arrows .pets-btn-right::before {
+.pets .pet-wrapper .arrows .pets-btn-left::before,
+.pets .pet-wrapper .arrows .pets-btn-right::before {
   border-radius: 50%;
+}
+.pets .pets-box {
+  position: relative;
+  overflow: hidden;
+  /*  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 30px;
+  row-gap: 20px; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 30px;
+  row-gap: 20px;
+  max-width: 1160px;
+  /*  max-height: 872px; */
+  /*  flex: 0 0 calc(33.333% - 60px); */
+}
+.pets .pets-box :nth-child(7) {
+  display: none;
 }
 .pets .pet-card:hover {
   cursor: pointer;
@@ -571,14 +579,16 @@ a {
 }
 .pets .pet-card .pet-foto {
   position: relative;
+  width: 100%;
   /*  max-width: 366px;
-   max-height: 366px; */
+  max-height: 366px; */
   /* overflow: hidden; */
   border-radius: 5px;
   /* margin-top:0.5464%; */
 }
 .pets .pet-card .pet-foto img {
   width: 100%;
+  height: auto;
 }
 .pets .pet-card .pet-title {
   /*  @include flex-row-sb-cent; */
@@ -954,9 +964,9 @@ a {
   /* gap:58px; */
   /* 204px; */
   /*  ul li:not(:last-child) {
-       margin-right: 58px;
+      margin-right: 58px;
 
-   } */
+  } */
 }
 .f-footer .container .box-social-nav-design .nav-footer .nav-list .nav-item {
   display: block;
@@ -1442,7 +1452,8 @@ a {
   .subscribe .container .spot-wrap {
     top: 44px;
     right: 0px;
-    margin-right: 51px; /* 51px; */
+    margin-right: 51px;
+    /* 51px; */
   }
   .subscribe .container .spot-wrap .spot {
     width: 237.6px;
@@ -1590,15 +1601,18 @@ a {
   .backstage .container .bstge-text {
     margin-left: 0;
   }
-  .backstage .container .bstge-text h2, .backstage .container .bstge-text .subtitle {
+  .backstage .container .bstge-text h2,
+.backstage .container .bstge-text .subtitle {
     margin-left: 2px;
   }
-  .backstage .container .bstge-text h2, .backstage .container .bstge-text p {
+  .backstage .container .bstge-text h2,
+.backstage .container .bstge-text p {
     width: 495px;
   }
   .backstage .flower {
     width: 231px;
-    max-width: 20.3125%; /* 130px; */
+    max-width: 20.3125%;
+    /* 130px; */
   }
   .backstage .flower img {
     width: 100%;
@@ -1640,7 +1654,8 @@ a {
     height: auto;
     width: 100%;
   }
-  .backstage .container .bstge-text h2, .backstage .container .bstge-text .subtitle {
+  .backstage .container .bstge-text h2,
+.backstage .container .bstge-text .subtitle {
     font-size: 24px;
     width: 100%;
     margin-bottom: 10px;
@@ -1670,29 +1685,159 @@ a {
 @media screen and (max-width: 1356px) {
   .pets {
     /* & .bg-fl-left {
-         width:386px;
-         height:202px;
+        width:386px;
+        height:202px;
 
-        img { width:386px;
-         height:202px;
-        }
-     }
-     .bg-fl-right {
-         img { width:241px;
-             height:180px;
-            }
-     } */
+       img { width:386px;
+        height:202px;
+       }
+    }
+    .bg-fl-right {
+        img { width:241px;
+            height:180px;
+           }
+    } */
     padding-top: 144px;
     padding-bottom: 140px;
   }
-  .pets .container .pets-box {
+  .pets .container .pet-wrapper {
     margin-bottom: 82px;
+  }
+  .pets .container .pet-wrapper .arrows {
+    left: calc(50% - 147.5px);
+    width: 295px;
+  }
+  .pets .container .pet-wrapper .pets-box {
     row-gap: 92px;
     column-gap: 29px;
   }
-  .pets .container .pets-box .arrows {
-    left: calc(50% - 147.5px);
-    width: 295px;
+}
+@media screen and (max-width: 1000px) {
+  .pet-wrapper .pets-box :nth-child(1) {
+    order: 1;
+  }
+  .pet-wrapper .pets-box :nth-child(2) {
+    order: 2;
+  }
+  .pet-wrapper .pets-box :nth-child(3) {
+    order: 4;
+  }
+  .pet-wrapper .pets-box :nth-child(4) {
+    order: 7;
+  }
+  .pet-wrapper .pets-box :nth-child(5) {
+    order: 3;
+  }
+  .pet-wrapper .pets-box :nth-child(6) {
+    order: 6;
+  }
+  .pet-wrapper .pets-box :nth-child(7) {
+    order: 4;
+  }
+  .pet-wrapper .pets-box :nth-child(7) {
+    display: flex;
+  }
+  .pet-wrapper .pets-box :nth-child(4) {
+    display: none;
+  }
+}
+@media screen and (max-width: 921px) {
+  .pet-wrapper .pets-box {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .pet-wrapper .pets-box :nth-child(1) {
+    order: 1;
+  }
+  .pet-wrapper .pets-box :nth-child(2) {
+    order: 2;
+  }
+  .pet-wrapper .pets-box :nth-child(3) {
+    order: 3;
+  }
+  .pet-wrapper .pets-box :nth-child(4) {
+    order: 4;
+  }
+  .pet-wrapper .pets-box :nth-child(5) {
+    order: 5;
+  }
+  .pet-wrapper .pets-box :nth-child(6) {
+    order: 6;
+  }
+  .pet-wrapper .pets-box :nth-child(7) {
+    order: 7;
+  }
+  .pet-wrapper .pets-box :nth-child(7) {
+    display: flex;
+    order: 4;
+  }
+  .pet-wrapper .pets-box :nth-child(4) {
+    display: none;
+  }
+  .pet-wrapper .pets-box :nth-child(5) {
+    display: none;
+  }
+  .pet-wrapper .pets-box :nth-child(6) {
+    display: none;
+  }
+}
+@media screen and (max-width: 640px) {
+  .alligator {
+    content: "AAA";
+    font-size: 20px;
+  }
+  .pets {
+    padding-top: 40px;
+    padding-bottom: 100px;
+  }
+  .pets .bg-fl-left {
+    /*  width:386px;
+     height:202px; */
+    left: -60px;
+  }
+  .pets .bg-fl-left img {
+    /* width:386px; */
+    height: 202px;
+  }
+  .pets .bg-fl-right img {
+    width: 175px;
+    height: 131px;
+  }
+  .pets .container .pet-wrapper {
+    margin-bottom: 58px;
+  }
+  .pets .container .pet-wrapper .arrows {
+    width: 154px;
+    left: calc(50% - 77px);
+    top: calc(50% - 35px);
+  }
+  .pets .container {
+    padding: 0 20px;
+  }
+  .pets .container .pet-wrapper .pets-box .pet-card .pet-title {
+    padding: 6.24px 9.11px 10.94px 12.47px;
+  }
+  .pets .container .pet-wrapper .pets-box .pet-card .pet-title .pet-title-text :nth-child(1) {
+    font-size: 12.5px;
+    line-height: 140%;
+  }
+  .pets .container .pet-wrapper .pets-box .pet-card .pet-title .pet-title-text :nth-child(2) {
+    font-size: 11.7px;
+    line-height: 120%;
+  }
+  .pets .container .pet-wrapper .pets-box .pet-card .pet-title .pet-title-text .alligator {
+    display: none;
+  }
+  .pets .container .pet-wrapper .pets-box .pet-card .pet-title .pet-title-text .alligator:after {
+    content: "Native to Southeastern United States";
+  }
+  .pets .container .pet-wrapper .pets-box .pet-card .pet-title .pet-title-icon img.banan {
+    width: 25.72px;
+    height: 28.84px;
+  }
+  .pets .container .pet-wrapper .pets-box .pet-card .pet-title .pet-title-icon img.meat {
+    width: 37.41px;
+    height: 29.62px;
   }
 }
 /* * {
