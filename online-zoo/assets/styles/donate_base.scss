@@ -715,9 +715,9 @@ border-image-slice: 1; */
     }
 
     .container .pick-friend-box {
-        
+
         margin: 0 auto;
-       /*  text-align: center; */
+        /*  text-align: center; */
         height: 964px;
 
         margin-bottom: 40px;
@@ -729,12 +729,13 @@ border-image-slice: 1; */
 
         p {
             margin: auto;
-            
+
             font-weight: 400;
             font-size: 16px;
             line-height: 140%;
             color: #333B41;
         }
+
         .last {
             text-align: center;
         }
@@ -778,7 +779,7 @@ border-image-slice: 1; */
                 color: #333B41;
                 margin-bottom: 1.70em;
                 margin-left: -7px;
-                
+
             }
 
             p {
@@ -848,20 +849,141 @@ border-image-slice: 1; */
 }
 
 .donate-scale {
+    position: relative;
     margin: auto;
     text-align: left;
-    ;
     height: 105px;
     margin-bottom: 50px;
-    width: 976px;
+    max-width: calc(976px);
 
-    input {
-        display: block;
-        width: 976px;
-        height: 27px;
-        padding: 0 30px 0 26px;
-        background: #404950;
-        border-radius: 2px;
+
+    .input-box {
+        position: relative;
+        width: 100%;
+
+        .dot-box {
+            position: absolute;
+            padding: 0 30px 0 26px;
+            top: 9.5px;
+            width: 100%;
+            @include flex-row-sb-cent;
+
+
+
+
+            .dot {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+
+                .inner-dot {
+                    position: absolute;
+                    width: 10.0px;
+                    height: 10.00px;
+                    border-radius: 50%;
+                    background: #FFEE2E;
+
+                }
+
+                .inner-ring {
+                    position: absolute;
+
+                    width: 22.95px;
+                    height: 22.95px;
+                    border-radius: 50%;
+                    background: transparent;
+                    border: 3px solid #FE9013;
+                    cursor: pointer;
+                    z-index: 4;
+
+
+                    /* &:hover {
+                    & {
+                        & {
+                           opacity:1; 
+                        }
+                    }
+                } */
+
+                }
+
+                .outer-ring {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40.00px;
+                    height: 40.0px;
+                    border-radius: 50%;
+                    background: transparent;
+                    border: 3px solid #FE9013;
+
+                }
+
+            }
+
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: 27px;
+            padding: 0 30px 0 26px;
+            background: #404950;
+            border-radius: 2px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            &::-webkit-slider-thumb {
+                position: relative;
+                -webkit-appearance: none;
+                position: relative;
+                top: calc(50% - 5.0px);
+                width: 10.0px;
+                height: 10.00px;
+                border-radius: 50%;
+                background: #FFEE2E;
+                cursor: pointer;
+                border: 5px solid #FFEE2E;
+                border-radius: 50%;
+            }
+
+            &::-webkit-slider-runnable-track {
+                width: calc(100%);
+                height: 2px;
+                background: #72828E;
+                border-radius: 5px;
+            }
+
+            &::-moz-range-thumb {
+                position: relative;
+                top: calc(50% - 3.0px);
+                width: 11.2px;
+                height: 6px;
+                cursor: pointer;
+                background: #FE9013;
+                border-radius: 5px;
+                border: none;
+            }
+
+            &::-moz-range-track {
+                width: calc(100% - 2px);
+                height: calc(100% - 2px);
+                background: #F5F7F6;
+                border-radius: 5px;
+            }
+        }
+
+        input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 12px;
+            background: #72828E;
+        }
     }
 
     label {
@@ -873,8 +995,13 @@ border-image-slice: 1; */
         font-size: 16px;
         line-height: 140%;
         color: #000000;
+        margin-left: 4px;
     }
 
+}
+
+.dotactive {
+    opacity: 1;
 }
 
 .donate-input-box {
@@ -882,35 +1009,76 @@ border-image-slice: 1; */
     /* height: 185px; */
     margin-bottom: 30px;
 
-    form {position:relative;
+    form {
+        position: relative;
         display: block;
         text-align: center;
         padding-top: 8px;
         width: 298px;
         margin: auto;
-        input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: textfield;
-  margin: 0;
-}
 
-        input[type=number] {
-            display: block;
-            padding: 0 10px 0 9px;
-            
-            width: 268px;
-            height: 54px;
+        .amount-box {
+            position: relative;
             margin: 0px 15px 25px 15px;
-            margin-bottom: 25px;
-            border: 1px solid #929699;
-            background: #FFFFFF;
+            height: 54px;
 
-            &[placeholder] {
-                font-weight: 400;
-                font-size: 16px;
-                line-height: 140%;
-                color: #929699;
+            input[type="number"]::-webkit-outer-spin-button,
+            input[type="number"]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: textfield;
+                margin: 0;
+            }
+
+            input[type=number]+label::before {
+                position: absolute;
+                right: 20px;
+                top: 30%;
+                width: 0px;
+                content: '$';
+                font-size: 20px;
+                color: rgba(255, 255, 255,0.6);
+            }
+
+            /* input[type=number]:invalid+label {
+                border: 1px solid #D31414;
+                color: #D31414;
+                &[placeholder] {
+                    color: #D31414;
+                }
+            } */
+
+            input[type=number]:not(:focus):invalid+label:before {
+                
+               
+                
+            }
+
+            input[type=number]:valid {
+                border: 1px solid #4B9200;
+                color: #4B9200;
+            }
+
+            input[type=number] {
+                display: inline-block;
+                padding: 0 10px 0 9px;
+
+                width: 268px;
+                height: 54px;
+                border-radius: 2px;
+                background:#333B41;
+                color: #FFFFFF;
+                border: 1px solid #929699;
+
+
+                /* border: 1px solid #929699;
+                background: #FFFFFF;
+ */
+                &[placeholder] {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 140%;
+                    color: #929699;
+                }
             }
         }
 
@@ -921,15 +1089,16 @@ input[type="number"]::-webkit-inner-spin-button {
             font-size: 16px;
             line-height: 140%;
             color: #333B41;
-                            
 
 
-             input { display:inline-block;
+
+            input {
+                display: inline-block;
                 vertical-align: middle;
                 margin-right: 7px;
-                margin-bottom:3px;
-                width:16px;
-                height:16px;
+                margin-bottom: 3px;
+                width: 16px;
+                height: 16px;
                 border: 1px solid #FE9013;
 
                 /* &::-webkit-outer-spin-button,
@@ -943,6 +1112,7 @@ input[type="number"]::-webkit-inner-spin-button {
                     -webkit-appearance: none;
                 } */
             }
+
             label {
                 vertical-align: middle;
             }
@@ -953,7 +1123,7 @@ input[type="number"]::-webkit-inner-spin-button {
             }
 
         }
-       
+
     }
 
 }
@@ -1173,6 +1343,12 @@ input[type="number"]::-webkit-inner-spin-button {
 
             .btn-body {
                 border-radius: 5px;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%
+                }
 
                 &::before {
                     border-radius: 5px;
