@@ -1,4 +1,6 @@
-function ifValidMain () {
+console.log('На некоторых разрешениях в некоторых карточках есть расхождения.\n Я сознательно не стал их кастомизировать,\n тк явно это ошибка макета.\n Не могут быть у карточек внутри одного блока разные отступы, или размеры. \n Текст тоже разный, сначала пытался соответствовать, но это тоже неправильно когда у одного и того же юзера\n на разных разрешениях разный текст');
+
+/* function ifValidMain () {
    
     if (inputEmail.validity.valid==='true'||inputEmail.textContent==='') {
         inputEmail.classList.add('invalid-input');
@@ -36,4 +38,4 @@ function ifValidBtn (e) {
     let inputBtn = document.querySelector('.btn-submit');
     inputBtn.addEventListener ('click',ifValidMain);
 document.body.addEventListener ('focusin',ifValidMain);
-document.body.addEventListener ('focusout',ifValidMain);
+document.body.addEventListener ('focusout',ifValidMain); */
