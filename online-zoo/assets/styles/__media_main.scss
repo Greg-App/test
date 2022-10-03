@@ -1617,3 +1617,55 @@
         }
     }
     }
+
+    @media screen and (max-width: 390px) {
+
+        .testimonials {
+            padding-bottom: 60px;
+        .bg-leav {
+           
+            transform:scale(0.25,0.25) rotate(-10deg);
+            
+            right:-98px;
+            bottom:-189px;
+    
+        }
+            .container {
+                height:100%;
+                margin-top: 30px;
+                padding: 0 10px;
+                    h3{
+                        margin-bottom: 20px;
+                        font-size:24px;
+                        line-height: 120%;
+                    }
+        
+                .comments {
+                    flex-direction: column;
+                    gap:15px;
+                    margin-bottom:30px;
+                    .comment-item {
+                        padding:15px 29px 8px 12px;
+                       p{ 
+                        height:38px;
+                        margin-left:6px;                
+                    }
+                    }
+                    .oska {padding:10px 29px 12px 12px;
+    
+    
+                    }
+                }
+                .comments-slider_track {
+                    display:none;
+                }
+                .btn-testimonials {
+                    
+                    .btn-body {width:240px;
+                    height:54px;}
+                    margin:0 auto;
+                    width:240px;
+                }
+            }
+        }
+        }
