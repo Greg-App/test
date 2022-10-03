@@ -2188,6 +2188,11 @@ a {
   }
 }
 /*----------pick and feed a friend--------*/
+@media screen and (min-width: 1020.2px) {
+  .pick-friend {
+    padding-bottom: 60px;
+  }
+}
 @media screen and (max-width: 1200px) {
   .text_ {
     padding-right: 20px;
@@ -2459,10 +2464,10 @@ a {
 /*----------pick and feed a friend---END-----*/
 @media screen and (min-width: 1128px) {
   .testimonials .container {
-    margin-top: 100px;
+    margin-top: 158px;
   }
   .testimonials .container h3 {
-    margin-bottom: 30px;
+    margin-bottom: 47px;
   }
   .testimonials .container .comments :nth-child(5) {
     display: none;
@@ -2638,6 +2643,11 @@ a {
   .testimonials .container .btn-testimonials .btn-body {
     width: 240px;
     height: 54px;
+  }
+}
+@media screen and (min-width: 0px) {
+  .subscribe {
+    height: 380px;
   }
 }
 /* * {
