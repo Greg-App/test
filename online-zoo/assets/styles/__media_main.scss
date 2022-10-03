@@ -725,26 +725,26 @@
         .container {
             .bstge-text {
                 h2 {
-                    margin-left:0;
+                    margin-left: 0;
                     margin-bottom: 12px;
                 }
             }
         }
 
-     
-    .flower {
-        visibility: visible;
-        width: 60px;
-        max-width: 130px;
-        top: 40px;
-        right: -27px;
 
-        img {
+        .flower {
+            visibility: visible;
             width: 60px;
-            height: 217px;
+            max-width: 130px;
+            top: 40px;
+            right: -27px;
+
+            img {
+                width: 60px;
+                height: 217px;
+            }
         }
     }
-}
 }
 
 /*----pets ------*/
@@ -951,20 +951,22 @@
                         font-size: 11.7px;
                         line-height: 120%;
                     }
-                    .alligator {position:relative;
-                        font-size:0;
-                        
+
+                    .alligator {
+                        position: relative;
+                        font-size: 0;
+
                         &::after {
                             font-size: 11.7px;
-                            content:"Native to Southeastern United States";
-                            color:#000000;
-                            display:inline-block;
-                            line-height:12.04px;
+                            content: "Native to Southeastern United States";
+                            color: #000000;
+                            display: inline-block;
+                            line-height: 12.04px;
                         }
 
-                        
+
                     }
-                    
+
                 }
 
                 .pet-title-icon {
@@ -984,127 +986,320 @@
 
     }
 }
-@media screen and (max-width: 600px) {
-    
-    
-    .pets .container .pet-wrapper { 
-        margin-bottom:20px;
-        .arrows {
-            display:none;
-        }
-    
-    .pets-box {
-        grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    row-gap: 20px;
 
+@media screen and (max-width: 600px) {
+
+
+    .pets .container .pet-wrapper {
+        margin-bottom: 20px;
+
+        .arrows {
+            display: none;
+        }
+
+        .pets-box {
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            row-gap: 20px;
+
+        }
     }
 }
-}
+
 @media screen and (max-width: 555px) {
-    .pets {overflow:hidden;
-        padding-top:0px;
-        padding-bottom:60px;
+    .pets {
+        overflow: hidden;
+        padding-top: 0px;
+        padding-bottom: 60px;
+
         & .bg-fl-left {
             /*  width:386px;
              height:202px; */
             left: -10px;
 
             img {
-               /*  width:138px; */
+                /*  width:138px; */
                 height: 72px;
 
             }
         }
 
         .bg-fl-right {
-            right:-18px;
-            bottom:-5px;
+            right: -18px;
+            bottom: -5px;
+
             img {
-                width:85px;
+                width: 85px;
                 height: 71px;
-                
+
             }
         }
 
     }
 }
+
 @media screen and (max-width: 390px) {
     .btn-subscribe {
-        z-index:9;
+        z-index: 9;
     }
+
     .backstage {
         .flower {
-            z-index:-1;
+            z-index: -1;
         }
     }
-    
 
-.pets .container {
-    padding:0 25.0px 0 10px;
-    .btn-pets {
-        margin-left:12px;
-    }
 
-     .pet-wrapper .pets-box .pet-card  {
-        /* max-height:332px; */
+    .pets .container {
+        padding: 0 25.0px 0 10px;
+
+        .btn-pets {
+            margin-left: 12px;
+        }
+
+        .pet-wrapper .pets-box .pet-card {
+            /* max-height:332px; */
+        }
     }
 }
-}
+
 @media screen and (max-width: 325px) {
     .pets .container {
-         .pet-wrapper .pets-box .pet-card  {
-            max-height:332px;
+        .pet-wrapper .pets-box .pet-card {
+            max-height: 332px;
         }
     }
+}
+
+
+
+/*----------feed a friend--------*/
+
+@media screen and (max-width: 1200px) {
+    .text_ {
+        padding-right: 20px;
     }
-    
 
+}
 
-    /*----------feed a friend--------*/
+@media screen and (max-width: 1020px) {
+    .pick-friend {
+        padding: 30px 0 50px 0;
 
-    @media screen and (max-width: 1200px) {
-        .text_ {
-            padding-right: 20px;
-        }
+        .container {
 
-    }
-    @media screen and (max-width: 1020px) {
-        .pick-friend {
-            padding:30px 0 50px 0;
-            .container {
+            .pick-friend-box {
+                padding: 30px 0 50px;
 
-        .pick-friend-box {
-            padding:30px 0 50px;
-            h2 {
-                margin-bottom: 20px;
-            }
-            .text_ {
-                margin-bottom: 40px;
-                margin-left:49px;
-                padding-right:45px;
-                .subtitle {
+                h2 {
                     margin-bottom: 20px;
-                    padding-right:0px;
                 }
-                .wide {
-                    padding-right:40px;
-                }
-                .last_pp br{
-                    
-                        display:none;
-                    
-                }
-            }
-            .feed-stages {
-                margin-bottom: 70px;
-            }
 
-        }
-    }        
-        
-        
-        
-        }
+                .text_ {
+                    margin-bottom: 40px;
+                    margin-left: 49px;
+                    padding-right: 45px;
 
+                    .subtitle {
+                        margin-bottom: 20px;
+                        padding-right: 0px;
+                    }
+
+                    .wide {
+                        padding-right: 40px;
+                    }
+
+                    .last_pp br {
+
+                        display: none;
+
+                    }
+                }
+
+                .feed-stages {
+                    margin-bottom: 70px;
+                }
+
+            }
+        }
     }
+}
+
+@media screen and (max-width: 900px) {
+    .pick-friend {
+        padding: 30px 0 50px 0;
+
+        .container {
+
+            .pick-friend-box {
+                padding: 30px 0 50px;
+
+                h2 {
+                    margin-bottom: 20px;
+                }
+
+                .text_ {
+                    margin-bottom: 40px;
+                    margin-left: 49px;
+                    padding-right: 45px;
+
+                    .subtitle {
+                        margin-bottom: 20px;
+                        padding-right: 0px;
+                    }
+
+                    .wide {
+                        padding-right: 40px;
+                    }
+
+                    .last_pp br {
+
+                        display: none;
+
+                    }
+                }
+
+                .feed-stages {
+                    /* display:grid;
+                grid-template-columns: 1fr 0.773809fr 1fr 0.773809fr 1fr; */
+                    margin-bottom: 70px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+
+                    .stage-item-main {
+
+                        /* width:auto;
+                    height:auto; */
+                        /* max-width:168px;
+                    max-height:168px; */
+                        .stage-item-img {
+                            /*  width:100%;
+                        height:100%;
+                        max-width:168px;
+                    max-height:168px; */
+                        }
+                    }
+
+                    .stage-item-arrow {
+
+                        .arrow-box {
+                            /*  padding:0 29.5px; */
+                            max-width: 130px;
+                            width: auto;
+
+
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .pick-friend {
+        .container {
+            background: rgba(253, 253, 255, 0.52);
+                backdrop-filter: blur(2px);
+                border-radius: 20px;
+            .pick-friend-box {
+                background: none;
+                backdrop-filter: none;
+                border-radius: 0;
+            .feed-stages {position: relative;
+                flex-shrink: 0;
+                /* gap: 7.14286%; *//* 42px; */
+                .stage-item-main:not(:last-child) {
+                    margin-right:7.14286%;
+                }
+                &:last-child {
+                    margin-right:0;
+                }
+                margin-left: 0px;
+                margin-right: 12px;
+                ;
+
+                .stage-item-arrow {
+                    display: none;
+                    width: 42px;
+
+                    img {
+                        display: none;
+                    }
+                }
+            }
+        }
+        }
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .pick-friend {
+        padding-top:20px;
+        padding-bottom: 20px;
+        .container {
+            
+            .pick-friend-box {
+                padding: 10px 0 60px;
+                margin-bottom:0;
+
+                h2 {font-size: 42px;
+                    margin-bottom: 20px;
+                    margin-top:0;
+                }
+                h3 {
+                    margin-top:30px;
+                    margin-bottom: 20px;
+                }
+
+                .text_ {
+                    margin-bottom: 30px;
+                    margin-left: 0px;
+                    padding-right: 0px;
+
+                    .subtitle {
+                        margin-bottom: 20px;
+                        padding-right: 0px;
+                        font-size: 22px;
+                    }
+
+                    .wide {
+                        padding-right: 0px;
+                    }
+
+                    .last_pp br {
+
+                        display: none;
+
+                    }
+                }
+
+               
+            .feed-stages {position: relative;
+                
+                /* gap: 7.14286%; *//* 42px; */
+                .stage-item-main:not(:last-child) {
+                    margin-right:7.14286%;
+                }
+                &:last-child {
+                    margin-right:0;
+                }
+                margin-left: 0px;
+                margin-right: 12px;
+                margin-bottom: 38px;
+
+                .stage-item-arrow {
+                    display: none;
+                    width: 42px;
+
+                    img {
+                        display: none;
+                    }
+                }
+            }
+        }
+        }
+    }
+}
