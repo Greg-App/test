@@ -1038,6 +1038,7 @@
             z-index:-1;
         }
     }
+    
 
 .pets .container {
     padding:0 25.0px 0 10px;
@@ -1058,3 +1059,52 @@
     }
     }
     
+
+
+    /*----------feed a friend--------*/
+
+    @media screen and (max-width: 1200px) {
+        .text_ {
+            padding-right: 20px;
+        }
+
+    }
+    @media screen and (max-width: 1020px) {
+        .pick-friend {
+            padding:30px 0 50px 0;
+            .container {
+
+        .pick-friend-box {
+            padding:30px 0 50px;
+            h2 {
+                margin-bottom: 20px;
+            }
+            .text_ {
+                margin-bottom: 40px;
+                margin-left:49px;
+                padding-right:45px;
+                .subtitle {
+                    margin-bottom: 20px;
+                    padding-right:0px;
+                }
+                .wide {
+                    padding-right:40px;
+                }
+                .last_pp br{
+                    
+                        display:none;
+                    
+                }
+            }
+            .feed-stages {
+                margin-bottom: 70px;
+            }
+
+        }
+    }        
+        
+        
+        
+        }
+
+    }
