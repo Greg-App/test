@@ -110,11 +110,21 @@ html {
 body {
   margin: 0;
   padding: 0;
-  /* calc(20px - (100vw - 100%)) 0 0; */
+  /* padding: 0 calc(17px - (100vw - 100%)) 0 0;  */
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
+/* body {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    overflow-y: scroll; 
+}
+
+body::-webkit-scrollbar {
+    display: none; 
+} */
 .h1-custom {
   display: block;
   position: absolute;
@@ -1907,7 +1917,7 @@ a {
     padding: 0 25px 0 10px;
   }
   .pets .container .btn-pets {
-    margin-left: 12px;
+    margin-left: 10px;
   }
   .pets .container .pet-wrapper .pets-box .pet-card {
     /* max-height:332px; */
@@ -1918,7 +1928,7 @@ a {
     max-height: 332px;
   }
 }
-/*----------feed a friend--------*/
+/*----------pick and feed a friend--------*/
 @media screen and (max-width: 1200px) {
   .text_ {
     padding-right: 20px;
@@ -1930,6 +1940,7 @@ a {
   }
   .pick-friend .container .pick-friend-box {
     padding: 30px 0 50px;
+    margin-bottom: 0;
   }
   .pick-friend .container .pick-friend-box h2 {
     margin-bottom: 20px;
@@ -2185,8 +2196,63 @@ a {
     margin-bottom: 30px;
     margin-right: 0;
   }
-  .btn-footer {
-    left: 5px;
+}
+@media screen and (min-width: 1128px) {
+  .testimonials .container {
+    margin-top: 100px;
+  }
+  .testimonials .container h3 {
+    margin-bottom: 30px;
+  }
+  .testimonials .container .comments :nth-child(5) {
+    display: none;
+  }
+}
+@media screen and (max-width: 1128px) {
+  .testimonials .container {
+    margin-top: 100px;
+  }
+  .testimonials .container h3 {
+    margin-bottom: 30px;
+  }
+  .testimonials .container .comments {
+    column-gap: auto;
+    justify-content: space-between;
+  }
+  .testimonials .container .comments :nth-child(1) {
+    order: 1;
+  }
+  .testimonials .container .comments :nth-child(2) {
+    order: 2;
+  }
+  .testimonials .container .comments :nth-child(3) {
+    order: 3;
+  }
+  .testimonials .container .comments :nth-child(4) {
+    order: 4;
+  }
+  .testimonials .container .comments :nth-child(5) {
+    order: 5;
+    display: flex;
+  }
+  .testimonials .container .comments :nth-child(2) {
+    order: 5;
+  }
+  .testimonials .container .comments :nth-child(5) {
+    order: 2;
+  }
+  .testimonials .container .comments .comment-item {
+    width: auto;
+    flex-basis: 33.3333%;
+  }
+  .testimonials .container .comments :nth-child(4) {
+    display: none;
+  }
+  .testimonials .container .oskar {
+    display: none;
+  }
+  .testimonials .container .comments-slider_track {
+    width: 390px;
   }
 }
 /* * {
