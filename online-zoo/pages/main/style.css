@@ -2022,7 +2022,7 @@ a {
     margin-right: 12px;
   }
   .pick-friend .container .pick-friend-box .feed-stages .stage-item-main:not(:last-child) {
-    margin-right: 7.14286%;
+    margin-right: 2.06161616%;
   }
   .pick-friend .container .pick-friend-box .feed-stages:last-child {
     margin-right: 0;
@@ -2077,14 +2077,29 @@ a {
     margin-bottom: 38px;
   }
   .pick-friend .container .pick-friend-box .feed-stages .stage-item-main:not(:last-child) {
-    margin-right: 7.14286%;
+    margin-right: 0; /* 7.14286%; */
+    /* &::after {position:absolute;
+        content: url("../../assets/icons/main/arrow_green.svg");
+    } */
+  }
+  .pick-friend .container .pick-friend-box .feed-stages .stage-item-arrow {
+    position: relative;
+    left: -8.8435%; /* -52px; */
+  }
+  .pick-friend .container .pick-friend-box .feed-stages .stage-item-arrow::after {
+    position: absolute;
+    left: -50%;
+    top: -19px;
+    z-index: 10;
+    content: url("../../assets/icons/main/arrow_green.svg");
   }
   .pick-friend .container .pick-friend-box .feed-stages:last-child {
     margin-right: 0;
   }
   .pick-friend .container .pick-friend-box .feed-stages .stage-item-arrow {
-    display: none;
-    width: 42px;
+    position: relative;
+    display: block;
+    width: 0px;
   }
   .pick-friend .container .pick-friend-box .feed-stages .stage-item-arrow img {
     display: none;
