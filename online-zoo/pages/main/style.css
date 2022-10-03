@@ -2209,6 +2209,15 @@ a {
   }
 }
 @media screen and (max-width: 1128px) {
+  .testimonials {
+    padding-bottom: 165px;
+    height: 100%;
+  }
+  .testimonials .bg-leav {
+    transform: scale(0.8, 0.8);
+    right: -23px;
+    bottom: -128px;
+  }
   .testimonials .container {
     margin-top: 100px;
   }
@@ -2216,6 +2225,7 @@ a {
     margin-bottom: 30px;
   }
   .testimonials .container .comments {
+    margin-bottom: 20px;
     column-gap: auto;
     justify-content: space-between;
   }
@@ -2253,6 +2263,14 @@ a {
   }
   .testimonials .container .comments-slider_track {
     width: 390px;
+    margin-bottom: 51px;
+    padding-right: 10.5px;
+  }
+  .testimonials .container .progress-bar-main::-webkit-slider-thumb {
+    width: 75px;
+  }
+  .testimonials .container .progress-bar-main::-moz-range-thumb {
+    width: 75px;
   }
 }
 /* * {
