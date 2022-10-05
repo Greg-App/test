@@ -812,18 +812,30 @@ a {
   position: relative;
   margin: auto;
   text-align: left;
-  height: 105px;
+  /* height: 105px; */
   margin-bottom: 50px;
-  max-width: 976px;
+  /* padding:0 6.9149%; */
+  padding: 0 7.931%;
+  max-width: 1160px;
 }
 .donate-scale .input-box {
   position: relative;
   width: 100%;
+  height: 27px;
+  padding: 0 30px 0 26px;
+  background: #404950;
+  border-radius: 2px;
+  margin-bottom: 90px;
+  /* .scale {
+      padding: 0 30px 0 26px;
+  } */
 }
 .donate-scale .input-box .dot-box {
-  position: absolute;
-  padding: 0 30px 0 26px;
-  top: 9.5px;
+  position: relative;
+  /* position: absolute; */
+  /* padding: 0 30px 0 26px; */
+  /* top: 9.5px; */
+  top: calc(50% - 7px);
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -845,6 +857,20 @@ a {
   height: 10px;
   border-radius: 50%;
   background: #FFEE2E;
+}
+.donate-scale .input-box .dot-box .dot span {
+  display: block;
+  position: absolute;
+  top: 32px;
+  left: -28px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 140%;
+  /* or 36px */
+  text-transform: uppercase;
+  color: #333B41;
 }
 .donate-scale .input-box .dot-box .dot .inner-ring {
   position: absolute;
@@ -878,7 +904,7 @@ a {
   display: block;
   width: 100%;
   height: 27px;
-  padding: 0 30px 0 26px;
+  /* padding: 0 30px 0 26px; */
   background: #404950;
   border-radius: 2px;
   -webkit-appearance: none;
@@ -2705,6 +2731,62 @@ a {
 }
 
 /* } */
+@media screen and (max-width: 1000px) {
+  .pick-friend {
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
+  .pick-friend .container .pick-friend-title {
+    margin-top: 0px;
+    margin-bottom: 27px;
+    max-width: 778px;
+  }
+  .pick-friend .container p {
+    font-size: 16px;
+    line-height: 22.4px;
+  }
+  .pick-friend .container .pick-friend-box {
+    padding-top: 20px;
+    padding-bottom: 46px;
+    height: auto;
+  }
+  .pick-friend .container .pick-friend-box h2 {
+    margin-bottom: 10px;
+  }
+  .pick-friend .container .pick-friend-box .text_ {
+    margin-bottom: 61px;
+  }
+  .pick-friend .container .pick-friend-box .text_ .subtitle {
+    line-height: 29px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box {
+    margin-right: 13px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .count-box .count-number {
+    /* img {
+        margin-top: 10px;
+        margin-bottom: 8px;
+    } */
+  }
+  .pick-friend .container .pick-friend-box .diet-box .animal-box {
+    margin-left: 51px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale label {
+    margin-bottom: 17px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box input {
+    padding: 0 11px 0 9px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box {
+    padding: 0 11px 0 9px;
+  }
+  .pick-friend .container .donate-info {
+    margin-top: 47px;
+    margin-bottom: 40px;
+  }
+}
 /* * {
     outline: 1px solid red;
 } */

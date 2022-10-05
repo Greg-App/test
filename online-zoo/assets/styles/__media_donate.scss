@@ -1,61 +1,150 @@
 @media screen and (max-width: 6000px) {
     .subscribe {
         height: 390px;
-        margin-top:-4px;
-}
+        margin-top: -4px;
+    }
 }
 
 
 
 @media screen and (max-width: 1599.9px) {
-    .subscribe {  
+    .subscribe {
         background-size: cover;
         background-position: 29%;
 
     }
 
 }
-@media screen and (max-width: 1000.0px) and (min-width: 640.1px)  {
-    .subscribe {  
+
+@media screen and (max-width: 1000.0px) and (min-width: 640.1px) {
+    .subscribe {
         background-size: cover;
         background-position: 29%;
         height: 390px;
-        margin-top:0px;
+        margin-top: 0px;
 
     }
+
     .f-footer {
         .container {
             .box-social-nav-design {
-                .nav-footer ul{
-                    margin-left:-30px;
+                .nav-footer ul {
+                    margin-left: -30px;
                 }
             }
         }
     }
 
 }
+
 @media screen and (max-width: 640.0px) {
-    .subscribe {  
+    .subscribe {
         background-size: cover;
         background-position: 37%;
         height: 335px;
-                margin-top:34px;
+        margin-top: 34px;
 
     }
 
 }
+
 @media screen and (max-width: 390.0px) {
-    .subscribe {  
+    .subscribe {
         background-size: cover;
         background-position: 33%;
         height: 187px;
-                margin-top:34px;
+        margin-top: 34px;
 
     }
 
 }
+
 /* @media screen and (min-width: 1000.1px) { */
 .pick-friend {
     padding-bottom: 140px;
 }
+
 /* } */
+
+@media screen and (max-width: 1000.0px) {
+    .pick-friend {
+        padding-top: 40px;
+        padding-bottom: 30px;
+
+        .container {
+            .pick-friend-title {
+                margin-top: 0px;
+                margin-bottom: 27px;
+                max-width: 778px;
+
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 22.4px;
+
+            }
+
+            .pick-friend-box {
+                padding-top: 20px;
+                padding-bottom:46px;
+                height:auto;
+
+
+                h2 {
+
+                    margin-bottom: 10px;
+                }
+
+                .text_ {
+                    margin-bottom: 61px;
+
+                    .subtitle {
+                        line-height: 29px;
+                        margin-top: 0px;
+                        margin-left: 0px;
+                    }
+                }
+
+                .diet-box {
+                    margin-right: 13px;
+
+                    .count-box .count-number {
+                        /* img {
+                            margin-top: 10px;
+                            margin-bottom: 8px;
+                        } */
+                    }
+
+                    .animal-box {
+                        margin-left: 51px;
+                    }
+                }
+                .donate-scale {
+                    label {
+                    margin-bottom:17px;
+                    }
+                    .input-box {
+                        input {
+                            padding: 0 11px 0 9px;
+                        }
+                        .dot-box {
+                            padding: 0 11px 0 9px;
+                        }
+                    }
+
+
+                }
+
+
+            }
+
+            .donate-info {
+                margin-top: 47px;
+                margin-bottom: 40px;
+
+            }
+
+        }
+    }
+}
