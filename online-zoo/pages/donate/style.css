@@ -145,7 +145,7 @@ html {
 
 .container {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1220px;
   height: 100%;
   padding: 0 30px;
 }
@@ -180,17 +180,19 @@ a {
 
 .logo {
   position: relative;
+  z-index: 10;
   width: 82px;
   height: 52px;
   border: 1.18841px solid #FFFFFF;
   border-radius: 2px;
   text-align: center;
-  margin-right: 63px;
+  /* margin-right: 63px; */
   padding-top: 3px;
 }
 .logo:hover {
   transform: scale(1.05, 1.05);
   transition: 0.3s;
+  cursor: pointer;
 }
 .logo .logo-text a {
   display: block;
@@ -317,14 +319,19 @@ a {
 .subscribe {
   position: relative;
   height: 390px;
-  margin-top: -4px;
-  /* margin-top: -$margin-preview-head-hight; */
   background: url("../../assets/images/donate/panda_bg.png") center/cover;
+  margin-top: 0px;
+  /* margin-top: -$margin-preview-head-hight; */
 }
 .subscribe .container {
   position: relative;
   display: flex;
   justify-content: flex-end;
+}
+.subscribe .sub_bg {
+  position: absolute;
+  height: 100%;
+  background: url("../../assets/images/donate/panda_bg.png") center/cover;
 }
 
 .spot-wrap {
@@ -2647,11 +2654,51 @@ a {
     height: 54px;
   }
 }
-@media screen and (min-width: 0px) {
+@media screen and (max-width: 6000px) {
   .subscribe {
-    height: 380px;
+    height: 390px;
+    margin-top: -4px;
   }
 }
+@media screen and (max-width: 1599.9px) {
+  .subscribe {
+    background-size: cover;
+    background-position: 29%;
+  }
+}
+@media screen and (max-width: 1000px) and (min-width: 640.1px) {
+  .subscribe {
+    background-size: cover;
+    background-position: 29%;
+    height: 390px;
+    margin-top: 0px;
+  }
+  .f-footer .container .box-social-nav-design .nav-footer ul {
+    margin-left: -30px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .subscribe {
+    background-size: cover;
+    background-position: 37%;
+    height: 335px;
+    margin-top: 34px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .subscribe {
+    background-size: cover;
+    background-position: 33%;
+    height: 187px;
+    margin-top: 34px;
+  }
+}
+/* @media screen and (min-width: 1000.1px) { */
+.pick-friend {
+  padding-bottom: 140px;
+}
+
+/* } */
 /* * {
     outline: 1px solid red;
 } */
