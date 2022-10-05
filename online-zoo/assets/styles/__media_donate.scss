@@ -1,5 +1,61 @@
-@media screen and (min-width: 0px) {
-.subscribe {
-    height:380px;
+@media screen and (max-width: 6000px) {
+    .subscribe {
+        height: 390px;
+        margin-top:-4px;
 }
 }
+
+
+
+@media screen and (max-width: 1599.9px) {
+    .subscribe {  
+        background-size: cover;
+        background-position: 29%;
+
+    }
+
+}
+@media screen and (max-width: 1000.0px) and (min-width: 640.1px)  {
+    .subscribe {  
+        background-size: cover;
+        background-position: 29%;
+        height: 390px;
+        margin-top:0px;
+
+    }
+    .f-footer {
+        .container {
+            .box-social-nav-design {
+                .nav-footer ul{
+                    margin-left:-30px;
+                }
+            }
+        }
+    }
+
+}
+@media screen and (max-width: 640.0px) {
+    .subscribe {  
+        background-size: cover;
+        background-position: 37%;
+        height: 335px;
+                margin-top:34px;
+
+    }
+
+}
+@media screen and (max-width: 390.0px) {
+    .subscribe {  
+        background-size: cover;
+        background-position: 33%;
+        height: 187px;
+                margin-top:34px;
+
+    }
+
+}
+/* @media screen and (min-width: 1000.1px) { */
+.pick-friend {
+    padding-bottom: 140px;
+}
+/* } */

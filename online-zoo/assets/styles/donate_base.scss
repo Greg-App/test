@@ -35,7 +35,7 @@ img {
 }
 
 html {
-    font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -55,7 +55,7 @@ $margin-preview-head-hight: 80px;
 
 .container {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1220px;
     height: 100%;
     padding: 0 30px;
 }
@@ -90,16 +90,18 @@ a {
 
 .logo {
     position: relative;
+    z-index:10;
     width: 82px;
     height: 52px;
     border: 1.18841px solid #FFFFFF;
     border-radius: 2px;
     text-align: center;
-    margin-right: 63px;
+    /* margin-right: 63px; */
 
     &:hover {
         transform: scale(1.05, 1.05);
         transition: 0.3s;
+        cursor:pointer;
     }
 
     padding-top:3px;
@@ -268,7 +270,8 @@ a {
 
 .subscribe {
     position: relative;
-    height: 390px;
+    height:390px;
+    background: url("../../assets/images/donate/panda_bg.png") center/cover;
 
     .container {
         position: relative;
@@ -277,9 +280,12 @@ a {
 
     }
 
-    margin-top:-4px;
+    margin-top:0px;
     /* margin-top: -$margin-preview-head-hight; */
+    .sub_bg {position:absolute;
+        height:100%;
     background: url("../../assets/images/donate/panda_bg.png") center/cover;
+    }
 }
 
 .spot-wrap {
