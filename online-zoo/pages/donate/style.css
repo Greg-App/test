@@ -1698,6 +1698,9 @@ a {
   .f-footer .container .box-social-nav-design {
     justify-content: center;
   }
+  .f-footer .container .box-social-nav-design .nav-footer ul :nth-child(3) {
+    margin-right: 28px;
+  }
 }
 @media screen and (max-width: 1000px) {
   .subscribe {
@@ -2436,6 +2439,9 @@ a {
     opacity: 0.9;
     backdrop-filter: none;
     border-radius: 0;
+  }
+  .pick-friend .container .pick-friend-box .btn-feed {
+    /* margin-left:-10px; */
   }
   .pick-friend .container .pick-friend-box {
     background: rgba(253, 253, 255, 0.52);
