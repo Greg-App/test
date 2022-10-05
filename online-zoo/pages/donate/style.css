@@ -2416,7 +2416,7 @@ a {
   }
   .pick-friend .container .pick-friend-box .feed-stages .stage-item-arrow::after {
     position: absolute;
-    left: 135px;
+    left: 137px;
     top: -54px;
     z-index: 10;
     content: url("../../assets/icons/main/arrow_green.svg");
@@ -2619,19 +2619,21 @@ a {
     line-height: 120%;
   }
   .testimonials .container .comments {
+    height: 359px;
     flex-direction: column;
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 27px;
   }
   .testimonials .container .comments .comment-item {
-    padding: 15px 29px 8px 12px;
+    height: 109px;
+    padding: 10px 29px 13px 12px;
   }
   .testimonials .container .comments .comment-item p {
     height: 38px;
     margin-left: 6px;
   }
   .testimonials .container .comments .oska {
-    padding: 10px 29px 12px 12px;
+    padding: 9px 29px 15px 12px;
   }
   .testimonials .container .comments-slider_track {
     display: none;
