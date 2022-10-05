@@ -828,11 +828,12 @@ border-image-slice: 1; */
 }
 
 .diet-box {
-    /* margin: 0 auto; */
-    margin-left: 306px;
+    margin-right:10px;
+    /* margin-left: 306px; */
     margin-bottom: 48px;
-    @include flex-row-start-cent;
+    @include flex-row-cent-cent;
     flex-wrap: nowrap;
+    
 
     .count-box {
         width: 159px;

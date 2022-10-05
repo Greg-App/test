@@ -773,12 +773,12 @@ a {
 }
 
 .diet-box {
-  /* margin: 0 auto; */
-  margin-left: 306px;
+  margin-right: 10px;
+  /* margin-left: 306px; */
   margin-bottom: 48px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
 }
