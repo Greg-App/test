@@ -1991,6 +1991,7 @@ a {
   .pick-friend .container .pick-friend-box {
     padding-top: 20px;
     padding-bottom: 46px;
+    margin-bottom: 0;
     height: auto;
   }
   .pick-friend .container .pick-friend-box h2 {
@@ -1998,6 +1999,7 @@ a {
   }
   .pick-friend .container .pick-friend-box .text_ {
     margin-bottom: 61px;
+    margin-left: 50px;
   }
   .pick-friend .container .pick-friend-box .text_ .subtitle {
     line-height: 29px;
@@ -2140,7 +2142,106 @@ a {
   }
   .pick-friend .container .pick-friend-box .donate-input-box .amount-box .radio-btns {
     margin-bottom: 31px;
-    margin-left: 15px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .f-footer {
+    /* .logo {
+        .logo-text a{
+            line-height: 105%;
+        }
+    } */
+    /* .social {
+        gap:7px;
+    } */
+  }
+  .pick-friend {
+    padding-top: 30px;
+    padding-bottom: 46px;
+  }
+  .pick-friend .container .pick-friend-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    max-width: 778px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+  }
+  .pick-friend .container p {
+    font-size: 16px;
+    line-height: 22.4px;
+    margin-bottom: 30px;
+  }
+  .pick-friend .container .donate-info {
+    margin-top: 0px;
+    margin-bottom: 29px;
+  }
+  .pick-friend .container .pick-friend-box {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 0;
+    height: auto;
+  }
+  .pick-friend .container .pick-friend-box h2 {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  .pick-friend .container .pick-friend-box .text_ {
+    margin-left: auto;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .pick-friend .container .pick-friend-box .text_ .subtitle {
+    line-height: 29px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box {
+    margin-right: 13px;
+    margin-bottom: 41px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .count-box .count-number {
+    /* img {
+        margin-top: 10px;
+        margin-bottom: 8px;
+    } */
+  }
+  .pick-friend .container .pick-friend-box .diet-box .animal-box {
+    margin-left: 51px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale {
+    padding: 0;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale label {
+    margin: 0 auto 7px 8px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box {
+    padding: 0 0px 0 0px;
+    /* input {
+        padding: 0 11px 0 9px;
+    } */
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box {
+    padding: 0 35px 0 35px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot:nth-child(2) {
+    display: none;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot:nth-child(3) {
+    display: none;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash {
+    left: -20px;
+  }
+  .pick-friend .container .pick-friend-box .donate-input-box .amount-box {
+    margin-bottom: 18px;
+  }
+  .pick-friend .container .pick-friend-box .donate-input-box .amount-box .amount {
+    width: 180px;
+    height: 42px;
+  }
+  .pick-friend .container .pick-friend-box .donate-input-box .amount-box .radio-btns {
+    margin-bottom: 31px;
   }
 }
 /* * {

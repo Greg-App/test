@@ -722,21 +722,25 @@
             .pick-friend-box {
                 padding-top: 20px;
                 padding-bottom:46px;
+                margin-bottom: 0;
                 height:auto;
 
 
                 h2 {
+                   
 
                     margin-bottom: 10px;
                 }
 
                 .text_ {
                     margin-bottom: 61px;
+                    margin-left: 50px;
 
                     .subtitle {
                         line-height: 29px;
                         margin-top: 0px;
                         margin-left: 0px;
+                        
                     }
                 }
 
@@ -921,7 +925,148 @@
                     }
                     .radio-btns {
                         margin-bottom:31px;
-                        margin-left:15px;
+                        
+
+                    }
+                }
+                }
+
+
+            }
+
+           
+
+        }
+    }
+}
+@media screen and (max-width: 550.0px) {
+
+
+}
+@media screen and (max-width: 390.0px) {
+    .f-footer {
+        /* .logo {
+            .logo-text a{
+                line-height: 105%;
+            }
+        } */
+        /* .social {
+            gap:7px;
+        } */
+    }
+    .pick-friend {
+        padding-top: 30px;
+        padding-bottom: 46px;
+
+        .container {
+            .pick-friend-title {
+                margin-top: 0px;
+                margin-bottom: 20px;
+                max-width: 778px;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 120%;
+
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 22.4px;
+                margin-bottom:30px;
+
+            }
+            .donate-info {
+                margin-top: 0px;
+                margin-bottom: 29px;
+
+            }
+
+            .pick-friend-box {
+                padding-top: 30px;
+                padding-bottom:30px;
+                margin-bottom: 0;
+                height:auto;
+
+
+                h2 {
+                    margin-left:0;
+                    
+
+                    margin-bottom: 20px;
+                }
+
+                .text_ {margin-left: auto;;
+                    margin-bottom: 50px;
+                    text-align: center;
+
+                    .subtitle {
+                        line-height: 29px;
+                        margin-top: 0px;
+                        margin-left: 0px;
+                        
+                    }
+                }
+
+                .diet-box {
+                    margin-right: 13px;
+                    margin-bottom: 41px;;
+
+                    .count-box .count-number {
+                        /* img {
+                            margin-top: 10px;
+                            margin-bottom: 8px;
+                        } */
+                    }
+
+                    .animal-box {
+                        margin-left: 51px;
+                    }
+                }
+                .donate-scale {
+                   
+                    padding: 0;
+                    label {
+                    margin:0 auto 7px 8px;
+                    }
+                    .input-box {
+                        padding: 0 0px 0 0px;
+                        /* input {
+                            padding: 0 11px 0 9px;
+                        } */
+                        .dot-box {
+                            padding: 0 35px 0 35px;
+                            
+                            & .dot:nth-child(2) {
+                                display:none;
+                            }
+                            & .dot:nth-child(3) {
+                                display:none;
+                            }
+
+
+                            .dot {
+                                .cash {
+                                    left:-20px;
+                                }
+                            }
+                        
+                        }
+                        
+                    }
+
+
+                }
+                .donate-input-box {
+                    .amount-box {
+                        margin-bottom:18px;
+                    .amount {
+                        width:180px;
+                        height:42px;
+                        
+                    }
+                    .radio-btns {
+                        margin-bottom:31px;
+                        
 
                     }
                 }
