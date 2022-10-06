@@ -917,7 +917,13 @@ border-image-slice: 1; */
                 align-items: center;
                 width: 10px;
                 height: 10px;
+                
                 border-radius: 50%;
+               &:hover {
+                cursor: pointer;
+                z-index: 4;
+               }
+                
 
                 .inner-dot {
                     position: absolute;
@@ -927,10 +933,11 @@ border-image-slice: 1; */
                     background: #FFEE2E;
 
                 }
-
-                span {
-                    display: block;
+                
+                    
+                .cash {
                     position: absolute;
+                    padding-left:13px;
                     top: 32px;
                     left: -28px;
                     font-family: 'Roboto';
@@ -941,7 +948,18 @@ border-image-slice: 1; */
                     /* or 36px */
                     text-transform: uppercase;
                     color: #333B41;
+                    &::before {
+                        position:absolute;
+                        content:"";
+                        top: 25%;
+                        left:3px;
+                        width:10px;
+                        height:20px;     
+                        background: url("../../assets/icons/main/dollar_sign.svg");
+                    }
+                    
                 }
+            
 
                 .inner-ring {
                     position: absolute;
@@ -951,8 +969,7 @@ border-image-slice: 1; */
                     border-radius: 50%;
                     background: transparent;
                     border: 3px solid #FE9013;
-                    cursor: pointer;
-                    z-index: 4;
+                   
 
 
                     /* &:hover {

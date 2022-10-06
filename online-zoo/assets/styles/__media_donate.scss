@@ -67,6 +67,16 @@
 /* } */
 
 @media screen and (max-width: 1000.0px) {
+    .f-footer {
+        .logo {
+            .logo-text a{
+                line-height: 105%;
+            }
+        }
+        .social {
+            gap:7px;
+        }
+    }
     .pick-friend {
         padding-top: 40px;
         padding-bottom: 30px;
@@ -87,7 +97,7 @@
 
             .pick-friend-box {
                 padding-top: 20px;
-                padding-bottom:46px;
+                padding-bottom:40px;
                 height:auto;
 
 
@@ -121,16 +131,31 @@
                     }
                 }
                 .donate-scale {
+                   
+                    padding: 0 6.9149%;
                     label {
-                    margin-bottom:17px;
+                    margin-bottom:10px;
                     }
                     .input-box {
-                        input {
+                        padding: 0 0px 0 0px;
+                        /* input {
                             padding: 0 11px 0 9px;
-                        }
+                        } */
                         .dot-box {
                             padding: 0 11px 0 9px;
+                            
+                            & .dot:nth-child(1) {
+                                display:none;
+                            }
+
+                            .dot {
+                                .cash {
+                                    left:-10px;
+                                }
+                            }
+                        
                         }
+                        
                     }
 
 

@@ -851,6 +851,10 @@ a {
   height: 10px;
   border-radius: 50%;
 }
+.donate-scale .input-box .dot-box .dot:hover {
+  cursor: pointer;
+  z-index: 4;
+}
 .donate-scale .input-box .dot-box .dot .inner-dot {
   position: absolute;
   width: 10px;
@@ -858,9 +862,9 @@ a {
   border-radius: 50%;
   background: #FFEE2E;
 }
-.donate-scale .input-box .dot-box .dot span {
-  display: block;
+.donate-scale .input-box .dot-box .dot .cash {
   position: absolute;
+  padding-left: 13px;
   top: 32px;
   left: -28px;
   font-family: "Roboto";
@@ -872,6 +876,15 @@ a {
   text-transform: uppercase;
   color: #333B41;
 }
+.donate-scale .input-box .dot-box .dot .cash::before {
+  position: absolute;
+  content: "";
+  top: 25%;
+  left: 3px;
+  width: 10px;
+  height: 20px;
+  background: url("../../assets/icons/main/dollar_sign.svg");
+}
 .donate-scale .input-box .dot-box .dot .inner-ring {
   position: absolute;
   width: 22.95px;
@@ -879,8 +892,6 @@ a {
   border-radius: 50%;
   background: transparent;
   border: 3px solid #FE9013;
-  cursor: pointer;
-  z-index: 4;
   /* &:hover {
       & {
           & {
@@ -2732,6 +2743,12 @@ a {
 
 /* } */
 @media screen and (max-width: 1000px) {
+  .f-footer .logo .logo-text a {
+    line-height: 105%;
+  }
+  .f-footer .social {
+    gap: 7px;
+  }
   .pick-friend {
     padding-top: 40px;
     padding-bottom: 30px;
@@ -2747,7 +2764,7 @@ a {
   }
   .pick-friend .container .pick-friend-box {
     padding-top: 20px;
-    padding-bottom: 46px;
+    padding-bottom: 40px;
     height: auto;
   }
   .pick-friend .container .pick-friend-box h2 {
@@ -2773,14 +2790,26 @@ a {
   .pick-friend .container .pick-friend-box .diet-box .animal-box {
     margin-left: 51px;
   }
-  .pick-friend .container .pick-friend-box .donate-scale label {
-    margin-bottom: 17px;
+  .pick-friend .container .pick-friend-box .donate-scale {
+    padding: 0 6.9149%;
   }
-  .pick-friend .container .pick-friend-box .donate-scale .input-box input {
-    padding: 0 11px 0 9px;
+  .pick-friend .container .pick-friend-box .donate-scale label {
+    margin-bottom: 10px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box {
+    padding: 0 0px 0 0px;
+    /* input {
+        padding: 0 11px 0 9px;
+    } */
   }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box {
     padding: 0 11px 0 9px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot:nth-child(1) {
+    display: none;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash {
+    left: -10px;
   }
   .pick-friend .container .donate-info {
     margin-top: 47px;
