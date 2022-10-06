@@ -940,10 +940,19 @@
     }
 }
 @media screen and (max-width: 550.0px) {
-
+.diet-box {
+    .animal-box {
+        width: 160.15px;
+        height:138.72px;
+        img {
+        width: 160.15px;
+        height:138.72px;
+        }
+    }
+}
 
 }
-@media screen and (max-width: 390.0px) {
+@media screen and (max-width: 550.0px) {
     .f-footer {
         /* .logo {
             .logo-text a{
@@ -956,7 +965,7 @@
     }
     .pick-friend {
         padding-top: 30px;
-        padding-bottom: 46px;
+        padding-bottom: 20px;
 
         .container {
             .pick-friend-title {
@@ -972,81 +981,135 @@
             p {
                 font-size: 16px;
                 line-height: 22.4px;
-                margin-bottom:30px;
+                margin-bottom:26px;
 
             }
             .donate-info {
                 margin-top: 0px;
                 margin-bottom: 29px;
+                font-size: 24px;
+                line-height: 120%;
 
             }
 
             .pick-friend-box {
-                padding-top: 30px;
-                padding-bottom:30px;
+                padding-top: 20px;
+                padding-bottom:20px;
                 margin-bottom: 0;
                 height:auto;
 
 
                 h2 {
                     margin-left:0;
+                    font-size: 24px;
+                line-height: 120%;
                     
 
-                    margin-bottom: 20px;
+                    margin-bottom: 10px;
                 }
 
                 .text_ {margin-left: auto;;
-                    margin-bottom: 50px;
+                    margin-bottom: 10px;
                     text-align: center;
 
                     .subtitle {
                         line-height: 29px;
                         margin-top: 0px;
                         margin-left: 0px;
+                        font-size: 16px;
+                line-height: 140%;
+                margin-bottom: 0px;
                         
                     }
                 }
 
                 .diet-box {
                     margin-right: 13px;
-                    margin-bottom: 41px;;
-
-                    .count-box .count-number {
-                        /* img {
-                            margin-top: 10px;
-                            margin-bottom: 8px;
-                        } */
+                    margin-bottom: 4px;
+                    .count-box {
+                        margin-top: 30px;
+                        margin-right: 0;
+                        width:89.66px;
+                     .count-number {
+                        margin-bottom: 0px;
+                        img {
+                            width:46.24px;
+                            height:32.71px;
+                            margin-bottom: 10px;
+                            /* margin-top: 10px;
+                            margin-bottom: 8px; */
+                        }
                     }
+                    .count-text {
+                        font-size: 9.02244px;
+                        
+                        span {
+                            white-space: nowrap;
+                        }
+                    }
+                }
+                .cross-icon {
+                    margin-right: 20px;
+                    img {
+                        width:7.89px;
+                            height:7.89px;
+                            margin: 16px auto 0;
+                    }
+                }
 
                     .animal-box {
-                        margin-left: 51px;
+                        margin-left: 0px;
+                        img {margin-left:12px;}
                     }
                 }
                 .donate-scale {
-                   
+                   margin-bottom:40px;
                     padding: 0;
                     label {
-                    margin:0 auto 7px 8px;
+                    margin:0 auto 7px 0px;
                     }
                     .input-box {
                         padding: 0 0px 0 0px;
+                        margin-bottom:10px;
+                        height:15px;
                         /* input {
                             padding: 0 11px 0 9px;
                         } */
                         .dot-box {
-                            padding: 0 35px 0 35px;
-                            
-                            & .dot:nth-child(2) {
-                                display:none;
-                            }
-                            & .dot:nth-child(3) {
-                                display:none;
-                            }
+                            padding: 0 17px;
+                            top: calc(50% - 3px);
+                           
 
 
                             .dot {
+                                width:5px;
+                                height:5px;
+                                .inner-dot {
+                                    width:5px;
+                                height:5px;
+                                }
+                                .outer-ring {
+                                    width:20px;
+                                    height:20px;
+                                    .inner-ring {
+                                        width:10px;
+                                    height:10px;
+                                    }
+                                }
+
                                 .cash {
-                                    left:-20px;
+                                    font-size:13px;
+                                    left:-16px;
+                                    top:16px;
+                                    &::before {
+                                        width:5px;
+                                        height:10px;
+                                        padding-left:5px;
+                                        img {width:5px;
+                                            height:10px;
+                                        
+                                        }
+                                    }
                                 }
                             }
                         
@@ -1057,19 +1120,27 @@
 
                 }
                 .donate-input-box {
+                    .donate-box {
                     .amount-box {
-                        margin-bottom:18px;
+                        margin-bottom:15px;
                     .amount {
                         width:180px;
                         height:42px;
                         
                     }
-                    .radio-btns {
-                        margin-bottom:31px;
-                        
-
-                    }
+                    
                 }
+                .radio-btns {
+                    margin-bottom:27px;
+                    margin-right:20px;
+
+                }
+                }
+                }
+                .last {
+                    text-align: left;
+                    width:301px;
+                   
                 }
 
 
