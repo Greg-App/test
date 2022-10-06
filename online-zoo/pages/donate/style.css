@@ -1991,6 +1991,7 @@ a {
   .pick-friend .container .pick-friend-box {
     padding-top: 20px;
     padding-bottom: 46px;
+    margin-bottom: 0;
     height: auto;
   }
   .pick-friend .container .pick-friend-box h2 {
@@ -1998,6 +1999,7 @@ a {
   }
   .pick-friend .container .pick-friend-box .text_ {
     margin-bottom: 61px;
+    margin-left: 50px;
   }
   .pick-friend .container .pick-friend-box .text_ .subtitle {
     line-height: 29px;
@@ -2036,6 +2038,9 @@ a {
   }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash {
     left: -10px;
+  }
+  .pick-friend .container .pick-friend-box .donate-input-box .donate-box .radio-btns {
+    margin-right: 20px;
   }
   .pick-friend .container .donate-info {
     margin-top: 47px;
@@ -2140,7 +2145,183 @@ a {
   }
   .pick-friend .container .pick-friend-box .donate-input-box .amount-box .radio-btns {
     margin-bottom: 31px;
-    margin-left: 15px;
+    margin-right: 20px;
+  }
+  .pick-friend .container .pick-friend-box .donate-input-box .radio-btns {
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .diet-box .animal-box {
+    width: 160.15px;
+    height: 138.72px;
+  }
+  .diet-box .animal-box img {
+    width: 160.15px;
+    height: 138.72px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .f-footer {
+    /* .logo {
+        .logo-text a{
+            line-height: 105%;
+        }
+    } */
+    /* .social {
+        gap:7px;
+    } */
+  }
+  .pick-friend {
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+  .pick-friend .container .pick-friend-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    max-width: 778px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+  }
+  .pick-friend .container p {
+    font-size: 16px;
+    line-height: 22.4px;
+    margin-bottom: 26px;
+  }
+  .pick-friend .container .donate-info {
+    margin-top: 0px;
+    margin-bottom: 29px;
+    font-size: 24px;
+    line-height: 120%;
+  }
+  .pick-friend .container .pick-friend-box {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    height: auto;
+  }
+  .pick-friend .container .pick-friend-box h2 {
+    margin-left: 0;
+    font-size: 24px;
+    line-height: 120%;
+    margin-bottom: 10px;
+  }
+  .pick-friend .container .pick-friend-box .text_ {
+    margin-left: auto;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .pick-friend .container .pick-friend-box .text_ .subtitle {
+    line-height: 29px;
+    margin-top: 0px;
+    margin-left: 0px;
+    font-size: 16px;
+    line-height: 140%;
+    margin-bottom: 0px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box {
+    margin-right: 13px;
+    margin-bottom: 4px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .count-box {
+    margin-top: 30px;
+    margin-right: 0;
+    width: 89.66px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .count-box .count-number {
+    margin-bottom: 0px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .count-box .count-number img {
+    width: 46.24px;
+    height: 32.71px;
+    margin-bottom: 10px;
+    /* margin-top: 10px;
+    margin-bottom: 8px; */
+  }
+  .pick-friend .container .pick-friend-box .diet-box .count-box .count-text {
+    font-size: 9.02244px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .count-box .count-text span {
+    white-space: nowrap;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .cross-icon {
+    margin-right: 20px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .cross-icon img {
+    width: 7.89px;
+    height: 7.89px;
+    margin: 16px auto 0;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .animal-box {
+    margin-left: 0px;
+  }
+  .pick-friend .container .pick-friend-box .diet-box .animal-box img {
+    margin-left: 12px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale {
+    margin-bottom: 40px;
+    padding: 0;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale label {
+    margin: 0 auto 7px 0px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box {
+    padding: 0 0px 0 0px;
+    margin-bottom: 10px;
+    height: 15px;
+    /* input {
+        padding: 0 11px 0 9px;
+    } */
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box {
+    padding: 0 17px;
+    top: calc(50% - 3px);
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot {
+    width: 5px;
+    height: 5px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .inner-dot {
+    width: 5px;
+    height: 5px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .outer-ring {
+    width: 20px;
+    height: 20px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .outer-ring .inner-ring {
+    width: 10px;
+    height: 10px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash {
+    font-size: 13px;
+    left: -16px;
+    top: 16px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash::before {
+    width: 5px;
+    height: 10px;
+    padding-left: 5px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash::before img {
+    width: 5px;
+    height: 10px;
+  }
+  .pick-friend .container .pick-friend-box .donate-input-box .donate-box .amount-box {
+    margin-bottom: 15px;
+  }
+  .pick-friend .container .pick-friend-box .donate-input-box .donate-box .amount-box .amount {
+    width: 180px;
+    height: 42px;
+  }
+  .pick-friend .container .pick-friend-box .donate-input-box .donate-box .radio-btns {
+    margin-bottom: 27px;
+    margin-right: 20px;
+  }
+  .pick-friend .container .pick-friend-box .last {
+    text-align: left;
+    width: 301px;
   }
 }
 /* * {
