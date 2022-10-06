@@ -2039,6 +2039,9 @@ a {
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash {
     left: -10px;
   }
+  .pick-friend .container .pick-friend-box .donate-input-box .donate-box .radio-btns {
+    margin-right: 20px;
+  }
   .pick-friend .container .donate-info {
     margin-top: 47px;
     margin-bottom: 40px;
@@ -2142,6 +2145,10 @@ a {
   }
   .pick-friend .container .pick-friend-box .donate-input-box .amount-box .radio-btns {
     margin-bottom: 31px;
+    margin-right: 20px;
+  }
+  .pick-friend .container .pick-friend-box .donate-input-box .radio-btns {
+    margin-right: 20px;
   }
 }
 @media screen and (max-width: 550px) {
