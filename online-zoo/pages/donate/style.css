@@ -2743,11 +2743,15 @@ a {
 
 /* } */
 @media screen and (max-width: 1000px) {
-  .f-footer .logo .logo-text a {
-    line-height: 105%;
-  }
-  .f-footer .social {
-    gap: 7px;
+  .f-footer {
+    /* .logo {
+        .logo-text a{
+            line-height: 105%;
+        }
+    } */
+    /* .social {
+        gap:7px;
+    } */
   }
   .pick-friend {
     padding-top: 40px;
@@ -2764,7 +2768,7 @@ a {
   }
   .pick-friend .container .pick-friend-box {
     padding-top: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 46px;
     height: auto;
   }
   .pick-friend .container .pick-friend-box h2 {
@@ -2794,7 +2798,7 @@ a {
     padding: 0 6.9149%;
   }
   .pick-friend .container .pick-friend-box .donate-scale label {
-    margin-bottom: 10px;
+    margin-bottom: 17px;
   }
   .pick-friend .container .pick-friend-box .donate-scale .input-box {
     padding: 0 0px 0 0px;

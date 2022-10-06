@@ -68,14 +68,14 @@
 
 @media screen and (max-width: 1000.0px) {
     .f-footer {
-        .logo {
+        /* .logo {
             .logo-text a{
                 line-height: 105%;
             }
-        }
-        .social {
+        } */
+        /* .social {
             gap:7px;
-        }
+        } */
     }
     .pick-friend {
         padding-top: 40px;
@@ -97,7 +97,7 @@
 
             .pick-friend-box {
                 padding-top: 20px;
-                padding-bottom:40px;
+                padding-bottom:46px;
                 height:auto;
 
 
@@ -134,7 +134,7 @@
                    
                     padding: 0 6.9149%;
                     label {
-                    margin-bottom:10px;
+                    margin-bottom:17px;
                     }
                     .input-box {
                         padding: 0 0px 0 0px;
@@ -172,4 +172,9 @@
 
         }
     }
+}
+
+@media screen and (max-width: 640.0px) {
+
+
 }
