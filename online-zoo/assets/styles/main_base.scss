@@ -1336,8 +1336,10 @@ border-image-slice: 1; */
 
 
 /*------------Burger menu-----------------*/
-
-.site-container .header .burger-menu {
+.header{
+    z-index: 15;
+}
+ .burger-menu {
     position: absolute;
     top: 0px;
     @include flex-column-start-start;
@@ -1346,6 +1348,41 @@ border-image-slice: 1; */
     height: 329px;
     background: #FFFFFF;
     padding: 10px 10px;
+    .btn-cross {
+        position:absolute;
+        /* display: flex;
+        justify-content: center;
+        align-items:center; */
+        right:10px;
+        top:10px;
+        width:30px;
+        height:30px;
+        border:1px solid #FE9013;
+        border-radius: 2px;
+        cursor:pointer;
+        &:hover {
+            transition:0.3s;
+            transform:scale(1.1,1.1);
+        }
+        .cross-left,.cross-right {
+            position:absolute;
+            top:50%;
+            left:10%;
+            display:block;
+            z-index: 16;
+            width:80%;
+            height:0px;
+            border:0.5px solid #FE9013;
+            background:#FE9013;
+        }
+        .cross-left {
+            transform:rotate(45deg);
+        }
+        .cross-right {
+            transform:rotate(-45deg);
+        }
+        
+    }
 
     .logo {
         border: 0.8px solid #FE9013;
