@@ -2391,7 +2391,90 @@ a {
     height: 54px;
   }
 }
-/* * {
+/*------------Burger menu-----------------*/
+.site-container .header .burger-menu {
+  position: absolute;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 30;
+  width: 100%;
+  height: 329px;
+  background: #FFFFFF;
+  padding: 10px 10px;
+}
+.site-container .header .burger-menu .logo {
+  border: 0.8px solid #FE9013;
+  border-radius: 2px;
+  height: 41.6px;
+  width: 65.6px;
+  padding-top: 2px;
+  margin-bottom: 30.4px;
+}
+.site-container .header .burger-menu .logo .logo-text a {
+  font-weight: 400;
+  font-size: 15.2116px;
+  line-height: 120%;
+  color: #FE9013;
+}
+.site-container .header .burger-menu .logo .logo-svg {
+  width: 9px;
+  height: 19px;
+  left: 7.5px;
+  top: 17px;
+}
+.site-container .header .burger-menu .nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.site-container .header .burger-menu .nav .nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 0;
+}
+.site-container .header .burger-menu .nav .nav-list li {
+  position: relative;
+}
+.site-container .header .burger-menu .nav .nav-list .nav-item {
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+.site-container .header .burger-menu .nav .nav-list .nav-item a {
+  white-space: nowrap;
+}
+.site-container .header .burger-menu .nav .nav-list .nav-item li a:hover {
+  text-decoration: underline;
+}
+.site-container .header .burger-menu .nav .nav-list .nav-item:hover {
+  transition-duration: 0.7s linear;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* z-index: -1; */
+  /*  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; */
+}
+.site-container .header .burger-menu .nav .nav-list .nav-item a {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #333B41;
+}
+
+/*  {
     outline: 1px solid red;
 } */
 
