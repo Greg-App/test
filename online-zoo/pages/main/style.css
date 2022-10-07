@@ -2393,7 +2393,7 @@ a {
 }
 /*------------Burger menu-----------------*/
 .header {
-  z-index: 15;
+  z-index: 20;
 }
 
 .burger-menu {
@@ -2408,6 +2408,7 @@ a {
   height: 329px;
   background: #FFFFFF;
   padding: 10px 10px;
+  transform: translateX(-100%);
 }
 .burger-menu .btn-cross {
   position: absolute;
@@ -2426,7 +2427,8 @@ a {
   transition: 0.3s;
   transform: scale(1.1, 1.1);
 }
-.burger-menu .btn-cross .cross-left, .burger-menu .btn-cross .cross-right {
+.burger-menu .btn-cross .cross-left,
+.burger-menu .btn-cross .cross-right {
   position: absolute;
   top: 50%;
   left: 10%;
@@ -2512,6 +2514,37 @@ a {
   color: #333B41;
 }
 
+.site-container {
+  position: relative;
+}
+
+.cover {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
+  z-index: 18;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  background: #000000;
+  opacity: 0.8;
+}
+
+.enable {
+  content: "";
+  transition: 0.7s;
+  transform: translateY(0%);
+}
+
+.burger-active {
+  content: "";
+  transition: 0.7s ease-in-out;
+  transform: translateX(0%);
+}
+
+/*-----------Burger Menu EMD------------*/
 /*  {
     outline: 1px solid red;
 } */
