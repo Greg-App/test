@@ -63,3 +63,4 @@ function hideMenu () {
         siteCover.classList.remove('enable');
     }
 }
+
