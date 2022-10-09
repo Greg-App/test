@@ -1490,11 +1490,13 @@
      .testimonials {
         padding-bottom: 165px;
         height: 100%;
+        .leav-cover  {
         .bg-leav {
             transform: scale(0.8,0.8);
            right:-23px;
            bottom:-128px;
         }
+    }
         .container {
             margin-top: 100px;
             h3{
@@ -1600,11 +1602,12 @@
 
     .testimonials {
         padding-bottom: 80px;
-    .bg-leav {
+        .leav-cover {
+        .bg-leav {
         transform:scale(0.5,0.5);
         right:-68px;
         bottom:-174px;
-
+        }
     }
         .container {
             height:100%;
@@ -1650,6 +1653,7 @@
 
         .testimonials {
             padding-bottom: 60px;
+            .leav-cover {   
         .bg-leav {
            
             transform:scale(0.25,0.25) rotate(-10deg);
@@ -1658,6 +1662,7 @@
             bottom:-189px;
     
         }
+    }
             .container {
                 height:100%;
                 margin-top: 30px;

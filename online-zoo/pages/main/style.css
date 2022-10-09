@@ -775,9 +775,17 @@ a {
   position: relative;
   height: 919px;
   padding-bottom: 192px;
+  /* overflow: hidden; */
+}
+.testimonials .leav-cover {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
   overflow: hidden;
 }
-.testimonials .bg-leav {
+.testimonials .leav-cover .bg-leav {
   position: absolute;
   bottom: -132px;
   right: 0px;
@@ -2229,7 +2237,7 @@ a {
     padding-bottom: 165px;
     height: 100%;
   }
-  .testimonials .bg-leav {
+  .testimonials .leav-cover .bg-leav {
     transform: scale(0.8, 0.8);
     right: -23px;
     bottom: -128px;
@@ -2321,7 +2329,7 @@ a {
   .testimonials {
     padding-bottom: 80px;
   }
-  .testimonials .bg-leav {
+  .testimonials .leav-cover .bg-leav {
     transform: scale(0.5, 0.5);
     right: -68px;
     bottom: -174px;
@@ -2368,7 +2376,7 @@ a {
   .testimonials {
     padding-bottom: 60px;
   }
-  .testimonials .bg-leav {
+  .testimonials .leav-cover .bg-leav {
     transform: scale(0.25, 0.25) rotate(-10deg);
     right: -98px;
     bottom: -189px;
@@ -2675,6 +2683,11 @@ a {
   color: #767474;
 }
 
+@media screen and (max-width: 390px) {
+  .cover-pop-up {
+    left: 10px;
+  }
+}
 /*  {
     outline: 1px solid red;
 } */
