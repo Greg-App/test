@@ -20,3 +20,19 @@ function hideMenu () {
         siteCover.classList.remove('enable');
     }
 }
+
+
+/*--------Donate scale----------*/
+
+const cashInput = document.querySelector('.amount');
+const defCash=[25,50,100,250,500,1000,2000,5000];
+const dotBox = document.querySelector('.dot-box');
+dotBox.addEventListener('click', setDefCash);
+function setDefCash (e) {
+    if(e.target.className==='dot') {
+     const oldDot =document.querySelector('.dot-active');
+     if(oldDot) {oldDot.classList.remove('dot-active')};   
+cashInput.value =  e.target.children[0].textContent;
+e.target.classList.add('dot-active');
+    }
+}
