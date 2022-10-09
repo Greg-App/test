@@ -842,6 +842,14 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+.donate-scale .input-box .dot-box::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  width: 100%;
+  height: 2px;
+  background: #72828E;
+}
 .donate-scale .input-box .dot-box .dot {
   position: relative;
   display: flex;
@@ -933,13 +941,6 @@ a {
   border: 3px solid #FE9013;
   opacity: 0;
   transition: 0.4s;
-  /* &:hover {
-      & {
-          & {
-             opacity:1; 
-          }
-      }
-  } */
 }
 .donate-scale .input-box .dot-box .dot .outer-ring {
   position: absolute;
@@ -953,6 +954,19 @@ a {
   border: 3px solid #FE9013;
   opacity: 0;
   transition: 0.4s;
+}
+.donate-scale .input-box .dot-box .dot-active::after {
+  opacity: 1;
+}
+.donate-scale .input-box .dot-box .dot-active::before {
+  opacity: 1;
+}
+.donate-scale .input-box .dot-box .dot-active .cash {
+  color: #FE9013;
+}
+.donate-scale .input-box .dot-box .dot-active .cash::before {
+  background-color: #FE9013;
+  mask-image: url("../../assets/icons/main/dollar_sign.svg");
 }
 .donate-scale .input-box input {
   display: block;
