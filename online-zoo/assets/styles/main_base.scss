@@ -862,15 +862,23 @@ border-image-slice: 1; */
 
         .comments {
             @include flex-row-start-cent;
-            gap: 30px;
+           /*  gap: 29px; */
+           gap:2.5%;
             margin-bottom: 21px;
+
+            overflow: hidden;
+            max-width:1600px;
+            
         }
 
         .comment-item {
             position: relative;
+           transition:0.3s;
             z-index: 1;
             @include flex-column-start-start;
-            width: 268px;
+            /* min-width: 268px; */
+            min-width: 23.09%;
+            max-width:23.09%;
             /* decrease by 4 px*/
             height: 391px;
             /* decrease by 4 px*/
@@ -982,7 +990,8 @@ border-image-slice: 1; */
                 -webkit-appearance: none;
                 position: relative;
                 top: calc(50% - 3.0px);
-                width: 115.2px;
+                /* width: 115.2px; */
+                width:12.5%;
                 height: 6px;
                 cursor: pointer;
                 background: #FE9013;

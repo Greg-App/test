@@ -40,7 +40,7 @@ function ifValidBtn (e) {
 document.body.addEventListener ('focusin',ifValidMain);
 document.body.addEventListener ('focusout',ifValidMain); */
 
-
+/*-----burger menu interaction-------------*/
 const burgerMenu = document.querySelector (".burger-menu");
 const siteCover = document.querySelector(".cover");
 const burgerCross = document.querySelector(".btn-cross");
@@ -63,4 +63,48 @@ function hideMenu () {
         siteCover.classList.remove('enable');
     }
 }
+/*-----burger menu interaction-----END--------*/
+
+/*-----testimonials slider--------------------*/
+
+const input = document.querySelector('.progress-bar-main');
+const commentsBox = document.querySelector('.comments');
+const commentItems = document.querySelectorAll('.comments .comment-item');
+const comProgBar=document.querySelector('.progress-bar-main');
+let curInputVal =0;
+comProgBar.addEventListener('change', shiftComments);
+window.addEventListener('resize', setComBarRange);
+function setComBarRange () {
+    
+    if(window.innerWidth>1128) {
+    input.setAttribute('max',commentItems.length-1-3);
+    input.setAttribute('value',`${curInputVal}`);
+    shiftComments ();
+    
+    } else if (window.innerWidth<=1128) {
+        input.setAttribute('max',commentItems.length-1-2);
+        input.setAttribute('value',`${curInputVal}`);
+        shiftComments ();
+    } else {}
+   
+}
+setComBarRange ();
+function shiftComments () {
+    commentItems.forEach ((el)=>{
+        curInputVal= input.value;
+        if(window.innerWidth>1128) {
+        el.style.left=`${-(23.09+2.5)*comProgBar.value}%`;
+        } else if (window.innerWidth>868&&window.innerWidth<=1128) {
+            el.style.left=`${(-(31.1702+3.1914)*comProgBar.value)}%`;
+        } else {
+            el.style.left='0';
+            input.setAttribute('value',`0`);
+            curInputVal=0;
+        };
+
+    });
+}
+
+
+
 
