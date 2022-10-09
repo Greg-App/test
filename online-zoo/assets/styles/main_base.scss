@@ -1521,7 +1521,39 @@ border-image-slice: 1; */
     background: rgba(0, 0, 0, 0.6);
     border-radius:20px;
 
-    
+    .btn-cross {
+        z-index:150;
+        border:#FE9013;
+        border: 1px solid #FE9013;
+        border-radius: 2px;
+        cursor: pointer;
+        &:hover {
+            transition: 0.3s;
+            transform: scale(1.1, 1.1);
+        }
+
+        .cross-left,
+        .cross-right {
+            position: absolute;
+            top: 45%;
+            left: 10%;
+            display: block;
+            z-index: 16;
+            width: 80%;
+            height: 0px;
+            border: 0.5px solid #FE9013;
+            background: #FE9013;
+        }
+
+        .cross-left {
+            transform: rotate(45deg);
+        }
+
+        .cross-right {
+            transform: rotate(-45deg);
+        }
+        
+    }
         .comment-item-popup {
             position: relative;
            transition:0.3s;
