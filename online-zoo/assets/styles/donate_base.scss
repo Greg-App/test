@@ -908,6 +908,8 @@ border-image-slice: 1; */
             @include flex-row-sb-cent;
 
 
+            
+
 
 
             .dot {
@@ -919,20 +921,66 @@ border-image-slice: 1; */
                 height: 10px;
                 
                 border-radius: 50%;
-               &:hover {
+                background: #FFEE2E;
+                
+               
+                &::before {
+                    content:"";
+                    position: absolute;
+                    width: 22.95px;
+                    height: 22.95px;
+                    border-radius: 50%;
+                    background: transparent;
+                    border: 3px solid #FE9013;
+                    opacity:0;
+                    transition:0.4s;
+                    
+
+                }
+                &::after {
+                    content:"";
+                    position: absolute;
+                    width: 40.00px;
+                    height: 40.0px;
+                    border-radius: 50%;
+                    background: transparent;
+                    border: 3px solid #FE9013;
+                    opacity:0;
+                    transition:0.4s;
+                    
+                }
+               
+                &:hover::after {
                 cursor: pointer;
-                z-index: 4;
+                z-index: 30;
+                opacity:1;
+               }
+               &:hover::before {
+                cursor: pointer;
+                z-index: 30;
+                opacity:1;
+               }
+               &:hover {
+                .cash {
+                    color:#FE9013;
+                    transition:0.4s;
+                }
+                .cash::before {
+                    background-color: #FE9013;
+                    transition:0.4s;
+                    mask-image:url("../../assets/icons/main/dollar_sign.svg");
+                }
                }
                 
 
-                .inner-dot {
+                /* .inner-dot {
                     position: absolute;
                     width: 10.0px;
                     height: 10.00px;
                     border-radius: 50%;
                     background: #FFEE2E;
 
-                }
+                } */
                 
                     
                 .cash {
@@ -963,13 +1011,13 @@ border-image-slice: 1; */
 
                 .inner-ring {
                     position: absolute;
-
                     width: 22.95px;
                     height: 22.95px;
                     border-radius: 50%;
                     background: transparent;
                     border: 3px solid #FE9013;
-                   
+                    opacity:0;
+                    transition:0.4s;
 
 
                     /* &:hover {
@@ -992,8 +1040,13 @@ border-image-slice: 1; */
                     border-radius: 50%;
                     background: transparent;
                     border: 3px solid #FE9013;
+                    opacity:0;
+                    transition:0.4s;
 
                 }
+
+            }
+            .dot-active {
 
             }
 
