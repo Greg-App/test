@@ -114,7 +114,7 @@ function shiftComments() {
 commentsBox.addEventListener('click', showPopUp);
 
 function showPopUp(e) {
-    if (e.target.classList.contains('comment-item') && window.innerWidth <= 660) {
+    if (e.target.classList.contains('comment-item') && window.innerWidth <= 868) {
         const testimonContainer = document.querySelector('.testimonials .container');
 
         if (document.querySelector('.container .cover-pop-up')) {
