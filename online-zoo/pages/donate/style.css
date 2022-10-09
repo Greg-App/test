@@ -2090,6 +2090,9 @@ a {
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box {
     padding: 0 11px 0 9px;
   }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box::before {
+    width: calc(100% - 20px);
+  }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot:nth-child(1) {
     display: none;
   }
@@ -2183,6 +2186,9 @@ a {
   }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box {
     padding: 0 35px 0 35px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box::before {
+    width: calc(100% - 70px);
   }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot:nth-child(2) {
     display: none;
@@ -2334,6 +2340,9 @@ a {
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box {
     padding: 0 17px;
     top: calc(50% - 3px);
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box::before {
+    width: calc(100% - 34px);
   }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot {
     width: 5px;

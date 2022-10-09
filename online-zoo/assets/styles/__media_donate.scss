@@ -771,7 +771,9 @@
                         } */
                         .dot-box {
                             padding: 0 11px 0 9px;
-                            
+                            &::before {
+                                width: calc(100% - 20px);
+                            }
                             & .dot:nth-child(1) {
                                 display:none;
                             }
@@ -904,6 +906,9 @@
                         } */
                         .dot-box {
                             padding: 0 35px 0 35px;
+                            &::before {
+                                width: calc(100% - 70px);
+                            }
                             
                             & .dot:nth-child(2) {
                                 display:none;
@@ -1094,6 +1099,9 @@
                         } */
                         .dot-box {
                             padding: 0 17px;
+                            &::before {
+                                width: calc(100% - 34px);
+                            }
                             top: calc(50% - 3px);
                            
 
