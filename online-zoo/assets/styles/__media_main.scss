@@ -1620,7 +1620,7 @@
                 flex-direction: column;
                 gap:15px;
                 margin-bottom:40px;
-                .comment-item {
+                .comment-item {z-index:15;
                     padding:15px 29px 8px 12px;
                    p{ 
                     height:38px;

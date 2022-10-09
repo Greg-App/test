@@ -72,6 +72,7 @@ const commentsBox = document.querySelector('.comments');
 const commentItems = document.querySelectorAll('.comments .comment-item');
 const comProgBar=document.querySelector('.progress-bar-main');
 let curInputVal =0;
+input.value=0;
 comProgBar.addEventListener('change', shiftComments);
 window.addEventListener('resize', setComBarRange);
 function setComBarRange () {
@@ -104,7 +105,33 @@ function shiftComments () {
 
     });
 }
+/*-----testimonials slider---END-----------------*/
 
+/*----comments pop-up-------*/
 
+commentsBox.addEventListener('click',showPopUp);
 
+function showPopUp (e) {
+    if (e.target.classList.contains('comment-item')) {
+    const testimonContainer = document.querySelector('.testimonials .container');
+    
+    if(document.querySelector('.container .cover-pop-up')) {
+       document.querySelector('.container .cover-pop-up').remove();
+    }
+    const popUpWrap = document.createElement ('div');
+    popUpWrap.classList.add('cover-pop-up');
+    const cloneComment=e.target.cloneNode(true);
+    testimonContainer.prepend(popUpWrap);
+    cloneComment.classList.remove('comment-item');
+    cloneComment.classList.add('comment-item-popup');
+    popUpWrap.append(cloneComment);
+    popUpWrap.addEventListener('click',(e) =>{
+        if (!e.target.classList.contains('comment-item-popup')) {
+    document.querySelector('.container .cover-pop-up').remove();
+        }
+});
+    
+    } 
+    
+}
 

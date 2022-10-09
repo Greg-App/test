@@ -1509,6 +1509,107 @@ border-image-slice: 1; */
 /*-----------Burger Menu EMD------------*/
 
 
+
+/*----Comment Popup style----*/
+
+.cover-pop-up {
+    position:absolute;
+    top:0;
+    left:25%;
+    z-index:99;
+    padding: 20px 36px 17px 17px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius:20px;
+
+    
+        .comment-item-popup {
+            position: relative;
+           transition:0.3s;
+            z-index: 100;
+            @include flex-column-start-start;
+            max-width: 267px; 
+            height:auto;
+            padding: 15px 15px 19px 16px;
+            background: #F1F3F2;
+            border-radius: 20px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                z-index: 10;
+                box-sizing: border-box;
+                /* border: 1px solid transparent; */
+                border-radius: 20px;
+                /* border: 2px solid; */
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 2px;
+                background: linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%),
+                    linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+                -webkit-mask:
+                    linear-gradient(#fff 0 0) content-box,
+                    linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+
+            }
+
+
+
+            .item-header {
+                @include flex-row-start-cent;
+
+                .avatar {
+                    margin-right: 10px;
+                }
+
+                .item-header-text {
+                    text-align: left;
+
+                    .avatar-title {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 120%;
+                        color: #000000;
+                    }
+
+                    .avatar-descr {
+                        font-weight: 300;
+                        font-size: 15px;
+                        line-height: 120%;
+                        color: #BDBDBD;
+                    }
+                }
+
+            }
+        }
+
+        .comment-text {
+            text-align: left;
+            height:auto;
+            margin-top: 10px;
+            margin-bottom: 0;
+            ;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 120%;
+            letter-spacing: 0.0px;
+
+            /* or 18px */
+
+            /* gray */
+            color: #767474;
+        }
+
+    
+
+}
+
+
+
+
 /*  {
     outline: 1px solid red;
 } */
