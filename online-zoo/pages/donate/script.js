@@ -42,8 +42,6 @@ function setDefCash(e) {
     }
 }
 cashInput.addEventListener('input', setDotActive);
-
-/* cashInput.addEventListener('blur', setDotActive); */
 function setDotActive() {
     const oldDot = document.querySelector('.dot-active');
     if(oldDot){oldDot.classList.remove('dot-active');}
@@ -54,5 +52,12 @@ function setDotActive() {
                 el.classList.add('dot-active');
             }
         });
+    }
+}
+cashInput.addEventListener('input', checkInputLength);
+
+function checkInputLength () {
+    if(cashInput.value.length>4) {
+        cashInput.value=cashInput.value.slice(0,4);
     }
 }
