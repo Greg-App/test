@@ -842,6 +842,14 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+.donate-scale .input-box .dot-box::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  width: 100%;
+  height: 2px;
+  background: #72828E;
+}
 .donate-scale .input-box .dot-box .dot {
   position: relative;
   display: flex;
@@ -850,17 +858,56 @@ a {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-}
-.donate-scale .input-box .dot-box .dot:hover {
-  cursor: pointer;
-  z-index: 4;
-}
-.donate-scale .input-box .dot-box .dot .inner-dot {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
   background: #FFEE2E;
+  /* .inner-dot {
+      position: absolute;
+      width: 10.0px;
+      height: 10.00px;
+      border-radius: 50%;
+      background: #FFEE2E;
+
+  } */
+}
+.donate-scale .input-box .dot-box .dot::before {
+  content: "";
+  position: absolute;
+  width: 22.95px;
+  height: 22.95px;
+  border-radius: 50%;
+  background: transparent;
+  border: 3px solid #FE9013;
+  opacity: 0;
+  transition: 0.4s;
+}
+.donate-scale .input-box .dot-box .dot::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: 3px solid #FE9013;
+  opacity: 0;
+  transition: 0.4s;
+}
+.donate-scale .input-box .dot-box .dot:hover::after {
+  cursor: pointer;
+  z-index: 30;
+  opacity: 1;
+}
+.donate-scale .input-box .dot-box .dot:hover::before {
+  cursor: pointer;
+  z-index: 30;
+  opacity: 1;
+}
+.donate-scale .input-box .dot-box .dot:hover .cash {
+  color: #FE9013;
+  transition: 0.4s;
+}
+.donate-scale .input-box .dot-box .dot:hover .cash::before {
+  background: url("../../assets/icons/donate/dollar-sign_orange.svg");
+  transition: 0.4s;
+  /* mask-image:url("../../assets/icons/main/dollar_sign.svg"); */
 }
 .donate-scale .input-box .dot-box .dot .cash {
   position: absolute;
@@ -892,13 +939,8 @@ a {
   border-radius: 50%;
   background: transparent;
   border: 3px solid #FE9013;
-  /* &:hover {
-      & {
-          & {
-             opacity:1; 
-          }
-      }
-  } */
+  opacity: 0;
+  transition: 0.4s;
 }
 .donate-scale .input-box .dot-box .dot .outer-ring {
   position: absolute;
@@ -910,6 +952,21 @@ a {
   border-radius: 50%;
   background: transparent;
   border: 3px solid #FE9013;
+  opacity: 0;
+  transition: 0.4s;
+}
+.donate-scale .input-box .dot-box .dot-active::after {
+  opacity: 1;
+}
+.donate-scale .input-box .dot-box .dot-active::before {
+  opacity: 1;
+}
+.donate-scale .input-box .dot-box .dot-active .cash {
+  color: #FE9013;
+}
+.donate-scale .input-box .dot-box .dot-active .cash::before {
+  background: url("../../assets/icons/donate/dollar-sign_orange.svg");
+  /*  mask-image:url("../../assets/icons/main/dollar_sign.svg"); */
 }
 .donate-scale .input-box input {
   display: block;
@@ -2033,6 +2090,9 @@ a {
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box {
     padding: 0 11px 0 9px;
   }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box::before {
+    width: calc(100% - 20px);
+  }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot:nth-child(1) {
     display: none;
   }
@@ -2126,6 +2186,9 @@ a {
   }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box {
     padding: 0 35px 0 35px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box::before {
+    width: calc(100% - 70px);
   }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot:nth-child(2) {
     display: none;
@@ -2278,6 +2341,9 @@ a {
     padding: 0 17px;
     top: calc(50% - 3px);
   }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box::before {
+    width: calc(100% - 34px);
+  }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot {
     width: 5px;
     height: 5px;
@@ -2294,6 +2360,14 @@ a {
     width: 10px;
     height: 10px;
   }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot::before {
+    width: 10px;
+    height: 10px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot::after {
+    width: 20px;
+    height: 20px;
+  }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash {
     font-size: 13px;
     left: -16px;
@@ -2302,11 +2376,9 @@ a {
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash::before {
     width: 5px;
     height: 10px;
+    background-size: 5px 10px;
+    background: url("../../assets/icons/main/dollar_sign_mini.svg");
     padding-left: 5px;
-  }
-  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash::before img {
-    width: 5px;
-    height: 10px;
   }
   .pick-friend .container .pick-friend-box .donate-input-box .donate-box .amount-box {
     margin-bottom: 15px;
@@ -2324,6 +2396,160 @@ a {
     width: 301px;
   }
 }
+/*------------Burger menu-----------------*/
+.header {
+  z-index: 20;
+}
+
+.burger-menu {
+  position: absolute;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 30;
+  width: 100%;
+  height: 329px;
+  background: #FFFFFF;
+  padding: 10px 10px;
+  transform: translateX(-100%);
+}
+.burger-menu .btn-cross {
+  position: absolute;
+  /* display: flex;
+  justify-content: center;
+  align-items:center; */
+  right: 10px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #FE9013;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.burger-menu .btn-cross:hover {
+  transition: 0.3s;
+  transform: scale(1.1, 1.1);
+}
+.burger-menu .btn-cross .cross-left,
+.burger-menu .btn-cross .cross-right {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  display: block;
+  z-index: 16;
+  width: 80%;
+  height: 0px;
+  border: 0.5px solid #FE9013;
+  background: #FE9013;
+}
+.burger-menu .btn-cross .cross-left {
+  transform: rotate(45deg);
+}
+.burger-menu .btn-cross .cross-right {
+  transform: rotate(-45deg);
+}
+.burger-menu .logo {
+  border: 0.8px solid #FE9013;
+  border-radius: 2px;
+  height: 41.6px;
+  width: 65.6px;
+  padding-top: 2px;
+  margin-bottom: 30.4px;
+}
+.burger-menu .logo .logo-text a {
+  font-weight: 400;
+  font-size: 15.2116px;
+  line-height: 120%;
+  color: #FE9013;
+}
+.burger-menu .logo .logo-svg {
+  width: 9px;
+  height: 19px;
+  left: 7.5px;
+  top: 17px;
+}
+.burger-menu .nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.burger-menu .nav .nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 0;
+}
+.burger-menu .nav .nav-list li {
+  position: relative;
+}
+.burger-menu .nav .nav-list .nav-item {
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+.burger-menu .nav .nav-list .nav-item a {
+  white-space: nowrap;
+}
+.burger-menu .nav .nav-list .nav-item li a:hover {
+  text-decoration: underline;
+}
+.burger-menu .nav .nav-list .nav-item:hover {
+  transition-duration: 0.7s linear;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* z-index: -1; */
+  /*  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; */
+}
+.burger-menu .nav .nav-list .nav-item a {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #333B41;
+}
+
+.site-container {
+  position: relative;
+}
+
+.cover {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
+  z-index: 18;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  background: #000000;
+  opacity: 0.8;
+}
+
+.enable {
+  content: "";
+  transition: 0.7s;
+  transform: translateY(0%);
+}
+
+.burger-active {
+  content: "";
+  transition: 0.7s ease-in-out;
+  transform: translateX(0%);
+}
+
+/*-----------Burger Menu EMD------------*/
 /* * {
     outline: 1px solid red;
 } */

@@ -15,7 +15,7 @@
 
 <body>
     <div class="site-container">
-
+        <div class="cover"></div>
         <div class="header">
             <h1 class="h1-custom">PetStory Online</h1>
             <div class="container">
@@ -71,6 +71,51 @@
                 <div class="burger-btn-line">
                 </div>
             </div>
+            <div class="burger-menu">
+                
+                <div class="btn-cross">
+                    <div class="cross-left"></div>
+                    <div class="cross-right"></div>
+                </div>
+                <div class="logo">
+                    <div class="logo-text"><a
+                            href="https://rolling-scopes-school.github.io/greg-app-JSFEPRESCHOOL2022Q2/online-zoo/pages/main/index.html">PetStory
+                            online</a>
+                    </div>
+                    <img class="logo-svg" src="../../assets/icons/main/bamboo_orange.svg" alt="logo-svg">
+                </div>
+                <nav class="nav nav-burger">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <div class="a-fader">
+                            </div>
+                            <a href="https://rolling-scopes-school.github.io/greg-app-JSFEPRESCHOOL2022Q2/online-zoo/pages/main/index.html"
+                                target="_blank">About</a>
+                        </li>
+                        <li class="nav-item ">
+                            <div class="a-fader">
+                            </div><a href="#">Map</a>
+                        </li>
+                        <li class="nav-item ">
+                            <div class="a-fader">
+                            </div><a href="#">Zoos</a>
+                        </li>
+                        <li class="nav-item nav-active">
+                            <div class="a-fader">
+                            </div><a
+                                href="https://rolling-scopes-school.github.io/greg-app-JSFEPRESCHOOL2022Q2/online-zoo/pages/donate/index.html">Donate</a>
+                        </li>
+                        <li class="nav-item ">
+                            <div class="a-fader">
+                            </div><a href="#">Contact us</a>
+                        </li>
+                        <li class="nav-item ">
+                            <div class="a-fader">
+                            </div><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by &copy;</a>
+                        </li>
+
+                </nav>
+            </div>
         </div>
         <div class="main">
             <section class="section subscribe">
@@ -123,74 +168,30 @@
 
                                 <div class="dot-box">
                                     <div class="dot">
-                                        <div class="inner-dot">
-                                        </div>
-                                        <span class="cash">5000</span>
-                                        <div class="outer-ring">
-                                            <div class="inner-ring"></div>
-                                        </div>
+                                        <span class="cash">5000</span> 
                                     </div>
                                     <div class="dot">
-                                        <div class="inner-dot">
-                                        </div>
-                                        <span class="cash">2000</span>
-                                        <div class="outer-ring">
-                                            <div class="inner-ring"></div>
-                                        </div>
+                                        <span class="cash">2000</span> 
                                     </div>
                                     <div class="dot">
-                                        <div class="inner-dot">
-                                        </div>
-                                        <span class="cash">1000</span>
-                                        <div class="dotactive outer-ring ">
-                                            <div class="inner-ring"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="dot">
-                                        <div class="inner-dot">
-                                        </div>
-                                        <span class="cash">500</span>
-                                        <div class="outer-ring">
-                                            <div class="inner-ring"></div>
-                                        </div>
+                                        <span class="cash">1000</span> 
                                     </div>
                                     <div class="dot">
-                                        <div class="inner-dot">
-                                        </div>
-                                        <span class="cash">250</span>
-                                        <div class="outer-ring">
-                                            <div class="inner-ring"></div>
-                                        </div>
+                                        <span class="cash">500</span> 
                                     </div>
                                     <div class="dot">
-                                        <div class="inner-dot">
-                                        </div>
-                                        <span class="cash">100</span>
-                                        <div class="outer-ring">
-                                            <div class="inner-ring"></div>
-                                        </div>
+                                        <span class="cash">250</span> 
+                                    </div>
+                                    <div class="dot dot-active">
+                                        <span class="cash">100</span> 
                                     </div>
                                     <div class="dot">
-                                        <div class="inner-dot">
-                                        </div>
-                                        <span class="cash">50</span>
-                                        <div class="outer-ring">
-                                            <div class="inner-ring"></div>
-                                        </div>
+                                        <span class="cash">50</span> 
                                     </div>
                                     <div class="dot">
-                                        <div class="inner-dot">
-                                        </div>
-                                        <span class="cash">25</span>
-                                        <div class="outer-ring">
-                                            <div class="inner-ring"></div>
-                                        </div>
+                                        <span class="cash">25</span> 
                                     </div>
-
-
-
-
+                                               
                                 </div>
                             </div>
 
@@ -201,7 +202,7 @@
 
                                 <div class="amount-box">
                                     <input required type="number" class="amount" id="amount" name="amount"
-                                        placeholder="Another amount">
+                                        placeholder="Another amount" min="0" max="9999" value="100" maxlength="4">
                                     <label for="amount"></label>
                                 </div>
 

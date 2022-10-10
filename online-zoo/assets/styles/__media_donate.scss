@@ -771,7 +771,9 @@
                         } */
                         .dot-box {
                             padding: 0 11px 0 9px;
-                            
+                            &::before {
+                                width: calc(100% - 20px);
+                            }
                             & .dot:nth-child(1) {
                                 display:none;
                             }
@@ -904,6 +906,9 @@
                         } */
                         .dot-box {
                             padding: 0 35px 0 35px;
+                            &::before {
+                                width: calc(100% - 70px);
+                            }
                             
                             & .dot:nth-child(2) {
                                 display:none;
@@ -966,6 +971,7 @@
         height:138.72px;
         }
     }
+
 }
 
 }
@@ -1094,6 +1100,9 @@
                         } */
                         .dot-box {
                             padding: 0 17px;
+                            &::before {
+                                width: calc(100% - 34px);
+                            }
                             top: calc(50% - 3px);
                            
 
@@ -1113,6 +1122,15 @@
                                     height:10px;
                                     }
                                 }
+                                &::before {
+                                    width:10px;
+                                    height:10px;
+                                }
+                                &::after {
+                                    width:20px;
+                                    height:20px;
+                                }
+
 
                                 .cash {
                                     font-size:13px;
@@ -1121,11 +1139,10 @@
                                     &::before {
                                         width:5px;
                                         height:10px;
+                                        background-size:5px 10px;
+                                        background:url("../../assets/icons/main/dollar_sign_mini.svg");
                                         padding-left:5px;
-                                        img {width:5px;
-                                            height:10px;
                                         
-                                        }
                                     }
                                 }
                             }

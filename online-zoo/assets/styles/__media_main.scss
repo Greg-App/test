@@ -804,7 +804,7 @@
 @media screen and (max-width: 1000px) {
     .pet-wrapper .pets-box {
 
-        & :nth-child(1) {
+       /*  & :nth-child(1) {
             order: 1;
         }
 
@@ -838,7 +838,7 @@
 
         & :nth-child(4) {
             display: none;
-        }
+        } */
 
     }
 }
@@ -849,9 +849,17 @@
     .pet-wrapper .pets-box {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
+        & :nth-child(5) {
+            display: none;
+        }
+
+        & :nth-child(6) {
+            display: none;
+
+        }
 
 
-        & :nth-child(1) {
+      /*   & :nth-child(1) {
             order: 1;
         }
 
@@ -895,7 +903,7 @@
         & :nth-child(6) {
             display: none;
 
-        }
+        } */
     }
 }
 
@@ -959,7 +967,7 @@
                         line-height: 120%;
                     }
 
-                    .alligator {
+                    /* .alligator {
                         position: relative;
                         font-size: 0;
 
@@ -972,7 +980,7 @@
                         }
 
 
-                    }
+                    } */
 
                 }
 
@@ -1479,9 +1487,9 @@
             h3{
                 margin-bottom: 47px;
             }
-            .comments :nth-child(5) {
+           /*  .comments :nth-child(5) {
                display:none;
-            }
+            } */
         }
     }
 }
@@ -1490,11 +1498,13 @@
      .testimonials {
         padding-bottom: 165px;
         height: 100%;
+        .leav-cover  {
         .bg-leav {
             transform: scale(0.8,0.8);
            right:-23px;
            bottom:-128px;
         }
+    }
         .container {
             margin-top: 100px;
             h3{
@@ -1502,9 +1512,10 @@
             }
             .comments {
                 margin-bottom: 20px;
-                column-gap:auto;
+               gap:3.1914%;
+                
                 justify-content: space-between;
-                & :nth-child(1) {
+              /*   & :nth-child(1) {
                     order: 1;
                     
                 }
@@ -1534,10 +1545,11 @@
         
                 & :nth-child(5) {
                     order: 2;
-                }
+                } */
                 .comment-item {
-                    width:auto;
-                    flex-basis:33.3333%;
+                    min-width: 31.1702%;
+            max-width:31.1702%;
+                    
                     .comment-text {
                         
 
@@ -1545,8 +1557,8 @@
 
                 }
             }
-            .comments :nth-child(4) {display:none;}
-            .oskar {display:none;}
+            /* .comments :nth-child(4) {display:none;}
+            .oskar {display:none;} */
             .comments-slider_track {
                width:390px; 
                margin-bottom: 51px;
@@ -1580,7 +1592,14 @@
 
         .comments {
             flex-direction: column;
+            gap:15px;
+           height:357px;
             .comment-item {
+                min-width:unset;
+            max-width:unset;
+            height:109px;
+                width:100%;
+                
                p{ height:100px;}
             }
         }
@@ -1591,11 +1610,12 @@
 
     .testimonials {
         padding-bottom: 80px;
-    .bg-leav {
+        .leav-cover {
+        .bg-leav {
         transform:scale(0.5,0.5);
         right:-68px;
         bottom:-174px;
-
+        }
     }
         .container {
             height:100%;
@@ -1611,7 +1631,7 @@
                 flex-direction: column;
                 gap:15px;
                 margin-bottom:40px;
-                .comment-item {
+                .comment-item {z-index:15;
                     padding:15px 29px 8px 12px;
                    p{ 
                     height:38px;
@@ -1641,6 +1661,7 @@
 
         .testimonials {
             padding-bottom: 60px;
+            .leav-cover {   
         .bg-leav {
            
             transform:scale(0.25,0.25) rotate(-10deg);
@@ -1649,6 +1670,7 @@
             bottom:-189px;
     
         }
+    }
             .container {
                 height:100%;
                 margin-top: 30px;
