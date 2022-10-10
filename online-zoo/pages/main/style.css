@@ -512,6 +512,7 @@ a {
 .pets .pets-box {
   position: relative;
   overflow: hidden;
+  transition: 0.4s;
   /* height:870.07px; */ /*!!!*/
   /* width:100%; */
   /* & :nth-child(7) {
@@ -565,7 +566,7 @@ a {
   align-items: center;
   /* display:none; */ /*!!!*/
   /*  transform: translateX(calc(-330%)); */
-  transition: 0.5s;
+  transition: 0.7s;
   max-width: 366px;
   max-height: 426px;
   width: 100%;

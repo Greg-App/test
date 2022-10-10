@@ -264,31 +264,35 @@ function shuffle(array) {
 }
 
 function moveSlides(e) {
+
     const petBox = document.querySelector('.pets-box');
-    petBox.style.width=petBox.offsetWidth;
-    petBox.style.height=petBox.offsetHeight;
+    petBox.setAttribute("style",`width:${petBox.offsetWidth}px; height:${petBox.offsetHeight}px`);
     removeCards();
-   
     createCardSet();
-    
     if (e.target.classList.contains('pets-btn-right') || e.target.classList.contains('img-btn-arrow-right')) {
         const petCards = document.querySelectorAll('.pet-card');
         petCards.forEach((el) => {
             if (window.innerWidth > 921) {
+                petBox.style.transform='translateX(330%)';
                 el.style.transform = 'translateX(330%)';
+                el.style.transition='0.3s';
                 el.style.display='flex';
             } else {
                 el.style.transform = 'translateX(230%)';
+                el.style.transition='0.3s';
                 el.style.display='flex';
             }
         });
         hideCards(widthMedia.matches);
-        
-        petCards.forEach((el) => {               
+        setTimeout(()=>{
+            const petCards = document.querySelectorAll('.pet-card');
+        petCards.forEach((el) => {    
+            el.style.transition='0.3s';           
                 el.style.transform = 'translateX(0%)';
         });
-        petBox.style.width='auto';
-    petBox.style.height='auto';
+        const petBox = document.querySelector('.pets-box');
+        petBox.setAttribute("style",`width:auto; height:auto`);
+    },300);
 
     }
     if (e.target.classList.contains('pets-btn-left') || e.target.classList.contains('img-btn-arrow-left')) {
@@ -296,25 +300,50 @@ function moveSlides(e) {
         const petCards = document.querySelectorAll('.pet-card');
         petCards.forEach((el) => {
             if (window.innerWidth > 921) {
+                petBox.style.transform='translateX(-330%)';
                 el.style.transform = 'translateX(-330%)';
+                el.style.transition='0.3s';
                 el.style.display='flex';
             } else {
+                petBox.style.transform='translateX(-230%)';
                 el.style.transform = 'translateX(-230%)';
+                el.style.transition='0.3s';
                 el.style.display='flex';
             }
         });
         hideCards(widthMedia.matches);
-        petCards.forEach((el) => {               
-                el.style.transform = 'translateX(0%)';
+        setTimeout(()=>{
+            const petCards = document.querySelectorAll('.pet-card');
+        petCards.forEach((el) => {  
+           
+            el.style.transition='0.3s';           
+                el.style.transform = 'translateX(0%)'; 
         });
+        const petBox = document.querySelector('.pets-box');
+        petBox.setAttribute("style",`width:auto; height:auto`); 
+    },300);
+    
 
     }
+    petBox.style.transform='translateX(0%)';
 
 }
+const moveSlidesWait =debouncer(moveSlides,600);
+
+function debouncer(func,duration) {
+    let run = false;
+    return function () {
+        if(run) return;
+        func.apply(this,arguments);
+        run = true;
+        setTimeout(()=> run =false, duration);
+    };
+}
+
 const rightBtn = document.querySelector('.pets-btn-right');
-rightBtn.addEventListener('click', moveSlides);
+rightBtn.addEventListener('click',moveSlidesWait);
 const leftBtn = document.querySelector('.pets-btn-left');
-leftBtn.addEventListener('click', moveSlides);
+leftBtn.addEventListener('click',moveSlidesWait);
 
 const widthMedia = window.matchMedia('(max-width: 921px)');
 
