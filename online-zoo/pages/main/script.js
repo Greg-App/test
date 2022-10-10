@@ -116,7 +116,7 @@ commentsBox.addEventListener('click', showPopUp);
 function showPopUp(e) {
     if (e.target.classList.contains('comment-item') && window.innerWidth <= 868) {
         const testimonContainer = document.querySelector('.testimonials .container');
-
+        siteCover.classList.add('enable');
         if (document.querySelector('.container .cover-pop-up')) {
             document.querySelector('.container .cover-pop-up').remove();
         }
@@ -130,6 +130,7 @@ function showPopUp(e) {
         popUpWrap.addEventListener('click', (e) => {
             if (!e.target.classList.contains('comment-item-popup')) {
                 document.querySelector('.container .cover-pop-up').remove();
+                siteCover.classList.remove('enable');
             }
         });
         const btnPop = document.querySelector('.btn-cross').cloneNode(true);
@@ -144,9 +145,13 @@ function showPopUp(e) {
         btnPop.addEventListener('click', (e) => {
             if (!e.target.classList.contains('btn-cross')) {
                 document.querySelector('.container .cover-pop-up').remove();
+                siteCover.classList.remove('enable');
             }
         });
-
+        siteCover.addEventListener('click', (e) => {
+            document.querySelector('.container .cover-pop-up').remove();
+            siteCover.classList.remove('enable');
+        });
     }
 
 }
@@ -216,7 +221,7 @@ function createCard(card) {
     const petBox = document.querySelector('.pets-box');
     const petCard = document.createElement('div');
     petCard.classList.add('pet-card');
-    petCard.style.display='none';
+    petCard.style.display = 'none';
     petBox.append(petCard);
     const petFade = document.createElement('div');
     petFade.classList.add('card-fade');
@@ -266,100 +271,99 @@ function shuffle(array) {
 function moveSlides(e) {
 
     const petBox = document.querySelector('.pets-box');
-    petBox.setAttribute("style",`width:${petBox.offsetWidth}px; height:${petBox.offsetHeight}px`);
+    petBox.setAttribute("style", `width:${petBox.offsetWidth}px; height:${petBox.offsetHeight}px`);
     removeCards();
     createCardSet();
     if (e.target.classList.contains('pets-btn-right') || e.target.classList.contains('img-btn-arrow-right')) {
         const petCards = document.querySelectorAll('.pet-card');
         petCards.forEach((el) => {
             if (window.innerWidth > 921) {
-                petBox.style.transform='translateX(330%)';
+                petBox.style.transform = 'translateX(330%)';
                 el.style.transform = 'translateX(330%)';
-                el.style.transition='0.3s';
-                el.style.display='flex';
+                el.style.transition = '0.3s';
+                el.style.display = 'flex';
             } else {
                 el.style.transform = 'translateX(230%)';
-                el.style.transition='0.3s';
-                el.style.display='flex';
+                el.style.transition = '0.3s';
+                el.style.display = 'flex';
             }
         });
         hideCards(widthMedia.matches);
-        setTimeout(()=>{
+        setTimeout(() => {
             const petCards = document.querySelectorAll('.pet-card');
-        petCards.forEach((el) => {    
-            el.style.transition='0.3s';           
+            petCards.forEach((el) => {
+                el.style.transition = '0.3s';
                 el.style.transform = 'translateX(0%)';
-        });
-        const petBox = document.querySelector('.pets-box');
-        petBox.setAttribute("style",`width:auto; height:auto`);
-    },300);
+            });
+            const petBox = document.querySelector('.pets-box');
+            petBox.setAttribute("style", `width:auto; height:auto`);
+        }, 300);
 
     }
     if (e.target.classList.contains('pets-btn-left') || e.target.classList.contains('img-btn-arrow-left')) {
-        
+
         const petCards = document.querySelectorAll('.pet-card');
         petCards.forEach((el) => {
             if (window.innerWidth > 921) {
-                petBox.style.transform='translateX(-330%)';
+                petBox.style.transform = 'translateX(-330%)';
                 el.style.transform = 'translateX(-330%)';
-                el.style.transition='0.3s';
-                el.style.display='flex';
+                el.style.transition = '0.3s';
+                el.style.display = 'flex';
             } else {
-                petBox.style.transform='translateX(-230%)';
+                petBox.style.transform = 'translateX(-230%)';
                 el.style.transform = 'translateX(-230%)';
-                el.style.transition='0.3s';
-                el.style.display='flex';
+                el.style.transition = '0.3s';
+                el.style.display = 'flex';
             }
         });
         hideCards(widthMedia.matches);
-        setTimeout(()=>{
+        setTimeout(() => {
             const petCards = document.querySelectorAll('.pet-card');
-        petCards.forEach((el) => {  
-           
-            el.style.transition='0.3s';           
-                el.style.transform = 'translateX(0%)'; 
-        });
-        const petBox = document.querySelector('.pets-box');
-        petBox.setAttribute("style",`width:auto; height:auto`); 
-    },300);
-    
+            petCards.forEach((el) => {
+
+                el.style.transition = '0.3s';
+                el.style.transform = 'translateX(0%)';
+            });
+            const petBox = document.querySelector('.pets-box');
+            petBox.setAttribute("style", `width:auto; height:auto`);
+        }, 300);
+
 
     }
-    petBox.style.transform='translateX(0%)';
+    petBox.style.transform = 'translateX(0%)';
 
 }
-const moveSlidesWait =debouncer(moveSlides,600);
+const moveSlidesWait = debouncer(moveSlides, 600);
 
-function debouncer(func,duration) {
+function debouncer(func, duration) {
     let run = false;
     return function () {
-        if(run) return;
-        func.apply(this,arguments);
+        if (run) return;
+        func.apply(this, arguments);
         run = true;
-        setTimeout(()=> run =false, duration);
+        setTimeout(() => run = false, duration);
     };
 }
 
 const rightBtn = document.querySelector('.pets-btn-right');
-rightBtn.addEventListener('click',moveSlidesWait);
+rightBtn.addEventListener('click', moveSlidesWait);
 const leftBtn = document.querySelector('.pets-btn-left');
-leftBtn.addEventListener('click',moveSlidesWait);
+leftBtn.addEventListener('click', moveSlidesWait);
 
 const widthMedia = window.matchMedia('(max-width: 921px)');
 
 function hideCards(widthCheck) {
     const petCards = document.querySelectorAll('.pet-card');
-    
+
     if (widthCheck) {
-    petCards[4].style.display='none';
-    petCards[5].style.display='none';
-  } else {
-    petCards[4].style.display='flex';
-    petCards[5].style.display='flex';
-  }
+        petCards[4].style.display = 'none';
+        petCards[5].style.display = 'none';
+    } else {
+        petCards[4].style.display = 'flex';
+        petCards[5].style.display = 'flex';
+    }
 }
 hideCards(widthMedia.matches);
-widthMedia.addEventListener('change',(e)=> {
+widthMedia.addEventListener('change', (e) => {
     hideCards(e.matches);
 });
-
