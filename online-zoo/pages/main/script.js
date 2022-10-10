@@ -265,30 +265,39 @@ function shuffle(array) {
 
 function moveSlides(e) {
     const petBox = document.querySelector('.pets-box');
-    petBox.style.width=petBox.offsetWidth;
-    petBox.style.height=petBox.offsetHeight;
+    petBox.setAttribute("style",`width:${petBox.offsetWidth}px; height:${petBox.offsetHeight}px`);
+    
+    
+    
     removeCards();
-   
+    
     createCardSet();
+   
     
     if (e.target.classList.contains('pets-btn-right') || e.target.classList.contains('img-btn-arrow-right')) {
         const petCards = document.querySelectorAll('.pet-card');
         petCards.forEach((el) => {
             if (window.innerWidth > 921) {
+                petBox.style.transform='translateX(330%)';
                 el.style.transform = 'translateX(330%)';
+                el.style.transition='0.7s';
                 el.style.display='flex';
             } else {
                 el.style.transform = 'translateX(230%)';
+                el.style.transition='0.7s';
                 el.style.display='flex';
             }
         });
         hideCards(widthMedia.matches);
-        
-        petCards.forEach((el) => {               
+        setTimeout(()=>{
+            const petCards = document.querySelectorAll('.pet-card');
+        petCards.forEach((el) => {    
+            el.style.transition='0.7s';           
                 el.style.transform = 'translateX(0%)';
+                const petBox = document.querySelector('.pets-box');
+    petBox.setAttribute("style",`width:auto; height:auto`);
         });
-        petBox.style.width='auto';
-    petBox.style.height='auto';
+    },200);
 
     }
     if (e.target.classList.contains('pets-btn-left') || e.target.classList.contains('img-btn-arrow-left')) {
@@ -296,19 +305,34 @@ function moveSlides(e) {
         const petCards = document.querySelectorAll('.pet-card');
         petCards.forEach((el) => {
             if (window.innerWidth > 921) {
+                petBox.style.transform='translateX(-330%)';
                 el.style.transform = 'translateX(-330%)';
+                el.style.transition='0.7s';
                 el.style.display='flex';
             } else {
+                petBox.style.transform='translateX(-230%)';
                 el.style.transform = 'translateX(-230%)';
+                el.style.transition='0.7s';
                 el.style.display='flex';
             }
         });
         hideCards(widthMedia.matches);
-        petCards.forEach((el) => {               
+        setTimeout(()=>{
+            const petCards = document.querySelectorAll('.pet-card');
+        petCards.forEach((el) => {  
+           
+            el.style.transition='0.7s';           
                 el.style.transform = 'translateX(0%)';
+                const petBox = document.querySelector('.pets-box');
+                petBox.setAttribute("style",`width:auto; height:auto`);  
         });
+    },200);
 
     }
+    /* petBox.style.width='100%';
+    petBox.style.height='100%'; */
+    petBox.style.transform='translateX(0%)';
+    
 
 }
 const rightBtn = document.querySelector('.pets-btn-right');

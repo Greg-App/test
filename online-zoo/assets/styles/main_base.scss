@@ -504,6 +504,7 @@ a {
     .pets-box {
         position: relative;
         overflow: hidden;
+        transition:0.6s;
         /* height:870.07px; */ /*!!!*/
         /* width:100%; */
        
@@ -573,7 +574,7 @@ a {
         @include flex-column-start-cent;
         /* display:none; */    /*!!!*/ 
         /*  transform: translateX(calc(-330%)); */
-        transition: 0.5s;
+        transition: 0.7s;
         max-width: 366px;
         max-height: 426px;
         width: 100%;
