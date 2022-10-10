@@ -463,6 +463,7 @@ a {
     .pet-wrapper {
         position: relative;
         margin-bottom: 80px;
+        /* width:100%; */ /*!!!*/
 
         .arrows {
             position: absolute;
@@ -488,8 +489,6 @@ a {
 
                 &:active {
                     background: $green_;
-
-
                 }
 
                 &::before {
@@ -505,11 +504,15 @@ a {
     .pets-box {
         position: relative;
         overflow: hidden;
+        /* height:870.07px; */ /*!!!*/
+        /* width:100%; */
+       
 
-        & :nth-child(7) {
+
+        /* & :nth-child(7) {
             display: none;
 
-        }
+        } */
 
         /*  display: flex;
         flex-direction: row;
@@ -565,8 +568,12 @@ a {
     .pet-card {
         position: relative;
         flex-shrink: 2;
+        
 
         @include flex-column-start-cent;
+        /* display:none; */    /*!!!*/ 
+        /*  transform: translateX(calc(-330%)); */
+        transition: 0.5s;
         max-width: 366px;
         max-height: 426px;
         width: 100%;

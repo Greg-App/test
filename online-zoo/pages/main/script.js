@@ -150,3 +150,136 @@ function showPopUp(e) {
     }
 
 }
+
+
+/*-----Pets slider------------------*/
+const petCardsDef =[
+{
+    name:'GIANT PANDAS',
+    origin:'Native to Southwest China',
+    mealsrc:'../../assets/icons/main/banana-bamboo_icon.svg',
+    mealalt:'banana-bamboo_icon',
+    foto: '../../assets/images/main/1_Pandas.png'
+},
+{
+    name:'EAGLES',
+    origin:'Native to South America',
+    mealsrc:'../../assets/icons/main/meet-fish_icon.svg',
+    mealalt:'meet-fish_icon',
+    foto: '../../assets/images/main/2_Eagles.png'
+},
+{
+    name:'GORILLAS',
+    origin:'Native to Congo',
+    mealsrc:'../../assets/icons/main/banana-bamboo_icon.svg',
+    mealalt:'banana-bamboo_icon',
+    foto: '../../assets/images/main/3_Gorillas.png'
+},
+{
+    name:'TWO-TOED SLOTH',
+    origin:'Mesoamerica, South America',
+    mealsrc:'../../assets/icons/main/banana-bamboo_icon.svgg',
+    mealalt:'banana-bamboo_icon',
+    foto: '../../assets/images/main/4_Sloth.png'
+},
+{
+    name:'CHEETAHS',
+    origin:'Native to Africa',
+    mealsrc:'../../assets/icons/main/meet-fish_icon.svg',
+    mealalt:'meet-fish_icon',
+    foto: '../../assets/images/main/5_Cheetas.png'
+},
+{
+    name:'PENGUINS',
+    origin:'Native to Antarctica',
+    mealsrc:'../../assets/icons/main/meet-fish_icon.svg',
+    mealalt:'meet-fish_icon',
+    foto: '../../assets/images/main/6_Penguins.png'
+},
+{
+    name:'ALLIGATORS',
+    origin:'Native to Southeastern U. S.',
+    mealsrc:'../../assets/icons/main/meet-fish_icon.svg',
+    mealalt:'meet-fish_icon',
+    foto: '../../assets/images/main/7_Alligators.png'
+},
+
+];
+
+function removeCards () {
+    const petCards =document.querySelectorAll('.pet-card');
+    petCards.forEach((el) => {
+        el.remove();
+    });
+}
+function createCard(card) {
+    const petBox=document.querySelector('.pets-box');
+    const petCard =document.createElement('div');
+    petCard.classList.add('pet-card');
+    petBox.append(petCard);
+    const petFade=document.createElement('div');
+    petFade.classList.add('card-fade');
+    petCard.append(petFade);
+    const petFoto=document.createElement('div');
+    petFoto.classList.add('pet-foto');
+    petCard.append(petFoto);
+    const petTitle=document.createElement('div');
+    petTitle.classList.add('pet-title');
+    petCard.append(petTitle);
+
+    petFoto.append(document.createElement('img'));
+    petFoto.children[0].setAttribute('src',`${card.foto}`);
+
+    petTitle.append(document.createElement('div'));
+    petTitle.children[0].classList.add('pet-title-text');
+    petTitle.children[0].append(document.createElement('p'));
+    petTitle.children[0].append(document.createElement('p'));
+    petTitle.children[0].children[0].classList.add('small-p');
+    petTitle.children[0].children[1].classList.add('small-p');
+    petTitle.children[0].children[0].textContent=`${card.name}`;
+    petTitle.children[0].children[1].textContent=`${card.origin}`;
+    petTitle.append(document.createElement('div'));
+    petTitle.children[1].classList.add('pet-title-icon');
+    petTitle.children[1].append(document.createElement('img'));
+    petTitle.children[1].children[0].classList.add('banan');
+    petTitle.children[1].children[0].setAttribute('src',`${card.mealsrc}`);
+    petTitle.children[1].children[0].setAttribute('alt',`${card.mealalt}`);  
+}
+createCard(petCardsDef[6]);
+function shuffle(array) {
+    let arr = [...array];
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function moveSlides (e) {
+    const petCards =document.querySelectorAll('.pet-card');
+    const petBox=document.querySelector('.pets-box');
+
+    if(e.target.classList.contains('pets-btn-right')||e.target.classList.contains('img-btn-arrow-right')) {
+        petCards.forEach((el)=>{
+            el.style.display='none';
+            if (widows.innerWidth>921) {
+            el.style.transform='translateX(330%)';}
+            else {el.style.transform='translateX(230%)';}
+        });       
+    
+    }
+    if(e.target.classList.contains('pets-btn-left')||e.target.classList.contains('img-btn-arrow-left')) {
+        petCards.forEach((el)=>{
+            el.style.display='none';
+            if (widows.innerWidth>921) {
+                el.style.transform='translateX(-330%)';}
+                else {el.style.transform='translateX(-230%)';}
+        });       
+    
+    }
+  }
+  const rightBtn=document.querySelector('.pets-btn-right');
+  rightBtn.addEventListener('click',moveSlides);
+  const leftBtn=document.querySelector('.pets-btn-left');
+  rightBtn.addEventListener('click',moveSlides);
+

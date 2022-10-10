@@ -905,9 +905,9 @@ a {
   transition: 0.4s;
 }
 .donate-scale .input-box .dot-box .dot:hover .cash::before {
-  background-color: #FE9013;
+  background: url("../../assets/icons/donate/dollar-sign_orange.svg");
   transition: 0.4s;
-  mask-image: url("../../assets/icons/main/dollar_sign.svg");
+  /* mask-image:url("../../assets/icons/main/dollar_sign.svg"); */
 }
 .donate-scale .input-box .dot-box .dot .cash {
   position: absolute;
@@ -965,8 +965,8 @@ a {
   color: #FE9013;
 }
 .donate-scale .input-box .dot-box .dot-active .cash::before {
-  background-color: #FE9013;
-  mask-image: url("../../assets/icons/main/dollar_sign.svg");
+  background: url("../../assets/icons/donate/dollar-sign_orange.svg");
+  /*  mask-image:url("../../assets/icons/main/dollar_sign.svg"); */
 }
 .donate-scale .input-box input {
   display: block;
@@ -2360,6 +2360,14 @@ a {
     width: 10px;
     height: 10px;
   }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot::before {
+    width: 10px;
+    height: 10px;
+  }
+  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot::after {
+    width: 20px;
+    height: 20px;
+  }
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash {
     font-size: 13px;
     left: -16px;
@@ -2368,11 +2376,9 @@ a {
   .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash::before {
     width: 5px;
     height: 10px;
+    background-size: 5px 10px;
+    background: url("../../assets/icons/main/dollar_sign_mini.svg");
     padding-left: 5px;
-  }
-  .pick-friend .container .pick-friend-box .donate-scale .input-box .dot-box .dot .cash::before img {
-    width: 5px;
-    height: 10px;
   }
   .pick-friend .container .pick-friend-box .donate-input-box .donate-box .amount-box {
     margin-bottom: 15px;
