@@ -282,6 +282,7 @@ function moveSlides(e) {
                 el.style.display='flex';
             }
         });
+        hideCards(widthMedia.matches);
         
         petCards.forEach((el) => {               
                 el.style.transform = 'translateX(0%)';
@@ -302,6 +303,7 @@ function moveSlides(e) {
                 el.style.display='flex';
             }
         });
+        hideCards(widthMedia.matches);
         petCards.forEach((el) => {               
                 el.style.transform = 'translateX(0%)';
         });
@@ -313,3 +315,22 @@ const rightBtn = document.querySelector('.pets-btn-right');
 rightBtn.addEventListener('click', moveSlides);
 const leftBtn = document.querySelector('.pets-btn-left');
 leftBtn.addEventListener('click', moveSlides);
+
+const widthMedia = window.matchMedia('(max-width: 921px)');
+
+function hideCards(widthCheck) {
+    const petCards = document.querySelectorAll('.pet-card');
+    
+    if (widthCheck) {
+    petCards[4].style.display='none';
+    petCards[5].style.display='none';
+  } else {
+    petCards[4].style.display='flex';
+    petCards[5].style.display='flex';
+  }
+}
+hideCards(widthMedia.matches);
+widthMedia.addEventListener('change',(e)=> {
+    hideCards(e.matches);
+});
+
