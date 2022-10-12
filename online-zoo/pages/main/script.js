@@ -73,7 +73,7 @@ const commentItems = document.querySelectorAll('.comments .comment-item');
 const comProgBar = document.querySelector('.progress-bar-main');
 let curInputVal = 0;
 input.value = 0;
-comProgBar.addEventListener('change', shiftComments);
+comProgBar.addEventListener('input', shiftComments);
 window.addEventListener('resize', setComBarRange);
 
 function setComBarRange() {
