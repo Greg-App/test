@@ -1,0 +1,164 @@
+/* * {
+    outline: 1px solid red;
+} */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(173, 180, 221);
+}
+
+html {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+a,
+span {
+  display: inline-block;
+}
+
+.game-wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 440px;
+  user-select: none;
+  padding: 20px;
+}
+.game-wrapper .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+.game-wrapper .header .controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.game-wrapper .header .controls .btn {
+  display: block;
+  margin: 0;
+  padding: 5px;
+  font-size: 18px;
+  background: rgb(44, 128, 184);
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.game-wrapper .header .controls .btn:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  transform: scale(1.05, 1.05);
+  background: rgb(33, 88, 12);
+}
+.game-wrapper .header .dashboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.game-wrapper .header .dashboard .dash-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.game-wrapper .game-field {
+  position: relative;
+  background: gray;
+  padding-bottom: 100%;
+  border-radius: 5px;
+  /* gap:5px; */
+  width: 100%;
+}
+.game-wrapper .game-field .item {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cadetblue;
+  max-height: 100px;
+  max-width: 100px;
+  font-size: 28px;
+  font-weight: 600;
+  border: 2px solid rgb(80, 18, 116);
+  border-radius: 5px;
+  width: 25%;
+  height: 25%;
+}
+.game-wrapper .game-field .item:hover {
+  border-color: green;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.game-wrapper .game-field .item:hover span {
+  color: green;
+}
+.game-wrapper .game-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.game-wrapper .game-options {
+  margin: 0 auto;
+}
+.game-wrapper .game-options .nav {
+  display: flex;
+  justify-content: center;
+}
+.game-wrapper .game-options .nav .sizes-list {
+  list-style: none;
+  margin-left: -40px;
+}
+.game-wrapper .game-options .nav .sizes-list .sizes-item {
+  color: black;
+  display: inline-block;
+}
+.game-wrapper .game-options .nav .sizes-list .sizes-item a {
+  color: inherit;
+}
+.game-wrapper .game-options .nav .sizes-list .sizes-item a:hover {
+  color: purple;
+  transform: scale(1.05, 1.05);
+  transition: 0.4s;
+}
+.game-wrapper .game-options .nav .sizes-list .sizes-item:not(:last-child) {
+  margin-right: 10px;
+}
+.game-wrapper .game-options .nav .sizes-list .size-active {
+  position: relative;
+  color: purple;
+  font-weight: 600;
+}
+.game-wrapper .game-options .nav .sizes-list .size-active a {
+  text-decoration: none;
+}
+.game-wrapper .game-options .nav .sizes-list .size-active:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+}
+
+/*# sourceMappingURL=styles.css.map */
