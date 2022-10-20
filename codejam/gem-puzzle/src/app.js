@@ -74,6 +74,7 @@ function createOptions() {
         }
         listItem.append(document.createElement('a'));
         listItem.children[0].textContent = `${el}x${el}`;
+        listItem.children[0].classList.add('size-btn');
         listItem.children[0].setAttribute('href', '#!');
         sizeList.append(listItem);
 
@@ -100,13 +101,24 @@ function setTileOffset() {
     for (let i = 0; i < currentSet.size; i++) {
         curMatrix.push(shuffleArray(validArr).splice(0, currentSet.size));
     }
-    console.log(curMatrix);
+    //console.log(curMatrix);
     const tileArr = document.querySelectorAll('.item');
+    const a = [];
+    tileArr.forEach((el) => {
+        a.push(el.firstElementChild.textContent);
+    });
+    //console.log(a);
+    let k = 1;
     for (let i = 0; i < currentSet.size; i++) {
         for (let j = 0; j < currentSet.size; j++) {
+
             tileArr[curMatrix[i][j] - 1].style.transform = `translate(${j*100}%,${i*100}%)`;
             tileArr[curMatrix[i][j] - 1].dataset.x = j;
             tileArr[curMatrix[i][j] - 1].dataset.y = i;
+            //console.log(curMatrix[i][j]);
+            //console.log(tileArr[curMatrix[i][j] - 1]);
+            tileArr[curMatrix[i][j] - 1].dataset.tileNum = k;
+            k++;
         }
     }
 
@@ -114,12 +126,16 @@ function setTileOffset() {
 }
 
 function createTiles() {
+    
     const gameField = document.querySelector('.game-field');
+    gameField.replaceChildren();
     const validArr = new Array(currentSet.size * currentSet.size).fill(0).map((el, ind) => ind + 1);
     validArr.forEach((el) => {
         const tile = document.createElement('div');
         tile.classList.add('item');
-        tile.dataset.tileNum = el;
+        tile.style.width = `${100/currentSet.size}%`;
+        tile.style.height = `${100/currentSet.size}%`;
+
         tile.append(document.createElement('span'));
         tile.children[0].classList.add('item__value');
         tile.children[0].textContent = el;
@@ -132,14 +148,17 @@ createTiles();
 const gameField = document.querySelector('.game-field');
 gameField.addEventListener('click', moveTile);
 
-function isMoveOk (target,empty) {
-if((target[0]===empty[0]||target[1]===empty[1])&&(Math.abs(target[0]-empty[0])===1||Math.abs(target[1]-empty[1])===1)) {
-    return true;
-} else {return false;}
+function isMoveOk(target, empty) {
+    if ((target[0] === empty[0] || target[1] === empty[1]) && (Math.abs(target[0] - empty[0]) === 1 || Math.abs(target[1] - empty[1]) === 1)) {
+        return true;
+    } else {
+        return false;
+    }
 }
+
 function moveTile(e) {
     if (e.target.closest('.item')) {
-        const item=e.target.closest('.item');
+        const item = e.target.closest('.item');
         let gameField = document.querySelector('.game-field');
         let coorTarget = [item.dataset.x, item.dataset.y];
         let coorEmpty = [gameField.lastElementChild.dataset.x, gameField.lastElementChild.dataset.y];
@@ -150,11 +169,82 @@ function moveTile(e) {
             coorEmpty = temp;
             item.dataset.x = coorTarget[0];
             item.dataset.y = coorTarget[1];
+            let temp1 = item.dataset.tileNum;
+            item.dataset.tileNum = gameField.lastElementChild.dataset.tileNum;
+            gameField.lastElementChild.dataset.tileNum = temp1;
             item.style.transform = `translate(${coorTarget[0]*100}%,${coorTarget[1]*100}%)`;
             gameField.lastElementChild.dataset.x = coorEmpty[0];
             gameField.lastElementChild.dataset.y = coorEmpty[1];
             gameField.lastElementChild.style.transform = `translate(${coorEmpty[0]*100}%,${coorEmpty[1]*100}%)`;
         }
     }
+    ifWinGame();
+}
 
+function ifWinGame() {
+    const tileArr = document.querySelectorAll('.item');
+    const validArr = new Array(currentSet.size * currentSet.size).fill(0).map((el, ind) => ind + 1);
+    const playedArr = [];
+    tileArr.forEach((el) => {
+        playedArr.push(Number(el.dataset.tileNum));
+    });
+    if (playedArr.join('') === validArr.join('')) {
+        showCover();
+        showWinMessage();
+    }
+}
+
+function showCover() {
+    if (!document.querySelector('.cover')) {
+        const gameField = document.querySelector('.game-field');
+        const cover = document.createElement('div');
+        cover.classList.add('cover');
+        gameField.prepend(cover);
+        setTimeout(() => cover.classList.add('showBlock'), 200);
+
+    }
+}
+
+function removeCover() {
+    if (document.querySelector('.cover')) {
+        const cover = document.querySelector('.cover');
+        cover.remove();
+    }
+}
+
+function showWinMessage() {
+    if (!document.querySelector('.win-msg')) {
+        const gameField = document.querySelector('.game-field');
+        const winMsg = document.createElement('div');
+        winMsg.classList.add('win-msg');
+        winMsg.innerHTML = '<span>You<br>WIN!!!</span>';
+        gameField.prepend(winMsg);
+        setTimeout(() => winMsg.classList.add('showBlock'), 200);
+    }
+}
+
+function removeWinMessage() {
+    if (document.querySelector('.win-msg')) {
+        const winMsg = document.querySelector('.win-msg');
+        winMsg.remove();
+    }
+}
+
+/* const controls = document.querySelector('.controls');
+controls.addEventListener('click', stopGame); */
+
+const sizesList = document.querySelector('.sizes-list');
+sizesList.addEventListener('click', chooseSize);
+
+function chooseSize(e) {
+    if (e.target.classList.contains('size-btn')) {
+        const oldAcvSize=document.querySelector('.size-active');
+        oldAcvSize.classList.remove('size-active');
+        e.target.parentElement.classList.add('size-active');
+       currentSet.size=e.target.textContent[0];
+       createTiles();
+       const infoSize=document.querySelector('.info-size-value');
+       infoSize.textContent=e.target.textContent;
+       
+    }
 }

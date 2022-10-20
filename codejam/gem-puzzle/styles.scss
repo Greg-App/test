@@ -75,6 +75,12 @@ $size: 4;
                     outline:2px solid rgb(236, 205, 30);
                 }
             }
+            .btn-disable {
+                background: grey;
+            }
+            .btn-active {
+                background: rgb(27, 100, 5);
+            }
         }
 
         .dashboard {
@@ -110,22 +116,59 @@ $size: 4;
         border-radius: 5px;
         /* gap:5px; */
         width:100%;
-       
+       .cover {
+        position:absolute;
+        width:100%;
+        height:100%;
+        z-index:50;
+        /* transition:0.7s; */
+        opacity:0;
+        background:rgba(0,0,0,0.5);
+        border-radius:5px;
+        
+    }
+    
+    .win-msg {position:absolute;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        z-index:60;
+        top:50%;
+        left:50%;
+     width:0px;
+     height:0px; 
+     /* transition:0.7s; */
+        opacity:0;
+     text-align: center;  
+     
+     span {display:inline-block;
+        position:absolute;
+        z-index:60;
+        /* top:-50%;
+        left:-50%; */
+        font-size:48px;
+        color:rgb(27, 97, 13);
+        text-shadow: 0 0 9px #fdfbfb;
+     }
+    }
+    .showBlock {opacity:1; transition:0.3s;}
         .item {position:absolute;
             box-sizing:border-box;
             display:flex;
             justify-content: center;
             align-items:center;
-            background-color: cadetblue;
+            background-color: rgb(51, 146, 150);
             padding:5px;
-            max-height:100px;
-            max-width:100px;
+            /* max-height:100px;
+            max-width:100px; */
             font-size:28px;
             font-weight: 600;
             border: 2px solid rgb(80, 18, 116);
             border-radius: 5px;
-            width:calc(100%/$size);
-            height:calc(100%/$size);
+            /* width:calc(100%/$size);
+            height:calc(100%/$size); */
+            /* width:100%;
+            height:100%; */
             transition:0.3s;
             &:hover {
                 filter: brightness(50%);
