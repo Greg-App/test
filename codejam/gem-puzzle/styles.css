@@ -70,6 +70,10 @@ span {
   transform: scale(1.05, 1.05);
   background: rgb(33, 88, 12);
 }
+.game-wrapper .header .controls .btn:active {
+  filter: brightness(150%);
+  outline: 2px solid rgb(236, 205, 30);
+}
 .game-wrapper .header .dashboard {
   display: flex;
   flex-direction: row;
@@ -100,10 +104,12 @@ span {
 }
 .game-wrapper .game-field .item {
   position: absolute;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: cadetblue;
+  padding: 5px;
   max-height: 100px;
   max-width: 100px;
   font-size: 28px;
@@ -112,14 +118,20 @@ span {
   border-radius: 5px;
   width: 25%;
   height: 25%;
+  transition: 0.3s;
 }
 .game-wrapper .game-field .item:hover {
-  border-color: green;
+  filter: brightness(50%);
   cursor: pointer;
   transition: 0.2s;
+  /* span{ 
+      color:green;
+  } */
 }
-.game-wrapper .game-field .item:hover span {
-  color: green;
+.game-wrapper .game-field .item:last-child {
+  display: none;
+  background: transparent;
+  border: none;
 }
 .game-wrapper .game-info {
   display: flex;
@@ -177,6 +189,15 @@ span {
   width: 100%;
   height: 100%;
   z-index: 30;
+}
+
+@media screen and (min-width: 460px) {
+  .item__value {
+    font-size: 38px;
+  }
+  html {
+    font-size: 18px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
