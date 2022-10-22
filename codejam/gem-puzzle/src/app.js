@@ -1,15 +1,18 @@
 const initContentSet = {
-    'controls': ['Reset', 'Start', 'Stop', 'Save', 'Results'],
+    'controls': ['Reset saved', 'Start', 'Stop', 'Save', 'Results'],
     'options': [3, 4, 5, 6, 7, 8],
     'moves': 0,
-    'time': '00:00',
+    'time': 0,
     'size': 4,
     'savedMatrix': [],
-    'top10list': []
+    'top10list': [],
+    'playState': false
 
 }
 
 let currentSet = checkLocalStorage() ? checkLocalStorage() : JSON.parse(JSON.stringify(initContentSet));
+currentSet.playState = false;
+console.log(currentSet);
 
 function checkLocalStorage() {
     const cur = JSON.parse(localStorage.getItem('currentSet'));
@@ -33,34 +36,37 @@ function createControls() {
         ctrlBtn.classList.add(`${el.replace(/ /g, "-")}`);
         ctrlBtn.textContent = el;
     });
+    const stop =document.querySelector('.Stop');
+    stop.disabled=true;
     const moveSound = document.createElement('audio');
     moveSound.classList.add('movesound');
-    moveSound.innerHTML='<source src="../gem-puzzle/assets/audio/whoosh-grainy_gjknxkv_.mp3"> type="audio/mp3">';
+    moveSound.innerHTML = '<source src="../gem-puzzle/assets/audio/whoosh-grainy_gjknxkv_.mp3"> type="audio/mp3">';
     ctrlBox.append(moveSound);
 }
-function createVolumeBtn () {
-    
+
+function createVolumeBtn() {
+
     const volumeBtn = document.createElement('div');
     volumeBtn.classList.add('volume-btn');
-    const header=document.querySelector('.header');
+    const header = document.querySelector('.header');
     header.append(volumeBtn);
     const volBtnImg = document.createElement('img');
     volumeBtn.append(volBtnImg);
-    volumeBtn.children[0].src='../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
+    volumeBtn.children[0].src = '../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
 }
 createVolumeBtn();
 const moveSound = document.querySelector('.movesound');
 const volumeBtn = document.querySelector('.volume-btn');
-volumeBtn.addEventListener('click',mute);
-function mute() {
-    if(moveSound.muted===false) {
-    moveSound.muted=true;
-    volumeBtn.children[0].src='../gem-puzzle/assets/icons/volume-off-svgrepo-com.svg';
+volumeBtn.addEventListener('click', mute);
 
-} 
-    else {
-        moveSound.muted=false;
-        volumeBtn.children[0].src='../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
+function mute() {
+    if (moveSound.muted === false) {
+        moveSound.muted = true;
+        volumeBtn.children[0].src = '../gem-puzzle/assets/icons/volume-off-svgrepo-com.svg';
+
+    } else {
+        moveSound.muted = false;
+        volumeBtn.children[0].src = '../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
     }
 }
 
@@ -71,13 +77,22 @@ function createDashboard() {
     dash.append(document.createElement('div'));
     dash.children[0].classList.add('dash-item');
     dash.children[0].classList.add('moves');
+    let min = Math.floor(currentSet.time/60);
+    let sec = currentSet.time%60;
+    min=min<10?`0${min}`:min;
+    sec=sec<10?`0${sec}`:sec;
+   
     dash.children[0].insertAdjacentHTML('afterbegin', `<span class="title">Moves:</span><span class="value">${currentSet.moves}</span>`);
-    dash.children[1].insertAdjacentHTML('afterbegin', `<span class="title">Time: </span><span class="value">${currentSet.time}</span>`);
+    dash.children[1].insertAdjacentHTML('afterbegin', `<span class="title">Time: </span><span class="value">${min}:${sec}</span>`);
+    
+   
     dash.children[1].classList.add('dash-item');
     dash.children[1].classList.add('time-left');
-
 }
 createDashboard();
+
+
+
 
 function createInfo() {
     const info = document.querySelector('.game-info');
@@ -179,7 +194,6 @@ function createTiles() {
     const oldItems = document.querySelectorAll('.item');
     oldItems.forEach((el) => el.remove());
     const afetdeleteItems = document.querySelectorAll('.item');
-    console.log(afetdeleteItems);
     const validArr = new Array(currentSet.size * currentSet.size).fill(0).map((el, ind) => ind + 1);
 
     validArr.forEach((el) => {
@@ -193,8 +207,12 @@ function createTiles() {
         gameField.append(tile);
     });
     setTileOffset();
+    
 }
 createTiles();
+if(localStorage.getItem('currentSet')) {
+    showCover();
+}
 
 const gameField = document.querySelector('.game-field');
 gameField.addEventListener('click', moveTile);
@@ -216,17 +234,17 @@ function moveTile(e) {
         if (isMoveOk(coorTarget, coorEmpty)) {
             const moveSound = document.querySelector('.movesound');
             moveSound.play();
-            setTimeout(()=>{
+            setTimeout(() => {
                 moveSound.pause();
-                moveSound.currentTime=0;
-            },170);
-            item.style.border='2px solid yellow';
-            item.style.filter='brightness(150%)';
-            setTimeout(()=>{
+                moveSound.currentTime = 0;
+            }, 170);
+            item.style.border = '2px solid yellow';
+            item.style.filter = 'brightness(150%)';
+            setTimeout(() => {
                 item.style.removeProperty('border');
                 item.style.removeProperty('filter');
-        
-        },300);
+
+            }, 300);
             let temp;
             temp = coorTarget;
             coorTarget = coorEmpty;
@@ -341,15 +359,29 @@ function chooseSize(e) {
         infoSize.textContent = e.target.textContent;
         removeCover();
         removeWinMessage();
+        const btnStart=document.querySelector('.Start');
+    btnStart.disabled=false;
+    const btnStop=document.querySelector('.Stop');
+    btnStop.disabled=true;
 
     }
+}
+
+function updateTime() {
+    const timeDisplay = document.querySelector('.time-left .value');
+    console.log(currentSet.time);
+    let min = Math.floor(currentSet.time/60).toString();
+    let sec = (currentSet.time%60).toString();
+    min=min<10?`0${min}`:min;
+    sec=sec<10?`0${sec}`:sec;
+    timeDisplay.textContent = `${min}:${sec}`;
+   
 }
 
 function updateDashboard() {
     const movesDisplay = document.querySelector('.moves .value');
     movesDisplay.textContent = currentSet.moves;
-    const timeDisplay = document.querySelector('.time-left .value');
-    timeDisplay.textContent = currentSet.time;
+    updateTime();
 }
 
 const controls = document.querySelector('.controls');
@@ -359,14 +391,14 @@ function doControls(e) {
     if (e.target.classList.contains('Save')) {
         saveGame();
     }
-    if (e.target.classList.contains('Reset')) {
+    if (e.target.classList.contains('Reset-saved')) {
         resetGame();
     }
-    if(e.target.classList.contains('Start')) {
+    if (e.target.classList.contains('Start')) {
         startGame();
     }
-    
-    if(e.target.classList.contains('Stop')) {
+
+    if (e.target.classList.contains('Stop')) {
         stopGame();
     }
 }
@@ -395,27 +427,75 @@ function saveGame() {
 function resetGame() {
     removeCover();
     removeWinMessage();
-    const curSize=currentSet.size;
-    currentSet=JSON.parse(JSON.stringify(initContentSet));
-    currentSet.size=curSize;
+    const curSize = currentSet.size;
+    currentSet = JSON.parse(JSON.stringify(initContentSet));
+    currentSet.size = curSize;
     createRndomMatrix();
     createTiles();
     updateDashboard();
+    localStorage.removeItem('currentSet');
     console.log(currentSet);
+    const btnStart=document.querySelector('.Start');
+    btnStart.disabled=false;
+    const btnStop=document.querySelector('.Stop');
+    btnStop.disabled=true;
 }
+
 function startGame() {
     removeCover();
-if(currentSet.moves===0&&currentSet.time===0) {
-    resetGame();
-    timerGo();
-} else {
-    timerGo();
+    if (currentSet.time===0) {
+        /* resetGame(); */
+        currentSet.moves=0;
+        updateDashboard();
+        timerGo();
+    } else {
+        timerGo();
+    }
+    const btnStart=document.querySelector('.Start');
+    btnStart.disabled=true;
+    const btnStop=document.querySelector('.Stop');
+    btnStop.disabled=false;
+    
 }
-}
+
 function stopGame() {
     timerStop();
-    showCover(); 
+    showCover();
+    const btnStart=document.querySelector('.Start');
+    btnStart.disabled=false;
+    const btnStop=document.querySelector('.Stop');
+    btnStop.disabled=true;
+    
+    
 }
+timer();
+
 function timerGo() {
+    currentSet.playState = true;
+}
+
+function timerStop() {
+    currentSet.playState = false;
+}
+
+function timer() {
+    if (currentSet.playState===true) {
+       currentSet.time++;
+       console.log('timer ',currentSet.time);
+       updateTime();
+    }
+    setTimeout(timer, 1000);
+}
+console.log(currentSet);
+window.addEventListener('beforeunload',stopBeforeUnload);
+function stopBeforeUnload () {
+    stopGame();
+    
+    if (localStorage.getItem('currentSet')) {
+        const temp=JSON.parse(localStorage.getItem('currentSet'));
+        temp.playState=false;
+        localStorage.setItem('currentSet',JSON.stringify(temp));          
+
+    }
     
 }
