@@ -39,10 +39,11 @@ function createControls() {
     ctrlBox.append(moveSound);
 }
 function createVolumeBtn () {
-    //const volumeBtn = document.querySelector('.volume-icon img');
+    
     const volumeBtn = document.createElement('div');
     volumeBtn.classList.add('volume-btn');
-    document.body.prepend(volumeBtn);
+    const header=document.querySelector('.header');
+    header.append(volumeBtn);
     const volBtnImg = document.createElement('img');
     volumeBtn.append(volBtnImg);
     volumeBtn.children[0].src='../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
@@ -361,13 +362,13 @@ function doControls(e) {
     if (e.target.classList.contains('Reset')) {
         resetGame();
     }
-    /* if(e.target.classList.contains('Stop')) {
-        stopGame();
+    if(e.target.classList.contains('Start')) {
+        startGame();
     }
     
-    if(e.target.classList.contains('Save')) {
-        showResults();
-    } */
+    if(e.target.classList.contains('Stop')) {
+        stopGame();
+    }
 }
 
 function saveGame() {
@@ -401,4 +402,20 @@ function resetGame() {
     createTiles();
     updateDashboard();
     console.log(currentSet);
+}
+function startGame() {
+    removeCover();
+if(currentSet.moves===0&&currentSet.time===0) {
+    resetGame();
+    timerGo();
+} else {
+    timerGo();
+}
+}
+function stopGame() {
+    timerStop();
+    showCover(); 
+}
+function timerGo() {
+    
 }

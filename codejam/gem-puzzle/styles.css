@@ -40,16 +40,16 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 5vw;
-  top: 30px;
+  right: 0px;
+  bottom: 0px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: rgb(65, 51, 5);
+  background: rgba(44, 25, 9, 0.7);
   /* background-image: url('../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg') center/cover; */
 }
 .volume-btn img {
-  height: 20px;
+  height: 18px;
 }
 .volume-btn:hover {
   cursor: pointer;
@@ -68,11 +68,12 @@ span {
   padding: 20px;
 }
 .game-wrapper .header {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
   margin-bottom: 10px;
   width: 100%;
 }
@@ -215,6 +216,7 @@ span {
   border: none;
 }
 .game-wrapper .game-info {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
