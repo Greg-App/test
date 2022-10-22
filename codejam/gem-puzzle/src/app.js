@@ -1,11 +1,15 @@
 const initContentSet = {
-    'controls': ['Shuffle and start', 'Stop', 'Save', 'Results'],
+    'controls': ['Reset', 'Start', 'Stop', 'Save', 'Results'],
     'options': [3, 4, 5, 6, 7, 8],
     'moves': 0,
     'time': '00:00',
-    'size': 4
+    'size': 4,
+    'savedMatrix': [],
+    'top10list': []
+
 }
-const currentSet = checkLocalStorage() ? checkLocalStorage() : JSON.parse(JSON.stringify(initContentSet));
+
+let currentSet = checkLocalStorage() ? checkLocalStorage() : JSON.parse(JSON.stringify(initContentSet));
 
 function checkLocalStorage() {
     const cur = JSON.parse(localStorage.getItem('currentSet'));
@@ -29,6 +33,10 @@ function createControls() {
         ctrlBtn.classList.add(`${el.replace(/ /g, "-")}`);
         ctrlBtn.textContent = el;
     });
+    const moveSound = document.createElement('audio');
+    moveSound.classList.add('movesound');
+    moveSound.innerHTML='<source src="../gem-puzzle/assets/audio/whoosh-grainy_gjknxkv_.mp3"> type="audio/mp3">';
+    ctrlBox.append(moveSound);
 }
 
 function createDashboard() {
@@ -95,12 +103,27 @@ function shuffleArray(array) {
 
 }
 
-function setTileOffset() {
+function createRndomMatrix() {
     const validArr = new Array(currentSet.size * currentSet.size).fill(0).map((el, ind) => ind + 1);
-    const curMatrix = [];
+    let curMatrix = [];
     for (let i = 0; i < currentSet.size; i++) {
         curMatrix.push(shuffleArray(validArr).splice(0, currentSet.size));
+        currentSet.savedMatrix = JSON.parse(JSON.stringify(curMatrix));
     }
+}
+
+function createCurMatrix() {
+
+    if (!localStorage.getItem('currentSet')) {
+        createRndomMatrix();
+    } else {
+        currentSet = JSON.parse(localStorage.getItem('currentSet'));
+    }
+}
+createCurMatrix();
+
+function setTileOffset() {
+    let curMatrix = JSON.parse(JSON.stringify(currentSet.savedMatrix));
     //console.log(curMatrix);
     const tileArr = document.querySelectorAll('.item');
     const a = [];
@@ -126,16 +149,18 @@ function setTileOffset() {
 }
 
 function createTiles() {
-    
     const gameField = document.querySelector('.game-field');
-    gameField.replaceChildren();
+    const oldItems = document.querySelectorAll('.item');
+    oldItems.forEach((el) => el.remove());
+    const afetdeleteItems = document.querySelectorAll('.item');
+    console.log(afetdeleteItems);
     const validArr = new Array(currentSet.size * currentSet.size).fill(0).map((el, ind) => ind + 1);
+
     validArr.forEach((el) => {
         const tile = document.createElement('div');
         tile.classList.add('item');
         tile.style.width = `${100/currentSet.size}%`;
         tile.style.height = `${100/currentSet.size}%`;
-
         tile.append(document.createElement('span'));
         tile.children[0].classList.add('item__value');
         tile.children[0].textContent = el;
@@ -163,6 +188,12 @@ function moveTile(e) {
         let coorTarget = [item.dataset.x, item.dataset.y];
         let coorEmpty = [gameField.lastElementChild.dataset.x, gameField.lastElementChild.dataset.y];
         if (isMoveOk(coorTarget, coorEmpty)) {
+            const moveSound = document.querySelector('.movesound');
+            moveSound.play();
+            setTimeout(()=>{
+                moveSound.pause();
+                moveSound.currentTime=0;
+            },180);
             let temp;
             temp = coorTarget;
             coorTarget = coorEmpty;
@@ -176,6 +207,10 @@ function moveTile(e) {
             gameField.lastElementChild.dataset.x = coorEmpty[0];
             gameField.lastElementChild.dataset.y = coorEmpty[1];
             gameField.lastElementChild.style.transform = `translate(${coorEmpty[0]*100}%,${coorEmpty[1]*100}%)`;
+            currentSet.moves += 1;
+            const movesDisplay = document.querySelector('.moves .value');
+            movesDisplay.textContent = currentSet.moves;
+            console.log(currentSet);
         }
     }
     ifWinGame();
@@ -188,6 +223,7 @@ function ifWinGame() {
     tileArr.forEach((el) => {
         playedArr.push(Number(el.dataset.tileNum));
     });
+    //!!!
     if (playedArr.join('') === validArr.join('')) {
         showCover();
         showWinMessage();
@@ -217,7 +253,7 @@ function showWinMessage() {
         const gameField = document.querySelector('.game-field');
         const winMsg = document.createElement('div');
         winMsg.classList.add('win-msg');
-        winMsg.innerHTML = '<span>You<br>WIN!!!</span>';
+        winMsg.innerHTML = `<span>Hooray! You solved the puzzle in ${currentSet.time} and ${currentSet.moves} moves!</span>`;
         gameField.prepend(winMsg);
         setTimeout(() => winMsg.classList.add('showBlock'), 200);
     }
@@ -238,13 +274,99 @@ sizesList.addEventListener('click', chooseSize);
 
 function chooseSize(e) {
     if (e.target.classList.contains('size-btn')) {
-        const oldAcvSize=document.querySelector('.size-active');
+        const oldAcvSize = document.querySelector('.size-active');
         oldAcvSize.classList.remove('size-active');
         e.target.parentElement.classList.add('size-active');
-       currentSet.size=e.target.textContent[0];
-       createTiles();
-       const infoSize=document.querySelector('.info-size-value');
-       infoSize.textContent=e.target.textContent;
-       
+        if (localStorage.getItem('currentSet')) {
+            console.log("1");
+            if (JSON.parse(localStorage.getItem('currentSet')).size === e.target.textContent[0]) {
+                console.log('1.1');
+                currentSet = JSON.parse(localStorage.getItem('currentSet'));
+            } else {
+                console.log('1.2');
+                currentSet = JSON.parse(JSON.stringify(initContentSet));
+                currentSet.size = e.target.textContent[0];
+                createRndomMatrix();
+                console.log('change size');
+                console.log(currentSet);
+            }
+        } else {
+            console.log('2');
+            currentSet = JSON.parse(JSON.stringify(initContentSet));
+            currentSet.size = e.target.textContent[0];
+            createRndomMatrix();
+
+            /* currentSet.moves=0;
+            const movesDisplay= document.querySelector('.moves .value');
+            movesDisplay.textContent=0; */
+        }
+        console.log(currentSet);
+        createTiles();
+        console.log(currentSet);
+        updateDashboard();
+        const infoSize = document.querySelector('.info-size-value');
+        infoSize.textContent = e.target.textContent;
+        removeCover();
+        removeWinMessage();
+
     }
+}
+
+function updateDashboard() {
+    const movesDisplay = document.querySelector('.moves .value');
+    movesDisplay.textContent = currentSet.moves;
+    const timeDisplay = document.querySelector('.time-left .value');
+    timeDisplay.textContent = currentSet.time;
+}
+
+const controls = document.querySelector('.controls');
+controls.addEventListener('click', doControls);
+
+function doControls(e) {
+    if (e.target.classList.contains('Save')) {
+        saveGame();
+    }
+    if (e.target.classList.contains('Reset')) {
+        resetGame();
+    }
+    /* if(e.target.classList.contains('Stop')) {
+        stopGame();
+    }
+    
+    if(e.target.classList.contains('Save')) {
+        showResults();
+    } */
+}
+
+function saveGame() {
+    const tileArr = document.querySelectorAll('.item');
+    const curTileNumArr = [];
+    tileArr.forEach((el) => {
+        curTileNumArr.push(Number(el.dataset.tileNum));
+    });
+    console.log(curTileNumArr);
+    const curMatrix = new Array(Number(currentSet.size)).fill('4').map((el, ind, arr) => arr[ind] = new Array(Number(currentSet.size)).fill('4'));
+    console.log(curMatrix);
+    curTileNumArr.forEach((el, ind) => {
+        console.log('el ', el);
+        console.log(Math.floor(el / currentSet.size));
+        console.log(Math.floor(el % currentSet.size));
+        curMatrix[Math.floor((el - 1) / currentSet.size)][Math.floor((el - 1) % currentSet.size)] = ind + 1;
+
+    });
+    currentSet.savedMatrix = JSON.parse(JSON.stringify(curMatrix));
+    localStorage.setItem('currentSet', JSON.stringify(currentSet));
+    console.log(currentSet);
+}
+
+function resetGame() {
+    removeCover();
+    removeWinMessage();
+    const curSize=currentSet.size;
+    currentSet=JSON.parse(JSON.stringify(initContentSet));
+    currentSet.size=curSize;
+    createRndomMatrix();
+    createTiles();
+    updateDashboard();
+    console.log(currentSet);
 }

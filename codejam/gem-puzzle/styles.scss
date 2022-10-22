@@ -11,13 +11,15 @@ body {
     padding: 0;
     width: 100%;
     min-height:100vh;
-    background-color:rgb(173, 180, 221);
+    background:url('assets/img/bg-puzzle_1.webp') center/cover;
 }
 
 html {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     font-weight: 600;
+    text-shadow: 0 0 22px black;
+    color:white;
 }
 h1 {margin:20px 20px auto;
     text-align: center;
@@ -27,6 +29,9 @@ span {
     display: inline-block;
 
 
+}
+.movesound {
+position:absolute;    
 }
 
 
@@ -61,7 +66,7 @@ $size: 4;
                 padding: 5px;
                 font-family: 'Lato', sans-serif;
                 font-size: 18px; 
-                background:rgba(44, 128, 184,1);
+                background:rgba(44, 25, 9, 0.7);
                 border:none;
                 border-radius: 5px;
                 color:white;
@@ -110,10 +115,11 @@ $size: 4;
     }
     .game-field {
         position:relative;
-        background:gray; 
+        background:rgba(45, 42, 49, 0.7); 
         padding-bottom:100%;
         margin-bottom:10px;
         border-radius: 5px;
+        box-shadow: 0 0 15px rgb(184, 172, 11);
         /* gap:5px; */
         width:100%;
        .cover {
@@ -147,8 +153,8 @@ $size: 4;
         /* top:-50%;
         left:-50%; */
         font-size:48px;
-        color:rgb(27, 97, 13);
-        text-shadow: 0 0 9px #fdfbfb;
+        color:rgb(36, 168, 10);
+        text-shadow: 0 0 9px #1a1919;
      }
     }
     .showBlock {opacity:1; transition:0.3s;}
@@ -157,13 +163,13 @@ $size: 4;
             display:flex;
             justify-content: center;
             align-items:center;
-            background-color: rgb(51, 146, 150);
+            background: url('../../codejam/gem-puzzle/assets/img/tile_cover.jpg');
             padding:5px;
             /* max-height:100px;
             max-width:100px; */
             font-size:28px;
             font-weight: 600;
-            border: 2px solid rgb(80, 18, 116);
+            border: 2px solid rgb(53, 41, 7);
             border-radius: 5px;
             /* width:calc(100%/$size);
             height:calc(100%/$size); */
@@ -183,6 +189,9 @@ $size: 4;
                 background:transparent;
                 border:none;
             }
+            /* .item__value {
+                font-size:0.9em;
+            } */
 
         }
         
@@ -225,7 +234,8 @@ $size: 4;
                         transition: 0.4s;
                     }
 
-                    color:black;
+                    color:white;
+                    text-shadow: 0 0 10px rgb(13, 13, 14);
                     display: inline-block;
 
                     &:not(:last-child) {
@@ -235,8 +245,9 @@ $size: 4;
 
                 .size-active {
                     position: relative;
-                    color: purple;
-                    font-weight: 600;
+                    color: rgb(106, 26, 138);
+                    text-shadow: 0 0 10px rgb(245, 245, 248);
+                    font-weight: 700;
                     a{text-decoration: none;}
 
                     &:after {
@@ -263,5 +274,22 @@ $size: 4;
     }
     html {
         font-size:18px;
+    }
+    .game-wrapper .game-field .win-msg span {
+        font-size: 32px; 
+    }
+}
+@media screen and (min-width:390.1px) and (max-width:460px) {
+    .game-wrapper .game-field .win-msg span {
+        font-size: 28px; 
+    }
+}
+@media screen and (max-width:390px) {
+    .item__value {
+        font-size: 22px;
+    }
+    
+    .game-wrapper .game-field .win-msg span {
+        font-size: 24px; 
     }
 }
