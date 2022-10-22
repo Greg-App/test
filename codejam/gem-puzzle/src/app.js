@@ -38,6 +38,31 @@ function createControls() {
     moveSound.innerHTML='<source src="../gem-puzzle/assets/audio/whoosh-grainy_gjknxkv_.mp3"> type="audio/mp3">';
     ctrlBox.append(moveSound);
 }
+function createVolumeBtn () {
+    //const volumeBtn = document.querySelector('.volume-icon img');
+    const volumeBtn = document.createElement('div');
+    volumeBtn.classList.add('volume-btn');
+    document.body.prepend(volumeBtn);
+    const volBtnImg = document.createElement('img');
+    volumeBtn.append(volBtnImg);
+    volumeBtn.children[0].src='../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
+}
+createVolumeBtn();
+const moveSound = document.querySelector('.movesound');
+const volumeBtn = document.querySelector('.volume-btn');
+volumeBtn.addEventListener('click',mute);
+function mute() {
+    if(moveSound.muted===false) {
+    moveSound.muted=true;
+    volumeBtn.children[0].src='../gem-puzzle/assets/icons/volume-off-svgrepo-com.svg';
+
+} 
+    else {
+        moveSound.muted=false;
+        volumeBtn.children[0].src='../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
+    }
+}
+
 
 function createDashboard() {
     const dash = document.querySelector('.dashboard');
