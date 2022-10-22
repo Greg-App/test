@@ -193,7 +193,14 @@ function moveTile(e) {
             setTimeout(()=>{
                 moveSound.pause();
                 moveSound.currentTime=0;
-            },180);
+            },170);
+            item.style.border='2px solid yellow';
+            item.style.filter='brightness(150%)';
+            setTimeout(()=>{
+                item.style.removeProperty('border');
+                item.style.removeProperty('filter');
+        
+        },300);
             let temp;
             temp = coorTarget;
             coorTarget = coorEmpty;
