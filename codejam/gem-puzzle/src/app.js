@@ -36,8 +36,8 @@ function createControls() {
         ctrlBtn.classList.add(`${el.replace(/ /g, "-")}`);
         ctrlBtn.textContent = el;
     });
-    const stop =document.querySelector('.Stop');
-    stop.disabled=true;
+    const stop = document.querySelector('.Stop');
+    stop.disabled = true;
     const moveSound = document.createElement('audio');
     moveSound.classList.add('movesound');
     moveSound.innerHTML = '<source src="../gem-puzzle/assets/audio/whoosh-grainy_gjknxkv_.mp3"> type="audio/mp3">';
@@ -45,8 +45,8 @@ function createControls() {
     const bgSound = document.createElement('audio');
     bgSound.classList.add('bg-sound');
     bgSound.innerHTML = '<source src="../gem-puzzle/assets/audio/geroi-mecha-i-magii-3-tema-igry.mp3"> type="audio/mp3">';
-    bgSound.volume=0.15;
-    bgSound.autoplay=true;
+    bgSound.volume = 0.15;
+    bgSound.autoplay = true;
     ctrlBox.append(bgSound);
 
 
@@ -88,15 +88,15 @@ function createDashboard() {
     dash.append(document.createElement('div'));
     dash.children[0].classList.add('dash-item');
     dash.children[0].classList.add('moves');
-    let min = Math.floor(currentSet.time/60);
-    let sec = currentSet.time%60;
-    min=min<10?`0${min}`:min;
-    sec=sec<10?`0${sec}`:sec;
-   
+    let min = Math.floor(currentSet.time / 60);
+    let sec = currentSet.time % 60;
+    min = min < 10 ? `0${min}` : min;
+    sec = sec < 10 ? `0${sec}` : sec;
+
     dash.children[0].insertAdjacentHTML('afterbegin', `<span class="title">Moves:</span><span class="value">${currentSet.moves}</span>`);
     dash.children[1].insertAdjacentHTML('afterbegin', `<span class="title">Time: </span><span class="value">${min}:${sec}</span>`);
-    
-   
+
+
     dash.children[1].classList.add('dash-item');
     dash.children[1].classList.add('time-left');
 }
@@ -142,24 +142,66 @@ function createOptions() {
 }
 createOptions();
 
+function isArrayValid(arr) {
+    let n = 0;
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] !== arr.length) {
+            console.log('in loop');
+            n = n + arr.slice(i + 1, arr.length).filter((el) => (el < arr[i] && el !== arr.length)).length;
+            console.log(arr.slice(i + 1, arr.length).filter((el) => (el < arr[i] && el !== arr.length)).length);
+        }
+    }
+    console.log('sum= ', n);
+    if (currentSet.size % 2 !== 0) {
+        console.log('number of row', currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size));
+        console.log('N= ', n);
+        if (n % 2 !== 0) {
+            console.log('array is INVALID ', arr);
+            return false;
+        } else {
+            console.log('array is valid ', arr);
+            return true;
+        }
+    } else {
+        let rowNum = currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size);
+        console.log('number of row', currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size));
+        if ((n % 2 !== 0&&rowNum%2===0)||(n % 2 === 0&&rowNum%2!==0)) {
+            console.log('array is valid ', arr);
+            return true;
+        } else {
+            console.log('array is INVALID ', arr);
+            return false;
+        }
+    }
+
+
+}
+
 function shuffleArray(array) {
     let j;
     let temp;
-    for (var i = array.length - 1; i > 0; i--) {
+    let arrayCopy = JSON.parse(JSON.stringify(array));
+    for (var i = arrayCopy.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
-        temp = array[j];
-        array[j] = array[i];
-        array[i] = temp;
+        temp = arrayCopy[j];
+        arrayCopy[j] = arrayCopy[i];
+        arrayCopy[i] = temp;
     }
-    return array;
-
+    return arrayCopy;
 }
 
 function createRndomMatrix() {
     const validArr = new Array(currentSet.size * currentSet.size).fill(0).map((el, ind) => ind + 1);
     let curMatrix = [];
+    let tempArray;
+    tempArray = shuffleArray(validArr);
+    while (!isArrayValid(tempArray)) {
+        tempArray = shuffleArray(validArr);
+    }
+    console.log('calc array', tempArray);
+
     for (let i = 0; i < currentSet.size; i++) {
-        curMatrix.push(shuffleArray(validArr).splice(0, currentSet.size));
+        curMatrix.push(tempArray.splice(0, currentSet.size));
         currentSet.savedMatrix = JSON.parse(JSON.stringify(curMatrix));
     }
 }
@@ -168,6 +210,7 @@ function createCurMatrix() {
 
     if (!localStorage.getItem('currentSet')) {
         createRndomMatrix();
+        console.log('valid Array is ', currentSet.savedMatrix);
     } else {
         currentSet = JSON.parse(localStorage.getItem('currentSet'));
     }
@@ -212,74 +255,74 @@ function createTiles() {
         tile.classList.add('item');
         tile.style.width = `${100/currentSet.size}%`;
         tile.style.height = `${100/currentSet.size}%`;
-        tile.draggable=true;
+        tile.draggable = true;
         tile.append(document.createElement('span'));
         tile.children[0].classList.add('item__value');
         tile.children[0].textContent = el;
         gameField.append(tile);
     });
-    gameField.lastElementChild.draggable=false;
+    gameField.lastElementChild.draggable = false;
 
     setTileOffset();
-    
+
 }
 createTiles();
-if(localStorage.getItem('currentSet')) {
+if (localStorage.getItem('currentSet')) {
     showCover();
 }
 
 const gameField = document.querySelector('.game-field');
 gameField.addEventListener('click', moveTile);
 
-gameField.addEventListener('dragstart', (e)=>{
-    
-if(e.target.closest('.item')) {
-    e.dataTransfer.effectAllowed = "move";
-    curItem=e.target.closest('.item');
-    console.log(curItem);
-}
+gameField.addEventListener('dragstart', (e) => {
+
+    if (e.target.closest('.item')) {
+        e.dataTransfer.effectAllowed = "move";
+        curItem = e.target.closest('.item');
+        console.log(curItem);
+    }
 });
-gameField.addEventListener('drop', (e)=>{
+gameField.addEventListener('drop', (e) => {
     //e.preventDefault();
 
-if(e.target.closest('.item')) {
-    //e.target.closest('.item').preventDefault();
-    targetItem=e.target.closest('.item');
-    console.log(targetItem);
-}
+    if (e.target.closest('.item')) {
+        //e.target.closest('.item').preventDefault();
+        targetItem = e.target.closest('.item');
+        console.log(targetItem);
+    }
 });
-gameField.addEventListener('dragend', (e)=>{
+gameField.addEventListener('dragend', (e) => {
     //e.preventDefault();
 
-if(e.target.closest('.item')&&targetItem.children[0].textContent==currentSet.size*currentSet.size) {
-    console.log("moving to last child");
-    curItem.classList.add('drag-transition');
-  moveTile(e);
-  setTimeout(()=>curItem.classList.remove('drag-transition'),300);
-    //e.target.closest('.item').preventDefault();
+    if (e.target.closest('.item') && targetItem.children[0].textContent == currentSet.size * currentSet.size) {
+        console.log("moving to last child");
+        curItem.classList.add('drag-transition');
+        moveTile(e);
+        setTimeout(() => curItem.classList.remove('drag-transition'), 300);
+        //e.target.closest('.item').preventDefault();
 
-}
+    }
 });
-gameField.addEventListener('dragenter', (e)=>{
+gameField.addEventListener('dragenter', (e) => {
     e.preventDefault();
-    if(e.target.closest('.item')) {
+    if (e.target.closest('.item')) {
         //e.target.closest('.item').preventDefault();
     }
-    });
-gameField.addEventListener('dragleave', (e)=>{
+});
+gameField.addEventListener('dragleave', (e) => {
     //e.preventDefault();
-    if(e.target.closest('.item')) {
-       // e.target.closest('.item').preventDefault();
+    if (e.target.closest('.item')) {
+        // e.target.closest('.item').preventDefault();
     }
-    });
-gameField.addEventListener('dragover', (e)=>{
+});
+gameField.addEventListener('dragover', (e) => {
     e.preventDefault();
 
-    if(e.target.closest('.item')) {
-        
+    if (e.target.closest('.item')) {
+
         //e.target.closest('.item').preventDefault();
     }
-    });
+});
 
 
 
@@ -426,23 +469,22 @@ function chooseSize(e) {
         infoSize.textContent = e.target.textContent;
         removeCover();
         removeWinMessage();
-        const btnStart=document.querySelector('.Start');
-    btnStart.disabled=false;
-    const btnStop=document.querySelector('.Stop');
-    btnStop.disabled=true;
+        const btnStart = document.querySelector('.Start');
+        btnStart.disabled = false;
+        const btnStop = document.querySelector('.Stop');
+        btnStop.disabled = true;
 
     }
 }
 
 function updateTime() {
     const timeDisplay = document.querySelector('.time-left .value');
-    console.log(currentSet.time);
-    let min = Math.floor(currentSet.time/60).toString();
-    let sec = (currentSet.time%60).toString();
-    min=min<10?`0${min}`:min;
-    sec=sec<10?`0${sec}`:sec;
+    let min = Math.floor(currentSet.time / 60).toString();
+    let sec = (currentSet.time % 60).toString();
+    min = min < 10 ? `0${min}` : min;
+    sec = sec < 10 ? `0${sec}` : sec;
     timeDisplay.textContent = `${min}:${sec}`;
-   
+
 }
 
 function updateDashboard() {
@@ -502,38 +544,38 @@ function resetGame() {
     updateDashboard();
     localStorage.removeItem('currentSet');
     console.log(currentSet);
-    const btnStart=document.querySelector('.Start');
-    btnStart.disabled=false;
-    const btnStop=document.querySelector('.Stop');
-    btnStop.disabled=true;
+    const btnStart = document.querySelector('.Start');
+    btnStart.disabled = false;
+    const btnStop = document.querySelector('.Stop');
+    btnStop.disabled = true;
 }
 
 function startGame() {
     removeCover();
-    if (currentSet.time===0) {
+    if (currentSet.time === 0) {
         /* resetGame(); */
-        currentSet.moves=0;
+        currentSet.moves = 0;
         updateDashboard();
         timerGo();
     } else {
         timerGo();
     }
-    const btnStart=document.querySelector('.Start');
-    btnStart.disabled=true;
-    const btnStop=document.querySelector('.Stop');
-    btnStop.disabled=false;
-    
+    const btnStart = document.querySelector('.Start');
+    btnStart.disabled = true;
+    const btnStop = document.querySelector('.Stop');
+    btnStop.disabled = false;
+
 }
 
 function stopGame() {
     timerStop();
     showCover();
-    const btnStart=document.querySelector('.Start');
-    btnStart.disabled=false;
-    const btnStop=document.querySelector('.Stop');
-    btnStop.disabled=true;
-    
-    
+    const btnStart = document.querySelector('.Start');
+    btnStart.disabled = false;
+    const btnStop = document.querySelector('.Stop');
+    btnStop.disabled = true;
+
+
 }
 timer();
 
@@ -546,25 +588,24 @@ function timerStop() {
 }
 
 function timer() {
-    if (currentSet.playState===true) {
-       currentSet.time++;
-       console.log('timer ',currentSet.time);
-       updateTime();
+    if (currentSet.playState === true) {
+        currentSet.time++;
+        console.log('timer ', currentSet.time);
+        updateTime();
     }
     setTimeout(timer, 1000);
 }
 console.log(currentSet);
-window.addEventListener('beforeunload',stopBeforeUnload);
-function stopBeforeUnload () {
+window.addEventListener('beforeunload', stopBeforeUnload);
+
+function stopBeforeUnload() {
     stopGame();
-    
+
     if (localStorage.getItem('currentSet')) {
-        const temp=JSON.parse(localStorage.getItem('currentSet'));
-        temp.playState=false;
-        localStorage.setItem('currentSet',JSON.stringify(temp));          
+        const temp = JSON.parse(localStorage.getItem('currentSet'));
+        temp.playState = false;
+        localStorage.setItem('currentSet', JSON.stringify(temp));
 
     }
-    
+
 }
-
-
