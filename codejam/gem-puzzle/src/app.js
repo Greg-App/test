@@ -143,6 +143,9 @@ function createOptions() {
 createOptions();
 
 function isArrayValid(arr) {
+    currentSet.size=parseInt(currentSet.size,10);
+    console.log('currentSet size: ',currentSet.size);
+    console.log(arr.indexOf(arr.length));
     let n = 0;
     for (let i = 0; i < arr.length - 1; i++) {
         if (arr[i] !== arr.length) {
@@ -164,7 +167,11 @@ function isArrayValid(arr) {
         }
     } else {
         let rowNum = currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size);
-        console.log('number of row', currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size));
+        console.log(rowNum);
+        console.log('cur size', currentSet.size);
+        console.log(arr.indexOf(arr.length));
+        console.log(currentSet.size + 1- Math.ceil((arr.indexOf(arr.length)+1)/currentSet.size));
+        console.log('number of row', `${currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size)}`);
         if ((n % 2 !== 0&&rowNum%2===0)||(n % 2 === 0&&rowNum%2!==0)) {
             console.log('array is valid ', arr);
             return true;
