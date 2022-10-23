@@ -218,6 +218,8 @@ function createTiles() {
         tile.children[0].textContent = el;
         gameField.append(tile);
     });
+    gameField.lastElementChild.draggable=false;
+
     setTileOffset();
     
 }
@@ -230,9 +232,9 @@ const gameField = document.querySelector('.game-field');
 gameField.addEventListener('click', moveTile);
 
 gameField.addEventListener('dragstart', (e)=>{
-    //e.preventDefault();
+    
 if(e.target.closest('.item')) {
-    //e.target.closest('.item').preventDefault();
+    e.dataTransfer.effectAllowed = "move";
     curItem=e.target.closest('.item');
     console.log(curItem);
 }
@@ -251,7 +253,9 @@ gameField.addEventListener('dragend', (e)=>{
 
 if(e.target.closest('.item')&&targetItem.children[0].textContent==currentSet.size*currentSet.size) {
     console.log("moving to last child");
+    curItem.classList.add('drag-transition');
   moveTile(e);
+  setTimeout(()=>curItem.classList.remove('drag-transition'),300);
     //e.target.closest('.item').preventDefault();
 
 }

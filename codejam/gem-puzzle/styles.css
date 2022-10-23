@@ -236,6 +236,9 @@ span {
 .game-wrapper .game-field .item:last-child:hover {
   cursor: auto;
 }
+.game-wrapper .game-field .drag-transition {
+  transition: 0s;
+}
 .game-wrapper .game-info {
   position: relative;
   display: flex;
