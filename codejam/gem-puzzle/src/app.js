@@ -44,9 +44,11 @@ function createControls() {
     ctrlBox.append(moveSound);
     const bgSound = document.createElement('audio');
     bgSound.classList.add('bg-sound');
-    bgSound.innerHTML = '<source src="../gem-puzzle/assets/audio/geroi-mecha-i-magii-3-tema-igry.mp3"> type="audio/mp3">';
+    bgSound.innerHTML = '<source src="../gem-puzzle/assets/audio/bg_music_corp_Umbrella.mp3"  type="audio/mp3">';
+    /* <source src="../gem-puzzle/assets/audio/geroi-mecha-i-magii-3-tema-igry.mp3"  type="audio/mp3">  */
     bgSound.volume = 0.15;
     bgSound.autoplay = true;
+    bgSound.loop = 'loop';
     ctrlBox.append(bgSound);
 
 
@@ -144,20 +146,14 @@ createOptions();
 
 function isArrayValid(arr) {
     currentSet.size=parseInt(currentSet.size,10);
-    console.log('currentSet size: ',currentSet.size);
-    console.log(arr.indexOf(arr.length));
     let n = 0;
     for (let i = 0; i < arr.length - 1; i++) {
         if (arr[i] !== arr.length) {
-            console.log('in loop');
             n = n + arr.slice(i + 1, arr.length).filter((el) => (el < arr[i] && el !== arr.length)).length;
-            console.log(arr.slice(i + 1, arr.length).filter((el) => (el < arr[i] && el !== arr.length)).length);
         }
     }
-    console.log('sum= ', n);
     if (currentSet.size % 2 !== 0) {
         console.log('number of row', currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size));
-        console.log('N= ', n);
         if (n % 2 !== 0) {
             console.log('array is INVALID ', arr);
             return false;
@@ -167,11 +163,6 @@ function isArrayValid(arr) {
         }
     } else {
         let rowNum = currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size);
-        console.log(rowNum);
-        console.log('cur size', currentSet.size);
-        console.log(arr.indexOf(arr.length));
-        console.log(currentSet.size + 1- Math.ceil((arr.indexOf(arr.length)+1)/currentSet.size));
-        console.log('number of row', `${currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size)}`);
         if ((n % 2 !== 0&&rowNum%2===0)||(n % 2 === 0&&rowNum%2!==0)) {
             console.log('array is valid ', arr);
             return true;
@@ -180,8 +171,6 @@ function isArrayValid(arr) {
             return false;
         }
     }
-
-
 }
 
 function shuffleArray(array) {
@@ -205,8 +194,6 @@ function createRndomMatrix() {
     while (!isArrayValid(tempArray)) {
         tempArray = shuffleArray(validArr);
     }
-    console.log('calc array', tempArray);
-
     for (let i = 0; i < currentSet.size; i++) {
         curMatrix.push(tempArray.splice(0, currentSet.size));
         currentSet.savedMatrix = JSON.parse(JSON.stringify(curMatrix));
@@ -602,7 +589,13 @@ function timer() {
     }
     setTimeout(timer, 1000);
 }
-console.log(currentSet);
+
+/*------Top 10 list--------------*/
+
+
+
+
+
 window.addEventListener('beforeunload', stopBeforeUnload);
 
 function stopBeforeUnload() {
