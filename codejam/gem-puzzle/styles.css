@@ -312,6 +312,7 @@ span {
   z-index: 30;
 }
 
+/*---Top 10 list-----------*/
 .top-list-note-cover {
   position: absolute;
   top: 0px;
@@ -329,10 +330,9 @@ span {
   left: calc(50% - 140px);
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   padding: 20px;
   width: 280px;
-  height: 150px;
   z-index: 100;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;

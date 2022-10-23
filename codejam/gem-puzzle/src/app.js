@@ -50,12 +50,9 @@ function createControls() {
     bgSound.autoplay = true;
     bgSound.loop = 'loop';
     ctrlBox.append(bgSound);
-
-
 }
 
 function createVolumeBtn() {
-
     const volumeBtn = document.createElement('div');
     volumeBtn.classList.add('volume-btn');
     const header = document.querySelector('.header');
@@ -143,7 +140,26 @@ function createOptions() {
     });
 }
 createOptions();
+/*------Top 10 list--------------*/
+function createTop10List () {
+document.body.insertAdjacentHTML('afterbegin', '<div class="top-list-cover"><div class="top-list"><button class="btn btn-back">Back</button><h4>Top 10 list</h4><ol class="top10list"></ol></div>');
+}
+function createTop10ListNote () {
+    document.body.insertAdjacentHTML('afterbegin', '<div class="top-list-note-cover"><div class="top-list-note"><h4>Congratulations! You\'re in the top 10 list</h4><span>Enter your name</span><input type="text"><button class="btn btn-save-result">Save result</button></div></div>');
+    }
+    createTop10List ();
+    createTop10ListNote ();
 
+function createTopListItem () {
+    const topList =document.querySelector('.top10list');
+    const listItem =document.createElement('li');
+    listItem.classList.add('top10list-item');
+}
+
+
+
+
+/*----create tiles-----------*/
 function isArrayValid(arr) {
     currentSet.size=parseInt(currentSet.size,10);
     let n = 0;
@@ -379,9 +395,10 @@ function ifWinGame() {
         playedArr.push(Number(el.dataset.tileNum));
     });
     //!!!
-    if (playedArr.join('') === validArr.join('')) {
+    if (playedArr.join('') !== validArr.join('')) {
         showCover();
         showWinMessage();
+        stopGame();
     }
 }
 
@@ -408,7 +425,9 @@ function showWinMessage() {
         const gameField = document.querySelector('.game-field');
         const winMsg = document.createElement('div');
         winMsg.classList.add('win-msg');
-        winMsg.innerHTML = `<span>Hooray! You solved the puzzle in ${currentSet.time} and ${currentSet.moves} moves!</span>`;
+        const currTime = document.querySelector('.time-left .value');
+
+        winMsg.innerHTML = `<span>Hooray! You solved the puzzle in ${currTime.textContent} and ${currentSet.moves} moves!</span>`;
         gameField.prepend(winMsg);
         setTimeout(() => winMsg.classList.add('showBlock'), 200);
     }
@@ -546,6 +565,7 @@ function resetGame() {
 
 function startGame() {
     removeCover();
+    removeWinMessage();
     if (currentSet.time === 0) {
         /* resetGame(); */
         currentSet.moves = 0;
@@ -590,12 +610,11 @@ function timer() {
     setTimeout(timer, 1000);
 }
 
-/*------Top 10 list--------------*/
 
 
 
 
-
+/*----Before unload----------*/
 window.addEventListener('beforeunload', stopBeforeUnload);
 
 function stopBeforeUnload() {
