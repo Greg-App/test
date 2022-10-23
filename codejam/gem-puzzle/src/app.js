@@ -42,6 +42,14 @@ function createControls() {
     moveSound.classList.add('movesound');
     moveSound.innerHTML = '<source src="../gem-puzzle/assets/audio/whoosh-grainy_gjknxkv_.mp3"> type="audio/mp3">';
     ctrlBox.append(moveSound);
+    const bgSound = document.createElement('audio');
+    bgSound.classList.add('bg-sound');
+    bgSound.innerHTML = '<source src="../gem-puzzle/assets/audio/geroi-mecha-i-magii-3-tema-igry.mp3"> type="audio/mp3">';
+    bgSound.volume=0.15;
+    bgSound.autoplay=true;
+    ctrlBox.append(bgSound);
+
+
 }
 
 function createVolumeBtn() {
@@ -56,16 +64,19 @@ function createVolumeBtn() {
 }
 createVolumeBtn();
 const moveSound = document.querySelector('.movesound');
+const bgSound = document.querySelector('.bg-sound');
 const volumeBtn = document.querySelector('.volume-btn');
 volumeBtn.addEventListener('click', mute);
 
 function mute() {
     if (moveSound.muted === false) {
         moveSound.muted = true;
+        bgSound.muted = true;
         volumeBtn.children[0].src = '../gem-puzzle/assets/icons/volume-off-svgrepo-com.svg';
 
     } else {
         moveSound.muted = false;
+        bgSound.muted = false;
         volumeBtn.children[0].src = '../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
     }
 }
@@ -201,6 +212,7 @@ function createTiles() {
         tile.classList.add('item');
         tile.style.width = `${100/currentSet.size}%`;
         tile.style.height = `${100/currentSet.size}%`;
+        tile.draggable=true;
         tile.append(document.createElement('span'));
         tile.children[0].classList.add('item__value');
         tile.children[0].textContent = el;
@@ -216,6 +228,57 @@ if(localStorage.getItem('currentSet')) {
 
 const gameField = document.querySelector('.game-field');
 gameField.addEventListener('click', moveTile);
+
+gameField.addEventListener('dragstart', (e)=>{
+    //e.preventDefault();
+if(e.target.closest('.item')) {
+    //e.target.closest('.item').preventDefault();
+    curItem=e.target.closest('.item');
+    console.log(curItem);
+}
+});
+gameField.addEventListener('drop', (e)=>{
+    //e.preventDefault();
+
+if(e.target.closest('.item')) {
+    //e.target.closest('.item').preventDefault();
+    targetItem=e.target.closest('.item');
+    console.log(targetItem);
+}
+});
+gameField.addEventListener('dragend', (e)=>{
+    //e.preventDefault();
+
+if(e.target.closest('.item')&&targetItem.children[0].textContent==currentSet.size*currentSet.size) {
+    console.log("moving to last child");
+  moveTile(e);
+    //e.target.closest('.item').preventDefault();
+
+}
+});
+gameField.addEventListener('dragenter', (e)=>{
+    e.preventDefault();
+    if(e.target.closest('.item')) {
+        //e.target.closest('.item').preventDefault();
+    }
+    });
+gameField.addEventListener('dragleave', (e)=>{
+    //e.preventDefault();
+    if(e.target.closest('.item')) {
+       // e.target.closest('.item').preventDefault();
+    }
+    });
+gameField.addEventListener('dragover', (e)=>{
+    e.preventDefault();
+
+    if(e.target.closest('.item')) {
+        
+        //e.target.closest('.item').preventDefault();
+    }
+    });
+
+
+
 
 function isMoveOk(target, empty) {
     if ((target[0] === empty[0] || target[1] === empty[1]) && (Math.abs(target[0] - empty[0]) === 1 || Math.abs(target[1] - empty[1]) === 1)) {
@@ -499,3 +562,5 @@ function stopBeforeUnload () {
     }
     
 }
+
+
