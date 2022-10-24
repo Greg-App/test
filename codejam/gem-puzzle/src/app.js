@@ -686,10 +686,12 @@ function startGame() {
     removeWinMessage();
     if (currentSet.time === 0) {
         currentSet.moves = 0;
+        resetGame();
         updateDashboard();
         timerGo();
     } else {
         if (currentSet.gameover === false) {
+            
             timerGo();
         } else {
             resetGame();
