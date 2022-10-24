@@ -395,10 +395,12 @@ function ifWinGame() {
         playedArr.push(Number(el.dataset.tileNum));
     });
     //!!!
-    if (playedArr.join('') !== validArr.join('')) {
+    if (playedArr.join('') === validArr.join('')) {
         showCover();
         showWinMessage();
         stopGame();
+        
+
     }
 }
 
