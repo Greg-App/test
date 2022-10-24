@@ -399,10 +399,27 @@ function ifWinGame() {
         showCover();
         showWinMessage();
         stopGame();
-        
 
+        checkAndUpdTopResults();
+        
     }
 }
+function showTopList() {
+    const topList = document.querySelector('.top-list-cover');
+    topList.style.transform='translateX(0%)';
+}
+function hideTopList() {
+    const topList = document.querySelector('.top-list-cover');
+    topList.style.transform='translateX(150%)';
+}
+const topList =document.querySelector('.top-list-cover');
+topList.addEventListener('click',(e)=>{
+    if(e.target.className==='top-list-cover') {
+    hideTopList();
+}
+});
+const topListBtn =document.querySelector('.btn-back');
+topListBtn.addEventListener('click', hideTopList);
 
 function showCover() {
     if (!document.querySelector('.cover')) {
@@ -524,6 +541,9 @@ function doControls(e) {
 
     if (e.target.classList.contains('Stop')) {
         stopGame();
+    }
+    if (e.target.classList.contains('Results')) {
+        showTopList();
     }
 }
 
