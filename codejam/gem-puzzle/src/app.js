@@ -291,7 +291,7 @@ gameField.addEventListener('dragstart', (e) => {
     if (e.target.closest('.item')) {
         e.dataTransfer.effectAllowed = "move";
         curItem = e.target.closest('.item');
-        console.log(curItem);
+        
     }
 });
 gameField.addEventListener('drop', (e) => {
@@ -300,14 +300,13 @@ gameField.addEventListener('drop', (e) => {
     if (e.target.closest('.item')) {
         //e.target.closest('.item').preventDefault();
         targetItem = e.target.closest('.item');
-        console.log(targetItem);
+        
     }
 });
 gameField.addEventListener('dragend', (e) => {
     //e.preventDefault();
 
     if (e.target.closest('.item') && targetItem.children[0].textContent == currentSet.size * currentSet.size) {
-        console.log("moving to last child");
         curItem.classList.add('drag-transition');
         moveTile(e);
         setTimeout(() => curItem.classList.remove('drag-transition'), 300);
@@ -349,7 +348,6 @@ function isMoveOk(target, empty) {
 
 function moveTile(e) {
     if (e.target.closest('.item')&&!e.target.classList.contains('showBlock')) {
-        console.log(e.target);
         const item = e.target.closest('.item');
         let gameField = document.querySelector('.game-field');
         let coorTarget = [item.dataset.x, item.dataset.y];
@@ -384,7 +382,6 @@ function moveTile(e) {
             currentSet.moves += 1;
             const movesDisplay = document.querySelector('.moves .value');
             movesDisplay.textContent = currentSet.moves;
-            console.log(currentSet);
         }
         ifWinGame();
     }
@@ -399,7 +396,7 @@ function ifWinGame() {
         playedArr.push(Number(el.dataset.tileNum));
     });
     //!!!
-    if (playedArr.join('') !== validArr.join('')) {
+    if (playedArr.join('') === validArr.join('')) {
         showCover();
         showWinMessage();
         stopGame();
@@ -417,10 +414,11 @@ function saveCurrResults() {
         currentSet.result = [{
             'name': '',
             'moves': currentSet.moves,
-            'time': currentSet.time
+            'time': currentSet.time,
+            'size': currentSet.size
         }];
         
-            console.log('yes1');
+            if(localStorage.getItem('top10List')) {
          let savedList=JSON.parse(localStorage.getItem('top10List'));
         savedList.push(currentSet.result[0]);
         savedList.sort((a,b)=>a.time-b.time);
@@ -429,9 +427,10 @@ function saveCurrResults() {
         if(savedList.length<=10||(savedList[savedList.length-1].time!=currentSet.result[0].time)) {
             console.log('yes2');
             showEnterName();
-        
-
         }
+    } else {
+        showEnterName();
+    }
 
         
     }
@@ -486,7 +485,7 @@ function updTopListHTML() {
             let sec = (el.time % 60).toString();
             min = min < 10 ? `0${min}` : min;
             sec = sec < 10 ? `0${sec}` : sec;
-            listItem.textContent = `${el.name}  - moves: ${el.moves}, time: ${min}:${sec}`;
+            listItem.textContent = `${el.name}  - moves: ${el.moves}, time: ${min}:${sec}, size: ${el.size}`;
             topListHTML.append(listItem);
         });
     }
