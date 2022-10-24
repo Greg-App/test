@@ -385,7 +385,7 @@ $size: 4;
     background: rgba(0, 0, 0, 0.4);
     z-index: 120;
     transition:0.7s;
-    transform: translateY(-100%);
+    transform: translateX(-100%);
 
     .top-list-note {
         h4 {
@@ -395,7 +395,7 @@ $size: 4;
         }
 
         position: absolute;
-        top: 30px;
+        top: 10px;
         left: calc(50% - 140px);
         display:flex;
         flex-direction: column;

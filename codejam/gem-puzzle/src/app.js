@@ -5,8 +5,9 @@ const initContentSet = {
     'time': 0,
     'size': 4,
     'savedMatrix': [],
-    'top10list': [],
-    'playState': false
+    'result': {},
+    'playState': false,
+    'gameover': false
 
 }
 
@@ -141,18 +142,19 @@ function createOptions() {
 }
 createOptions();
 /*------Top 10 list--------------*/
-function createTop10List () {
-document.body.insertAdjacentHTML('afterbegin', '<div class="top-list-cover"><div class="top-list"><button class="btn btn-back">Back</button><h4>Top 10 list</h4><ol class="top10list"></ol></div>');
+function createTop10List() {
+    document.body.insertAdjacentHTML('afterbegin', '<div class="top-list-cover"><div class="top-list"><button class="btn btn-back">Back</button><h4>Top 10 list</h4><ol class="top10list"></ol></div>');
 }
-function createTop10ListNote () {
-    document.body.insertAdjacentHTML('afterbegin', '<div class="top-list-note-cover"><div class="top-list-note"><h4>Congratulations! You\'re in the top 10 list</h4><span>Enter your name</span><input type="text"><button class="btn btn-save-result">Save result</button></div></div>');
-    }
-    createTop10List ();
-    createTop10ListNote ();
 
-function createTopListItem () {
-    const topList =document.querySelector('.top10list');
-    const listItem =document.createElement('li');
+function createTop10ListNote() {
+    document.body.insertAdjacentHTML('afterbegin', '<div class="top-list-note-cover"><div class="top-list-note"><h4>Congratulations! You\'re in the top 10 list</h4><span>Enter your name</span><input type="text"><button class="btn btn-save-result">Save result</button></div></div>');
+}
+createTop10List();
+createTop10ListNote();
+
+function createTopListItem() {
+    const topList = document.querySelector('.top10list');
+    const listItem = document.createElement('li');
     listItem.classList.add('top10list-item');
 }
 
@@ -161,7 +163,7 @@ function createTopListItem () {
 
 /*----create tiles-----------*/
 function isArrayValid(arr) {
-    currentSet.size=parseInt(currentSet.size,10);
+    currentSet.size = parseInt(currentSet.size, 10);
     let n = 0;
     for (let i = 0; i < arr.length - 1; i++) {
         if (arr[i] !== arr.length) {
@@ -179,7 +181,7 @@ function isArrayValid(arr) {
         }
     } else {
         let rowNum = currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size);
-        if ((n % 2 !== 0&&rowNum%2===0)||(n % 2 === 0&&rowNum%2!==0)) {
+        if ((n % 2 !== 0 && rowNum % 2 === 0) || (n % 2 === 0 && rowNum % 2 !== 0)) {
             console.log('array is valid ', arr);
             return true;
         } else {
@@ -346,7 +348,8 @@ function isMoveOk(target, empty) {
 }
 
 function moveTile(e) {
-    if (e.target.closest('.item')) {
+    if (e.target.closest('.item')&&!e.target.classList.contains('showBlock')) {
+        console.log(e.target);
         const item = e.target.closest('.item');
         let gameField = document.querySelector('.game-field');
         let coorTarget = [item.dataset.x, item.dataset.y];
@@ -383,8 +386,9 @@ function moveTile(e) {
             movesDisplay.textContent = currentSet.moves;
             console.log(currentSet);
         }
+        ifWinGame();
     }
-    ifWinGame();
+    
 }
 
 function ifWinGame() {
@@ -395,30 +399,115 @@ function ifWinGame() {
         playedArr.push(Number(el.dataset.tileNum));
     });
     //!!!
-    if (playedArr.join('') === validArr.join('')) {
+    if (playedArr.join('') !== validArr.join('')) {
         showCover();
         showWinMessage();
         stopGame();
+        currentSet.gameover = true;
+        console.log(currentSet);
 
-        checkAndUpdTopResults();
-        
+        saveCurrResults();
+
     }
 }
+
+function saveCurrResults() {
+    if (currentSet.time !== 0) {
+        let topListSaved;
+        currentSet.result = [{
+            'name': '',
+            'moves': currentSet.moves,
+            'time': currentSet.time
+        }];
+        
+            console.log('yes1');
+         let savedList=JSON.parse(localStorage.getItem('top10List'));
+        savedList.push(currentSet.result[0]);
+        savedList.sort((a,b)=>a.time-b.time);
+        console.log(savedList);
+        console.log(currentSet.result[0].time);
+        if(savedList.length<=10||(savedList[savedList.length-1].time!=currentSet.result[0].time)) {
+            console.log('yes2');
+            showEnterName();
+        
+
+        }
+
+        
+    }
+
+}
+
+function showEnterName() {
+    const enterNameMenu = document.querySelector('.top-list-note-cover');
+    enterNameMenu.style.transform = 'translateX(0%)';
+}
+
+function hideEnterName() {
+    const enterNameMenu = document.querySelector('.top-list-note-cover');
+    enterNameMenu.style.transform = 'translateX(-100%)';
+}
+const btnSaveResult = document.querySelector('.top-list-note .btn-save-result');
+btnSaveResult.addEventListener('click', saveResults);
+
+function saveResults() {
+    const nameInput = document.querySelector('.top-list-note input');
+    currentSet.result[0].name = nameInput.value ? nameInput.value : 'Player';
+    nameInput.value = '';
+
+    if (localStorage.getItem('top10List')) {
+        let topListSaved = JSON.parse(localStorage.getItem('top10List'));
+        console.log('before push', topListSaved);
+        topListSaved.push(currentSet.result[0]);
+        console.log('after push', topListSaved);
+        topListSaved.sort((a, b) => a.time - b.time);
+        topListSaved=topListSaved.splice(0,10);
+        console.log('after sort', topListSaved);
+        localStorage.setItem('top10List', JSON.stringify(topListSaved));
+        updTopListHTML();
+    } else {
+        localStorage.setItem('top10List', JSON.stringify(currentSet.result));
+        updTopListHTML();
+    }
+    hideEnterName();
+    setTimeout(showTopList, 200);
+
+}
+updTopListHTML();
+function updTopListHTML() {
+    let topListSaved = JSON.parse(localStorage.getItem('top10List'));
+    const topListHTML = document.querySelector('.top10list');
+    topListHTML.replaceChildren();
+    if (topListSaved) {
+        topListSaved.forEach((el) => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('top10list-item');
+            let min = Math.floor(el.time / 60).toString();
+            let sec = (el.time % 60).toString();
+            min = min < 10 ? `0${min}` : min;
+            sec = sec < 10 ? `0${sec}` : sec;
+            listItem.textContent = `${el.name}  - moves: ${el.moves}, time: ${min}:${sec}`;
+            topListHTML.append(listItem);
+        });
+    }
+}
+
 function showTopList() {
     const topList = document.querySelector('.top-list-cover');
-    topList.style.transform='translateX(0%)';
+    topList.style.transform = 'translateX(0%)';
 }
+
 function hideTopList() {
     const topList = document.querySelector('.top-list-cover');
-    topList.style.transform='translateX(150%)';
+    topList.style.transform = 'translateX(150%)';
 }
-const topList =document.querySelector('.top-list-cover');
-topList.addEventListener('click',(e)=>{
-    if(e.target.className==='top-list-cover') {
-    hideTopList();
-}
+const topList = document.querySelector('.top-list-cover');
+topList.addEventListener('click', (e) => {
+    if (e.target.className === 'top-list-cover') {
+        hideTopList();
+    }
 });
-const topListBtn =document.querySelector('.btn-back');
+const topListBtn = document.querySelector('.btn-back');
 topListBtn.addEventListener('click', hideTopList);
 
 function showCover() {
@@ -533,7 +622,7 @@ function doControls(e) {
         saveGame();
     }
     if (e.target.classList.contains('Reset-saved')) {
-        resetGame();
+        resetSavedGame();
     }
     if (e.target.classList.contains('Start')) {
         startGame();
@@ -577,7 +666,6 @@ function resetGame() {
     createRndomMatrix();
     createTiles();
     updateDashboard();
-    localStorage.removeItem('currentSet');
     console.log(currentSet);
     const btnStart = document.querySelector('.Start');
     btnStart.disabled = false;
@@ -585,16 +673,30 @@ function resetGame() {
     btnStop.disabled = true;
 }
 
+function resetSavedGame() {
+    resetGame();
+    resetLocalSavedGame();
+}
+
+function resetLocalSavedGame() {
+    localStorage.removeItem('currentSet');
+}
+
 function startGame() {
     removeCover();
     removeWinMessage();
     if (currentSet.time === 0) {
-        /* resetGame(); */
         currentSet.moves = 0;
         updateDashboard();
         timerGo();
     } else {
-        timerGo();
+        if (currentSet.gameover === false) {
+            timerGo();
+        } else {
+            resetGame();
+            timerGo();
+
+        }
     }
     const btnStart = document.querySelector('.Start');
     btnStart.disabled = true;
@@ -640,6 +742,8 @@ function timer() {
 window.addEventListener('beforeunload', stopBeforeUnload);
 
 function stopBeforeUnload() {
+    hideTopList();
+    hideEnterName();
     stopGame();
 
     if (localStorage.getItem('currentSet')) {
