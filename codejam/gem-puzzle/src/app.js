@@ -149,7 +149,7 @@ function createTop10List() {
 function createTop10ListNote() {
     document.body.insertAdjacentHTML('afterbegin', '<div class="top-list-note-cover"><div class="top-list-note"><h4>Congratulations! You\'re in the top 10 list</h4><span>Enter your name</span><input type="text"><button class="btn btn-save-result">Save result</button></div></div>');
 }
-createTop10List();
+ createTop10List();
 createTop10ListNote();
 
 function createTopListItem() {
