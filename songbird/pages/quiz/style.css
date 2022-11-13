@@ -70,6 +70,7 @@ img {
   margin: 0 auto;
   gap: 30px;
   width: 100%;
+  max-width: 1280px;
   height: 100%;
   padding: 40px 20px 20px;
 }
@@ -161,6 +162,7 @@ img {
   justify-content: flex-start;
   align-items: center;
   gap: 30px;
+  width: 100%;
 }
 .quiz-main .preview {
   width: 100%;
@@ -171,7 +173,46 @@ img {
   justify-content: space-between;
   align-items: flex-start;
   gap: 30px;
-  flex: calc(50% - 15px);
+  width: 100%;
+}
+.quiz-main .game-wrapper .bird-list,
+.quiz-main .game-wrapper .bird-card-info {
+  width: 100%;
+  flex: 1 1 calc(50% - 15px);
+}
+.quiz-main .game-wrapper .bird-list {
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  list-style-type: none;
+}
+.quiz-main .game-wrapper .bird-list .bird-list__list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  padding: 10px 20px 10px;
+  width: 100%;
+  background: rgba(74, 82, 78, 0.8);
+  border-radius: 15px;
+  border: 1px solid grey;
+}
+.quiz-main .game-wrapper .bird-list .bird-list__list-item:hover {
+  cursor: pointer;
+  background: rgb(92, 90, 90);
+  transition: 0.3s;
+}
+.quiz-main .game-wrapper .bird-list .bird-list__list-item .bird-list__item-check {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  background: darkgray;
+  border-radius: 50%;
 }
 
 .next-level-btn {
@@ -209,6 +250,8 @@ img {
   padding: 0 10px;
 }
 
+/*--------Birds-list-----------*/
+/*---------Media queries-----------*/
 @media screen and (max-width: 600px) {
   .page-wrapper {
     padding: 10px;
@@ -217,8 +260,10 @@ img {
     font-size: 1.2em;
   }
   .quiz-main .game-wrapper {
-    flex: 100%;
     flex-direction: column;
+  }
+  .quiz-main .game-wrapper .bird-list .bird-list__list-item {
+    flex: 100%;
   }
   .quiz-main .quiz-quiz {
     font-size: 1.2em;
