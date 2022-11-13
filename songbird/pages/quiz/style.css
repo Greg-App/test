@@ -41,7 +41,9 @@ body {
   min-height: 100%;
 }
 
-html, body, .page-wrapper {
+html,
+body,
+.page-wrapper {
   min-height: 100vh;
 }
 
@@ -211,8 +213,19 @@ img {
   flex-shrink: 0;
   width: 15px;
   height: 15px;
-  background: darkgray;
+  background: rgb(169, 169, 169);
   border-radius: 50%;
+}
+.quiz-main .game-wrapper .bird-list .bird-list__list-item .bird-list__item-check_ok {
+  background: green;
+}
+.quiz-main .game-wrapper .bird-list .bird-list__list-item .bird-list__item-check_nok {
+  background: rgb(128, 26, 0);
+}
+.quiz-main .game-wrapper .bird-list .bird-list__list-item_checked {
+  background: rgb(92, 90, 90);
+  border-color: rgb(196, 192, 192);
+  cursor: auto;
 }
 
 .next-level-btn {
