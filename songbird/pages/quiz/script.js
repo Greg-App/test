@@ -13,10 +13,12 @@ const state = {
 let curBird = birdsData[state.stage][getRandomNum(0, birdsData.length - 1)];
 console.log('curBird: ', curBird);
 
-/*----create bird list item--------*/
-function selectBird(e) {
-console.log('hey');
-}
+/*----create/update bird list, current stage and score START--------*/
+function updScore() {
+  const score=document.querySelector('.dash-score');
+  score.textContent=state.score;
+  }
+
 const birdList = document.querySelector('.bird-list');
   birdList.addEventListener('click', selectBird);
 function createBirdList() {
@@ -36,4 +38,18 @@ function createBirdList() {
     birdList.append(birdItem);
   });
 }
+
+function updateCurrStage() {
+const oldstageAct = document.querySelector('.quiz-nav__list-item_active');
+if(oldstageAct) {oldstageAct.classList.remove('quiz-nav__list-item_active');}
+const stageList = document.querySelectorAll('.quiz-nav__list-item');
+stageList[state.stage].classList.toggle('quiz-nav__list-item_active');
+}
 createBirdList();
+updateCurrStage();
+updScore();
+/*----create/update bird list, current stage and score END--------*/
+
+function selectBird(e) {
+  console.log('hey');
+  }
