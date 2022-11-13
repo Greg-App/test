@@ -26,7 +26,7 @@ body,
 
 :root {
   font-family: Lato, 'Arial', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
 }
 
@@ -182,6 +182,7 @@ $block-gap: 30px;
       justify-content: flex-start;
       align-items: flex-start;
       list-style-type: none;
+      font-size: 1.2em;
 
       .bird-list__list-item {
         @include flex-row-start-cent;
@@ -215,16 +216,176 @@ $block-gap: 30px;
           background: rgb(128, 26, 0);
         }
       }
+
       .bird-list__list-item_checked {
         background: rgb(92, 90, 90);
-        border-color:rgb(196, 192, 192);
-        cursor:auto;
+        border-color: rgb(196, 192, 192);
+        cursor: auto;
       }
+    }
+
+  }
+}
+.bird-card {
+  @include flex-column-start-start;
+  gap:20px;
+  padding:10px;
+  .bird-card__img {
+    align-self: center;
+    border-radius: 10px;
+    display: block;
+  }
+  .bird-card__preview {
+    @include flex-column-start-start;
+    width:100%;
+    .bird-card__name {
+      font-size:1.4em;
+    }
+    .bird-card__gen {
+      font-size:1.2em;
+    }
+    .card-preview__item {
+      flex: 1 1;
+      width:100%;
+    }
+    .bird-card__player {
+      flex-grow: 1;
     }
   }
 }
+.bird-card-play {
+  @include flex-row-start-cent;
+  .bird-card__img {
+    align-self: center;
+  }
+  .bird-card__description,
+  .bird-card__gen {
+    display:none;
+  }
+}
 
-.birds-card-play {}
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  .player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //width: 120px;
+  }
+
+  .player-icon,
+  .slider-icon,
+  .change-quote {
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    opacity: .8;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .play {
+    width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
+    background-image: url("../../assets/icons/play.svg");
+  }
+
+  .pause {
+    background-image: url("../assets/svg/pause.svg");
+  }
+
+  .play-prev {
+    background-image: url("../assets/svg/play-prev.svg");
+  }
+
+  .play-next {
+    background-image: url("../assets/svg/play-next.svg");
+  }
+
+  .player-custom-ctrls {
+    min-height: 43px;
+    padding: 5px;
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .track-name {
+    text-align: left;
+  }
+
+  .play-bar {
+    display:block;
+    height: 7px;
+    background: white;
+    width: 100%;
+    margin: 3px auto 3px auto;
+    border: none;
+    border-radius: 3px;
+  }
+
+  #playBar {
+    background: black;
+    width: 100%;
+  }
+
+  #playBar,
+  .volume-bar,
+  .volume-icon img:hover {
+    cursor: pointer;
+  }
+
+  .volume-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+
+  }
+
+  .volume-icon {
+
+    margin-right: 5px;
+  }
+
+  .volume-icon img {
+    height: 14px;
+    width: 14px;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+
+  }
+
+  .volume-bar {
+    height: 5px;
+    width: 60px;
+    background: #797676;
+    margin-right: 10px;
+  }
+
+  .volume-current {
+    background: white;
+    width: 100%;
+    height: 100%;
+  }
+
+  .play-time {
+    text-align: right;
+  }
+}
+
+
 
 .next-level-btn {
 
@@ -314,6 +475,9 @@ $block-gap: 30px;
 
       }
     }
+  }
+  .bird-card-play {
+    @include flex-column-start-start;
   }
 }
 

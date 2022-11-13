@@ -49,7 +49,7 @@ body,
 
 :root {
   font-family: Lato, "Arial", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
 }
 
@@ -190,6 +190,7 @@ img {
   justify-content: flex-start;
   align-items: flex-start;
   list-style-type: none;
+  font-size: 1.2em;
 }
 .quiz-main .game-wrapper .bird-list .bird-list__list-item {
   display: flex;
@@ -226,6 +227,154 @@ img {
   background: rgb(92, 90, 90);
   border-color: rgb(196, 192, 192);
   cursor: auto;
+}
+
+.bird-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 10px;
+}
+.bird-card .bird-card__img {
+  align-self: center;
+  border-radius: 10px;
+  display: block;
+}
+.bird-card .bird-card__preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+.bird-card .bird-card__preview .bird-card__name {
+  font-size: 1.4em;
+}
+.bird-card .bird-card__preview .bird-card__gen {
+  font-size: 1.2em;
+}
+.bird-card .bird-card__preview .card-preview__item {
+  flex: 1 1;
+  width: 100%;
+}
+.bird-card .bird-card__preview .bird-card__player {
+  flex-grow: 1;
+}
+
+.bird-card-play {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.bird-card-play .bird-card__img {
+  align-self: center;
+}
+.bird-card-play .bird-card__description,
+.bird-card-play .bird-card__gen {
+  display: none;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.player .player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.player .player-icon,
+.player .slider-icon,
+.player .change-quote {
+  width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.player .play {
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+  background-image: url("../../assets/icons/play.svg");
+}
+.player .pause {
+  background-image: url("../assets/svg/pause.svg");
+}
+.player .play-prev {
+  background-image: url("../assets/svg/play-prev.svg");
+}
+.player .play-next {
+  background-image: url("../assets/svg/play-next.svg");
+}
+.player .player-custom-ctrls {
+  min-height: 43px;
+  padding: 5px;
+  width: 100%;
+  font-size: 14px;
+  text-align: left;
+}
+.player .track-name {
+  text-align: left;
+}
+.player .play-bar {
+  display: block;
+  height: 7px;
+  background: white;
+  width: 100%;
+  margin: 3px auto 3px auto;
+  border: none;
+  border-radius: 3px;
+}
+.player #playBar {
+  background: black;
+  width: 100%;
+}
+.player #playBar,
+.player .volume-bar,
+.player .volume-icon img:hover {
+  cursor: pointer;
+}
+.player .volume-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.player .volume-icon {
+  margin-right: 5px;
+}
+.player .volume-icon img {
+  height: 14px;
+  width: 14px;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+}
+.player .volume-bar {
+  height: 5px;
+  width: 60px;
+  background: #797676;
+  margin-right: 10px;
+}
+.player .volume-current {
+  background: white;
+  width: 100%;
+  height: 100%;
+}
+.player .play-time {
+  text-align: right;
 }
 
 .next-level-btn {
@@ -291,6 +440,12 @@ img {
   .quiz-header .logo .logo__icon {
     width: 40px;
     height: 40px;
+  }
+  .bird-card-play {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }
 @media screen and (max-width: 390px) {
