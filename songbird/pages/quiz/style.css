@@ -70,11 +70,11 @@ img {
   justify-content: flex-start;
   align-items: center;
   margin: 0 auto;
-  gap: 30px;
+  gap: 20px;
   width: 100%;
   max-width: 1280px;
   height: 100%;
-  padding: 40px 20px 20px;
+  padding: 20px 20px 20px;
 }
 
 .block {
@@ -163,7 +163,7 @@ img {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   width: 100%;
 }
 .quiz-main .preview {
@@ -180,7 +180,7 @@ img {
 .quiz-main .game-wrapper .bird-list,
 .quiz-main .game-wrapper .bird-card-info {
   width: 100%;
-  flex: 1 1 calc(50% - 15px);
+  flex: 1 1 calc(50% - 10px);
 }
 .quiz-main .game-wrapper .bird-list {
   display: flex;
