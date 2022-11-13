@@ -221,7 +221,7 @@ img {
   background: green;
 }
 .quiz-main .game-wrapper .bird-list .bird-list__list-item .bird-list__item-check_nok {
-  background: rgb(128, 26, 0);
+  background: rgb(199, 48, 11);
 }
 .quiz-main .game-wrapper .bird-list .bird-list__list-item_checked {
   background: rgb(92, 90, 90);
@@ -261,6 +261,9 @@ img {
 }
 .bird-card .bird-card__preview .bird-card__player {
   flex-grow: 1;
+}
+.bird-card .bird-card__description {
+  font-size: 1.2em;
 }
 
 .bird-card-play {
@@ -378,12 +381,14 @@ img {
   padding: 0.5em;
   user-select: none;
   font-size: 1.4em;
+  color: #a5a2a2;
 }
 
 .next-level-btn_active {
   display: block;
   cursor: pointer;
   background: #008966;
+  color: #ffffff;
 }
 .next-level-btn_active:hover {
   transform: scale(1.02, 1.02);

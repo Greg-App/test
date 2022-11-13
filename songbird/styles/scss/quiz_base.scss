@@ -213,7 +213,7 @@ $block-gap: 20px;
         }
 
         .bird-list__item-check_nok {
-          background: rgb(128, 26, 0);
+          background: rgb(199, 48, 11);
         }
       }
 
@@ -251,6 +251,9 @@ $block-gap: 20px;
     .bird-card__player {
       flex-grow: 1;
     }
+  }
+  .bird-card__description {
+    font-size:1.2em;
   }
 }
 .bird-card-play {
@@ -387,6 +390,7 @@ $block-gap: 20px;
   padding: 0.5em;
   user-select: none;
   font-size: 1.4em;
+  color:#a5a2a2;
 
 }
 
@@ -394,7 +398,7 @@ $block-gap: 20px;
   display: block;
   cursor: pointer;
   background: #008966;
-
+  color:#ffffff;
   &:hover {
     transform: scale(1.02, 1.02);
     transition: 0.3s;
