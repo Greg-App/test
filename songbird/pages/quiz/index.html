@@ -13,12 +13,12 @@
 </head>
 <body>
   <div class="page-wrapper">
-  <header class="quiz-header">
+  <header class="quiz-header block">
     <div class="header-wrapper">
       <div class="logo">
         <div class="logo__icon">
-          <img src="../../assets/images/hummingbird-logo.png" alt="logo-songbird" width="80" class="logo__img">
-        </div>
+          <a href="../start-page/index.html"><img src="../../assets/images/hummingbird-logo.png" alt="logo-songbird" width="80" class="logo__img">
+          </div></a>
         <div class="logo__title logo-title">
           <span class="logo-title__text">Song</span>
           <span class="logo-title__text logo-title__text_colored">Bird</span>
@@ -53,18 +53,24 @@
 
   </header>
   <main class="quiz-main">
-    <div class="quiz-quiz">
-      <h1 class="quiz-quiz__title">
-        Quiz Game
-      </h1>
-      <h2>How the bird sings</h2>
-      <p>Listen to the different bird singing records and try to guess the name of the bird.</p>
-    </div>
-
+    <section class="preview">
+      <div class="birds-card block birds-card-play">
+        <span>How the bird sings</span>
+      </div>
+    </section>
+    <section class="game-wrapper">
+      <div class="birds-list block">
+        <h2>How the bird sings</h2>
+        <p>Listen to the different bird singing records and try to guess the name of the bird.</p>
+      </div>
+      <div class="birds-card block birds-card-info">
+        <h2>How the bird sings</h2>
+        <p>Listen to the different bird singing records and try to guess the name of the bird.</p>
+      </div>
+    </section>
+    <button class="next-level-btn button block next-level-btn_active">Next Level</button>
+    
   </main>
-  <footer class="quiz-footer">
-
-  </footer>
 </div>
 </body>
 </html>
