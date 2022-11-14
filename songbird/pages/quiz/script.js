@@ -82,9 +82,9 @@ function selectBird(e) {
       /*win*/
       if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
         state.score = state.score + birdsData[state.stage].length - state.tryCount;
+        addBirdCardInfo('bird-card-play',curBird);
         if(state.stage===birdsData.length-1) {
           localStorage.setItem('songbird-score',`${state.score}`);
-          addBirdCardInfo('bird-card-play',curBird);
         }
       }
       updateScore();
