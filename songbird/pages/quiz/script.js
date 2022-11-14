@@ -83,14 +83,20 @@ function selectBird(e) {
       /*win*/
       const clicksound =document.querySelector('.win');
       clicksound.play();
-      const allAudio = document.querySelectorAll('.bird-card .audio');
+      const allAudioBtn = document.querySelectorAll('.bird-card .play');
+      allAudioBtn.forEach((el)=>{
+        if(el.classList.contains('pause')) {
+          el.click();
+        } 
+      });
+      /* const allAudio = document.querySelectorAll('.bird-card .audio');
       const allPlayerIcon = document.querySelectorAll('.player-icon');
       allAudio.forEach((el)=>{
         el.pause();
       });
       allPlayerIcon.forEach((el)=>{
         el.classList.remove('pause');
-      });
+      }); */
       if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
         state.score = state.score + birdsData[state.stage].length - state.tryCount;
         addBirdCardInfo('bird-card-play',curBird);
