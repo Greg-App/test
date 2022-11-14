@@ -69,7 +69,6 @@ updScore();
 function selectBird(e) {
   state.tryCount += 1;
   if (e.target.closest('.bird-list__list-item')) {
-    console.log('hey');
     const selBirdName = e.target.closest('.bird-list__list-item');
     selBirdName.classList.add('bird-list__list-item_checked');
     if (selBirdName.children[1].textContent.toLowerCase().trim() == state.curBirdInfo.name.toLowerCase()) {
@@ -77,9 +76,12 @@ function selectBird(e) {
       selBirdName.children[0].style.background = '#008000';
       const nextBtn =document.querySelector('.next-level-btn');
       nextBtn.classList.add('next-level-btn_active');
+
     } else {
       selBirdName.children[0].style.background = '#c7300b';
     }
+    const birdInfoSelName = document.querySelector('.bird-card-info .bird-card__preview .bird-card__name');
+    if (!birdInfoSelName||birdInfoSelName.textContent.toLowerCase().trim()!==selBirdName.children[1].textContent.toLowerCase().trim()) {
     for (let key of birdsData[state.stage]) {
       if (key.name.toLowerCase() == selBirdName.children[1].textContent.toLowerCase().trim()) {
         const birdInfoBlock = document.querySelector('.bird-card-info');
@@ -94,8 +96,8 @@ function selectBird(e) {
         const birdCardDescr = birdInfoBlock.querySelector('.bird-card__description');
         birdCardDescr.textContent = key.description;
       }
-
     }
+  }
 
 
   }
