@@ -20,6 +20,7 @@ function setDefBirdInfo() {
   birdInfoBlock.innerHTML = state.defBirdInfo;
 }
 setDefBirdInfo();
+
 let curBird = birdsData[state.stage][getRandomNum(0, birdsData.length - 1)];
 console.log('curBird: ', curBird);
 state.curBirdInfo = curBird;
@@ -76,13 +77,15 @@ function selectBird(e) {
     if (selBirdName.children[1].textContent.toLowerCase().trim() == state.curBirdInfo.name.toLowerCase()) {
       /*win*/
       if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
-        state.score =birdsData[state.stage].length - state.tryCount;
+        state.score =state.score + birdsData[state.stage].length - state.tryCount;
+        console.log(typeof birdsData[state.stage].length);
         }
       updateScore();
       selBirdName.children[0].style.background = '#008000';
       selBirdName.classList.add('bird-list__list-item_checked');
       const nextBtn =document.querySelector('.next-level-btn');
       nextBtn.classList.add('next-level-btn_active');
+      nextBtn.disabled=false;
 
     } else {
       selBirdName.children[0].style.background = '#c7300b';
@@ -106,7 +109,22 @@ function selectBird(e) {
       }
     }
   }
-
-
   }
 }
+
+const nextBtn = document.querySelector('.next-level-btn');
+nextBtn.addEventListener('click', moveToNextLevel);
+nextBtn.disabled=true;
+function moveToNextLevel (e) {
+  state.stage+=1;
+  state.tryCount=0;
+  updateCurrStage();
+  createBirdList();
+setDefBirdInfo();
+  nextBtn.disabled=true;
+  nextBtn.classList.remove('next-level-btn_active');
+  curBird = birdsData[state.stage][getRandomNum(0, birdsData.length - 1)];
+console.log('curBird: ', curBird);
+state.curBirdInfo = curBird;
+}
+
