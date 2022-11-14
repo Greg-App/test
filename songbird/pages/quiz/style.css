@@ -178,7 +178,7 @@ img {
   width: 100%;
 }
 .quiz-main .game-wrapper .bird-list,
-.quiz-main .game-wrapper .bird-card-info {
+.quiz-main .game-wrapper .bird-card-info-wrapper {
   width: 100%;
   flex: 1 1 calc(50% - 10px);
 }
@@ -413,7 +413,18 @@ img {
   padding: 0 10px;
 }
 
-/*--------Birds-list-----------*/
+/*----Show/hide---------*/
+/* .bird-card {
+  visibility: hidden;
+  transition: 1.0s;
+  display:none;
+} */
+.show {
+  display: flex;
+  visibility: visible;
+  transition: 1s;
+}
+
 /*---------Media queries-----------*/
 @media screen and (max-width: 600px) {
   .page-wrapper {

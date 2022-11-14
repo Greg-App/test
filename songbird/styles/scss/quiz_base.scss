@@ -152,6 +152,8 @@ $block-gap: 20px;
   }
 }
 
+
+
 .quiz-main {
   @include flex-column-start-cent;
   gap: $block-gap;
@@ -169,7 +171,7 @@ $block-gap: 20px;
     width: 100%;
 
     .bird-list,
-    .bird-card-info {
+    .bird-card-info-wrapper {
       width: 100%;
       flex: 1 1 calc(50% - $block-gap/2);
     }
@@ -425,7 +427,17 @@ $block-gap: 20px;
 
 }
 
-/*--------Birds-list-----------*/
+/*----Show/hide---------*/
+/* .bird-card {
+  visibility: hidden;
+  transition: 1.0s;
+  display:none;
+} */
+.show {
+  display:flex;
+  visibility:visible;
+  transition: 1.0s;
+}
 
 
 

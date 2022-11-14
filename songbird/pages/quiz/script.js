@@ -18,6 +18,7 @@ const state = {
 function setDefBirdInfo() {
   const birdInfoBlock = document.querySelector('.bird-card-info');
   birdInfoBlock.innerHTML = state.defBirdInfo;
+  /* birdInfoBlock.classList.add('show'); */
 }
 setDefBirdInfo();
 
@@ -25,6 +26,9 @@ let curBird = birdsData[state.stage][getRandomNum(0, birdsData.length - 1)];
 console.log('curBird: ', curBird);
 state.curBirdInfo = curBird;
 console.log(state);
+
+/*-create preview birdCard---------*/
+createBirdCard('bird-card-play',curBird,birdCardHTML);
 /*----create/update bird list, current stage and score START--------*/
 function updateScore() {
   const score = document.querySelector('.dash-score');
@@ -72,59 +76,70 @@ function selectBird(e) {
     const selBirdName = e.target.closest('.bird-list__list-item');
     if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
       state.tryCount += 1;
-      }
-    
+    }
+
     if (selBirdName.children[1].textContent.toLowerCase().trim() == state.curBirdInfo.name.toLowerCase()) {
       /*win*/
       if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
-        state.score =state.score + birdsData[state.stage].length - state.tryCount;
+        state.score = state.score + birdsData[state.stage].length - state.tryCount;
         console.log(typeof birdsData[state.stage].length);
-        }
+      }
       updateScore();
       selBirdName.children[0].style.background = '#008000';
       selBirdName.classList.add('bird-list__list-item_checked');
-      const nextBtn =document.querySelector('.next-level-btn');
+      const nextBtn = document.querySelector('.next-level-btn');
       nextBtn.classList.add('next-level-btn_active');
-      nextBtn.disabled=false;
+      nextBtn.disabled = false;
 
     } else {
       selBirdName.children[0].style.background = '#c7300b';
       selBirdName.classList.add('bird-list__list-item_checked');
     }
     const birdInfoSelName = document.querySelector('.bird-card-info .bird-card__preview .bird-card__name');
-    if (!birdInfoSelName||birdInfoSelName.textContent.toLowerCase().trim()!==selBirdName.children[1].textContent.toLowerCase().trim()) {
-    for (let key of birdsData[state.stage]) {
-      if (key.name.toLowerCase() == selBirdName.children[1].textContent.toLowerCase().trim()) {
-        const birdInfoBlock = document.querySelector('.bird-card-info');
-        birdInfoBlock.innerHTML = birdCardHTML;
-        const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
-        birdCardImg.src = key.image;
-        birdCardImg.alt = `bird-img ${key.name}`;
-        const birdCardName = birdInfoBlock.querySelector('.bird-card__name');
-        birdCardName.textContent = key.name;
-        const birdCardSpecies = birdInfoBlock.querySelector('.bird-card__gen');
-        birdCardSpecies.textContent = key.species;
-        const birdCardDescr = birdInfoBlock.querySelector('.bird-card__description');
-        birdCardDescr.textContent = key.description;
+    if (!birdInfoSelName || birdInfoSelName.textContent.toLowerCase().trim() !== selBirdName.children[1].textContent.toLowerCase().trim()) {
+      for (let key of birdsData[state.stage]) {
+        if (key.name.toLowerCase() == selBirdName.children[1].textContent.toLowerCase().trim()) {
+          createFullBirdCard('bird-card-info',key,birdCardHTML);
+        }
       }
     }
   }
-  }
 }
+function addBirdCardInfo(inpClass,birdObj)  {
+  const birdInfoBlock = document.querySelector(`.${inpClass}`);
+  const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
+  birdCardImg.src = birdObj.image;
+  birdCardImg.alt = `bird-img ${birdObj.name}`;
+  const birdCardName = birdInfoBlock.querySelector('.bird-card__name');
+  birdCardName.textContent = birdObj.name;
+  const birdCardSpecies = birdInfoBlock.querySelector('.bird-card__gen');
+  birdCardSpecies.textContent = birdObj.species;
+  const birdCardDescr = birdInfoBlock.querySelector('.bird-card__description');
+  birdCardDescr.textContent = birdObj.description;
+}
+function createBirdCard(inpClass,birdObj,htmlStr) {
+  const birdInfoBlock = document.querySelector(`.${inpClass}`);
+  birdInfoBlock.innerHTML = htmlStr;
+}
+function createFullBirdCard(inpClass,birdObj,htmlStr) {
+  createBirdCard(inpClass,birdObj,htmlStr);
+  addBirdCardInfo(inpClass,birdObj);
+}
+
 
 const nextBtn = document.querySelector('.next-level-btn');
 nextBtn.addEventListener('click', moveToNextLevel);
-nextBtn.disabled=true;
-function moveToNextLevel (e) {
-  state.stage+=1;
-  state.tryCount=0;
+nextBtn.disabled = true;
+
+function moveToNextLevel(e) {
+  state.stage += 1;
+  state.tryCount = 0;
   updateCurrStage();
   createBirdList();
-setDefBirdInfo();
-  nextBtn.disabled=true;
+  setDefBirdInfo();
+  nextBtn.disabled = true;
   nextBtn.classList.remove('next-level-btn_active');
   curBird = birdsData[state.stage][getRandomNum(0, birdsData.length - 1)];
-console.log('curBird: ', curBird);
-state.curBirdInfo = curBird;
+  console.log('curBird: ', curBird);
+  state.curBirdInfo = curBird;
 }
-
