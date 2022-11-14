@@ -82,7 +82,10 @@ function selectBird(e) {
       /*win*/
       if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
         state.score = state.score + birdsData[state.stage].length - state.tryCount;
-        console.log(typeof birdsData[state.stage].length);
+        if(state.stage===birdsData.length-1) {
+          localStorage.setItem('songbird-score',`${state.score}`);
+          addBirdCardInfo('bird-card-play',curBird);
+        }
       }
       updateScore();
       selBirdName.children[0].style.background = '#008000';
@@ -108,7 +111,11 @@ function selectBird(e) {
 function addBirdCardInfo(inpClass,birdObj)  {
   const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
-  birdCardImg.src = birdObj.image;
+  const img=new Image();
+  img.src=birdObj.image;
+  img.addEventListener('load', () => {
+    birdCardImg.src = birdObj.image;
+});
   birdCardImg.alt = `bird-img ${birdObj.name}`;
   const birdCardName = birdInfoBlock.querySelector('.bird-card__name');
   birdCardName.textContent = birdObj.name;
