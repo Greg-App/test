@@ -27,7 +27,6 @@ let curBird = birdsData[state.stage][getRandomNum(0, birdsData.length - 1)];
 console.log('curBird: ', curBird);
 state.curBirdInfo = curBird;
 console.log(state);
-
 /*-create preview birdCard---------*/
 createBirdCard('bird-card-play',curBird,birdCardHTML);
 
@@ -84,6 +83,14 @@ function selectBird(e) {
       /*win*/
       const clicksound =document.querySelector('.win');
       clicksound.play();
+      const allAudio = document.querySelectorAll('.bird-card .audio');
+      const allPlayerIcon = document.querySelectorAll('.player-icon');
+      allAudio.forEach((el)=>{
+        el.pause();
+      });
+      allPlayerIcon.forEach((el)=>{
+        el.classList.remove('pause');
+      });
       if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
         state.score = state.score + birdsData[state.stage].length - state.tryCount;
         addBirdCardInfo('bird-card-play',curBird);
@@ -174,7 +181,7 @@ function updateCurTime() {
     }
 }
 updateCurTime();
-const playBar = document.querySelector('#playBar');
+const playBar = birdCardPlayer.querySelector('#playBar');
 
 playBar.addEventListener("click", e => {
     const playBarWidth = window.getComputedStyle(playBar).width;
@@ -190,7 +197,7 @@ function updatePlayBar() {
 }
 setInterval(updatePlayBar, 500);
 
-const volumeBtn = document.querySelector('.volume-icon img');
+const volumeBtn = birdCardPlayer.querySelector('.volume-icon img');
 volumeBtn.addEventListener('click', mute);
 
 function mute() {
@@ -203,12 +210,12 @@ function mute() {
     }
 }
 
-const volBar = document.querySelector('.volume-bar');
+const volBar = birdCardPlayer.querySelector('.volume-bar');
 volBar.addEventListener('click', changeVolume);
 
 function changeVolume(e) {
     const volBarWidth = window.getComputedStyle(volBar).width;
-    const volCurrent = document.querySelector('.volume-current');
+    const volCurrent = birdCardPlayer.querySelector('.volume-current');
     audio.volume = (e.offsetX / parseInt(volBarWidth));
     volCurrent.style.width = audio.volume * 100 + '%';
 }
@@ -257,14 +264,15 @@ function moveToNextLevel(e) {
   curBird = birdsData[state.stage][getRandomNum(0, birdsData.length - 1)];
   console.log('curBird: ', curBird);
   state.curBirdInfo = curBird;
+  createBirdCard('bird-card-play',curBird,birdCardHTML);
 }
 
 
-const context = new AudioContext();
-let aud;
+/* const context = new AudioContext();
+let aud; */
 /* fetch(curBird.audio,{mode:'no-cors'}).then(data=>data.arrayBuffer()).then(arrayBuffer=>context.decodeAudioData(arrayBuffer)).then(decodedAudio=> {aud=decodedAudio;}); */
 
-const body =document.body;
+/* const body =document.body;
 body.append(aud);
 body.addEventListener('mousedown',()=>{aud.play();});
-fetch(curBird.audio,{mode:'no-cors'}).then((r)=>console.log(r));
+fetch(curBird.audio,{mode:'no-cors'}).then((r)=>console.log(r)); */
