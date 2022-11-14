@@ -232,7 +232,7 @@ $block-gap: 20px;
   @include flex-column-start-start;
   gap:20px;
   padding:10px;
-  min-height: 258px;
+  min-height: 180px;
   font-size:1.2em;
   .bird-card__img {
     align-self: center;

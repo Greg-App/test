@@ -2,7 +2,8 @@ const birdCardHTML = '<img class="bird-card__img" src="../../assets/images/cover
 
 export default birdCardHTML;
 
-/* <div class="player"><div class="player-controls"><button class="play player-icon"></button></div><div class="player-custom-ctrls"><input id="playBar" type="range" min="0" max=""><div class="volume-box"><div class="volume-icon"><img src="../../assets/icons/volume-low-svgrepo-com.svg" alt="volume"></div><div class="volume-bar"><div class="volume-current"></div></div></div><div class="play-time"><span class="cur-time">00:00</span><span> / </span><span class="total-dur">00:00</span></div></div><audio class="audio" src="#"></audio></div> */
+const birdPlayerHTML = '<div class="player"><div class="player-controls"><button class="play player-icon"></button></div><div class="player-custom-ctrls"><input id="playBar" type="range" min="0" max=""><div class="volume-box"><div class="volume-icon"><img src="../../assets/icons/volume-low-svgrepo-com.svg" alt="volume"></div><div class="volume-bar"><div class="volume-current"></div></div></div><div class="play-time"><span class="cur-time">00:00</span><span> / </span><span class="total-dur">00:00</span></div></div><audio class="audio" src="#"></audio></div>';
+export {birdPlayerHTML};
 /* const birdInfoBlock = document.querySelector('.bird-card-info');
           birdInfoBlock.innerHTML = birdCardHTML;
           const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
