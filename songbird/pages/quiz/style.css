@@ -241,9 +241,11 @@ img {
   font-size: 1.2em;
 }
 .bird-card .bird-card__img {
+  flex-shrink: 0;
   align-self: center;
   border-radius: 10px;
   display: block;
+  width: 200px;
 }
 .bird-card .bird-card__preview {
   display: flex;

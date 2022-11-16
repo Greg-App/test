@@ -235,9 +235,11 @@ $block-gap: 20px;
   min-height: 180px;
   font-size:1.2em;
   .bird-card__img {
+    flex-shrink: 0;
     align-self: center;
     border-radius: 10px;
     display: block;
+    width:200px;
   }
   .bird-card__preview {
     @include flex-column-start-start;

@@ -82,7 +82,7 @@ function selectBird(e) {
     }
 
     if (selBirdName.children[1].textContent.toLowerCase().trim() == state.curBirdInfo.name.toLowerCase()) {
-      /*win*/
+      /*if win game*/
       const clicksound = document.querySelector('.win');
       clicksound.play();
       const allAudioBtn = document.querySelectorAll('.bird-card .play');
@@ -91,22 +91,14 @@ function selectBird(e) {
           el.click();
         }
       });
-      /* const allAudio = document.querySelectorAll('.bird-card .audio');
-      const allPlayerIcon = document.querySelectorAll('.player-icon');
-      allAudio.forEach((el)=>{
-        el.pause();
-      });
-      allPlayerIcon.forEach((el)=>{
-        el.classList.remove('pause');
-      }); */
       if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
         state.score = state.score + birdsData[state.stage].length - state.tryCount;
         addBirdCardInfo('bird-card-play', curBird);
         if (state.stage === birdsData.length - 1) {
           localStorage.setItem('songbird-score', `${state.score}`);
-        }
-        if(state.stage===birdsData[state.stage].length-1){
-          setTimeout(()=>{window.location.href='../result/index.html'},2000);
+          setTimeout(() => {
+            window.location.href = '../result/index.html';
+          }, 2000);
         }
       }
       updateScore();
@@ -145,9 +137,9 @@ function createPlayer(inpClass, birdObj) {
   const playBtn = birdCardPlayer.querySelector('.play');
   const audio = birdCardPlayer.querySelector('.audio');
   playBtn.addEventListener('click', togglePlay);
-  audio.addEventListener('ended', ()=>{
+  audio.addEventListener('ended', () => {
     playBtn.classList.toggle('pause');
-    isPlay=false;
+    isPlay = false;
     curPlayTime = 0;
     console.log('END');
     console.log(isPlay);
@@ -204,22 +196,31 @@ function createPlayer(inpClass, birdObj) {
   }
   updateCurTime();
 
-/*--progress bar operating---*/
-  let playBarPressed=false;
+  /*--progress bar operating---*/
+  let playBarPressed = false;
   const playBar = birdCardPlayer.querySelector('#playBar');
-  playBar.addEventListener("mousedown", e =>{playBarPressed=true;console.log(playBarPressed);});
-  playBar.addEventListener("click", e =>{playBarPressed=false;console.log(playBarPressed);});
+  playBar.addEventListener("mousedown", e => {
+    playBarPressed = true;
+    console.log(playBarPressed);
+  });
+  playBar.addEventListener("click", e => {
+    playBarPressed = false;
+    console.log(playBarPressed);
+  });
   playBar.addEventListener("click", e => {
     const playBarWidth = window.getComputedStyle(playBar).width;
     const curTime = e.offsetX / parseInt(playBarWidth) * audio.duration;
     audio.currentTime = curTime;
     curPlayTime = curTime;
   }, false);
-  
-  audio.addEventListener('loadedmetadata',()=>{playBar.max = audio.duration;});
+
+  audio.addEventListener('loadedmetadata', () => {
+    playBar.max = audio.duration;
+  });
+
   function updatePlayBar() {
-    if(playBarPressed===false) {
-    playBar.value = audio.currentTime;
+    if (playBarPressed === false) {
+      playBar.value = audio.currentTime;
     }
     updateCurTime();
   }
@@ -247,7 +248,7 @@ function createPlayer(inpClass, birdObj) {
     audio.volume = (e.offsetX / parseInt(volBarWidth));
     volCurrent.style.width = audio.volume * 100 + '%';
   }
-  
+
 
   /*-------Audio Player Enhanced (custom)-END--------------------------------*/
 }
