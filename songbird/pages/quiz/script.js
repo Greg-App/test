@@ -201,17 +201,21 @@ function createPlayer(inpClass, birdObj) {
   }
   updateCurTime();
   const playBar = birdCardPlayer.querySelector('#playBar');
-
-  playBar.addEventListener("mousedown", e => {
+  let playBarPressed=false;
+  playBar.addEventListener("mousedown", e =>{playBarPressed=true;console.log(playBarPressed)});
+  playBar.addEventListener("click", e =>{playBarPressed=false;console.log(playBarPressed)});
+  playBar.addEventListener("click", e => {
     const playBarWidth = window.getComputedStyle(playBar).width;
     const curTime = e.offsetX / parseInt(playBarWidth) * audio.duration;
     audio.currentTime = curTime;
     curPlayTime = curTime;
   }, false);
-  //setInterval(()=>{}, 800);
+  
   audio.addEventListener('loadedmetadata',()=>{playBar.max = audio.duration;});
   function updatePlayBar() {
+    if(playBarPressed===false) {
     playBar.value = audio.currentTime;
+    }
     updateCurTime();
   }
   setInterval(updatePlayBar, 10);
@@ -230,7 +234,7 @@ function createPlayer(inpClass, birdObj) {
   }
 
   const volBar = birdCardPlayer.querySelector('.volume-bar');
-  volBar.addEventListener('mousedown', changeVolume);
+  volBar.addEventListener('click', changeVolume);
 
   function changeVolume(e) {
     const volBarWidth = window.getComputedStyle(volBar).width;
@@ -238,6 +242,7 @@ function createPlayer(inpClass, birdObj) {
     audio.volume = (e.offsetX / parseInt(volBarWidth));
     volCurrent.style.width = audio.volume * 100 + '%';
   }
+  
 
   /*-------Audio Player Enhanced (custom)-END--------------------------------*/
 }
