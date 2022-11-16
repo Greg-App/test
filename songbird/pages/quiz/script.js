@@ -105,6 +105,9 @@ function selectBird(e) {
         if (state.stage === birdsData.length - 1) {
           localStorage.setItem('songbird-score', `${state.score}`);
         }
+        if(state.stage===birdsData[state.stage].length-1){
+          setTimeout(()=>{window.location.href='../result/index.html'},2000);
+        }
       }
       updateScore();
       selBirdName.children[0].style.background = '#008000';
@@ -200,10 +203,12 @@ function createPlayer(inpClass, birdObj) {
     }
   }
   updateCurTime();
-  const playBar = birdCardPlayer.querySelector('#playBar');
+
+/*--progress bar operating---*/
   let playBarPressed=false;
-  playBar.addEventListener("mousedown", e =>{playBarPressed=true;console.log(playBarPressed)});
-  playBar.addEventListener("click", e =>{playBarPressed=false;console.log(playBarPressed)});
+  const playBar = birdCardPlayer.querySelector('#playBar');
+  playBar.addEventListener("mousedown", e =>{playBarPressed=true;console.log(playBarPressed);});
+  playBar.addEventListener("click", e =>{playBarPressed=false;console.log(playBarPressed);});
   playBar.addEventListener("click", e => {
     const playBarWidth = window.getComputedStyle(playBar).width;
     const curTime = e.offsetX / parseInt(playBarWidth) * audio.duration;
