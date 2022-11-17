@@ -82,7 +82,7 @@ function selectBird(e) {
     }
 
     if (selBirdName.children[1].textContent.toLowerCase().trim() == state.curBirdInfo.name.toLowerCase()) {
-      /*if win game*/
+      /*if win level*/
       const clicksound = document.querySelector('.win');
       clicksound.play();
       const allAudioBtn = document.querySelectorAll('.bird-card .play');
@@ -95,7 +95,13 @@ function selectBird(e) {
         state.score = state.score + birdsData[state.stage].length - state.tryCount;
         addBirdCardInfo('bird-card-play', curBird);
         if (state.stage === birdsData.length - 1) {
+          /*if win game*/
           localStorage.setItem('songbird-score', `${state.score}`);
+          const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
+          img.src = birdObj.image;
+          img.addEventListener('load', () => {
+            birdCardImg.src = birdObj.image;
+          });
           setTimeout(() => {
             window.location.href = '../result/index.html';
           }, 2000);
@@ -256,12 +262,28 @@ function createPlayer(inpClass, birdObj) {
 function addBirdCardInfo(inpClass, birdObj) {
   const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
+  console.log(birdCardImg);
   const img = new Image();
   img.src = birdObj.image;
-  img.addEventListener('load', () => {
-    birdCardImg.src = birdObj.image;
+  img.classList.add('bird-card__img');
+  img.alt = `bird-img ${birdObj.name}`;
+  img.title = `${birdObj.name}`;
+  img.width='200';
+  img.height='133.45';
+  state.imgLoadingCount+=1;
+  const birdCardImgCover = birdInfoBlock.querySelector('.bird-card-img__cover');
+  const loadIcon = document.createElement('div');
+  loadIcon.classList.add('loading');
+  birdCardImgCover.append(loadIcon);
+  img.onload = function () {
+    birdCardImg.replaceWith(img);
+    birdCardImgCover.lastChild.remove();
+ }
+  img.addEventListener('error', () => {
+    img.src = birdObj.image;
+    state.imgLoadingCount-=1;
+    loadIcon.style.textContent='Failed to load picture';
   });
-  birdCardImg.alt = `bird-img ${birdObj.name}`;
   const birdCardName = birdInfoBlock.querySelector('.bird-card__name');
   birdCardName.textContent = birdObj.name;
   const birdCardSpecies = birdInfoBlock.querySelector('.bird-card__gen');

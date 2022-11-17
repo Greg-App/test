@@ -1,4 +1,4 @@
-const birdCardHTML = '<img class="bird-card__img" src="../../assets/images/cover-bird-card.png" width="200" height="133.45" alt="bird-card-cover"><div class="bird-card__preview card-preview"><div class="bird-card__name card-preview__item">******</div><div class="bird-card__gen card-preview__item"></div><div class="bird-card__player card-preview__item">Loading...</div></div><div class="bird-card__description"></div>';
+const birdCardHTML = '<div class="bird-card-img__cover"><img class="bird-card__img" src="../../assets/images/cover-bird-card.png" width="200" height="133.45" alt="bird-card-cover" title="bird-card-cover"></div><div class="bird-card__preview card-preview"><div class="bird-card__name card-preview__item">******</div><div class="bird-card__gen card-preview__item"></div><div class="bird-card__player card-preview__item">Loading...</div></div><div class="bird-card__description"></div>';
 
 export default birdCardHTML;
 

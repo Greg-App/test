@@ -240,12 +240,27 @@ img {
   min-height: 180px;
   font-size: 1.2em;
 }
-.bird-card .bird-card__img {
+.bird-card .bird-card-img__cover {
+  align-self: center;
+  position: relative;
+}
+.bird-card .bird-card-img__cover .bird-card__img {
   flex-shrink: 0;
   align-self: center;
   border-radius: 10px;
   display: block;
   width: 200px;
+}
+.bird-card .loading {
+  position: absolute;
+  overflow: hidden;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: url("../../assets/icons/loading-icon_64px.gif") center no-repeat;
 }
 .bird-card .bird-card__preview {
   display: flex;
