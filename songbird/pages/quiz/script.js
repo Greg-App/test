@@ -88,6 +88,7 @@ function selectBird(e) {
     }
     loadInfoArr.forEach((el) => {
       el.src = "#";
+      console.log('УДАЛЯЕМ ЗАГРУЗКУ',loadPlayArr);
     });
 
     if (selBirdName.children[1].textContent.toLowerCase().trim() == state.curBirdInfo.name.toLowerCase()) {
@@ -157,6 +158,8 @@ async function createPlayer(inpClass, birdObj) {
   const audioTrack = birdCardPlayer.querySelector('.audio');
   const song = new Audio();
   song.classList.add('audio');
+  song.preload='metadata';
+
   const newAudio=new Promise(function(resolve,reject) {
     //birdObj.audio
     console.log(birdObj.audio);
@@ -169,6 +172,8 @@ async function createPlayer(inpClass, birdObj) {
       song.src = birdObj.audio;
       if (inpClass === 'bird-card-play') {
         loadPlayArr.push(song);
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+        console.log(loadPlayArr);
       } else {
         loadInfoArr.push(song);
       }
@@ -353,6 +358,7 @@ function addBirdCardInfo(inpClass, birdObj) {
           img.src = res.url;
           if (inpClass === 'bird-card-play') {
             loadPlayArr.push(img);
+            console.log(loadPlayArr);
           } else {
             loadInfoArr.push(img);
           }
