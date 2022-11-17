@@ -88,7 +88,7 @@ function selectBird(e) {
     }
     loadInfoArr.forEach((el) => {
       el.src = "#";
-      console.log('УДАЛЯЕМ ЗАГРУЗКУ',loadPlayArr);
+      console.log(loadPlayArr);
     });
 
     if (selBirdName.children[1].textContent.toLowerCase().trim() == state.curBirdInfo.name.toLowerCase()) {
@@ -107,18 +107,20 @@ function selectBird(e) {
         if (state.stage === birdsData.length - 1) {
           /*if win game*/
           localStorage.setItem('songbird-score', `${state.score}`);
-          /* const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
-          img.src = birdObj.image;
-          img.addEventListener('load', () => {
-            birdCardImg.src = birdObj.image;
-          }); */
-          /*  while(state.imgLoadingCount>0) {
-            console.log('wait');
-        } */
+          const birdCardImg = document.querySelector('.bird-card-play .bird-card__img');
+          console.log('LAST BIRD CARD ',birdCardImg);
           setTimeout(() => {
             window.location.href = '../result/index.html';
             console.log('REDIRECT');
-          }, 2000);
+          }, 3000);
+          birdCardImg.addEventListener('load', () => {
+    
+          });
+          //wait until preview bird-card image is loaded then redirect to results page after 5 sec
+         /*   while(state.imgLoadingCount>0) {
+            console.log('wait');
+        } */
+          
         }
       }
       updateScore();
@@ -126,7 +128,9 @@ function selectBird(e) {
       selBirdName.classList.add('bird-list__list-item_checked');
       const nextBtn = document.querySelector('.next-level-btn');
       nextBtn.classList.add('next-level-btn_active');
-      nextBtn.disabled = false;
+      if (state.stage === birdsData.length - 1) {
+      nextBtn.disabled = true;
+      } else {nextBtn.disabled = false;}
 
     } else {
       const clicksound = document.querySelector('.loose');
@@ -158,35 +162,37 @@ async function createPlayer(inpClass, birdObj) {
   const audioTrack = birdCardPlayer.querySelector('.audio');
   const song = new Audio();
   song.classList.add('audio');
-  song.preload='metadata';
+  song.preload = 'auto';
 
-  const newAudio=new Promise(function(resolve,reject) {
+  const newAudio = new Promise(function (resolve, reject) {
     //birdObj.audio
     console.log(birdObj.audio);
-    const data = fetch(birdObj.audio, {
+    /*---------Audio load block-----START----*/
+    console.log('Audio fetch is All right');
+    song.src = birdObj.audio;
+    if (inpClass === 'bird-card-play') {
+      loadPlayArr.push(song);
+      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+      console.log(loadPlayArr);
+    } else {
+      loadInfoArr.push(song);
+    }
+    //when player is ready to play
+    console.log('Создаем слушателя на canplaythrough');
+    song.addEventListener('canplaythrough', () => {
+      console.log("Аудио загрузилось");
+      player.classList.add('show-loaded');
+      birdCardPlayer.children[0].style.display = 'none';
+      audioTrack.replaceWith(song);
+      birdCardPlayer.classList.add('show-loaded');
+      resolve();
+    });
+    /*---------Audio load block-----END----*/
+   /*  const data = fetch(birdObj.audio, {
       mode: 'no-cors'
     }).then(response => {
       console.log(response);
-
-      console.log('Audio fetch is All right');
-      song.src = birdObj.audio;
-      if (inpClass === 'bird-card-play') {
-        loadPlayArr.push(song);
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-        console.log(loadPlayArr);
-      } else {
-        loadInfoArr.push(song);
-      }
-      //when player is ready to play
-      console.log('Создаем слушателя на canplaythrough');
-      song.addEventListener('canplaythrough', () => {
-        console.log("Аудио загрузилось");
-        player.classList.add('show-loaded');
-        birdCardPlayer.children[0].style.display = 'none';
-        audioTrack.replaceWith(song);
-        birdCardPlayer.classList.add('show-loaded');
-        resolve();
-      });
+      //audio load block
     }).catch((e) => {
       birdCardPlayer.children[0].style.display = 'inline-block';
       birdCardPlayer.children[0].textContent = 'Failed to load audio';
@@ -194,22 +200,23 @@ async function createPlayer(inpClass, birdObj) {
       reject();
     });
 
-    console.log(data);
+    console.log(data); */
 
   });
-function afterLoad () {
-  console.log("Аудио загрузилось");
-  player.classList.add('show-loaded');
-  birdCardPlayer.children[0].style.display = 'none';
-  audioTrack.replaceWith(song);
-  birdCardPlayer.classList.add('show-loaded');
-  resolve();
-}
+
+  function afterLoad() {
+    console.log("Аудио загрузилось");
+    player.classList.add('show-loaded');
+    birdCardPlayer.children[0].style.display = 'none';
+    audioTrack.replaceWith(song);
+    birdCardPlayer.classList.add('show-loaded');
+    resolve();
+  }
 
   await newAudio.then(() => {
     console.log('ok');
   }).catch(() => console.log('errorrrrr'));
-  song.removeEventListener('canplaythrough',afterLoad);
+  song.removeEventListener('canplaythrough', afterLoad);
   const audio = birdCardPlayer.querySelector('.audio');
   console.log('newAudio results audio: ', audio);
   //audioTrack.src = birdObj.audio; 
