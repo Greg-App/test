@@ -272,6 +272,7 @@ $block-gap: 20px;
     }
     .bird-card__player {
       flex-grow: 1;
+      
     }
   }
   .bird-card__description {
@@ -291,6 +292,7 @@ $block-gap: 20px;
 
 .player {
   display: flex;
+  visibility:hidden;
   align-items: center;
   justify-content: flex-start;
   .player-controls {
@@ -299,6 +301,7 @@ $block-gap: 20px;
     justify-content: space-between;
     //width: 120px;
   }
+  
 
   .player-icon,
   .slider-icon,
@@ -444,7 +447,10 @@ $block-gap: 20px;
     text-align: right;
   }
 }
-
+.show-loaded {
+  visibility:visible;
+  transition: 0.6s;
+}
 
 
 .next-level-btn {
