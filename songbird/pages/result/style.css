@@ -50,7 +50,7 @@ body,
 
 :root {
   font-family: Lato, "Arial", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
 }
 
@@ -235,6 +235,19 @@ img {
   font-size: 1.4em;
 }
 
+/*-------------------------Result block--------*/
+.game-results {
+  font-size: 1.6rem;
+  line-height: 1.6em;
+}
+.game-results .score {
+  display: inline-block;
+  padding: 10px;
+  font-size: 4.6rem;
+  text-shadow: 0 0 9px green;
+}
+
+/*----------media--------------*/
 @media screen and (max-width: 600px) {
   .result-main .result-quiz {
     font-size: 1.2em;
@@ -248,6 +261,19 @@ img {
   .result-header .logo .logo__icon {
     width: 40px;
     height: 40px;
+  }
+  .game-results {
+    font-size: 1.4rem;
+    line-height: 1.6em;
+  }
+  .game-results h1 {
+    font-size: 1.6rem;
+  }
+  .game-results .score {
+    display: inline-block;
+    padding: 10px;
+    font-size: 3.6rem;
+    text-shadow: 0 0 9px green;
   }
 }
 @media screen and (max-width: 390px) {

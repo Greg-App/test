@@ -1,5 +1,6 @@
 import birdsData from '../../app/js/birds-list.js';
 import birdCardHTML from '../../app/js/bird-card.js';
+import {winNoteHTML} from '../../app/js/misc.js';
 import {
   birdPlayerHTML
 } from '../../app/js/bird-card.js';
@@ -392,18 +393,25 @@ function selectBird(e) {
           el.click();
         }
       });
+      
+
+
       if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
         state.score = state.score + birdsData[state.stage].length - state.tryCount;
         addBirdCardInfo('bird-card-play', curBird);
         if (state.stage === birdsData.length - 1) {
           /*if win game*/
           localStorage.setItem('songbird-score', `${state.score}`);
-          const birdCardImg = document.querySelector('.bird-card-play .bird-card__img');
-          console.log('LAST BIRD CARD ',birdCardImg);
+          //show win note
+          const pageWrapper=document.querySelector('.page-wrapper');
+          const winNote=document.createElement('div');
+          winNote.innerHTML=winNoteHTML;
+          winNote.classList.add('win-note');
+          pageWrapper.prepend(winNote);
           setTimeout(() => {
             window.location.href = '../result/index.html';
             console.log('REDIRECT');
-          }, 3000);
+          }, 4000);
           
           //wait until preview bird-card image is loaded then redirect to results page after 5 sec
          /*   while(state.imgLoadingCount>0) {
@@ -438,13 +446,6 @@ function selectBird(e) {
   }
 }
 
-
-
-
-
-
-
-
 const nextBtn = document.querySelector('.next-level-btn');
 nextBtn.addEventListener('click', moveToNextLevel);
 nextBtn.disabled = true;
@@ -467,6 +468,7 @@ function moveToNextLevel(e) {
   console.log('curBird: ', curBird);
   state.curBirdInfo = curBird;
   createBirdCard('bird-card-play', curBird, birdCardHTML);
+  
 }
 
 
