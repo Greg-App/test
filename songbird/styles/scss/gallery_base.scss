@@ -115,24 +115,33 @@ img {
 
       border-radius: 15px;
       max-width: 1280px;
-      &::-webkit-scrollbar {
-        width: 10px;               /* ширина scrollbar */
-      }
-      &::-webkit-scrollbar-track {
-        background: rgb(20, 20, 20);        /* цвет дорожки */
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(26, 90, 20,0.8);    /* цвет плашки */
-        border-radius: 20px;       /* закругления плашки */
-        border: 1px solid rgb(112, 111, 27);  /* padding вокруг плашки */
-      }
+      
+    }
+  }
+  .bird-gallery,
+  .bird-card__description {
+    &::-webkit-scrollbar {
+      width: 10px;               /* ширина scrollbar */
+    }
+    &::-webkit-scrollbar-track {
+      background: rgb(20, 20, 20);        /* цвет дорожки */
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(26, 90, 20,0.8);    /* цвет плашки */
+      border-radius: 20px;       /* закругления плашки */
+      border: 1px solid rgb(112, 111, 27);  /* padding вокруг плашки */
     }
   }
   .bird-card {
     max-width:600px;
     min-width:280px;
+    max-height:400px;
     width:100%;
     flex: 1 1 calc(30% - 100px);
+    .bird-card__description {
+      overflow-y: scroll;
+
+    }
   }
 
   .show-gallery {
