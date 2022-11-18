@@ -55,9 +55,19 @@ birdsData.forEach((elOut) => {
   });
 });
 
-function addBirdCardInfo(inpClass, birdObj) {
+function insertBirdCard(cardBoxClass, inpClass, birdObj, htmlStr) {
+  const birdCardBox = document.querySelector(`.${cardBoxClass}`);
+  const birdCard = document.createElement('div');
+  birdCard.classList.add(inpClass);
+  birdCard.classList.add('block');
+  birdCardBox.append(birdCard);
+  createBirdCard(inpClass, birdObj, htmlStr,birdCard);
+  addBirdCardInfo(inpClass, birdObj,birdCard);
 
-  const birdInfoBlock = document.querySelector(`.${inpClass}`);
+}
+function addBirdCardInfo(inpClass, birdObj,birdCardElement) {
+  const birdInfoBlock=birdCardElement;
+  //const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
   const img = new Image();
   const birdCardImgCover = birdInfoBlock.querySelector('.bird-card-img__cover');
@@ -117,7 +127,7 @@ function addBirdCardInfo(inpClass, birdObj) {
           console.log(img);
           birdCardImgCover.lastChild.remove();
           loadIcon.textContent = `Failed to load picture (Error)`;
-        }
+        };
       })
       .catch(error => {
         //img.src = 'http://xxxx';
@@ -136,30 +146,19 @@ function addBirdCardInfo(inpClass, birdObj) {
   birdCardSpecies.textContent = birdObj.species;
   const birdCardDescr = birdInfoBlock.querySelector('.bird-card__description');
   birdCardDescr.textContent = birdObj.description;
-};
-
-function insertBirdCard(cardBoxClass, inpClass, birdObj, htmlStr) {
-  const birdCardBox = document.querySelector(`.${cardBoxClass}`);
-  const birdCard = document.createElement('div');
-  birdCard.classList.add(inpClass);
-  birdCard.classList.add('block');
-  birdCardBox.append(birdCard);
-  createBirdCard(inpClass, birdObj, htmlStr,birdCard);
-  //addBirdCardInfo(inpClass, birdObj);
-
 }
 
 function createBirdCard(inpClass, birdObj, htmlStr,birdCardElement) {
   //const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdInfoBlock = birdCardElement;
   birdInfoBlock.innerHTML = htmlStr;
-  //createPlayer(inpClass, birdObj,birdCardElement);
-};
+  createPlayer(inpClass, birdObj,birdCardElement);
+}
 
 function createFullBirdCard(inpClass, birdObj, htmlStr,birdCardElement) {
   createBirdCard(inpClass, birdObj, htmlStr,birdCardElement);
   addBirdCardInfo(inpClass, birdObj,birdCardElement);
-};
+}
 async function createPlayer(inpClass, birdObj,birdCardElement) {
   console.log('Создать плеер');
   const birdInfoBlock=birdCardElement;
@@ -355,7 +354,7 @@ async function createPlayer(inpClass, birdObj,birdCardElement) {
 
 
   /*-------Audio Player Enhanced (custom)-END--------------------------------*/
-};
+}
 
 
 
