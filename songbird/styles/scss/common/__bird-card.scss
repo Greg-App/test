@@ -1,0 +1,60 @@
+.bird-card {
+  @include flex-column-start-start;
+  gap: 20px;
+  padding: 10px;
+  min-height: 180px;
+  font-size: 1.2em;
+
+  .bird-card-img__cover {
+    align-self: center;
+    position: relative;
+
+    .bird-card__img {
+      flex-shrink: 0;
+      align-self: center;
+      border-radius: 10px;
+      display: block;
+      width: 200px;
+    }
+  }
+
+  .loading {
+    position: absolute;
+    padding: 5px;
+    overflow: hidden;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: url('../../assets/icons/loading-icon_64px.gif') center no-repeat;
+  }
+
+  .bird-card__preview {
+    @include flex-column-start-start;
+    width: 100%;
+
+    .bird-card__name {
+      font-size: 1.4em;
+    }
+
+    .bird-card__gen {
+      font-size: 1.2em;
+    }
+
+    .card-preview__item {
+      flex: 1 1;
+      width: 100%;
+    }
+
+    .bird-card__player {
+      flex-grow: 1;
+
+    }
+  }
+
+  .bird-card__description {
+    font-size: 1.0em;
+  }
+}

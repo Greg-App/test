@@ -10,6 +10,18 @@ import {
 function getRandomNum(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+const randObj={};
+let rnd;
+for (let i=0;i<=1000;i++) {
+  rnd = getRandomNum(0,6);
+  if(randObj.hasOwnProperty(rnd)) {
+    randObj[rnd]+=1;
+  } else {
+    randObj[rnd] = 0;
+  }
+}
+console.log('DANDOM OBJECT________________________________________________________________________');
+console.log(randObj);
 console.log(birdsData);
 const state = {
   stage: 0,
@@ -33,7 +45,7 @@ function setDefBirdInfo() {
 }
 setDefBirdInfo();
 
-let curBird = birdsData[state.stage][getRandomNum(0, birdsData.length - 1)];
+let curBird = birdsData[state.stage][getRandomNum(0, birdsData.length)];
 console.log('curBird: ', curBird);
 state.curBirdInfo = curBird;
 console.log(state);

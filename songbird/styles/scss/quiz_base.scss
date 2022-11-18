@@ -2,6 +2,8 @@
 @import '../../styles/scss/common/mixins.scss';
 @import '../../styles/scss/common/_nav-list';
 @import '../../styles/scss/common/__buttons';
+@import '../../styles/scss/common/__player';
+@import '../../styles/scss/common/__bird-card';
 
 /* * {
   outline: 1px solid red;
@@ -25,30 +27,33 @@ body,
 }
 
 .win-note {
-  position:absolute;
+  position: absolute;
   z-index: 150;
-  width:100%;
-  height:100%;
-  background:rgba(41, 40, 40,0.6);
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 40, 40, 0.6);
   text-align: center;
+
   .win-note__text {
-  position:relative;
-  top:25%;
-  transform: translateY(-50%);
-  text-shadow: 0 0 10px rgb(230, 186, 43);
-  color:rgba(249, 252, 251, 0.7);
-  .win-note__game-over {
-    display: inline-block;
-    font-size:5em;
-    margin-bottom:1.0em;
+    position: relative;
+    top: 25%;
+    transform: translateY(-50%);
+    text-shadow: 0 0 10px rgb(230, 186, 43);
+    color: rgba(249, 252, 251, 0.7);
+
+    .win-note__game-over {
+      display: inline-block;
+      font-size: 5em;
+      margin-bottom: 1.0em;
+    }
+
+    .win-note__game-redirect {
+      text-align: left;
+      display: inline-block;
+      font-size: 2.0em;
+      line-height: 1.2em;
+    }
   }
-  .win-note__game-redirect {
-    text-align: left;
-    display: inline-block;
-    font-size:2.0em;
-    line-height: 1.2em;
-  }
-}
 }
 
 :root {
@@ -132,7 +137,7 @@ $block-gap: 20px;
         transform: scale(1.05, 1.05);
         transition: 0.3s;
       }
-      
+
 
       display: block;
       width: 80px;
@@ -148,6 +153,8 @@ $block-gap: 20px;
     }
 
     .logo-title {
+      user-select: none;
+
       .logo-title__text_colored {
         color: rgb(0, 137, 102);
         text-shadow: 0 0 9px rgb(255, 255, 255);
@@ -190,8 +197,6 @@ $block-gap: 20px;
 
   .preview {
     width: 100%;
-
-    .birds-card-play {}
   }
 
   .game-wrapper {
@@ -257,233 +262,31 @@ $block-gap: 20px;
 
   }
 }
-.bird-card {
-  @include flex-column-start-start;
-  gap:20px;
-  padding:10px;
-  min-height: 180px;
-  font-size:1.2em;
-  .bird-card-img__cover {
-    align-self:center;
-    position:relative;
-  .bird-card__img {
-    flex-shrink: 0;
-    align-self: center;
-    border-radius: 10px;
-    display: block;
-    width:200px;
-  }
-}
-.loading {
-  position:absolute;
-  padding:5px;
-  overflow:hidden;
-  z-index:100;
-  width:100%;
-  height:100%;
-  left:50%;
-  top:50%;
-  transform: translate(-50%,-50%); 
-  background: url('../../assets/icons/loading-icon_64px.gif') center no-repeat;
-}
-  .bird-card__preview {
-    @include flex-column-start-start;
-    width:100%;
-    .bird-card__name {
-      font-size:1.4em;
-    }
-    .bird-card__gen {
-      font-size:1.2em;
-    }
-    .card-preview__item {
-      flex: 1 1;
-      width:100%;
-    }
-    .bird-card__player {
-      flex-grow: 1;
-      
-    }
-  }
-  .bird-card__description {
-    font-size:1.0em;
-  }
-}
+
+
+
 .bird-card-play {
   @include flex-row-start-cent;
+
   .bird-card__img {
     align-self: center;
   }
+
   .bird-card__description,
   .bird-card__gen {
-    display:none;
+    display: none;
   }
 }
 
-.player {
-  display: flex;
-  visibility:hidden;
-  align-items: center;
-  justify-content: flex-start;
-  .player-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    //width: 120px;
-  }
-  
 
-  .player-icon,
-  .slider-icon,
-  .change-quote {
-    width: 32px;
-    height: 32px;
-    background-size: 32px 32px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    opacity: .8;
-    cursor: pointer;
-    transition: 0.5s;
-  }
-
-  .play {
-    width: 40px;
-    height: 40px;
-    background-size: 40px 40px;
-    background-image: url("../../assets/icons/play.svg");
-  }
-
-  .pause {
-    background-image: url("../../assets/icons/pause.svg");
-  }
-
-  .player-custom-ctrls {
-    min-height: 43px;
-    padding: 5px;
-    width: 100%;
-    font-size: 14px;
-    text-align: left;
-  }
-
-  .track-name {
-    text-align: left;
-  }
-
-  .play-bar {
-    display:block;
-    height: 7px;
-    background: white;
-    width: 100%;
-    margin: 3px auto 3px auto;
-    border: none;
-    border-radius: 3px;
-  }
-
-  #playBar {//position:relative;
-    -webkit-appearance: none;
-    
-    background:#3f751f;
-    width: 100%;
-    height:10px;
-    border-radius: 4px;
-    border:none;
-  
-  }
-  #playBar:focus {
-    outline:none;
-  }
-  #playBar::-webkit-slider-runnable-track {
-    //position:absolute;
-    -webkit-appearance: none;
-    width: 100%;
-    height: 10px;
-    border-radius: 4px;
-    background:#292828;
-    border:1px solid rgb(100, 99, 99);
-  }
-  
-  #playBar::-webkit-slider-thumb {
-    position:relative;
-    transform: translateY(-25%);
-    -webkit-appearance: none;
-    border: 1px solid rgba(146, 145, 145, 0.9);
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background:#3f751f;
-  }
-  #playBar::-webkit-slider-thumb::before {
-    content:'';
-    position:absolute;
-    z-index:100;
-    -webkit-appearance: none;
-    top:0;left:-32px;
-    width: 300px;
-    height: 10px;
-    border-radius: 4px;
-    background:#82c727;
-    border:1px solid rgb(100, 99, 99);
-  }
-  
-
-
-  #playBar,
-  .volume-bar,
-  .volume-icon img:hover {
-    cursor: pointer;
-  }
-
-  .volume-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-
-
-  }
-
-  .volume-icon {
-
-    margin-right: 5px;
-  }
-
-  .volume-icon img {
-    height: 14px;
-    width: 14px;
-    padding: 0;
-    margin: 0;
-    vertical-align: middle;
-
-  }
-
-  .volume-bar {
-    height: 5px;
-    width: 60px;
-    background: #797676;
-    margin-right: 10px;
-  }
-
-  .volume-current {
-    background: white;
-    width: 100%;
-    height: 100%;
-  }
-
-  .play-time {
-    text-align: right;
-  }
-}
 .show-loaded {
-  visibility:visible;
+  visibility: visible;
   transition: 0.6s;
 }
 
 
 .next-level-btn {
-  cursor:not-allowed;
+  cursor: not-allowed;
 
   display: block;
   width: 100%;
@@ -491,7 +294,7 @@ $block-gap: 20px;
   padding: 0.5em;
   user-select: none;
   font-size: 1.4em;
-  color:#a5a2a2;
+  color: #a5a2a2;
 
 }
 
@@ -499,7 +302,8 @@ $block-gap: 20px;
   display: block;
   cursor: pointer;
   background: #008966;
-  color:#ffffff;
+  color: #ffffff;
+
   &:hover {
     transform: scale(1.02, 1.02);
     transition: 0.3s;
@@ -525,22 +329,12 @@ $block-gap: 20px;
 }
 
 /*----Show/hide---------*/
-/* .bird-card {
-  visibility: hidden;
-  transition: 1.0s;
-  display:none;
-} */
+
 .show {
-  display:flex;
-  visibility:visible;
+  display: flex;
+  visibility: visible;
   transition: 1.0s;
 }
-
-
-
-
-
-
 
 /*---------Media queries-----------*/
 
@@ -583,18 +377,21 @@ $block-gap: 20px;
       }
     }
   }
+
   .bird-card-play {
     @include flex-column-start-start;
   }
+
   .win-note {
     .win-note__text {
-    .win-note__game-over {
-      font-size:3em;
+      .win-note__game-over {
+        font-size: 3em;
+      }
+
+      .win-note__game-redirect {
+        font-size: 1.4em;
+      }
     }
-    .win-note__game-redirect {
-      font-size:1.4em;
-    }
-  }
   }
 }
 
