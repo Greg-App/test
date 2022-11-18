@@ -176,6 +176,7 @@ button {
   padding: 10px;
   min-height: 180px;
   font-size: 1.2em;
+  width: 100%;
 }
 .bird-card .bird-card-img__cover {
   align-self: center;
