@@ -1,27 +1,13 @@
 import birdsData from '../../app/js/birds-list.js';
 import birdCardHTML from '../../app/js/bird-card.js';
 import {winNoteHTML} from '../../app/js/misc.js';
+import {getRandomNum} from '../../app/js/helper.js';
 import {
   birdPlayerHTML
 } from '../../app/js/bird-card.js';
 //import {state,addBirdCardInfo,createPlayer,createBirdCard,createFullBirdCard} from '../../app/js/bird-card.js';
 //import * as playerModule from '../../app/js/player';
 
-function getRandomNum(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-const randObj={};
-let rnd;
-for (let i=0;i<=1000;i++) {
-  rnd = getRandomNum(0,6);
-  if(randObj.hasOwnProperty(rnd)) {
-    randObj[rnd]+=1;
-  } else {
-    randObj[rnd] = 0;
-  }
-}
-console.log('DANDOM OBJECT________________________________________________________________________');
-console.log(randObj);
 console.log(birdsData);
 const state = {
   stage: 0,

@@ -9,7 +9,7 @@
   outline: 1px solid red;
 } */
 
-a:hover {
+a:hover,.gallery-btn:hover {
   transform: scale(1.05, 1.05);
   transition: 0.3s;
 }
@@ -161,7 +161,7 @@ img {
     margin:0 auto;
     font-size: 1.4em;
     padding: 5px 10px;
-    width:80px;
+    
     height: 1.6em;
     background:rgba(38, 121, 86, 1);
     border-radius:5px;
@@ -302,7 +302,5 @@ img {
       font-size: 1.2em;
     }
   }
-
-
 
 }
