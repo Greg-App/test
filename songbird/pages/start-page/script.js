@@ -50,7 +50,7 @@ console.log(state);
 
 
 /*----create/update bird info block     START--------*/
-
+insertBirdCard('bird-gallery','bird-card', curBird, birdCardHTML);
  function addBirdCardInfo (inpClass, birdObj) {
 
   const birdInfoBlock = document.querySelector(`.${inpClass}`);
@@ -133,6 +133,16 @@ console.log(state);
   const birdCardDescr = birdInfoBlock.querySelector('.bird-card__description');
   birdCardDescr.textContent = birdObj.description;
 };
+function insertBirdCard (cardBoxClass,inpClass, birdObj, htmlStr) {
+  const birdCardBox =document.querySelector(`.${cardBoxClass}`);
+  const birdCard=document.createElement('div');
+  birdCard.classList.add(inpClass);
+  birdCard.classList.add('block');
+  birdCardBox.append(birdCard);
+  createBirdCard (inpClass, birdObj, htmlStr);
+  addBirdCardInfo(inpClass, birdObj);
+
+}
 
 function createBirdCard (inpClass, birdObj, htmlStr) {
   const birdInfoBlock = document.querySelector(`.${inpClass}`);

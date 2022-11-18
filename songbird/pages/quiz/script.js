@@ -1,7 +1,7 @@
 import birdsData from '../../app/js/birds-list.js';
 import birdCardHTML from '../../app/js/bird-card.js';
 import {winNoteHTML} from '../../app/js/misc.js';
-import {getRandomNum} from '../../app/js/helper.js';
+import {getRandomNum} from '../../app/js/helpers.js';
 import {
   birdPlayerHTML
 } from '../../app/js/bird-card.js';
@@ -411,11 +411,6 @@ function selectBird(e) {
             console.log('REDIRECT');
           }, 4000);
           
-          //wait until preview bird-card image is loaded then redirect to results page after 5 sec
-         /*   while(state.imgLoadingCount>0) {
-            console.log('wait');
-        } */
-          
         }
       }
       updateScore();
@@ -468,13 +463,3 @@ function moveToNextLevel(e) {
   createBirdCard('bird-card-play', curBird, birdCardHTML);
   
 }
-
-
-/* const context = new AudioContext();
-let aud; */
-/* fetch(curBird.audio,{mode:'no-cors'}).then(data=>data.arrayBuffer()).then(arrayBuffer=>context.decodeAudioData(arrayBuffer)).then(decodedAudio=> {aud=decodedAudio;}); */
-
-/* const body =document.body;
-body.append(aud);
-body.addEventListener('mousedown',()=>{aud.play();});
-fetch(curBird.audio,{mode:'no-cors'}).then((r)=>console.log(r)); */

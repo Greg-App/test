@@ -162,6 +162,11 @@ button {
   text-align: right;
 }
 
+.show-loaded {
+  visibility: visible;
+  transition: 0.6s;
+}
+
 .bird-card {
   display: flex;
   flex-direction: column;
@@ -240,7 +245,7 @@ body,
 
 :root {
   font-family: Lato, "Arial", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
 }
 
@@ -328,6 +333,12 @@ img {
   margin-right: 0px;
 }
 
+.block {
+  background: rgba(74, 82, 78, 0.8);
+  box-shadow: 0 0 10px rgb(38, 121, 86);
+  border-radius: 15px;
+}
+
 .start-main {
   height: 50%;
 }
@@ -361,11 +372,10 @@ img {
   transform: scale(1.05, 1.05);
   transition: 0.3s;
 }
-.start-main .gallery .bird-list {
+.start-main .gallery .bird-gallery {
   display: grid;
   grid-template-rows: repeat(3fr);
   width: 100%;
-  border: 2px solid grey;
   max-width: 1280px;
 }
 .start-main .show-gallery {
