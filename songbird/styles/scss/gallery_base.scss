@@ -86,22 +86,53 @@ img {
     visibility: visible;
     
     //transform: translateY(-100%);
-    
+    .quiz-nav {
+      width: 100%;
+      @include flex-row-start-cent;
+       gap: 5px;
+      justify-content: stretch;
+  
+      .quiz-nav__list-item {
+        display: block;
+        padding: 0.2em;
+        margin-right: 50x;
+        border: 2px solid grey;
+        border-radius:5px;
+        font-size: 1.4em;
+        text-decoration: none;
+        background: #008966;
+      }
+      
+  
+      .quiz-nav__list-item_active {
+        background: rgb(192, 116, 54);
+        border: 2px solid rgb(177, 174, 174);
+        box-shadow: 0 0 5px yellow;
+      }
+    }
+    .quiz-nav__list-item:hover,
+      .back-btn:hover {
+        cursor:pointer;
+        transform: scale(1.05,1.05);
+        border: 2px solid yellow;
+        transition: 0.3s;
+      }
 
     .back-btn {
       margin: 0 auto;
       font-size: 1.4em;
       padding: 5px 10px;
+      height:35px;
 
-      height: 1.6em;
+      
       background: rgba(38, 121, 86, 1);
       border-radius: 5px;
     }
 
-    .back-btn:hover {
+    /* .back-btn:hover {
       transform: scale(1.05, 1.05);
       transition: 0.3s;
-    }
+    } */
 
     .bird-gallery {
       //overflow:hidden;

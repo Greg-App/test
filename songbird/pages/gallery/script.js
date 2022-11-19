@@ -14,7 +14,7 @@ const backBtn = document.querySelector('.back-btn');
 backBtn.addEventListener('click', backToMain);
 
 function backToMain() {
-  window.location.href='../start-page/index.html';
+  window.location.href = '../start-page/index.html';
 }
 
 
@@ -48,12 +48,47 @@ console.log(state);
 /*----create/update bird list, current stage and score START--------*/
 
 
-/*----create/update bird info block     START--------*/
-birdsData.forEach((elOut) => {
-  elOut.forEach((elIn) => {
+function updateCurrStage() {
+  const oldstageAct = document.querySelector('.quiz-nav__list-item_active');
+  if (oldstageAct) {
+    oldstageAct.classList.remove('quiz-nav__list-item_active');
+  }
+  const stageList = document.querySelectorAll('.quiz-nav__list-item');
+  stageList[state.stage].classList.toggle('quiz-nav__list-item_active');
+}
+
+const navList = document.querySelector('.nav-list');
+navList.addEventListener('click', chooseGen);
+
+function chooseGen(e) {
+  const selectedItem=e.target.closest('.nav-list__list-item');
+  if (selectedItem) {
+    if (!selectedItem.classList.contains('quiz-nav__list-item_active')) {
+      const oldstageAct = document.querySelector('.quiz-nav__list-item_active');
+      const navList = document.querySelectorAll('.nav-list__list-item');
+      navList.forEach((el,ind)=>{
+        if(el.textContent===selectedItem.textContent) {
+          state.stage=ind;
+          
+          const birdGallery = document.querySelector('.bird-gallery');
+          birdGallery.replaceChildren();
+          displayBirdList(ind);
+        }
+      });
+    }
+  }
+
+}
+
+function displayBirdList(stage) {
+  birdsData[stage].forEach((elIn) => {
     insertBirdCard('bird-gallery', 'bird-card', elIn, birdCardHTML);
   });
-});
+  updateCurrStage();
+}
+displayBirdList(state.stage);
+
+
 
 function insertBirdCard(cardBoxClass, inpClass, birdObj, htmlStr) {
   const birdCardBox = document.querySelector(`.${cardBoxClass}`);
@@ -61,12 +96,13 @@ function insertBirdCard(cardBoxClass, inpClass, birdObj, htmlStr) {
   birdCard.classList.add(inpClass);
   birdCard.classList.add('block');
   birdCardBox.append(birdCard);
-  createBirdCard(inpClass, birdObj, htmlStr,birdCard);
-  addBirdCardInfo(inpClass, birdObj,birdCard);
+  createBirdCard(inpClass, birdObj, htmlStr, birdCard);
+  addBirdCardInfo(inpClass, birdObj, birdCard);
 
 }
-function addBirdCardInfo(inpClass, birdObj,birdCardElement) {
-  const birdInfoBlock=birdCardElement;
+
+function addBirdCardInfo(inpClass, birdObj, birdCardElement) {
+  const birdInfoBlock = birdCardElement;
   //const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
   const img = new Image();
@@ -148,20 +184,20 @@ function addBirdCardInfo(inpClass, birdObj,birdCardElement) {
   birdCardDescr.textContent = birdObj.description;
 }
 
-function createBirdCard(inpClass, birdObj, htmlStr,birdCardElement) {
+function createBirdCard(inpClass, birdObj, htmlStr, birdCardElement) {
   //const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdInfoBlock = birdCardElement;
   birdInfoBlock.innerHTML = htmlStr;
-  createPlayer(inpClass, birdObj,birdCardElement);
+  createPlayer(inpClass, birdObj, birdCardElement);
 }
 
-function createFullBirdCard(inpClass, birdObj, htmlStr,birdCardElement) {
-  createBirdCard(inpClass, birdObj, htmlStr,birdCardElement);
-  addBirdCardInfo(inpClass, birdObj,birdCardElement);
+function createFullBirdCard(inpClass, birdObj, htmlStr, birdCardElement) {
+  createBirdCard(inpClass, birdObj, htmlStr, birdCardElement);
+  addBirdCardInfo(inpClass, birdObj, birdCardElement);
 }
-async function createPlayer(inpClass, birdObj,birdCardElement) {
+async function createPlayer(inpClass, birdObj, birdCardElement) {
   console.log('Создать плеер');
-  const birdInfoBlock=birdCardElement;
+  const birdInfoBlock = birdCardElement;
   //const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdCardPlayer = birdInfoBlock.querySelector('.bird-card__player');
   const player = document.createElement('div');
