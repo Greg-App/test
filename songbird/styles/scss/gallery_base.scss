@@ -25,6 +25,7 @@ html,
 body,
 .page-wrapper {
   height: 100vh;
+  width: 100%;
 }
 
 :root {
@@ -41,6 +42,7 @@ body {
   background: url('../../assets/images/bg-invite-page-1.jpg') center/cover no-repeat;
   //background: url('../../assets/images/scale_1200.webp') center/cover no-repeat;
   //background: url('../../assets/images/4b775c47fbfaedec2f3868c944d8ddbf.png') center/cover no-repeat;
+  width:100%;
 }
 
 img {
@@ -83,7 +85,7 @@ img {
   top: 0;
   left: 0;
   z-index: 150;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   visibility: visible;
@@ -195,4 +197,33 @@ img {
   //transform: translateY(0%);
   transition: 0.6s;
 
+}
+@media screen and (min-width:1200px) {
+.gallery .bird-card {
+  min-width:350px;
+}
+}
+@media screen and (max-width:600px) {
+  .gallery .back-btn,
+  .gallery .nav-list .nav-list__list-item
+   {
+    font-size: 1.2em;
+  }
+  .gallery .bird-card {
+    min-width:300px;
+  }
+}
+@media screen and (max-width:480px) {
+  .gallery .bird-card {
+    min-width:200px;
+  }
+  .page-wrapper {
+    padding:0 10px 10px;
+  }
+
+}
+@media screen and (max-width:390px) {
+.gallery {
+  padding:10px;
+}
 }

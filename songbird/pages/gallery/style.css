@@ -260,6 +260,7 @@ html,
 body,
 .page-wrapper {
   height: 100vh;
+  width: 100%;
 }
 
 :root {
@@ -272,6 +273,7 @@ body {
   position: relative;
   overflow: hidden;
   background: url("../../assets/images/bg-invite-page-1.jpg") center/cover no-repeat;
+  width: 100%;
 }
 
 img {
@@ -314,7 +316,7 @@ img {
   top: 0;
   left: 0;
   z-index: 150;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   visibility: visible;
@@ -411,6 +413,34 @@ img {
   visibility: visible;
   top: 0;
   transition: 0.6s;
+}
+
+@media screen and (min-width: 1200px) {
+  .gallery .bird-card {
+    min-width: 350px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .gallery .back-btn,
+.gallery .nav-list .nav-list__list-item {
+    font-size: 1.2em;
+  }
+  .gallery .bird-card {
+    min-width: 300px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .gallery .bird-card {
+    min-width: 200px;
+  }
+  .page-wrapper {
+    padding: 0 10px 10px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .gallery {
+    padding: 10px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
