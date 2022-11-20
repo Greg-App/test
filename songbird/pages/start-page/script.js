@@ -1,4 +1,4 @@
-import birdsData from '../../app/js/birds-list.js';
+import {birdsData as birdsDataAll} from '../../app/js/birds-list.js';
 import birdCardHTML from '../../app/js/bird-card.js';
 import {
   birdPlayerHTML

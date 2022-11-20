@@ -100,13 +100,14 @@ $block-gap: 20px;
 }
 
 .quiz-header {
+  position:relative;
   margin: 0 auto 0px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   height: 30%;
   width: 100%;
 
@@ -164,10 +165,11 @@ $block-gap: 20px;
   }
 
   .quiz-nav {
-    width: 100%;
+    width: 90%;
     @include flex-row-start-cent;
     row-gap: 5px;
     justify-content: stretch;
+    align-self: flex-start;
 
     .quiz-nav__list-item {
       display: block;
@@ -398,5 +400,8 @@ $block-gap: 20px;
 @media screen and (max-width:390px) {
   .quiz-header .header-wrapper {
     flex-direction: column;
+  }
+  .quiz-header {
+    padding:10px;
   }
 }

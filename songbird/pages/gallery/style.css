@@ -30,6 +30,22 @@ button {
   cursor: pointer;
 }
 
+.btn-lang {
+  position: absolute;
+  z-index: 50;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1rem;
+  appearance: none;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px sloid grey;
+  background: rgb(70, 69, 69);
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
 .player {
   display: flex;
   visibility: hidden;

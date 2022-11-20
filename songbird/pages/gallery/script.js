@@ -19,6 +19,7 @@ function backToMain() {
 
 
 const state = {
+  lan: 'ru',
   stage: 0,
   score: 0,
   defBirdInfo: 'Послушайте плеер.<br>Выберите птицу из списка',

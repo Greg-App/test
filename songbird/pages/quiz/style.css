@@ -29,6 +29,22 @@ button {
   cursor: pointer;
 }
 
+.btn-lang {
+  position: absolute;
+  z-index: 50;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1rem;
+  appearance: none;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px sloid grey;
+  background: rgb(70, 69, 69);
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
 .player {
   display: flex;
   visibility: hidden;
@@ -308,13 +324,14 @@ img {
 }
 
 .quiz-header {
+  position: relative;
   margin: 0 auto 0px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   height: 30%;
   width: 100%;
 }
@@ -361,13 +378,14 @@ img {
   text-shadow: 0 0 9px rgb(255, 255, 255);
 }
 .quiz-header .quiz-nav {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   row-gap: 5px;
   justify-content: stretch;
+  align-self: flex-start;
 }
 .quiz-header .quiz-nav .quiz-nav__list-item {
   display: block;
@@ -564,6 +582,9 @@ img {
 @media screen and (max-width: 390px) {
   .quiz-header .header-wrapper {
     flex-direction: column;
+  }
+  .quiz-header {
+    padding: 10px;
   }
 }
 
