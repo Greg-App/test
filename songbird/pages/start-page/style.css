@@ -290,7 +290,13 @@ img {
   min-width: 300px;
 }
 
+.btn-lang {
+  bottom: auto;
+  top: 10px;
+}
+
 .start-header {
+  position: relative;
   margin: 0 auto 30px;
   padding: 20px;
   display: flex;
@@ -299,6 +305,7 @@ img {
   align-items: center;
   gap: 10px;
   height: 30%;
+  min-width: 300px;
   /* background: rgb(38, 121, 86); */
   background: rgba(74, 82, 78, 0.8);
   box-shadow: 0 0 10px rgb(38, 121, 86);
@@ -331,6 +338,7 @@ img {
 }
 .start-header .start-nav {
   width: 100%;
+  justify-content: center;
 }
 .start-header .start-nav .start-nav__list-item {
   display: block;

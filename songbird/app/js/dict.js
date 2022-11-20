@@ -14,5 +14,22 @@ const dictQuiz = {
     backBtn: 'Назад'
   }
 };
+const dictStart = {
+  en: {
+    nav: ['Start game','Results', 'Gallery'],
+    title: 'Quiz game',
+    subtitle: 'How a bird sings',
+    description:'Listen to different bird voice records and try to guess the name of the bird'
+  },
+  ru: {
+    nav: ['Начать игру','Результаты', 'Галерея'],
+    title: 'Игра викторина',
+    subtitle: 'Как поет птица',
+    description:'Слушайте записи голосов различных птиц и угадывайте название птицы'
+  }
+};
 
-export  {dictQuiz};
+
+
+
+export  {dictQuiz,dictStart};

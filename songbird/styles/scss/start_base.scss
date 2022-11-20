@@ -60,8 +60,11 @@ img {
   min-width: 300px;
 
 }
-
-.start-header {
+.btn-lang {
+  bottom:auto;
+  top:10px;
+}
+.start-header {position:relative;
   margin: 0 auto 30px;
   padding: 20px;
   display: flex;
@@ -70,6 +73,7 @@ img {
   align-items: center;
   gap: 10px;
   height: 30%;
+  min-width:300px;
 
 
 
@@ -109,9 +113,10 @@ img {
     }
 
   }
-
+  
   .start-nav {
     width: 100%;
+    justify-content: center;
 
     .start-nav__list-item {
       display: block;
