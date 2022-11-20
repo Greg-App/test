@@ -518,14 +518,25 @@ function selectBird(e) {
           //show win note
           const pageWrapper = document.querySelector('.page-wrapper');
           const winNote = document.createElement('div');
-          winNote.innerHTML = winNoteHTML;
           winNote.classList.add('win-note');
+          const winNoteText = document.createElement('div');
+          winNoteText.classList.add('win-note__text');
+          const winNoteGameOver = document.createElement('span');
+          winNoteGameOver.classList.add('win-note__game-over');
+          winNoteGameOver.textContent=dict[state.curLang].winNote[0];
+          const br = document.createElement('br');
+          const winNoteRedirect = document.createElement('span');
+          winNoteRedirect.textContent=dict[state.curLang].winNote[1];
+          winNoteRedirect.classList.add('win-note__game-redirect');
+          winNoteText.append(winNoteGameOver);
+          winNoteText.append(br);
+          winNoteText.append(winNoteRedirect);
+          winNote.append(winNoteText);
           pageWrapper.prepend(winNote);
           setTimeout(() => {
             window.location.href = '../result/index.html';
             console.log('REDIRECT');
           }, 4000);
-
         }
       }
       updateScore();

@@ -4,14 +4,16 @@ const dictQuiz = {
     nav: ['Training','Old World sparrow', 'Forest birds','Songbirds','Birds of Prey','Sea birds'],
     infoBlock: 'Listen to current bird song<br>Choose the bird from the list',
     nextLevelBtn: 'Next Level',
-    backBtn: 'Back'
+    backBtn: 'Back',
+    winNote: ['Game over', 'redirecting to results\nin few seconds . . .']
   },
   ru: {
     score:'Баллы',
     nav: ['Тренировка','Воробьиные', 'Лесные птицы','Певчие птицы','Хищные птицы','Морские птицы'],
     infoBlock: 'Послушайте плеер.<br>Выберите птицу из списка',
     nextLevelBtn: 'Следующий уровень',
-    backBtn: 'Назад'
+    backBtn: 'Назад',
+    winNote: ['Игра окончена', 'переход к результатам\nчерез несколько секунд . . .']
   }
 };
 const dictStart = {

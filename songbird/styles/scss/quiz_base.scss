@@ -28,6 +28,7 @@ body,
 
 .win-note {
   position: absolute;
+  padding:40px;
   z-index: 150;
   width: 100%;
   height: 100%;
@@ -36,7 +37,7 @@ body,
 
   .win-note__text {
     position: relative;
-    top: 25%;
+    top: 15%;
     transform: translateY(-50%);
     text-shadow: 0 0 10px rgb(230, 186, 43);
     color: rgba(249, 252, 251, 0.7);
@@ -48,7 +49,7 @@ body,
     }
 
     .win-note__game-redirect {
-      text-align: left;
+      text-align: stretch;
       display: inline-block;
       font-size: 2.0em;
       line-height: 1.2em;
@@ -72,6 +73,7 @@ body {
 
 img {
   display: inline-block;
+  
 }
 
 
