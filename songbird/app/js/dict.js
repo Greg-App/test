@@ -3,13 +3,15 @@ const dictQuiz = {
     score:'Score',
     nav: ['Training','Old World sparrow', 'Forest birds','Songbirds','Birds of Prey','Sea birds'],
     infoBlock: 'Listen to current bird song<br>Choose the bird from the list',
-    nextLevelBtn: 'Next Level'
+    nextLevelBtn: 'Next Level',
+    backBtn: 'Back'
   },
   ru: {
     score:'Баллы',
     nav: ['Тренировка','Воробьиные', 'Лесные птицы','Певчие птицы','Хищные птицы','Морские птицы'],
     infoBlock: 'Послушайте плеер.<br>Выберите птицу из списка',
-    nextLevelBtn: 'Следующий уровень'
+    nextLevelBtn: 'Следующий уровень',
+    backBtn: 'Назад'
   }
 };
 

@@ -298,6 +298,11 @@ img {
   border-radius: 15px;
 }
 
+.btn-lang {
+  bottom: auto;
+  top: 10px;
+}
+
 .gallery {
   position: relative;
   display: flex;
@@ -314,9 +319,9 @@ img {
   background: rgba(0, 0, 0, 0.8);
   visibility: visible;
   /* .back-btn:hover {
-    transform: scale(1.05, 1.05);
-    transition: 0.3s;
-  } */
+      transform: scale(1.05, 1.05);
+      transition: 0.3s;
+    } */
 }
 .gallery .quiz-nav {
   width: 100%;
@@ -373,17 +378,22 @@ img {
 
 .bird-gallery::-webkit-scrollbar,
 .bird-card__description::-webkit-scrollbar {
-  width: 10px; /* ширина scrollbar */
+  width: 10px;
+  /* ширина scrollbar */
 }
 .bird-gallery::-webkit-scrollbar-track,
 .bird-card__description::-webkit-scrollbar-track {
-  background: rgb(20, 20, 20); /* цвет дорожки */
+  background: rgb(20, 20, 20);
+  /* цвет дорожки */
 }
 .bird-gallery::-webkit-scrollbar-thumb,
 .bird-card__description::-webkit-scrollbar-thumb {
-  background-color: rgba(26, 90, 20, 0.8); /* цвет плашки */
-  border-radius: 20px; /* закругления плашки */
-  border: 1px solid rgb(112, 111, 27); /* padding вокруг плашки */
+  background-color: rgba(26, 90, 20, 0.8);
+  /* цвет плашки */
+  border-radius: 20px;
+  /* закругления плашки */
+  border: 1px solid rgb(112, 111, 27);
+  /* padding вокруг плашки */
 }
 
 .bird-card {
