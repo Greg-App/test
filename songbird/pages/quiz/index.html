@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,75 +8,81 @@
   <link rel="stylesheet" href="style.css">
   <link href="../../assets/icons/favicon-songbird.ico" rel="shortcut icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <title>SongBird Quiz Game</title>
 </head>
+
 <body>
+
   <div class="page-wrapper">
-  <header class="quiz-header block">
-    <div class="header-wrapper">
-      <div class="logo">
-        <div class="logo__icon">
-          <a href="../start-page/index.html"><img src="../../assets/images/hummingbird-logo.png" alt="logo-songbird" width="80" class="logo__img">
+    
+    <header class="quiz-header block">
+      <select class="btn-lang" name="language">
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+      </select>
+      <div class="header-wrapper">
+        <div class="logo">
+          <div class="logo__icon">
+            <a href="../start-page/index.html"><img src="../../assets/images/hummingbird-logo.png" alt="logo-songbird"
+                width="80" class="logo__img">
           </div></a>
-        <div class="logo__title logo-title">
-          <span class="logo-title__text">Song</span>
-          <span class="logo-title__text logo-title__text_colored">Bird</span>
+          <div class="logo__title logo-title">
+            <span class="logo-title__text">Song</span>
+            <span class="logo-title__text logo-title__text_colored">Bird</span>
+          </div>
+        </div>
+        <div class="dashboard">
+          <span class="dash-score-text"></span>
+          <span class="dash-score">0</span>
         </div>
       </div>
-      <div class="dashboard">
-        <span>Баллы: </span>
-        <span class="dash-score">0</span>
-      </div>
-    </div>
-    
-    <div class="nav-list quiz-nav">
-      <li class="nav-list__list-item quiz-nav__list-item">
-        Разминка
-      </li>
-      <li class="nav-list__list-item quiz-nav__list-item">
-        Воробьиные
-      </li>
-      <li class="nav-list__list-item quiz-nav__list-item">
-        Лесные птицы
-      </li>
-      <li class="nav-list__list-item quiz-nav__list-item">
-        Певчие птицы
-      </li>
-      <li class="nav-list__list-item quiz-nav__list-item">
-        Хищные птицы
-      </li>
-      <li class="nav-list__list-item quiz-nav__list-item">
-        Морские птицы
-      </li>
-    </div>
-
-  </header>
-  <main class="quiz-main">
-    <section class="preview block">
-      <div class="bird-card block bird-card-play">
-        
-      </div>
-    </section>
-    <section class="game-wrapper">
-      <div class="bird-list block">
-        <li class="bird-list__list-item bird-list__list-item_checked">
-          <div class="bird-list__item-check"></div>
-          <span class="bird-list__item-text"></span>
+      <div class="nav-list quiz-nav">
+        <li class="nav-list__list-item quiz-nav__list-item">
+          
+        </li>
+        <li class="nav-list__list-item quiz-nav__list-item">
+          
+        </li>
+        <li class="nav-list__list-item quiz-nav__list-item">
+          
+        </li>
+        <li class="nav-list__list-item quiz-nav__list-item">
+          
+        </li>
+        <li class="nav-list__list-item quiz-nav__list-item">
+          
+        </li>
+        <li class="nav-list__list-item quiz-nav__list-item">
+          
         </li>
       </div>
-      <div class="bird-card-info-wrapper block">
-      <div class="bird-card block bird-card-info block">
-        Послушайте плеер.<br>Выберите птицу из списка
-      </div>
-    </div>
-    </section>
-    <button class="next-level-btn button block">Следующий уровень</button>
-    <audio class="win" src="../../assets/sounds/win.mp3"></audio>
-    <audio class="loose" src="../../assets/sounds/loose.mp3"></audio>
-  </main>
-</div>
-<script type="module" src="script.js"></script>
+    </header>
+    <main class="quiz-main">
+      <section class="preview block">
+        <div class="bird-card block bird-card-play">
+
+        </div>
+      </section>
+      <section class="game-wrapper">
+        <div class="bird-list block">
+          <li class="bird-list__list-item bird-list__list-item_checked">
+            <div class="bird-list__item-check"></div>
+            <span class="bird-list__item-text"></span>
+          </li>
+        </div>
+        <div class="bird-card-info-wrapper block">
+          <div class="bird-card block bird-card-info block">
+          </div>
+        </div>
+      </section>
+      <button class="next-level-btn button block">Следующий уровень</button>
+      <audio class="win" src="../../assets/sounds/win.mp3"></audio>
+      <audio class="loose" src="../../assets/sounds/loose.mp3"></audio>
+    </main>
+  </div>
+  <script type="module" src="script.js"></script>
 </body>
+
 </html>

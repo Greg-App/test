@@ -1,21 +1,23 @@
-import {
-  birdsData as birdsDataAll
-} from '../../app/js/birds-list.js';
+import {birdsData as birdsDataAll} from '../../app/js/birds-list.js';
 import birdCardHTML from '../../app/js/bird-card.js';
 import {
-  dictQuiz as dict
-} from '../../app/js/dict.js';
-import {
-  winNoteHTML
-} from '../../app/js/misc.js';
+  birdPlayerHTML
+} from '../../app/js/bird-card.js';
 import {
   getRandomNum
 } from '../../app/js/helpers.js';
 import {
-  birdPlayerHTML
-} from '../../app/js/bird-card.js';
-//import {state,addBirdCardInfo,createPlayer,createBirdCard,createFullBirdCard} from '../../app/js/bird-card.js';
-//import * as playerModule from '../../app/js/player';
+  winNoteHTML
+} from '../../app/js/misc.js';
+import {
+  dictQuiz as dict
+} from '../../app/js/dict.js';
+const backBtn = document.querySelector('.back-btn');
+backBtn.addEventListener('click', backToMain);
+
+function backToMain() {
+  window.location.href = '../start-page/index.html';
+}
 
 
 const state = {
@@ -30,6 +32,10 @@ const state = {
   loadInfoArr: [],
   loadPlayArr: []
 };
+
+const loadInfoArr = [];
+const loadPlayArr = [];
+
 //---Language controls------START-----------
 
 const langSelector = document.querySelector('.btn-lang');
@@ -43,19 +49,19 @@ langSelector.addEventListener('change', (e) => {
   cards.forEach((el) => {
     updateLangBirdInfo(el);
   });
-  const cardPlay = document.querySelector('.bird-card-play');
+  /* const cardPlay = document.querySelector('.bird-card-play');
   console.log(cardPlay);
   console.log(state.curBirdInfo);
   const birdsCards = document.querySelectorAll('.bird-card');
   birdsCards.forEach((el)=>{
     el.dataset.lang=state.curLang;
     const birdImg=el.querySelector('.bird-card__img');
-    //birdImg.alt=`${birdsDataAll[el.dataset.lang][el.dataset.stage][el.dataset.ind].name}`;
-  });
+    birdImg.alt=`${birdsDataAll[el.dataset.lang][el.dataset.stage][el.dataset.ind].name}`;
+  }); */
   
-  state.curBirdInfo = birdsDataAll[cardPlay.dataset.lang][cardPlay.dataset.stage][cardPlay.dataset.ind];
+  /* state.curBirdInfo = birdsDataAll[cardPlay.dataset.lang][cardPlay.dataset.stage][cardPlay.dataset.ind];
   console.log(state.curBirdInfo);
-  curBird=state.curBirdInfo;
+  curBird=state.curBirdInfo; */
 });
 
 updatePageLang();
@@ -91,7 +97,17 @@ function updateLangBirdList() {
 }
 
 function updateLangBirdInfo(birdCard) {
-  if (birdCard.querySelector('.bird-card__preview')) {
+
+  const birdName = birdCard.querySelector('.bird-card__name');
+  birdName.textContent = birdsData[state.stage][birdCard.dataset.ind].name;
+  const birdImg = birdCard.querySelector('.bird-card__img');
+      birdImg.alt=`${birdName.textContent}`;
+      birdImg.title=`${birdName.textContent}`;
+      const birdGen = birdCard.querySelector('.bird-card__gen');
+    birdGen.textContent = birdsData[state.stage][birdCard.dataset.ind].species;
+    const birdDescr = birdCard.querySelector('.bird-card__description');
+    birdDescr.textContent = birdsData[state.stage][birdCard.dataset.ind].description;
+  /* if (birdCard.querySelector('.bird-card__preview')) {
     const birdName = birdCard.querySelector('.bird-card__name');
     const regex = /[\*]/g;
     if (!(birdName.textContent.match(regex) !== null && birdName.textContent.match(regex).length === birdName.textContent.length)) {
@@ -107,70 +123,35 @@ function updateLangBirdInfo(birdCard) {
   }
   const birdsList = document.querySelectorAll('.bird-list__item-text');
   birdsList.forEach((el, ind) => el.textContent = birdsData[state.stage][ind].name);
-  const cardInfoPreview = document.querySelector('.bird-card-info .card-preview');
+  const cardInfoPreview = document.querySelector('.bird-card-info .card-preview'); */
 }
 
 function updateLangGeneralInfo() {
   const navList = document.querySelectorAll('.quiz-nav__list-item');
   const lanLocal = localStorage.getItem('songbird-lan') ? localStorage.getItem('songbird-lan') : state.curLang;
   navList.forEach((el, ind) => el.textContent = dict[lanLocal].nav[ind]);
-  const nextLevBtn = document.querySelector('.next-level-btn');
-  nextLevBtn.textContent = dict[state.curLang].nextLevelBtn;
-  const cardInfoPreview = document.querySelector('.bird-card-info .card-preview');
-  if (!cardInfoPreview) {
-    const cardInfo = document.querySelector('.bird-card-info');
-    cardInfo.innerHTML = dict[state.curLang].infoBlock;
-    const dashScore = document.querySelector('.dash-score-text');
-    dashScore.textContent = `${dict[state.curLang].score}: `;
-
-  }
+  const backBtn = document.querySelector('.back-btn');
+  console.log(dict);
+  backBtn.textContent=dict[lanLocal].backBtn;
 }
 
 //---Language controls------END-----------
 
-const loadInfoArr = [];
-const loadPlayArr = [];
-
-function setDefBirdInfo() {
+/* function setDefBirdInfo() {
   const birdInfoBlock = document.querySelector('.bird-card-info');
-  birdInfoBlock.innerHTML = dict[state.curLang].infoBlock;
-  /* birdInfoBlock.classList.add('show'); */
+  birdInfoBlock.innerHTML = state.defBirdInfo;
 }
-
+setDefBirdInfo(); */
 
 let curBird = birdsData[state.stage][getRandomNum(0, birdsData.length)];
 console.log('curBird: ', curBird);
 state.curBirdInfo = curBird;
 console.log(state);
 /*-create preview birdCard---------*/
-createBirdCard('bird-card-play', curBird, birdCardHTML);
+//createBirdCard('bird-card-play', curBird, birdCardHTML);
 
 /*----create/update bird list, current stage and score START--------*/
-function updateScore() {
-  const score = document.querySelector('.dash-score');
-  score.textContent = state.score;
-}
 
-const birdList = document.querySelector('.bird-list');
-birdList.addEventListener('click', selectBird);
-
-function createBirdList() {
-  if (birdList.children) {
-    birdList.replaceChildren();
-  }
-  birdsData[state.stage].forEach((el) => {
-    const birdItem = document.createElement('li');
-    birdItem.classList.add('bird-list__list-item');
-    const birdItemCheck = document.createElement('div');
-    birdItemCheck.classList.add('bird-list__item-check');
-    const birdItemText = document.createElement('span');
-    birdItemText.classList.add('bird-list__item-text');
-    birdItemText.textContent = el.name;
-    birdItem.append(birdItemCheck);
-    birdItem.append(birdItemText);
-    birdList.append(birdItem);
-  });
-}
 
 function updateCurrStage() {
   const oldstageAct = document.querySelector('.quiz-nav__list-item_active');
@@ -180,16 +161,54 @@ function updateCurrStage() {
   const stageList = document.querySelectorAll('.quiz-nav__list-item');
   stageList[state.stage].classList.toggle('quiz-nav__list-item_active');
 }
-createBirdList();
-updateCurrStage();
-updateScore();
-/*----create/update bird list, current stage and score END--------*/
 
-/*----create/update bird info block     START--------*/
+const navList = document.querySelector('.nav-list');
+navList.addEventListener('click', chooseGen);
 
-function addBirdCardInfo(inpClass, birdObj) {
+function chooseGen(e) {
+  const selectedItem=e.target.closest('.nav-list__list-item');
+  if (selectedItem) {
+    if (!selectedItem.classList.contains('quiz-nav__list-item_active')) {
+      const oldstageAct = document.querySelector('.quiz-nav__list-item_active');
+      const navList = document.querySelectorAll('.nav-list__list-item');
+      navList.forEach((el,ind)=>{
+        if(el.textContent===selectedItem.textContent) {
+          state.stage=ind;
+          
+          const birdGallery = document.querySelector('.bird-gallery');
+          birdGallery.replaceChildren();
+          displayBirdList(ind);
+        }
+      });
+    }
+  }
 
-  const birdInfoBlock = document.querySelector(`.${inpClass}`);
+}
+
+function displayBirdList(stage) {
+  birdsData[stage].forEach((elIn) => {
+    insertBirdCard('bird-gallery', 'bird-card', elIn, birdCardHTML);
+  });
+  updateCurrStage();
+}
+displayBirdList(state.stage);
+
+
+
+function insertBirdCard(cardBoxClass, inpClass, birdObj, htmlStr) {
+  const birdCardBox = document.querySelector(`.${cardBoxClass}`);
+  const birdCard = document.createElement('div');
+  birdCard.classList.add(inpClass);
+  birdCard.classList.add('block');
+  birdCardBox.append(birdCard);
+  createBirdCard(inpClass, birdObj, htmlStr, birdCard);
+  addBirdCardInfo(inpClass, birdObj, birdCard);
+
+}
+
+function addBirdCardInfo(inpClass, birdObj, birdCardElement) {
+  const birdInfoBlock = birdCardElement;
+  //const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdCardImg = birdInfoBlock.querySelector('.bird-card__img');
   const img = new Image();
   const birdCardImgCover = birdInfoBlock.querySelector('.bird-card-img__cover');
@@ -249,7 +268,7 @@ function addBirdCardInfo(inpClass, birdObj) {
           console.log(img);
           birdCardImgCover.lastChild.remove();
           loadIcon.textContent = `Failed to load picture (Error)`;
-        }
+        };
       })
       .catch(error => {
         //img.src = 'http://xxxx';
@@ -268,23 +287,26 @@ function addBirdCardInfo(inpClass, birdObj) {
   birdCardSpecies.textContent = birdObj.species;
   const birdCardDescr = birdInfoBlock.querySelector('.bird-card__description');
   birdCardDescr.textContent = birdObj.description;
-};
+}
 
-function createBirdCard(inpClass, birdObj, htmlStr) {
-  const birdInfoBlock = document.querySelector(`.${inpClass}`);
+function createBirdCard(inpClass, birdObj, htmlStr, birdCardElement) {
+  //const birdInfoBlock = document.querySelector(`.${inpClass}`);
+  const birdInfoBlock = birdCardElement;
   birdInfoBlock.innerHTML = htmlStr;
   birdInfoBlock.dataset.lang = state.curLang;
   birdInfoBlock.dataset.stage = state.stage;
   birdInfoBlock.dataset.ind = birdObj.id - 1;
-  createPlayer(inpClass, birdObj);
-};
+  createPlayer(inpClass, birdObj, birdCardElement);
+}
 
-function createFullBirdCard(inpClass, birdObj, htmlStr) {
-  createBirdCard(inpClass, birdObj, htmlStr);
-  addBirdCardInfo(inpClass, birdObj);
-};
-async function createPlayer(inpClass, birdObj) {
-  const birdInfoBlock = document.querySelector(`.${inpClass}`);
+function createFullBirdCard(inpClass, birdObj, htmlStr, birdCardElement) {
+  createBirdCard(inpClass, birdObj, htmlStr, birdCardElement);
+  addBirdCardInfo(inpClass, birdObj, birdCardElement);
+}
+async function createPlayer(inpClass, birdObj, birdCardElement) {
+  console.log('Создать плеер');
+  const birdInfoBlock = birdCardElement;
+  //const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdCardPlayer = birdInfoBlock.querySelector('.bird-card__player');
   const player = document.createElement('div');
   player.innerHTML = birdPlayerHTML;
@@ -299,15 +321,19 @@ async function createPlayer(inpClass, birdObj) {
 
   const newAudio = new Promise(function (resolve, reject) {
     //birdObj.audio
+    console.log(birdObj.audio);
     /*---------Audio load block-----START----*/
+    console.log('Audio fetch is All right');
     song.src = birdObj.audio;
     if (inpClass === 'bird-card-play') {
       loadPlayArr.push(song);
-      
+      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+      console.log(loadPlayArr);
     } else {
       loadInfoArr.push(song);
     }
     //when player is ready to play
+    console.log('Создаем слушателя на canplaythrough');
     song.addEventListener('canplaythrough', () => {
       console.log("Аудио загрузилось");
       player.classList.add('show-loaded');
@@ -472,119 +498,20 @@ async function createPlayer(inpClass, birdObj) {
 
 
   /*-------Audio Player Enhanced (custom)-END--------------------------------*/
-};
-
-function selectBird(e) {
-  if (e.target.closest('.bird-list__list-item')) {
-    const selBirdName = e.target.closest('.bird-list__list-item');
-    if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
-      state.tryCount += 1;
-      loadInfoArr.forEach((el) => {
-        el.src = "#";
-        console.log(loadPlayArr);
-      });
-
-    }
-
-
-    //if selected bird name = win bird name
-    console.log('CURRRENT!!!!!!!999999999999999999999999999999999999999999999999999999');
-    console.log(selBirdName.children[1].textContent.toLowerCase().trim());
-    console.log(state.curBirdInfo.name.toLowerCase());
-    if (selBirdName.children[1].textContent.toLowerCase().trim() == state.curBirdInfo.name.toLowerCase()) {
-      /*if win level*/
-      const clicksound = document.querySelector('.win');
-      clicksound.play();
-      const allAudioBtn = document.querySelectorAll('.bird-card .play');
-      allAudioBtn.forEach((el) => {
-        if (el.classList.contains('pause')) {
-          el.click();
-        }
-      });
-
-
-
-      if (!selBirdName.classList.contains('bird-list__list-item_checked')) {
-        state.score = state.score + birdsData[state.stage].length - state.tryCount;
-        addBirdCardInfo('bird-card-play', curBird);
-        if (state.stage === birdsData.length - 1) {
-          /*if win game*/
-          localStorage.setItem('songbird-score', `${state.score}`);
-          //show win note
-          const pageWrapper = document.querySelector('.page-wrapper');
-          const winNote = document.createElement('div');
-          winNote.classList.add('win-note');
-          const winNoteText = document.createElement('div');
-          winNoteText.classList.add('win-note__text');
-          const winNoteGameOver = document.createElement('span');
-          winNoteGameOver.classList.add('win-note__game-over');
-          winNoteGameOver.textContent=dict[state.curLang].winNote[0];
-          const br = document.createElement('br');
-          const winNoteRedirect = document.createElement('span');
-          winNoteRedirect.textContent=dict[state.curLang].winNote[1];
-          winNoteRedirect.classList.add('win-note__game-redirect');
-          winNoteText.append(winNoteGameOver);
-          winNoteText.append(br);
-          winNoteText.append(winNoteRedirect);
-          winNote.append(winNoteText);
-          pageWrapper.prepend(winNote);
-          setTimeout(() => {
-            window.location.href = '../result/index.html';
-            console.log('REDIRECT');
-          }, 4000);
-        }
-      }
-      updateScore();
-      selBirdName.children[0].style.background = '#008000';
-      selBirdName.classList.add('bird-list__list-item_checked');
-      const nextBtn = document.querySelector('.next-level-btn');
-      nextBtn.classList.add('next-level-btn_active');
-      if (state.stage === birdsData.length - 1) {
-        nextBtn.disabled = true;
-      } else {
-        nextBtn.disabled = false;
-      }
-
-    } else {
-      const clicksound = document.querySelector('.loose');
-      clicksound.play();
-      selBirdName.children[0].style.background = '#c7300b';
-      selBirdName.classList.add('bird-list__list-item_checked');
-    }
-    const birdInfoSelName = document.querySelector('.bird-card-info .bird-card__preview .bird-card__name');
-    if (!birdInfoSelName || birdInfoSelName.textContent.toLowerCase().trim() !== selBirdName.children[1].textContent.toLowerCase().trim()) {
-      for (let i = 0; i < birdsData[state.stage].length; i++) {
-        if (birdsData[state.stage][i].name.toLowerCase() == selBirdName.children[1].textContent.toLowerCase().trim()) {
-          state.curInfoInd = i;
-          createFullBirdCard('bird-card-info', birdsData[state.stage][i], birdCardHTML);
-        }
-      }
-    }
-  }
 }
 
-const nextBtn = document.querySelector('.next-level-btn');
-nextBtn.addEventListener('click', moveToNextLevel);
-nextBtn.disabled = true;
 
-function moveToNextLevel(e) {
-  loadInfoArr.forEach((el) => {
-    el.src = "#";
-  });
-  loadPlayArr.forEach((el) => {
-    el.src = "#";
-  });
-  state.stage += 1;
-  state.tryCount = 0;
-  state.curInfoInd = null;
-  updateCurrStage();
-  createBirdList();
-  setDefBirdInfo();
-  nextBtn.disabled = true;
-  nextBtn.classList.remove('next-level-btn_active');
-  curBird = birdsData[state.stage][getRandomNum(0, birdsData.length - 1)];
-  console.log('curBird: ', curBird);
-  state.curBirdInfo = curBird;
-  createBirdCard('bird-card-play', curBird, birdCardHTML);
 
-}
+
+
+
+
+
+/* const context = new AudioContext();
+let aud; */
+/* fetch(curBird.audio,{mode:'no-cors'}).then(data=>data.arrayBuffer()).then(arrayBuffer=>context.decodeAudioData(arrayBuffer)).then(decodedAudio=> {aud=decodedAudio;}); */
+
+/* const body =document.body;
+body.append(aud);
+body.addEventListener('mousedown',()=>{aud.play();});
+fetch(curBird.audio,{mode:'no-cors'}).then((r)=>console.log(r)); */
