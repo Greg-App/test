@@ -284,7 +284,6 @@ function createFullBirdCard(inpClass, birdObj, htmlStr) {
   addBirdCardInfo(inpClass, birdObj);
 };
 async function createPlayer(inpClass, birdObj) {
-  console.log('Создать плеер');
   const birdInfoBlock = document.querySelector(`.${inpClass}`);
   const birdCardPlayer = birdInfoBlock.querySelector('.bird-card__player');
   const player = document.createElement('div');
@@ -300,19 +299,15 @@ async function createPlayer(inpClass, birdObj) {
 
   const newAudio = new Promise(function (resolve, reject) {
     //birdObj.audio
-    console.log(birdObj.audio);
     /*---------Audio load block-----START----*/
-    console.log('Audio fetch is All right');
     song.src = birdObj.audio;
     if (inpClass === 'bird-card-play') {
       loadPlayArr.push(song);
-      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-      console.log(loadPlayArr);
+      
     } else {
       loadInfoArr.push(song);
     }
     //when player is ready to play
-    console.log('Создаем слушателя на canplaythrough');
     song.addEventListener('canplaythrough', () => {
       console.log("Аудио загрузилось");
       player.classList.add('show-loaded');

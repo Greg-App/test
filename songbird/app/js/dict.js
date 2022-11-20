@@ -30,8 +30,21 @@ const dictStart = {
     description:'Слушайте записи голосов различных птиц и угадывайте название птицы'
   }
 };
+const dictResult = {
+  en: {
+    nav: ['Play again','Start menu'],
+    title: 'Results',
+    descript: 'Score:',
+    description: 'Press "Play again" in the menu above to play again',
+    maxScore:'Congratulation! You win the game! you hit the maximum score.'
+  },
+  ru: {
+    nav: ['Играть снова','На главную'],
+    title: 'Результаты',
+    descript: 'Ваши баллы:',
+    description:'Для повторной игры нажмите "Играть снова" в меню выше',
+    maxScore: 'Поздравляем! Вы прошли игру! У вас максимальное количество баллов.'
+  }
+};
 
-
-
-
-export  {dictQuiz,dictStart};
+export  {dictQuiz,dictStart,dictResult};

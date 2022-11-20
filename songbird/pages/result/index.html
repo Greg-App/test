@@ -16,6 +16,10 @@
 <body>
   <div class="page-wrapper">
     <header class="result-header">
+      <select class="btn-lang" name="language">
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+      </select>
       <div class="logo">
         <div class="logo__icon">
           <img src="../../assets/images/hummingbird-logo.png" alt="logo-songbird" width="80" class="logo__img">
@@ -41,13 +45,16 @@
           Результаты
         </h1>
         <div class="game-results">
-        <span class="descript">Ваши баллы:<br>
-        <span class="score">27 / 30</span><br>
-        Для повторной игры нажмите "Играть снова" в меню выше</span>
-        <span class="max-score"></span>
+          <span class="descript">Ваши баллы:</span><br>
+            <span class="score">27 / 30</span>
+            <br>
+            <span class="description">Для повторной игры нажмите "Играть снова" в меню выше
+          </span>
+          </span><br>
+          <span class="max-score"></span>
 
         </div>
-       
+
       </div>
 
     </main>
@@ -58,13 +65,13 @@
               class="link__img" src="../../assets/icons/icons8-github-30.svg" alt="github-icon"></a>
         </div>
         <div class="link link-rs-school"> <a class="link__link" href="https://rs.school/js/" target="_blank"><img
-              class="link__img" width ="50" src="https://rs.school/images/rs_school_js.svg" alt="RS School-icon"></a>
+              class="link__img" width="50" src="https://rs.school/images/rs_school_js.svg" alt="RS School-icon"></a>
         </div>
       </div>
       <span class="year">2022</span>
     </footer>
   </div>
-  <script src="./script.js"></script>
+  <script type="module" src="./script.js"></script>
 </body>
 
 </html>
