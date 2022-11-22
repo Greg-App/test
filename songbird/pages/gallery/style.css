@@ -107,6 +107,7 @@ button {
   height: 10px;
   border-radius: 4px;
   border: none;
+  --offset:calc(7.5px + var(--barOffset)*(100% - 15px));
 }
 .player #playBar:focus {
   outline: none;
@@ -116,8 +117,8 @@ button {
   width: 100%;
   height: 10px;
   border-radius: 4px;
-  background: #292828;
   border: 1px solid rgb(100, 99, 99);
+  background: linear-gradient(#3f751f, #3f751f) 0/var(--offset) 100% no-repeat, #292828;
 }
 .player #playBar::-webkit-slider-thumb {
   position: relative;

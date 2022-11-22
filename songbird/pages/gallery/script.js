@@ -469,6 +469,8 @@ async function createPlayer(inpClass, birdObj, birdCardElement) {
     if (playBarPressed === false) {
       playBar.value = audio.currentTime;
     }
+    const barOffset=(playBar.value/playBar.max);
+    playBar.style.setProperty('--barOffset', `${barOffset}`);
     updateCurTime();
   }
   setInterval(updatePlayBar, 10);

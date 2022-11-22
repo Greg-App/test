@@ -417,8 +417,19 @@ async function createPlayer(inpClass, birdObj) {
   updateCurTime();
 
   /*--progress bar operating---*/
+  
   let playBarPressed = false;
   const playBar = birdCardPlayer.querySelector('#playBar');
+  //-----Styling brogress bar---------------------
+  
+   /*  playBar.addEventListener('input', () => {
+      const playBarWidth = window.getComputedStyle(playBar).width;
+      const barOffset=(playBar.value/playBar.max)*parseInt(playBarWidth)+7.5;
+      playBar.style.setProperty('--barOffset', `${Math.round(barOffset,2)}`);
+}); */
+
+  
+  //------------------------------------------
   playBar.addEventListener("mousedown", e => {
     playBarPressed = true;
     console.log(playBarPressed);
@@ -443,6 +454,8 @@ async function createPlayer(inpClass, birdObj) {
     if (playBarPressed === false) {
       playBar.value = audio.currentTime;
     }
+    const barOffset=(playBar.value/playBar.max);
+    playBar.style.setProperty('--barOffset', `${barOffset}`);
     updateCurTime();
   }
   setInterval(updatePlayBar, 10);
