@@ -231,12 +231,14 @@ img {
   text-shadow: 0 0 9px rgb(216, 202, 72);
   color: rgb(98, 216, 98);
   visibility: hidden;
+  display: none;
   height: 0;
   transition: 0.6s;
 }
 
 .showBlock {
   visibility: visible;
+  display: inline-block;
   transition: 0.6s;
   height: auto;
 }
