@@ -27,6 +27,7 @@ const state = {
   curBirdInfo: null,
   tryCount: 0,
   imgLoadingCount: 0,
+  winState:false,
   loadInfoArr: [],
   loadPlayArr: []
 };
@@ -506,6 +507,7 @@ function selectBird(e) {
     console.log(state.curBirdInfo.name.toLowerCase());
     if (selBirdName.children[1].textContent.toLowerCase().trim() == state.curBirdInfo.name.toLowerCase()) {
       /*if win level*/
+      state.winState=true;
       const clicksound = document.querySelector('.win');
       clicksound.play();
       const allAudioBtn = document.querySelectorAll('.bird-card .play');
@@ -548,7 +550,9 @@ function selectBird(e) {
         }
       }
       updateScore();
+      
       selBirdName.children[0].style.background = '#008000';
+      
       selBirdName.classList.add('bird-list__list-item_checked');
       const nextBtn = document.querySelector('.next-level-btn');
       nextBtn.classList.add('next-level-btn_active');
@@ -557,11 +561,15 @@ function selectBird(e) {
       } else {
         nextBtn.disabled = false;
       }
+    
 
     } else {
       const clicksound = document.querySelector('.loose');
       clicksound.play();
-      selBirdName.children[0].style.background = '#c7300b';
+      if(state.winState===false) {
+        selBirdName.children[0].style.background = '#c7300b';
+        }
+      
       selBirdName.classList.add('bird-list__list-item_checked');
     }
     const birdInfoSelName = document.querySelector('.bird-card-info .bird-card__preview .bird-card__name');
@@ -590,6 +598,7 @@ function moveToNextLevel(e) {
   state.stage += 1;
   state.tryCount = 0;
   state.curInfoInd = null;
+  state.winState=false;
   updateCurrStage();
   createBirdList();
   setDefBirdInfo();
