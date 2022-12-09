@@ -1,6 +1,11 @@
+/* eslint @typescript-eslint/no-var-requires: "off" */
+//import path from 'path';
 const path = require('path');
+//import merge from 'webpack-merge';
 const { merge } = require('webpack-merge');
+//import HtmlWebpackPlugin from 'html-webpack-plugin';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+//import CleanWebpackPlugin from 'clean-webpack-plugin';
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const baseConfig = {
@@ -25,7 +30,7 @@ const baseConfig = {
     },
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, './dist'),
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -35,6 +40,7 @@ const baseConfig = {
         new CleanWebpackPlugin(),
     ],
 };
+console.log(baseConfig.entry);
 
 module.exports = ({ mode }) => {
     const isProductionMode = mode === 'prod';
