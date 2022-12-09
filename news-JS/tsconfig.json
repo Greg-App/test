@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "strict": true,
+    "strict": false,
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",

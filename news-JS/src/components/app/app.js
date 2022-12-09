@@ -8,6 +8,8 @@ class App {
     }
 
     start() {
+      console.log('!!!!!!!!!!!!!!!!!!',document
+        .querySelector('.sources'));
         document
             .querySelector('.sources')
             .addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
