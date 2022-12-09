@@ -8,7 +8,7 @@ class App {
     }
 
     start() {
-      console.log('!!!!!!!!!!!!!!!!!!',document
+      console.log(document
         .querySelector('.sources'));
         document
             .querySelector('.sources')

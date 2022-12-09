@@ -9,7 +9,7 @@ export interface IitemObj {
   "country": string
 }
 function checkSelector(
-  parent: Element | Document| DocumentFragment, selector: string
+  parent: Element | Document | DocumentFragment, selector: string
 ): Element {
   const el = parent.querySelector(selector);
   if (!el) {
@@ -32,8 +32,8 @@ function querySelectSave<T extends typeof Element>(
   }
   return el as InstanceType<T>;
 }
-export function cloneNod<HTMLTemplateElement extends Node>(node: HTMLTemplateElement) {
-  return <HTMLTemplateElement>node.cloneNode(true);
+export function cloneNod<HTMLElement extends Node>(node: HTMLElement) {
+  return <HTMLElement>node.cloneNode(true);
 }
 
 export default querySelectSave;

@@ -14,7 +14,8 @@ class Sources {
       querySelectSave(sourceClone, HTMLElement, '.source__item-name').textContent = data[i].name;
       /* sourceClone.querySelector('.source__item-name').textContent = item.name; */
       //sourceClone.querySelector('.source__item').setAttribute('data-source-id', item.id);
-      querySelectSave(sourceClone, HTMLElement, '.source__item-name').setAttribute('data-source-id', data[i].id);
+      querySelectSave(sourceClone, HTMLElement, '.source__item').setAttribute('data-source-id', data[i].id);
+      console.log(sourceClone);
       fragment.append(sourceClone);
       
     }
