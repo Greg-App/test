@@ -40,7 +40,6 @@ const baseConfig = {
         new CleanWebpackPlugin(),
     ],
 };
-console.log(baseConfig.entry);
 
 module.exports = ({ mode }) => {
     const isProductionMode = mode === 'prod';
