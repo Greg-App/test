@@ -1,5 +1,14 @@
 
-function checkedQuerySelector(
+export interface IitemObj {
+  "id": string,
+  "name": string,
+  "description": string,
+  "url": string,
+  "category": string,
+  "language": string,
+  "country": string
+}
+function checkSelector(
   parent: Element | Document| DocumentFragment, selector: string
 ): Element {
   const el = parent.querySelector(selector);
@@ -10,26 +19,21 @@ function checkedQuerySelector(
   }
   return el;
 }
-/* function safeQuerySelector<T extends ???>(
-  parent: Document | Element,
-  type: T,
-  selector: string,
-): ??? {
-  // ...
-} */
-
-function queryElement<T extends typeof Element>(
+function querySelectSave<T extends typeof Element>(
   container: Document | Element | DocumentFragment,
   type: T,
   selector: string,
 ): InstanceType<T> {
-  const el = checkedQuerySelector(container, selector);
+  const el = checkSelector(container, selector);
   if (!(el instanceof type)) { 
         throw new Error(
-      `Selector ${selector} matched ${el} which is not an ${type}`
+      `Selector ${selector} of ${el} is not a type ${type}`
     );
   }
   return el as InstanceType<T>;
 }
+export function cloneNod<HTMLTemplateElement extends Node>(node: HTMLTemplateElement) {
+  return <HTMLTemplateElement>node.cloneNode(true);
+}
 
-export default queryElement;
+export default querySelectSave;
