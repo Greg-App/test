@@ -1,9 +1,9 @@
 import './sources.css';
 import querySelectSave from '../../controller/helper';
-import {cloneNod,IitemObj} from '../../controller/helper';
+import {cloneNod,IsrcObj} from '../../controller/helper';
 
 class Sources {
-  draw(data: IitemObj[]) {
+  draw(data: IsrcObj[]) {
     const fragment = document.createDocumentFragment();
     const sourceItemTemp = querySelectSave(document, HTMLTemplateElement, '#sourceItemTemp');
     
@@ -15,7 +15,6 @@ class Sources {
       /* sourceClone.querySelector('.source__item-name').textContent = item.name; */
       //sourceClone.querySelector('.source__item').setAttribute('data-source-id', item.id);
       querySelectSave(sourceClone, HTMLElement, '.source__item').setAttribute('data-source-id', data[i].id);
-      console.log(sourceClone);
       fragment.append(sourceClone);
       
     }

@@ -1,5 +1,5 @@
 
-export interface IitemObj {
+export interface IsrcObj {
   "id": string,
   "name": string,
   "description": string,
@@ -8,6 +8,28 @@ export interface IitemObj {
   "language": string,
   "country": string
 }
+export interface InewsObj {
+  author: string | null,
+  content: string, 
+  description: string,
+  publishedAt: string,
+  source: {
+     id: string, 
+     name: string
+     },
+  title: string, 
+  url: string, 
+  urlToImage: string
+  }
+  export interface Isources {
+    status: string, 
+    sources: IsrcObj[]
+  }
+  export interface Inews {
+    status: string,
+    totalResults: number, 
+    articles: InewsObj[]
+  }
 function checkSelector(
   parent: Element | Document | DocumentFragment, selector: string
 ): Element {
