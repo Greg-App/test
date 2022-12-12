@@ -30,7 +30,8 @@ export interface InewsObj {
     totalResults: number, 
     articles: InewsObj[]
   }
-
+  console.log('typeof NUll : ', typeof null);
+  console.log('typeof undef : ', typeof undefined);
 function querySelectSave<T extends typeof Element>(
   parent: Document | Element | DocumentFragment,
   type: T,
