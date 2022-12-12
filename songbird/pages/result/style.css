@@ -1,0 +1,357 @@
+@import '../../styles/normalize.css';
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  margin-left: 0px;
+}
+.nav-list .nav-list__list-item .nav-list__item-link {
+  display: inline-block;
+  text-decoration: none;
+}
+.nav-list .nav-list__list-item .nav-list__item-link:-webkit-any-link {
+  color: inherit;
+}
+.nav-list .nav-list__list-item .nav-list__item-link:hover {
+  transition: 0.3s;
+}
+
+button {
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.btn-lang {
+  position: absolute;
+  z-index: 50;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1rem;
+  appearance: none;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px sloid grey;
+  background: rgb(70, 69, 69);
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* * {
+  outline: 1px solid red;
+} */
+a:hover {
+  transform: scale(1.05, 1.05);
+  transition: 0.3s;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+html,
+body,
+.page-wrapper {
+  min-height: 100vh;
+}
+
+:root {
+  font-family: Lato, "Arial", sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background: url("../../assets/images/bg-invite-page-1.jpg") center/cover no-repeat;
+}
+
+img {
+  display: inline-block;
+}
+
+.page-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  padding: 40px 20px 20px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.btn-lang {
+  bottom: auto;
+  top: 10px;
+}
+
+.result-header {
+  position: relative;
+  margin: 0 auto 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 30%;
+  min-width: 300px;
+  /* background: rgb(38, 121, 86); */
+  background: rgba(74, 82, 78, 0.8);
+  box-shadow: 0 0 10px rgb(38, 121, 86);
+  border-radius: 15px;
+}
+.result-header .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 48px;
+  font-weight: 700;
+}
+.result-header .logo .logo__icon {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}
+.result-header .logo .logo__icon .logo__img {
+  border-radius: 50%;
+  box-shadow: 0 0 5px white;
+  width: 100%;
+  height: 100%;
+}
+.result-header .logo .logo-title .logo-title__text_colored {
+  color: rgb(0, 137, 102);
+  text-shadow: 0 0 9px rgb(255, 255, 255);
+}
+.result-header .result-nav {
+  width: 100%;
+  justify-content: center;
+}
+.result-header .result-nav .result-nav__list-item {
+  display: block;
+  margin-right: 20px;
+}
+.result-header .result-nav .result-nav__list-item .nav-list__item-link {
+  font-size: 1.6em;
+  text-decoration: none;
+}
+.result-header .result-nav .result-nav__list-item .nav-list__item-link:-webkit-any-link {
+  color: inherit;
+}
+.result-header .result-nav .result-nav__list-item .nav-list__item-link:hover {
+  color: orange;
+}
+.result-header .result-nav .result-nav__list-item:last-child {
+  margin-right: 0px;
+}
+
+.result-main {
+  height: 50%;
+}
+.result-main .gallery {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  width: 100vw;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  visibility: hidden;
+  top: -100%;
+  transition: 0.6s;
+}
+.result-main .gallery .back-btn {
+  margin: 0 auto;
+  font-size: 1.4em;
+  padding: 5px 10px;
+  width: 80px;
+  height: 1.6em;
+  background: rgb(38, 121, 86);
+  border-radius: 5px;
+}
+.result-main .gallery .back-btn:hover {
+  transform: scale(1.05, 1.05);
+  transition: 0.3s;
+}
+.result-main .gallery .bird-list {
+  display: grid;
+  grid-template-rows: repeat(3fr);
+  width: 100%;
+  border: 2px solid grey;
+  max-width: 1280px;
+}
+.result-main .show-gallery {
+  visibility: visible;
+  top: 0;
+  transition: 0.6s;
+}
+.result-main .result-quiz {
+  min-width: 300px;
+  margin-bottom: 30px;
+  font-size: 1.4em;
+  max-height: 500px;
+  padding: 10px;
+  background: grey;
+  background: rgba(74, 82, 78, 0.8);
+  box-shadow: 0 0 10px rgb(38, 121, 86);
+  border-radius: 15px;
+}
+.result-main .result-quiz .result-quiz__title {
+  text-align: center;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.max-score {
+  display: inline-block;
+  font-size: 2em;
+  text-shadow: 0 0 9px rgb(216, 202, 72);
+  color: rgb(98, 216, 98);
+  visibility: hidden;
+  display: none;
+  height: 0;
+  transition: 0.6s;
+}
+
+.showBlock {
+  visibility: visible;
+  display: inline-block;
+  transition: 0.6s;
+  height: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .max-score {
+    font-size: 1.6em;
+  }
+}
+.result-footer {
+  position: relative;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  height: 20%;
+  background: rgba(74, 82, 78, 0.8);
+  box-shadow: 0 0 10px rgb(38, 121, 86);
+  border-radius: 15px;
+  padding: 0 10px;
+}
+.result-footer .result-social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px;
+}
+.result-footer .result-social .link:hover {
+  transform: scale(1.05, 1.05);
+  transition: 0.3s;
+}
+.result-footer .result-social .link-github {
+  background: white;
+  border-radius: 50%;
+}
+.result-footer .year {
+  font-size: 1.4em;
+}
+
+/*-------------------------Result block--------*/
+.game-results {
+  font-size: 1.6rem;
+  line-height: 1.6em;
+}
+.game-results .score {
+  display: inline-block;
+  padding: 10px;
+  font-size: 4.6rem;
+  text-shadow: 0 0 9px green;
+}
+
+/*----------media--------------*/
+@media screen and (max-width: 600px) {
+  .result-main .result-quiz {
+    font-size: 1.2em;
+  }
+  .result-header .result-nav .result-nav__list-item .nav-list__item-link {
+    font-size: 1.2em;
+  }
+  .result-header .logo {
+    font-size: 34px;
+  }
+  .result-header .logo .logo__icon {
+    width: 40px;
+    height: 40px;
+  }
+  .game-results {
+    font-size: 1.4rem;
+    line-height: 1.6em;
+  }
+  .game-results h1 {
+    font-size: 1.6rem;
+  }
+  .game-results .score {
+    display: inline-block;
+    padding: 10px;
+    font-size: 3.6rem;
+    text-shadow: 0 0 9px green;
+  }
+}
+@media screen and (max-width: 390px) {
+  .page-wrapper {
+    padding-top: 20px;
+  }
+  .result-header .result-nav .result-nav__list-item {
+    margin-right: 17px;
+  }
+  .result-header,
+.result-quiz {
+    margin-bottom: 20px;
+  }
+  .result-header .result-quiz__title,
+.result-quiz .result-quiz__title {
+    font-size: 1.6em;
+  }
+  .result-header .result-quiz__subtitle,
+.result-quiz .result-quiz__subtitle {
+    font-size: 1.2em;
+  }
+  .result-header .result-quiz__description,
+.result-quiz .result-quiz__description {
+    font-size: 0.85em;
+  }
+  .result-footer {
+    min-height: 40px;
+  }
+  .result-footer .year {
+    font-size: 1.2em;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
