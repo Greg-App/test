@@ -12,7 +12,7 @@ export interface InewsObj {
   author: string | null,
   content: string, 
   description: string,
-  publishedAt: string,
+  publishedAt: string,  
   source: {
      id: string, 
      name: string
@@ -30,26 +30,16 @@ export interface InewsObj {
     totalResults: number, 
     articles: InewsObj[]
   }
-function checkSelector(
-  parent: Element | Document | DocumentFragment, selector: string
-): Element {
-  const el = parent.querySelector(selector);
-  if (!el) {
-  
-    throw new Error(`Can't find  element with selector name: "${selector}" 
-    `);
-  }
-  return el;
-}
+
 function querySelectSave<T extends typeof Element>(
-  container: Document | Element | DocumentFragment,
+  parent: Document | Element | DocumentFragment,
   type: T,
   selector: string,
 ): InstanceType<T> {
-  const el = checkSelector(container, selector);
-  if (!(el instanceof type)) { 
+  const el = parent.querySelector(selector);
+  if (!el||!(el instanceof type)) { 
         throw new Error(
-      `Selector ${selector} of ${el} is not a type ${type}`
+      `Type mismatch or element does not exist`
     );
   }
   return el as InstanceType<T>;
@@ -57,5 +47,8 @@ function querySelectSave<T extends typeof Element>(
 export function cloneNod<HTMLElement extends Node>(node: HTMLElement) {
   return <HTMLElement>node.cloneNode(true);
 }
+
+export type cBack = (data: object|undefined) => void|object;
+
 
 export default querySelectSave;
