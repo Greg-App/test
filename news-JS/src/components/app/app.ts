@@ -1,7 +1,7 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 import querySelectSave from '../controller/helper';
-import {IsrcObj,InewsObj,Inews,Isources} from '../controller/helper';
+import {Inews,Isources,cBack} from '../controller/helper';
 
 class App {
   controller: AppController;
@@ -14,7 +14,7 @@ class App {
     start() {
       
       querySelectSave(document,HTMLElement,'.sources')
-            .addEventListener('click', (e) => this.controller.getNews(e, (data: Inews) => this.view.drawNews(data)));
+            .addEventListener('click', (e:Event) => this.controller.getNews(e, (data:Inews) => this.view.drawNews(data)));
         this.controller.getSources((data:Isources) => this.view.drawSources(data));
     }
 }

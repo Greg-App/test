@@ -56,7 +56,7 @@ class Loader {
             .then((res) => res.json())
             .then((data) =>{
               console.log('JSON: ',data);
-              return callback(data)})
+              return callback(data);})
             .catch((err) => console.error(err));
     }
 }

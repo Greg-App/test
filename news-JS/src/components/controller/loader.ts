@@ -1,11 +1,14 @@
-import {IsrcObj,InewsObj} from './helper';
-type cBack = (data: object|undefined) => void|object;
+import {IsrcObj,InewsObj,cBack} from './helper';
 type loaderOptions = {
   apiKey: string,
 }
-type Resp = Response;
+
 type options = {
   sources?: string,
+}
+type getRespOpt = {
+  endpoint: string,
+  options?: options
 }
 type urlOption = loaderOptions|options;
 type respJSON = {
@@ -14,7 +17,6 @@ type respJSON = {
   articles?:InewsObj[]|[],
   totalResults?:number|string
 }
-
 abstract class Loader {
     constructor(
         private baseLink : string,
@@ -23,8 +25,8 @@ abstract class Loader {
     ) {}
     
     getResp(
-        { endpoint, options = {} }:{endpoint:string,options:options},
-        callback = ():void|Resp => {
+        { endpoint, options = {} }:getRespOpt,
+        callback = () => {
             console.error('No callback for GET response');
         }
     ):void {
@@ -32,7 +34,7 @@ abstract class Loader {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res:Resp):Resp|never {
+    errorHandler(res:Response):Response|never {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -59,7 +61,7 @@ abstract class Loader {
     load(method:string, endpoint: string, callback:cBack, options:options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
-            .then((res:Resp): Promise<respJSON> => res.json())
+            .then((res:Response): Promise<respJSON> => res.json())
             .then((data:respJSON) => callback(data))
             .catch((err:object) => console.error(err));
     }

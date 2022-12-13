@@ -30,12 +30,11 @@ export interface InewsObj {
     totalResults: number, 
     articles: InewsObj[]
   }
-  console.log('typeof NUll : ', typeof null);
-  console.log('typeof undef : ', typeof undefined);
+  
 function querySelectSave<T extends typeof Element>(
   parent: Document | Element | DocumentFragment,
   type: T,
-  selector: string,
+  selector: string
 ): InstanceType<T> {
   const el = parent.querySelector(selector);
   if (!el||!(el instanceof type)) { 
@@ -49,7 +48,7 @@ export function cloneNod<HTMLElement extends Node>(node: HTMLElement) {
   return <HTMLElement>node.cloneNode(true);
 }
 
-export type cBack = (data: object|undefined) => void|object;
+export type cBack = <T,Inews,Isources>(data?: T|Inews|Isources) => T|void;
 
 
 export default querySelectSave;
