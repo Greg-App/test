@@ -13,7 +13,6 @@ const initContentSet = {
 
 let currentSet = checkLocalStorage() ? checkLocalStorage() : JSON.parse(JSON.stringify(initContentSet));
 currentSet.playState = false;
-console.log(currentSet);
 
 function checkLocalStorage() {
     const cur = JSON.parse(localStorage.getItem('currentSet'));
@@ -41,11 +40,11 @@ function createControls() {
     stop.disabled = true;
     const moveSound = document.createElement('audio');
     moveSound.classList.add('movesound');
-    moveSound.innerHTML = '<source src="../gem-puzzle/assets/audio/whoosh-grainy_gjknxkv_.mp3"> type="audio/mp3">';
+    moveSound.innerHTML = '<source src="./assets/audio/whoosh-grainy_gjknxkv_.mp3"> type="audio/mp3">';
     ctrlBox.append(moveSound);
     const bgSound = document.createElement('audio');
     bgSound.classList.add('bg-sound');
-    bgSound.innerHTML = '<source src="../gem-puzzle/assets/audio/bg_music_corp_Umbrella.mp3"  type="audio/mp3">';
+    bgSound.innerHTML = '<source src="./assets/audio/bg_music_corp_Umbrella.mp3"  type="audio/mp3">';
     /* <source src="../gem-puzzle/assets/audio/geroi-mecha-i-magii-3-tema-igry.mp3"  type="audio/mp3">  */
     bgSound.volume = 0.15;
     bgSound.autoplay = true;
@@ -60,7 +59,7 @@ function createVolumeBtn() {
     header.append(volumeBtn);
     const volBtnImg = document.createElement('img');
     volumeBtn.append(volBtnImg);
-    volumeBtn.children[0].src = '../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
+    volumeBtn.children[0].src = './assets/icons/volume-low-svgrepo-com.svg';
 }
 createVolumeBtn();
 const moveSound = document.querySelector('.movesound');
@@ -72,12 +71,12 @@ function mute() {
     if (moveSound.muted === false) {
         moveSound.muted = true;
         bgSound.muted = true;
-        volumeBtn.children[0].src = '../gem-puzzle/assets/icons/volume-off-svgrepo-com.svg';
+        volumeBtn.children[0].src = './assets/icons/volume-off-svgrepo-com.svg';
 
     } else {
         moveSound.muted = false;
         bgSound.muted = false;
-        volumeBtn.children[0].src = '../gem-puzzle/assets/icons/volume-low-svgrepo-com.svg';
+        volumeBtn.children[0].src = './assets/icons/volume-low-svgrepo-com.svg';
     }
 }
 
@@ -171,21 +170,16 @@ function isArrayValid(arr) {
         }
     }
     if (currentSet.size % 2 !== 0) {
-        console.log('number of row', currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size));
         if (n % 2 !== 0) {
-            console.log('array is INVALID ', arr);
             return false;
         } else {
-            console.log('array is valid ', arr);
             return true;
         }
     } else {
         let rowNum = currentSet.size + 1 - Math.ceil((arr.indexOf(arr.length) + 1) / currentSet.size);
         if ((n % 2 !== 0 && rowNum % 2 === 0) || (n % 2 === 0 && rowNum % 2 !== 0)) {
-            console.log('array is valid ', arr);
             return true;
         } else {
-            console.log('array is INVALID ', arr);
             return false;
         }
     }
@@ -222,7 +216,6 @@ function createCurMatrix() {
 
     if (!localStorage.getItem('currentSet')) {
         createRndomMatrix();
-        console.log('valid Array is ', currentSet.savedMatrix);
     } else {
         currentSet = JSON.parse(localStorage.getItem('currentSet'));
     }
@@ -231,13 +224,11 @@ createCurMatrix();
 
 function setTileOffset() {
     let curMatrix = JSON.parse(JSON.stringify(currentSet.savedMatrix));
-    //console.log(curMatrix);
     const tileArr = document.querySelectorAll('.item');
     const a = [];
     tileArr.forEach((el) => {
         a.push(el.firstElementChild.textContent);
     });
-    //console.log(a);
     let k = 1;
     for (let i = 0; i < currentSet.size; i++) {
         for (let j = 0; j < currentSet.size; j++) {
@@ -245,8 +236,6 @@ function setTileOffset() {
             tileArr[curMatrix[i][j] - 1].style.transform = `translate(${j*100}%,${i*100}%)`;
             tileArr[curMatrix[i][j] - 1].dataset.x = j;
             tileArr[curMatrix[i][j] - 1].dataset.y = i;
-            //console.log(curMatrix[i][j]);
-            //console.log(tileArr[curMatrix[i][j] - 1]);
             tileArr[curMatrix[i][j] - 1].dataset.tileNum = k;
             k++;
         }
@@ -401,8 +390,6 @@ function ifWinGame() {
         showWinMessage();
         stopGame();
         currentSet.gameover = true;
-        console.log(currentSet);
-
         saveCurrResults();
 
     }
@@ -422,10 +409,7 @@ function saveCurrResults() {
          let savedList=JSON.parse(localStorage.getItem('top10List'));
         savedList.push(currentSet.result[0]);
         savedList.sort((a,b)=>a.time-b.time);
-        console.log(savedList);
-        console.log(currentSet.result[0].time);
         if(savedList.length<=10||(savedList[savedList.length-1].time!=currentSet.result[0].time)) {
-            console.log('yes2');
             showEnterName();
         }
     } else {
@@ -456,12 +440,9 @@ function saveResults() {
 
     if (localStorage.getItem('top10List')) {
         let topListSaved = JSON.parse(localStorage.getItem('top10List'));
-        console.log('before push', topListSaved);
         topListSaved.push(currentSet.result[0]);
-        console.log('after push', topListSaved);
         topListSaved.sort((a, b) => a.time - b.time);
         topListSaved=topListSaved.splice(0,10);
-        console.log('after sort', topListSaved);
         localStorage.setItem('top10List', JSON.stringify(topListSaved));
         updTopListHTML();
     } else {
@@ -559,31 +540,19 @@ function chooseSize(e) {
         oldAcvSize.classList.remove('size-active');
         e.target.parentElement.classList.add('size-active');
         if (localStorage.getItem('currentSet')) {
-            console.log("1");
             if (JSON.parse(localStorage.getItem('currentSet')).size === e.target.textContent[0]) {
-                console.log('1.1');
                 currentSet = JSON.parse(localStorage.getItem('currentSet'));
             } else {
-                console.log('1.2');
                 currentSet = JSON.parse(JSON.stringify(initContentSet));
                 currentSet.size = e.target.textContent[0];
                 createRndomMatrix();
-                console.log('change size');
-                console.log(currentSet);
             }
         } else {
-            console.log('2');
             currentSet = JSON.parse(JSON.stringify(initContentSet));
             currentSet.size = e.target.textContent[0];
             createRndomMatrix();
-
-            /* currentSet.moves=0;
-            const movesDisplay= document.querySelector('.moves .value');
-            movesDisplay.textContent=0; */
         }
-        console.log(currentSet);
         createTiles();
-        console.log(currentSet);
         updateDashboard();
         const infoSize = document.querySelector('.info-size-value');
         infoSize.textContent = e.target.textContent;
@@ -641,19 +610,13 @@ function saveGame() {
     tileArr.forEach((el) => {
         curTileNumArr.push(Number(el.dataset.tileNum));
     });
-    console.log(curTileNumArr);
     const curMatrix = new Array(Number(currentSet.size)).fill('4').map((el, ind, arr) => arr[ind] = new Array(Number(currentSet.size)).fill('4'));
-    console.log(curMatrix);
     curTileNumArr.forEach((el, ind) => {
-        console.log('el ', el);
-        console.log(Math.floor(el / currentSet.size));
-        console.log(Math.floor(el % currentSet.size));
         curMatrix[Math.floor((el - 1) / currentSet.size)][Math.floor((el - 1) % currentSet.size)] = ind + 1;
 
     });
     currentSet.savedMatrix = JSON.parse(JSON.stringify(curMatrix));
     localStorage.setItem('currentSet', JSON.stringify(currentSet));
-    console.log(currentSet);
 }
 
 function resetGame() {
@@ -665,7 +628,6 @@ function resetGame() {
     createRndomMatrix();
     createTiles();
     updateDashboard();
-    console.log(currentSet);
     const btnStart = document.querySelector('.Start');
     btnStart.disabled = false;
     const btnStop = document.querySelector('.Stop');
@@ -729,7 +691,6 @@ function timerStop() {
 function timer() {
     if (currentSet.playState === true) {
         currentSet.time++;
-        console.log('timer ', currentSet.time);
         updateTime();
     }
     setTimeout(timer, 1000);
