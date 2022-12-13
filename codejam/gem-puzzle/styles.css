@@ -216,7 +216,7 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../../codejam/gem-puzzle/assets/img/tile_cover.jpg");
+  background: url("./assets/img/tile_cover.jpg");
   padding: 5px;
   /* max-height:100px;
   max-width:100px; */
